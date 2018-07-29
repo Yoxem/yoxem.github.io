@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>北郊獨語 - Yoxem&#39;s Blog</title>
+  <icon>https://www.gravatar.com/avatar/fafc36f9ad9550105fc8e295fb570919</icon>
+  <subtitle>溪埔的石仔、山嶺的果樹之間，version 3.0</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoxem.github.io/"/>
+  <updated>2018-07-29T18:08:56.915Z</updated>
+  <id>http://yoxem.github.io/</id>
+  
+  <author>
+    <name>Yoxem Chen</name>
+    <email>chenjt30@gmail.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Scheme ê 延遲計算 (lazy evaluation) ê 例</title>
+    <link href="http://yoxem.github.io/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/"/>
+    <id>http://yoxem.github.io/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/</id>
+    <published>2018-07-28T16:00:00.000Z</published>
+    <updated>2018-07-29T18:08:56.915Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（上尾更新 tī：2018-08-30）</strong></p><p>佇電腦程式中，通常愛算一个<ruby><rb>運算式</rb><rp>[</rp><rt>ūn-suàn-sik</rt><rp>]</rp></ruby> ê 結果，會 kā 逐个部份照算 ê <ruby><rb>次序</rb><rp>[</rp><rt>tshù-sī</rt><rp>]</rp></ruby>一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講：</p><figure class="highlight scheme"><table><tr><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">*</span></span> <span class="number">2</span> (<span class="name"><span class="builtin-name">+</span></span> <span class="number">3</span> (<span class="name"><span class="builtin-name">/</span></span> <span class="number">5</span> <span class="number">2</span>)))</span><br></pre></td></tr></table></figure><sup><a id="fnr.1" class="footref" href="#fn.1" name="fnr.1">1</a></sup><br><br>Strict evaluation ê 作法，會代先共 <code>(/ 5 2)</code> 算出來，得著 2.5，了後 kā 這个結果<ruby><rb>下</rb><rp>[</rp><rt>hē</rt><rp>]</rp></ruby>甲 <code>(+ 3 ?)</code> ê ?，了後共 <code>(+ 3 (/ 5 2))</code> 下佇 <code>(* 2 ?)</code> ê ?，一改 tiō 知結果，<ruby><rb>見若</rb><rp>[</rp><rt>kìnn-nā</rt><rp>]</rp></ruby>有愛算 ê 所在，攏 buē-tàng 暫時 mài 算。<br><br>但是，有時仔咱無愛共運算的結果做一改執行，tio̍h 共一部份先放佇邊仔，需要 ê 時遮執行，按呢叫做「貧惰計算」（延遲計算，lazy evaluation）。<br><br>Tī 介紹貧惰計算使用 ê 所在，咱代先看 Scheme ê 有關語法。通常 Scheme ê 逐个函數，kap Haskell 無仝，攏是嚴格計算 ê。Beh 予計算式「貧惰」，著用 <code>(delay <em>計算式</em>)</code>，按呢 tiō 會產出 promise（欲算 ê 物件）。kàu 欲算 promise ê 時陣著用 <code>(force <em>promise</em>)</code>。以下是舉例，所有 ê 例攏佇 Racket ê Scheme R5RS 環境執行：<br><br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; (define a(delay (+ 2 1))) ; Tī 終端機輸入，kā (+ 2 1) ê promise 下佇 a</span><br><span class="line">&gt; a</span><br><span class="line">&lt;em&gt;#&lt;promise&gt;&lt;/em&gt; ; a 是 promise</span><br><span class="line">&gt; (force a)</span><br><span class="line"><span class="number">3</span> <span class="comment">; 逼 a 算出來，得著 3</span></span><br></pre></td></tr></table></figure><p>咱無法度共 promise kap 數值用 +、-、*、/ 直接算。</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; (+ (- 12 6) (delay (+ 2 1)))</span><br><span class="line">+: contract violation</span><br><span class="line">  expected: number?</span><br><span class="line">  given: #&lt;promise&gt;</span><br><span class="line">  argument position: 2nd</span><br><span class="line">  other arguments.: ; 現出錯誤</span><br></pre></td></tr></table></figure><p><strong>（猶未煞）</strong></p><div id="footnotes"><h3 class="footnotes">註腳</h3><div id="text-footnotes"><div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> 這是 Scheme ê 寫法，共<ruby><rb>算數</rb><rp>[</rp><rt>suàn-sòo</rt><rp>]</rp></ruby>符號抑是函數 ê 名 khǹg 頭前，一般是 <code>2 * (3 + 5 / 4)</code></div></div></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;（上尾更新 tī：2018-08-30）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;佇電腦程式中，通常愛算一个&lt;ruby&gt;&lt;rb&gt;運算式&lt;/rb&gt;&lt;rp&gt;[&lt;/rp&gt;&lt;rt&gt;ūn-suàn-sik&lt;/rt&gt;&lt;rp&gt;]&lt;/rp&gt;&lt;/ruby&gt; ê 結果，會 kā 逐个部
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
+    
+      <category term="Scheme" scheme="http://yoxem.github.io/tags/Scheme/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不確定的狀態</title>
+    <link href="http://yoxem.github.io/2018/06/25/bo5tiann7e5tsong7thai7/"/>
+    <id>http://yoxem.github.io/2018/06/25/bo5tiann7e5tsong7thai7/</id>
+    <published>2018-06-24T18:11:42.000Z</published>
+    <updated>2018-06-24T14:31:09.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近假日的時候，很想要一直睡、一直睡。</p><p>或許讀者會覺得很奇怪，為什麼我不想要利用這美好的假日呢？假日的時間明明那麼短暫。<br><a id="more"></a></p><p>但我的心應該累了，在面對一再不確定的困擾，以及長期的情緒勞動，還有令人心累拘束的狀態，終於有可以喘氣的時候，心裡會浮現出對於這世界的不滿以及想要逃離的欲望，覺得這世界完全索然、無意義。</p><p>於是我很不想要醒來，只想在混沌狀態下找尋自己的解脫，一面看起來像逃避現實，一面卻也是修復，也是活在這種社會中的反抗——如果能夠比陳摶睡得還久，甚至可以不用醒於氣息與現實中，這或許也是好事吧。雖然只能夠用這種對社會無害以及可怪的方式，表達對這社會的厭惡，也是一種很可悲的事。</p><p>但我能做什麼呢？也不可能用大規模害人這種無謀而無用的方法反抗，社會就像一位強大的奴隸主一樣，單靠自己一個人攻擊實在暴虎馮河，毫無意義。雖然不得不和社會上的其他人一樣，只能屈從，但內心實在不依。</p><p>或許我的症狀只要休息個假就好了，但我的工作是責任區制的，放假意味著放假積累的就像債務一樣，得在日後將之完成。終究工作的壓力也無法減輕。</p><p>但是至於辭職，給自己一個所謂的 gap year 找出自己想要走的，以及完成自己的夢想呢？覺得這也是冒險的舉動。因為我不知道之後還能不能夠找到比較好的工作，在這個競爭激烈以及低薪水的社會，自己的儲蓄也不見得能夠支撐。何況也不會有多少人願意支持我這樣做，這很 critical。</p><p>而自己因為意志不夠，以及面對工作的事情導致的心裡的疲憊，一面完成需要花很多心力才能完成的興趣，感覺也是越來越難達成。但是自己面對這種難以解決的悔恨和困窘，心裡也不知道該怎麼處理。可能我就像是一隻貪得無饜、不自量力的蟲，妄求自己難以達到者，以致於吃下得不到的苦。但一方面又覺得自己不甘於這樣庸庸的度過，我真的是很貪心啊。</p><p>面對這一切的困局，以及其他事物難以消解的痛苦，還有獲得成就覺得空虛，失去或達不到卻格外痛苦的境地，究竟要如何才能瓦解呢？就算有人說你不喜歡這份工作你可以辭職，但是這不適用於人生。為了社會運作大家的好處——雖然誰是最大贏家就不好說了——人沒有隨意決定該不該死亡的權力。但整個社會試圖用權威的方式拉著人，卻又不給人一個合宜、有尊嚴、不用獲得人群中大憂大慮的環境，這何曾不是一種偽善呢。</p><p>有位朋友對我說：你一直抱怨現代社會不好，卻也無法證明以前的社會比較好。我說了許多對現代社會的不滿，我猜除了現今政經情勢給人的希望感不如以前外，還可以歸因於我現在社會中遭逢的苦痛，而無法宣洩，只好像古人一樣創造一個想像中的過去作為烏托邦，來遁出現實，撫慰自己得不到的安寧和希望吧。</p><p>而現世中，我終究要背著重荷，面對未來種種不確定的恐懼下苟且拖命嗎？或許只能拿寄金簿上的數字來說嘴，但這不能解憂，長遠來看也是缺乏意義。</p><p>終究只能在這個飄忽不定的篤定下存在，一面希冀著不存在或是架空的狀態。我想到以前很喜歡聽的老歌歌詞：</p><quote><em><br>「青春的空身單漢，前途無定處，<br>隨風流，飄來飄去，不知東抑西。」<br>——莊啟勝〈夜霧的港口〉<br>(Tshing-tshun-<!-- -->-ê khang-sin tuann-hàn, tsiân-tôo bô tīng-tshù,<br>suî hong lâu, phiau-lâi phiau-khì, m̄-tsai tang iah sai.)<br>–Tsng Khé-sìng “Iā-bū-<!-- -->-ê Káng-kháu”<br></em></quote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近假日的時候，很想要一直睡、一直睡。&lt;/p&gt;
+&lt;p&gt;或許讀者會覺得很奇怪，為什麼我不想要利用這美好的假日呢？假日的時間明明那麼短暫。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
+    
+      <category term="生活" scheme="http://yoxem.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SILE 的介紹佮安裝</title>
+    <link href="http://yoxem.github.io/2018/03/04/silee5kai3siau7kap4an1tsong1/"/>
+    <id>http://yoxem.github.io/2018/03/04/silee5kai3siau7kap4an1tsong1/</id>
+    <published>2018-03-04T12:35:27.000Z</published>
+    <updated>2018-03-05T15:32:57.749Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（上尾更新佇：2018-03-05）</strong></p><h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p><a href="http://sile-typesetter.org/" target="_blank" rel="noopener">SILE</a> (Simon’s Improved Layout Engine) 是一款佮 LaTeX 相𫝛的排版軟體。TeX <ruby><rb>engine</rb><rp>[</rp><rt>ia̋n-jín</rt><rp>]</rp></ruby> 已經開發幾十年矣，就算後來有較濟的版本，嘛攏是佇伊的面頂抑是用別款語言改寫伊的。毋過開發真久，Tex 系的語言有一寡歷史致到的問題，嘛有各囝系統之間無相通的情況。<br><a id="more"></a></p><p>SILE 是用 Lua 寫的新文字模式排版 engine。雖罔有參考 TeX 的演算法佮語法，但是嘛有學商業圖型排版軟體 InDesign 的特點，支援濟言語，嘛通用 Lua 擴大功能。嘛會當創作家己的文書枋模。其他通看 <a href="http://sile-typesetter.org/examples/global.html" target="_blank" rel="noopener">demo</a>。</p><h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>以下是佇 Linux Mint 18 安裝 SILE 0.9.8 的方法：</p><ul><li>到 <a href="https://github.com/simoncozens/sile/releases/tag/v0.9.4" target="_blank" rel="noopener"><ruby><rb>download</rb><rp>[</rp><rt>tang-lóo</rt><rp>]</rp></ruby> 頁</a> 掠原始碼 tar.gz 的壓縮檔。</li><li>拍開終端機，輸入指令安裝需要的套件（凡勢猶有其他的）：</li></ul><pre>sudo apt install libharfbuzz-dev libfontconfig1-dev \lua5.2 liblua5.2-dev lua-lpeg-dev lua-expat-dev \lua-filesystem-dev</pre><ul><li>因為壓縮檔愛的範例用 Gentium 的字型，建議安裝：</li></ul><pre>apt install fonts-sil-gentium</pre><ul><li>入去囥壓縮檔的目錄（假使是 ~/Download），共壓縮檔敨開，入內底：</li></ul><pre>cd ~/Downloadtar xvf sile-0.9.4.tar.bz2cd sile-0.9.4</pre><ul><li>編譯內底的物件：</li></ul><pre>./configure # 加「--prefix=目錄所在」通指定安裝的位makesudo make install</pre><h2 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h2><p>因為 SILE 的排版副檔名毋是 .tex，是 .sil，咱愛創立一个 test.sil 文字檔，內容是：</p><script src="https://gist.github.com/Yoxem/6df0f9f081be95ce67f3b31da17b12a9.js"></script><p>煞來佇終端機內底輸入指令編譯做 PDF：</p><pre>sile test</pre><p>輸出結果：<br><a data-flickr-embed="true" href="https://www.flickr.com/photos/yoxem/39894931414/in/datetaken/" title="SILE測試" target="_blank" rel="noopener"><img src="https://farm5.staticflickr.com/4666/39894931414_4622f8053b_b.jpg" width="1024" height="553" alt="SILE測試"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p><h2 id="註"><a href="#註" class="headerlink" title="註"></a>註</h2><p>敨開壓縮檔內底的 examples 目錄有一寡測試，通做排版的例。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（上尾更新佇：2018-03-05）&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;介紹&quot;&gt;&lt;a href=&quot;#介紹&quot; class=&quot;headerlink&quot; title=&quot;介紹&quot;&gt;&lt;/a&gt;介紹&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://sile-typesetter.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SILE&lt;/a&gt; (Simon’s Improved Layout Engine) 是一款佮 LaTeX 相𫝛的排版軟體。TeX {rb|engine|ia̋n-jín} 已經開發幾十年矣，就算後來有較濟的版本，嘛攏是佇伊的面頂抑是用別款語言改寫伊的。毋過開發真久，Tex 系的語言有一寡歷史致到的問題，嘛有各囝系統之間無相通的情況。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
+    
+      <category term="SILE" scheme="http://yoxem.github.io/tags/SILE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</title>
+    <link href="http://yoxem.github.io/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/"/>
+    <id>http://yoxem.github.io/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/</id>
+    <published>2018-01-23T22:32:15.000Z</published>
+    <updated>2018-02-04T05:26:56.003Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（上尾更新佇：2018-02-04）</strong><br>佇 Scheme 中，<ruby><rb>巨集</rb><rp>[</rp><rt>kū-tsi̍p</rt><rp>]</rp></ruby> (macro) 的使用是一个特點，巨集佮函數真成，毋過會當處理 syntax （<ruby><rb>句法</rb><rp>[</rp><rt>kù-hoat</rt><rp>]</rp></ruby>）做輸入的 argumemt（<ruby><rb>引數</rb><rp>[</rp><rt>ín-sòo</rt><rp>]</rp></ruby>）。巨集的定義干涉著 syntax。佇伊的囝語言 Racket 中閣有 syntax-case 等語法，提來定義 syntax 用的。<a id="more"></a></p><p>若定義巨集，用 syntax-rules 通定義巨集當處理幾个 argument 的時愛按怎執行。比論以下的例：</p><script src="https://gist.github.com/Yoxem/e9255fef767270d2df86dfaee29a6cd6.js"></script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（上尾更新佇：2018-02-04）&lt;/strong&gt;&lt;br&gt;佇 Scheme 中，{rb|巨集|kū-tsi̍p} (macro) 的使用是一个特點，巨集佮函數真成，毋過會當處理 syntax （{rb|句法|kù-hoat}）做輸入的 argumemt（{rb|引數|ín-sòo}）。巨集的定義干涉著 syntax。佇伊的囝語言 Racket 中閣有 syntax-case 等語法，提來定義 syntax 用的。
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
+    
+      <category term="Scheme" scheme="http://yoxem.github.io/tags/Scheme/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>淺論白話字（台羅）到漢字翻譯系統的建構與問題</title>
+    <link href="http://yoxem.github.io/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/"/>
+    <id>http://yoxem.github.io/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/</id>
+    <published>2018-01-04T16:00:00.000Z</published>
+    <updated>2018-01-04T16:04:57.114Z</updated>
+    
+    <content type="html"><![CDATA[<p>閩南語維基百科使用<a href="http://zh.wikipedia.org/wiki/白話字" target="_blank" rel="noopener">白話字</a>，這套歷史悠久，且又派生教育部目前拼寫台灣閩南語（下稱台語）的標準——台羅的拉丁化（拼音）方案，為主要書寫系統。固然可以閃避掉用字共識不高、罕用字難知發音、字音有時還需要拼音標注、本字考據問題以及外來語不易用漢字統一標記的，台語和漢字的種種糾葛，但因為台灣甚至中國一帶的人受到漢字教育已久，對於白話字（台羅）需要另外學習會降低使用意願，使得經常使用的人數不太多。這或許也可以反應閩南語維基百科雖然在漢藏語系中條目數第二多，但是經常編輯者與編輯頻率遠少於華語維基百科的現況。<a id="more"></a></p><p>因此，如果能夠製作一個軟體，開發出網頁界面，將白話字的維基百科轉換成漢字的內容，或許可以增加閱讀量以及推介閩南語維基百科的內容。此外，許多清末一直到戰後初期許多的閩南語白話字文獻，也可以轉換成漢字提供閱讀，提高普及率。</p><p>雖然台灣閩南語也是有一字多音或一音多字問題，而且一字多音的現象特別廣泛，或許有人質疑變換程式是否能夠滿足需求，但可以參考日文的案例：日語一漢字多音（生可以寫成なま、うまれ、なす、せい……），一音多詞（きしゃ就可以寫成記者、貴社、汽車……因此日語有不少諧音雙關哏）之複雜度不下台灣閩南語，卻也能夠開發出假名轉換漢字的智慧選字系統，我相信台語應該也能夠做品質高的羅馬字—漢字轉換。而且絕大多數的台語漢字和音節呈現一對一的關係，且有些詞在特定的前後詞（文）比其同音詞出現機率比較高（就像食物和植物同音，但在論到滷肉飯的文章，用「食物」的機會比較高）。因此，要做出比較好的文字轉換應該可行。</p><p>或許就像不少智慧選字音碼輸入法可以用馬可夫模型得出比較好的選字結果，這種有關選字的演算法或語言相關的技術，應該也可以應用在這種轉換上（可能也要了解詞頻）。還有另一種方法就是機器學習，利用 Tensorflow 和 seq2seq 的機器學習和機器翻譯的軟體，應該也可以藉由機器學習，生成轉換文字的翻譯模型。可以參考<a href="https://www.tensorflow.org/tutorials/seq2seq" target="_blank" rel="noopener">這篇教學</a>。</p><p>然而，上述機器學習的方法需要大量的白話字（或是台羅，但拼音需要統一）和其用統一用字規範（如教育部建議用字）書寫的漢字版的「平行語料庫」，以及用語料庫生成的詞彙表來進行學習。但一面這種語料比較少，用於學習可能不夠，加上會自然語言處理、機器學習知識的台語推廣者少之又少，不才才疏技拙，短期內應難以實現。或許只能希望像 g0v <a href="https://github.com/g0v/itaigi" target="_blank" rel="noopener">愛台語</a>或相關專案的推動者願意參與吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;閩南語維基百科使用&lt;a href=&quot;http://zh.wikipedia.org/wiki/白話字&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;白話字&lt;/a&gt;，這套歷史悠久，且又派生教育部目前拼寫台灣閩南語（下稱台語）的標準——台羅的拉丁化（拼音）方案，為主要書寫系統。固然可以閃避掉用字共識不高、罕用字難知發音、字音有時還需要拼音標注、本字考據問題以及外來語不易用漢字統一標記的，台語和漢字的種種糾葛，但因為台灣甚至中國一帶的人受到漢字教育已久，對於白話字（台羅）需要另外學習會降低使用意願，使得經常使用的人數不太多。這或許也可以反應閩南語維基百科雖然在漢藏語系中條目數第二多，但是經常編輯者與編輯頻率遠少於華語維基百科的現況。
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
+    
+      <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>無救贖的時代</title>
+    <link href="http://yoxem.github.io/2017/12/31/bo5kiu3siok8e5si5tai7/"/>
+    <id>http://yoxem.github.io/2017/12/31/bo5kiu3siok8e5si5tai7/</id>
+    <published>2017-12-30T16:00:00.000Z</published>
+    <updated>2018-01-04T16:08:25.030Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（上尾更新佇：2018-01-05）</strong></p><p>這是一个科技發達、思想當咧興的時代，煞是人人空虛毋過無救贖的時代。<br><a id="more"></a></p><p>古早社會雖罔無較濟的物質文明，人民的思想嘛予迷信崁牢，但是逐家攏有信仰佮社里厝邊相<ruby><rb>伨</rb><rp>[</rp><rt>thīn</rt><rp>]</rp></ruby>，行動攏有<ruby><rb>𪜶</rb><rp>[</rp><rt>in</rt><rp>]</rp></ruby>保護甲在在，物質雖然少，毋過嘛袂生湠人的慾望。但是，迷信嘛予人的心無自由。</p><p><ruby><rb>今</rb><rp>[</rp><rt>tann</rt><rp>]</rp></ruby>的社會隨著濟濟思想家拍破迷信，閣有真濟思潮的出現，人的頭殼嘛對崁牢的布敨放出來。而且因為濟濟人掠宗教毋是理性的，而且驚限制人的想法抑是衝擊多元的思想，𪜶就無愛接受。</p><p>毋過現在的人無定就是自由的。因為現在資本主義<ruby><rb>唌</rb><rp>[</rp><rt>siânn</rt><rp>]</rp></ruby>人用財寶換商品這款偶像，滿足人內底的空虛。但是這嘛是無法度共心內<ruby><rb>扞予定</rb><rp>[</rp><rt>huānn-hōo-tiānn</rt><rp>]</rp></ruby>，人抑是<ruby><rb>夯</rb><rp>[</rp><rt>giâ</rt><rp>]</rp></ruby>痛苦的枷。閣較慘的，是資本主義嘛叫人工課頭時愛獻家己的性命成就資本家的大業，加上科技文化麻痺人的心，控制、監視逐位的行動。咱敢毋是生佇無自由的世界？但是人準若無想欲揣著救贖家己的法度，獨獨啉過量資訊的酒甲茫茫，毋管是2017年、2018年，甚至一百年後，人抑是無得通解放的<ruby><rb>吧</rb><rp>[</rp><rt>-<!-- -->-pah</rt><rp>]</rp></ruby>。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（上尾更新佇：2018-01-05）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;這是一个科技發達、思想當咧興的時代，煞是人人空虛毋過無救贖的時代。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="論" scheme="http://yoxem.github.io/tags/%E8%AB%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>偽竹枝詞．綠園道</title>
+    <link href="http://yoxem.github.io/2017/08/12/ui7tiok4ki1su5/"/>
+    <id>http://yoxem.github.io/2017/08/12/ui7tiok4ki1su5/</id>
+    <published>2017-08-11T16:00:00.000Z</published>
+    <updated>2017-08-12T05:50:50.206Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（原作於 2017-08-11）</strong></p><p>川流潺潺日光濃，</p><p>綠園道橫櫛鱗中。</p><p>青蔭漫漫蔽貴處，</p><p>但望君心映僕蹤。</p><p><em>註：台中市區有多條溪川穿其間。綠園道乃該城公園形式，設於道路之間。</em></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;（原作於 2017-08-11）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;川流潺潺日光濃，&lt;/p&gt;
+&lt;p&gt;綠園道橫櫛鱗中。&lt;/p&gt;
+&lt;p&gt;青蔭漫漫蔽貴處，&lt;/p&gt;
+&lt;p&gt;但望君心映僕蹤。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;註：台中市區有多條溪川穿其間。綠園道乃該城公園形式，設於
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="分行散文或詩" scheme="http://yoxem.github.io/tags/%E5%88%86%E8%A1%8C%E6%95%A3%E6%96%87%E6%88%96%E8%A9%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>漢俳．夏日紛林</title>
+    <link href="http://yoxem.github.io/2017/08/03/ha7jit8hun1lim5/"/>
+    <id>http://yoxem.github.io/2017/08/03/ha7jit8hun1lim5/</id>
+    <published>2017-08-02T16:00:00.000Z</published>
+    <updated>2017-08-03T15:45:54.189Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（原作於 2017-08-02）</strong></p><p>華林映燦爛</p><p>蟬噪鳥鳴風咻咻——</p><p>傍足跡孤零</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;（原作於 2017-08-02）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;華林映燦爛&lt;/p&gt;
+&lt;p&gt;蟬噪鳥鳴風咻咻——&lt;/p&gt;
+&lt;p&gt;傍足跡孤零&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="分行散文或詩" scheme="http://yoxem.github.io/tags/%E5%88%86%E8%A1%8C%E6%95%A3%E6%96%87%E6%88%96%E8%A9%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>短篇小說集：我們最後一起走的路</title>
+    <link href="http://yoxem.github.io/2017/07/31/te2phinn1siau2suat4chip8/"/>
+    <id>http://yoxem.github.io/2017/07/31/te2phinn1siau2suat4chip8/</id>
+    <published>2017-07-30T16:00:00.000Z</published>
+    <updated>2017-07-31T14:43:47.896Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近以「北郊工房」的名義，和另一位筆名的作品以及自己寫的短篇小說結成集，名為《我們最後一起走的路——北郊工房短篇小說集》，有興趣的可以聯絡我。因部份文章有年齡限制，恕不接洽未成年。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近以「北郊工房」的名義，和另一位筆名的作品以及自己寫的短篇小說結成集，名為《我們最後一起走的路——北郊工房短篇小說集》，有興趣的可以聯絡我。因部份文章有年齡限制，恕不接洽未成年。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="生活" scheme="http://yoxem.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我們最後一起走的路</title>
+    <link href="http://yoxem.github.io/2017/07/25/lan2tsue3au7tso2hue2kiann5e5loo7/"/>
+    <id>http://yoxem.github.io/2017/07/25/lan2tsue3au7tso2hue2kiann5e5loo7/</id>
+    <published>2017-07-24T16:00:00.000Z</published>
+    <updated>2017-07-25T00:00:29.867Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>本文內容不適合未成年人閱讀</em></p><p>　　「往花蓮的船隻即將於十四點整啟航，請要上船的旅客在候船室等候……」小島上唯一的旅客碼頭，放送頭孤單的喊著，在零零星星旅客來往的大廳。</p><p>　　背著不多行李的他，喝著花蓮買來的，走了氣而失了冷勁的可樂，一邊離開港務樓，盤算著之後的行程。</p><p>　　雖然外面的世界如此的千變萬化，資訊多得令人眼目撩亂，但在這個孤懸湛藍大洋的小島——大概一半台中市區的大小吧——時光彷彿已凝滯，凝滯做老式的兩三層樓高的水泥樓房，好像埋在地底下的化石。老式的傳統燈箱招牌，絲毫未經LED侵入的，有一種懷古的感覺，卻了無生氣。縱使天空清朗只有幾抹微雲，仍然熾熱的海風吹拂他的臉龐，但只是讓他的下垂的唇更加下垂，眉頭更加深鎖，帶著和青年外貌不搭的些微憔悴。<a id="more"></a></p><p>　　「這種地廣人稀的荒郊，真適合成為最後一站啊……。」他在心中想著。</p><p>　　縱使並不只是因為這個原因，因為這座島也埋藏他心中很懷念的過去回憶，雖然現在已經失了味道。他也不願細想。只是她搭的下班船將於黃昏時到達，離現在還有三個小時左右，不如好好的看看這小島的孤寂景色吧，雖然這或許是最澄淨而最後的景緻。</p><p>　　租著一台機車，沿著水泥鋪面的環島西路行。他所生活的大島孤懸日將下沉的方向——像一隻翠藍色的大鯨魚，又像一道長長的屏風，遙遠的顯示它的秀麗而壯俊。然而看到遠方美麗的島嶼，他突然又自慚形愧起來。</p><p>　　那是他不配住的、充滿著美麗和愁傷的島嶼。「真討厭隨便往西走的啊！」，他輕輕甩著頭，想忘懷那些以前的過往，想著今晚<strong>辭別</strong>的計畫。但是，那些不想回想，甚至是趨向他在來這座島的記憶，如同往事飄忽在他的眼簾，遮住了眼前的上下蔚藍、以及美麗的草坡，隨風搖曳的紫色野花。太陽被浮雲遮蔽著，光線開始黯淡起來。</p><p>　　他是在1980年末期的出生的，隨著解嚴前後，台灣的政治開始有百花齊放的聲音，整體的經濟也是欣欣向榮的。還記得那時父母親努力工作著，雖然經常八九點才回家，自小學開始就變成一位「鑰匙兒童」，但他仍然從父母的眼睛看到確信的希望。他的雙親對他的生活和功課嚴厲的教導，但他還是不負期望。</p><p>　　並且他和家人以為，那時代的順風將一直往前，他能順著他的父母的冀判，遠颺到更前面的燦爛遠方。</p><p>　　如今最後航向的目標，只是這幾十平方公里，孤懸後山海外的寂寥而略顯衰退的小島爾爾。他諷刺的想著。</p><p>　　只是如今已經沒有出路。</p><p>　　他讀大學的時候，金融海嘯重創著全世界，本就面臨新人廉價化的社會中，令他開始感到焦慮。然而焦慮也是沒有用的。</p><p>　　因著父親在他大學的時候開始生了一場疾病，為了方便照顧家人，他放棄了老師建議他到美國升學的計畫，轉而大學畢業後當兵，在家附近的大城市尋找一份科技相關的工作。或許這就是理組人的命吧，那抱持著一點宿命或是無力回天的消極思想開始萌發了起來。在這個世界上。</p><p>　　果不其然，迎接而來的是個鎮日寫code的生活。他雖然能力比較好，但因為個性比較難以主動表達他的需要，許多不應該要由他做的他還是默默的扛著，任由他人的「軟塗深掘」。他回到家經常已經九、十點多了，但還需要面對母親因為照顧父親的焦躁，叫他總是難以習慣。他在假日也經常需要照顧父親的衣食起居，任由父親那絕望而顯出的荒誕情緒發洩，他曾經是家裡的經濟支柱，但現在就變成母親和他在苦撐。</p><p>　　他開始在深夜睡不著時——越來越頻繁時，總是思考這樣的問題：</p><p>　　「這樣做真的有未來嗎？之後該如何走，能走又能走到哪裡？」「父親他這樣拖著疾病，對他是何等的折磨啊！」……</p><p>　　心和他的體力就如同午後的日頭，漸行漸下。就算意識到自己的精神狀況已經開始出現問題，但還是諱疾不願面對。父親的精神與體力狀況也漸難好轉，經常忘東忘西或說些上下文像斷掉的索一般，令人難以理解的話。臥病昏睡的時間也變多了。</p><p>　　最後他父親不敵奇怪的疾病而溘然長逝，然而他卻因為自己出差趕不到醫院，見不到最後一面。而在處理完身後事沒多久，又是一陣雷擊打在他身上。</p><p>　　那是一個下著西北雨的下午，整個公司沉悶的在會議室中開會。</p><p>　　「因為營收以及公司組織需要再造的因素，我們公司需要精簡相關人員……」CEO裝著嚴肅的態度說著。</p><p>　　不幸的是，他也在被裁員的名單。他起初不解，但後來發現，應該是他和其他同事的協調性不是很高，加上之前又為了工作責任的事情和同事處得不愉快，搞到成為上級的眼中釘吧！只是之後家裡的生活的著落呢……？如果爸爸還在又會如何開導呢？他的內心久久縈繞著這些問題，以至於工作的效率變低落了。</p><p>　　被資遣後，他雖然希望能夠及早找相關的工作，只是碰巧經濟不景氣，這城市的就業機會不多。希望渺茫的他也不是沒考慮上北邊的大城找工作，但他的存款因為大量花在父親的照顧費用，只能供他一兩個月而已，他也不敢屈膝向母親借錢。</p><p>　　以前空虛的庸碌生活雖然結束，迎來的是更大的深淵，深淵到底到哪裡才能停止呢？</p><p>　　「難道人生怎麼走都是一樣嗎？」他經常放棄一切期盼的呢喃。</p><p>　　於是他選擇了這條路，用扣掉請別人處理的費用，僅存的一點錢，在某個論壇po出一個意味不明的文，標題為：</p><p>　　「×月在E島，徵最後的旅伴」</p><p>　　雖然這封不明究理的po文過了幾小時後就被刪掉了，然而，還是有個陌生的帳號對他丟私訊：</p><p>　　「我能和你一起去嗎……？」</p><p>　　於是最後敲定日期、時間後，他們約好在這裡，展開人生最後的旅程——就算對他來講。</p><p>　　是說天色越來越黯淡了，那個人料想已經來了吧。</p><p>　　「該來的還是會來，」他甩甩頭回到E島的連外港口，準備迎接那人。那天約好他會揹天藍色的背包過來的。</p><p>　　只見略顯淺黃的日光下，有些旅客從藍白相間的中型渡輪魚貫下船，步入港務大樓。</p><p>　　「啊啊，看到有戴墨鏡的背著藍色背包了！應該是他……咦？怎麼梳著馬尾？為什麼……？」</p><p>　　似乎熟悉而非常陌生的形影。是她。</p><p>　　※　※　※</p><p>　　忍著有點暈船的不適——藥到底有沒有效啊——我看見遠方的翠綠小島越來越近，漸漸的連碼頭旁村落，一幢幢參差的建築物也越來越清晰。</p><p>　　或許在這個地方長離，會比較美吧？在心中我這樣暗想著，但仍然還是逃不出心裡的。憂鬱好深好深啊，為什麼一直困住我呢？為什麼最近這幾年所面對的環境卻是一直鎖著我，越困越緊？她看著手袖內隱約藏不住的，一條一條、新的舊的疤痕，似乎嗚咽著她所受到的傷痛。</p><p>　　曾經有一位交往數年的男——啊應該不能用人來形容，要用人渣來形容。原本以為這傢伙這麼殷勤的，但後來變得比較敷衍，就算他自己可能不察演技有紕漏。直到那天。</p><p>　　我本來以為原本以為要加班的，結果主管臨時不把這件事情交辦給我，讓我今天能夠提早回家。這不知道是喜還是憂呢。我那時還傻乎乎的想買他愛吃的零食，給他一個驚喜。</p><p>　　然而走近家的門前，卻發現門口多了一雙未曾看過的女鞋，門裡面滲出著相近不屬於我的味道。</p><p>　　「不會是其他人拜訪吧？但好像怪怪的……」抱著狐疑，我悄悄的打開門。</p><p>　　客廳沒有人，但房間內傳來熟悉而哼呼的聲音，那是一種帶著野性而橫氣逼人的欲望，可惡！這位傢伙竟然背著我……。</p><p>　　只是闖入者的聲音似乎有點熟悉。我用全身的力氣壓制住怒意，躡手躡腳地拿出房間的鑰匙。</p><p>　　哐噠，充滿不堪而罪惡的盒子打開來了。被壓在身下的是姊姊！竟然是我的姊姊！</p><p>　　在一陣尖叫聲、吼叫聲後，那隻野獸拿起了桌旁的檯燈，猛力的砸向我，這是那天最後的意識。</p><p>　　至今傷口還是隱隱作痛，但比不上工作疲弊的脆弱內心承受傷痕，理智線至今仍然崩裂。</p><p>　　促使我踏上這條不歸路的，應該是那篇在網路上的po文。</p><p>　　雖然是和陌生人一起共赴，但是我仍然不怕。而這是我之前大學有空時常常待的這座小島——甚至常常在那邊花一個下午寫生，選在這個美麗的地方結束或許也不錯吧？於是我試圖和他聯絡……</p><p>　　此時船上的放送頭報知已經到站，聲音乘著就算遲鈍的鼻子仍然感受得到的海風。</p><p>　　走下船，我看見一個人在候船處看著一船的旅客走向這座小島——他的胸前夾著一隻原子筆，應該是那位<strong>最後的夥伴</strong>吧。他本來模糊的臉轉得漸漸清晰，就算他的面容略顯憔悴，但從晦澀的記憶海中，我還是認出他了。</p><p>　　是那年我在這座小島上巧遇的旅人。</p><p>　　※　※　※</p><p>　　他看到她在黃昏的小島上，對她從嚴肅沈重的投以微笑，用來掩蓋他的驚訝和似有若無的既視感的懷疑不解。</p><p>　　「妳好，」他有點緊張的說，「一個人來這裡也是滿有勇氣的。」</p><p>　　「還好啊，我以前曾經來過，何況這裡離台灣也不太遠。」她也裝著鎮靜的樣子說到。</p><p>　　為什麼他要籌組這次行程……？他應該心理狀況還好吧，不會這樣吧，又不像我啊……。只是現在問原因應該滿奇怪的。</p><p>　　「現在離太陽下山還有一段時間。」她突然轉個話題，避免這次尷尬。「不然還是我們沿著海走一走呢？」</p><p>　　「如果說現在這種情況滿尷尬的，離黃昏還有一、兩個小時，不然就沿著環島公路一起聊天好了？」他輕輕的點頭。</p><p>　　於是他們兩個把行李收在下宿的地方，沿著山崖下的環島路往西漸漸離開小村子。只是他皺起眉頭，就像浪花打在腳下岩岸一樣的紋路——為什麼又要往西走呢？早知道當初就不要走這邊了。</p><p>　　只是在越來越斑斕，像彩虹漸層般的黃昏天色下，似乎記憶深處的塵埃中，有東西慢慢的如氣泡緩緩上浮。而那位綁馬尾的女子的背影，漸漸的和記憶中的影像重合，輪廓越來越清晰。</p><p>　　「那個……妳好像和我上次去這座島上遇到的旅客長得有點像。」終究受不了驚訝，直覺的說出來了。</p><p>　　「我現在想到，好像是真的有些印象。難不成你就是……？」</p><p>　　※　※　※</p><p>　　「我還記得那時候，妳那時也是住在那間旅社的，那時候經常看到妳。」雖然二人都知道此行的性質，但是還是在憂鬱的聲調下透露出一絲興奮的語態。</p><p>　　「後來你不是因為找不到東石鼻燈塔的位置，那時候還向我問路。結果後來我們就一起過去。沒想到還能夠在這裡見到你，呵呵。」他低聲的笑著，一起停在路邊的草原。</p><p>　　縱使太陽漸漸往西邊的島嶼層巒休息，潮聲卻越來越響亮了。草隨著風慢慢的起舞。</p><p>　　「只是你為什麼會想籌辦這場旅程呢？」她起身往山涯邊，靈動的小踏步著。</p><p>　　「人們往往有他們不願對大家坦承的那一面啊……」他悠悠的說，「是說，妳不會打算從這裡跳下去吧？」</p><p>　　「雖然從這裡跳下去應該也滿美的，」她淺而苦的笑，「但離開這世上，也總是需要計畫的吧。這是我的堅持。」，她坐在草地上遠看著斑斕的天色。</p><p>　　「或許吧，這一切就像晚霞那樣短暫。」他起身在她的身旁坐下。</p><p>　　在黑沉沉的台灣島後，夕陽染出了七彩如虹的晚霞。身後的街燈寥寥，也開始點亮。港村的街道也開始光亮了起來，在後方沉沉的黛藍色中。</p><p>　　或許終究要走到這步吧，不要管彼此為何而來。他們心想。</p><p>　　※　※　※</p><p>　　天色已晚了，他們隨便在港口附近的餐館點了些菜，買了一些酒，回到了旅社。</p><p>　　他把火盆拿出來，放了一些木炭——那在中秋節象徵家人溫暖的木炭，卻成了招喚他們到終點的不歸路。</p><p>　　點起火，他對她遞著酒，說著：「敬最後一杯，往那旅程。」把給旅店的紅包放在一旁後，開始寫起遺書。</p><p>　　但是她只是啜飲其中一口，看著他在案上寫著的遺書。心裡想著第一次見到他的時候那種開朗的表情，但卻有點路癡到天真的性格。一直到了最後關頭，就算是憂鬱也仍然從那位後輩顯得清新的面貌中還能看到了一些堅持，帶著酒力，她不知道為什麼有一種衝動。</p><p>　　或許我們最後仍然需要一點情感的撫慰？她一邊往前，看著他訝異的面貌，一邊向他接吻。</p><p>　　「妳在做什麼？」就算他起初有些懷疑，但是最後仍然不敵於她的溫柔的擁抱之中，只是發出了一些不解的呻吟。</p><p>　　「其實你最後仍然想要有人能陪你擁抱吧？」她低聲的在他的耳邊低語。不久之後，便將他有點虛弱的身子推倒了下來。</p><p>　　外圍的風突然刮起，把沙子卷走了，露出岩石在路燈下光亮的脊背。然而風並未止息，仍然柔細的撫摸著。他受到欲望的充滿，以至於沒有離開，只覺得頭越來越迷茫。</p><p>　　突然間從上方降來一陣雨，把開著樹葉的枝椏打溼，幾片葉子掉下去了。天地間響著自然的聲音，雨越下越大了。</p><p>　　然而，這柔弱的枝椏不久受不了風與雨，硬生的折斷。一陣輕煙從木炭火中飛起，到達頂點的他吐出最後的低吟，便昏昏沉沉的睡了過去。她仍然享受這緊密的接觸，不願離開的，並且也昏沉的睡過去。</p><p>　　只到後來，她不知睡了多久，在醫院裡醒來，只是眼睛已看不到任何東西。但她仍然用昏沉的記憶相問那位最後的旅伴：</p><p>　　「那位和我同行的旅人在嗎？」</p><p>　　「你還在想那傢伙？他已經救不活了。」</p><p>　　突然她很後悔為什麼在最後還想要品嚐情感的歡快，心思也繫結的她，已經難以和他不在一起共活了。</p><p>　　直到這時她才意識到眼前無法光明的黑暗。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;em&gt;本文內容不適合未成年人閱讀&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;　　「往花蓮的船隻即將於十四點整啟航，請要上船的旅客在候船室等候……」小島上唯一的旅客碼頭，放送頭孤單的喊著，在零零星星旅客來往的大廳。&lt;/p&gt;
+&lt;p&gt;　　背著不多行李的他，喝著花蓮買來的，走了氣而失了冷勁的可樂，一邊離開港務樓，盤算著之後的行程。&lt;/p&gt;
+&lt;p&gt;　　雖然外面的世界如此的千變萬化，資訊多得令人眼目撩亂，但在這個孤懸湛藍大洋的小島——大概一半台中市區的大小吧——時光彷彿已凝滯，凝滯做老式的兩三層樓高的水泥樓房，好像埋在地底下的化石。老式的傳統燈箱招牌，絲毫未經LED侵入的，有一種懷古的感覺，卻了無生氣。縱使天空清朗只有幾抹微雲，仍然熾熱的海風吹拂他的臉龐，但只是讓他的下垂的唇更加下垂，眉頭更加深鎖，帶著和青年外貌不搭的些微憔悴。
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
+    
+      <category term="R-18" scheme="http://yoxem.github.io/tags/R-18/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用tor上ptt</title>
+    <link href="http://yoxem.github.io/2017/06/30/eng7tortsiunn7ptt/"/>
+    <id>http://yoxem.github.io/2017/06/30/eng7tortsiunn7ptt/</id>
+    <published>2017-06-29T16:00:00.000Z</published>
+    <updated>2017-06-29T16:28:40.911Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>本文參考 <a href="https://askubuntu.com/questions/85766/how-to-use-ssh-with-tor" target="_blank" rel="noopener">How to use SSH with Tor? - Ask Ubuntu</a></em></p><p>若是<ruby><rb>汝</rb><rp>[</rp><rt>lí</rt><rp>]</rp></ruby><ruby><rb>欲</rb><rp>[</rp><rt>beh</rt><rp>]</rp></ruby><ruby><rb>藏</rb><rp>[</rp><rt>tshàng</rt><rp>]</rp></ruby>家己<ruby><rb>的</rb><rp>[</rp><rt>-<!-- -->-ê</rt><rp>]</rp></ruby> IP <ruby><rb>佇</rb><rp>[</rp><rt>tī</rt><rp>]</rp></ruby> ptt <ruby><rb>這个</rb><rp>[</rp><rt>tsit-ê</rt><rp>]</rp></ruby> BBS，通使用 tor。佇 Linux 的虛終端機，通用以下指令：<a id="more"></a></p><p>代先，<ruby><rb>愛</rb><rp>[</rp><rt>ài</rt><rp>]</rp></ruby>確認<ruby><rb>家己</rb><rp>[</rp><rt>ka-kī</rt><rp>]</rp></ruby>有裝 torify 無？若是佇 Linux Mint 18，通用：</p><p><code>apt install tor</code></p><p>裝。</p><p>欲開 ptt 的時，愛先<ruby><rb>拍開</rb><rp>[</rp><rt>phah-khui</rt><rp>]</rp></ruby>虛終端機，開新的分頁，輸入<code>tor</code>連<ruby><rb>甲</rb><rp>[</rp><rt>kah</rt><rp>]</rp></ruby> Tor 網路。</p><p>順利連接後，<ruby><rb>閣</rb><rp>[</rp><rt>koh</rt><rp>]</rp></ruby>開新分頁，輸入指令</p><p><code>torify ssh <a href="mailto:bbsu@ptt.cc" target="_blank" rel="noopener">bbsu@ptt.cc</a></code></p><p>就通連到 ptt.cc 矣，<ruby><rb>毋過</rb><rp>[</rp><rt>m̅-koh</rt><rp>]</rp></ruby>速度<ruby><rb>較</rb><rp>[</rp><rt>khah</rt><rp>]</rp></ruby>慢而且<ruby><rb>鈍鈍</rb><rp>[</rp><rt>tūn-tūn</rt><rp>]</rp></ruby>。</p><p>而且用 tor 開新的口座 (account) 以後，一定愛開 tor <ruby><rb>才</rb><rp>[</rp><rt>tsiah</rt><rp>]</rp></ruby><ruby><rb>通</rb><rp>[</rp><rt>thang</rt><rp>]</rp></ruby>登入這个口座。以免 IP <ruby><rb>予人</rb><rp>[</rp><rt>hőng</rt><rp>]</rp></ruby>發現。</p><p><strong>注意：千萬毋通用佇非法用途。</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;em&gt;本文參考 &lt;a href=&quot;https://askubuntu.com/questions/85766/how-to-use-ssh-with-tor&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;How to use SSH with Tor? - Ask Ubuntu&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;若是{rb|汝|lí}{rb|欲|beh}{rb|藏|tshàng}家己{rb|的|-&lt;!-- --&gt;-ê} IP {rb|佇|tī} ptt {rb|這个|tsit-ê} BBS，通使用 tor。佇 Linux 的虛終端機，通用以下指令：
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最後的煙</title>
+    <link href="http://yoxem.github.io/2017/06/27/tsue3au7e5hun1/"/>
+    <id>http://yoxem.github.io/2017/06/27/tsue3au7e5hun1/</id>
+    <published>2017-06-26T16:00:00.000Z</published>
+    <updated>2017-06-26T16:36:16.782Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>（背景設定於小說《<a href="http://yoxem.github.io/2014/02/11/%E4%BA%8C%EF%BC%90%E5%9B%9B%E4%BA%94%EF%BC%88%E4%B8%80%EF%BC%89/">二〇四五</a>》主要劇情發生前的台灣。）</em></p><p>2030年代的台灣島，一位中年的遊民倒在市街旁的暗巷。他舉起用最後的回收的不多錢換來的高粱酌一口，點著火柴劃著煙。</p><p>第一道煙霧上天時，他彷彿看到她的形影——那是幾年前的殘息反抗戰火中消失的瑰麗愛慕。</p><p>第二支煙點燃時，他看到以前自由抒懷的朋友——還能自由論及社會不怕任意監視的社會。</p><p>最後一支煙快熄滅的時候，他看到以前的父母——那努力拼搏卻篤定相信將來能安居、立足的形影，以及模糊卻有活力的童年。</p><p>於是他想倒臥在雙親的胸懷中，一瞥拘禁於絕望之島的軀殼後，回頭繼續振翅，輕盈的飛翔。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;em&gt;（背景設定於小說《&lt;a href=&quot;http://yoxem.github.io/2014/02/11/%E4%BA%8C%EF%BC%90%E5%9B%9B%E4%BA%94%EF%BC%88%E4%B8%80%EF%BC%89/&quot;&gt;二〇四五&lt;/a&gt;》主要劇情發生
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>夏至前的雜感</title>
+    <link href="http://yoxem.github.io/2017/06/20/ha7che3tsing5e5tsp8gian5/"/>
+    <id>http://yoxem.github.io/2017/06/20/ha7che3tsing5e5tsp8gian5/</id>
+    <published>2017-06-19T16:00:00.000Z</published>
+    <updated>2017-06-21T14:26:41.239Z</updated>
+    
+    <content type="html"><![CDATA[<p>日頭照射的長度越來越長，直到今後這幾天。黃昏六點的時候還像冬天的四、五點亮已經不以為奇。然而，因為已過這一個禮拜的漫漫長雨，以及至今的多雲蔽日，大家似乎很難察覺。</p><p>家附近的溪已從冬日的微微澗水化成滾滾的濁流，但仍難以帶走心中的苦悶，而連日的陰雨卻澆灌著愁思，愈長愈長。蟬和蛙類開始鳴叫，更增夏季的喧囂。<a id="more"></a></p><p><blockquote><br>Loved with everlasting love, led by grace that love to know;……<br>（受永遠的愛所愛，藉愛知道的恩典引導……）<br></blockquote><br>––<cite>George Wade Robinson</cite></p><p>身為一個在教會聚會的信徒（雖然不是那麼的保守），以及經過之前的一些歷程，或許之間仍有懷疑，但我仍相信神是存在的，有時候經歷祂的看顧。只是有的時候教會會有不少的活動，而自己個人的狀況算是比較傾向內向的，對於有時許多的活動覺得壓力比較大。我想到《聖經》所說的：「凡勞苦擔重擔的，可以到我這裡來，我必使你們得安息」，一方面也知道神在地上需要有一班人，成為祂的彰顯，傳揚祂，為祂做見證，就是教會。只是這樣一連的活動，萬一使人覺得是為著一個宗教式的目標在奔波，而其中享受不到神為安息與平安，那會不會就得不到本意了？</p><p>但另外一方面，現今其他的物質文明生活，仍然並不是沒有崇拜的東西，只是把崇拜的東西換成商品、流行的娛樂或作品。只是人常常喝了這種水還要空虛、還要再渴，再尋求其他的娛樂、商品來獲取安慰，就像受菸酒挾制的人一樣吸了、喝了還要空虛，也像鑿了一口破裂的池子一般，沒有活水湧出，裝水還要再漏，永遠得不到充實。這樣一直逃離空虛的生活，似乎也不是我應該選擇的路。</p><p>願神能夠引導我，看見我所應當走的道路在何處，也願祂能夠在沙漠上開一條江河。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;日頭照射的長度越來越長，直到今後這幾天。黃昏六點的時候還像冬天的四、五點亮已經不以為奇。然而，因為已過這一個禮拜的漫漫長雨，以及至今的多雲蔽日，大家似乎很難察覺。&lt;/p&gt;
+&lt;p&gt;家附近的溪已從冬日的微微澗水化成滾滾的濁流，但仍難以帶走心中的苦悶，而連日的陰雨卻澆灌著愁思，愈長愈長。蟬和蛙類開始鳴叫，更增夏季的喧囂。
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
+    
+      <category term="生活" scheme="http://yoxem.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="信仰" scheme="http://yoxem.github.io/tags/%E4%BF%A1%E4%BB%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初夏的雜感</title>
+    <link href="http://yoxem.github.io/2017/06/11/tshoo1ha7e5tsap8kam2/"/>
+    <id>http://yoxem.github.io/2017/06/11/tshoo1ha7e5tsap8kam2/</id>
+    <published>2017-06-10T16:00:00.000Z</published>
+    <updated>2017-06-11T10:59:52.198Z</updated>
+    
+    <content type="html"><![CDATA[<p>夏天漸漸來臨了。從近午的輕水色的天空，鋪排著像山一樣矗立的積雲，到午後六點仍然熾烈的金黃陽光；從泛著絢麗光影的火紅鳳凰花，到午後恣意潑灑的雷陣雨以及遠方沉悶的雷鳴。以往的春日寒意已然驅散，整個空氣瀰漫著生機、茁壯，帶著焦躁的氣息。<br><a id="more"></a></p><p>只是不論季節如何的遞嬗，日子仍然一樣的流動著。大家仍然在每天的工作或是其他的例行公事上浮浮沉沉，除了得到任務結束的釋懷，或是從其餘閒暇的時節獲得一些心靈的藉慰以外，仍然是常常吃著其中的焦躁與苦悶。最近喜歡聽〈沒有煙抽的日子〉，一方面是想到近日的六四事件，另一方面，其中表現的對現實的無法盼到黎明和雨絲的困頓，以及對於自由鴿子飛翔的期盼，還有獨自用火柴點無奈，化成煙抽的意境是筆者所欣賞的。然而，火柴真的能夠把綿長的無奈給抽掉嗎？而希望的根本、以及不在詞人身邊的「你」，對我而言又是誰？想到這，覺得有些含糊。</p><p>在暮春夏初之際的五月左右，拾起德國文豪歌德的名著《少年維特的煩惱》——或許標題英譯的 sorrow 更能貼近其意——讀起男青年的無奈。歌德實在是有才氣的作家，真不知道他為什麼能在二十五歲的青春歲月，就能寫出如此暢銷的作品。</p><p>雖然維特出身應該是中下層貴族，過著比平民還要優渥的生活，但除了對自然以及對人生的哲學之見，就是他對夏綠蒂的單戀的苦楚與焦躁，但從夏綠蒂訂婚他人開始，就註定是一場悲劇，而其間除了對生的感懷，也間插著一些對死亡的看法與描述，最終維特陷入這個不可能立場的戀愛的深淵，以結束生命劃下 sorrow 的句點。</p><p>雖然說單戀一個人，不單是注視，甚至是思想，會讓自己的情感溢漫著斑斕的彩色，眼睛也因此變得模糊，但是這些斑斕面對現實卻變成苦澀的果子，而身在其中的人一面看著、一面吃著，讓自己在甜蜜和焦苦中打滾，或許是單向的傾慕令人神往之經歷，但也很令人感到痛苦甚至失去理智。或許戀慕就像是一種痛楚或是一種精神疾病。</p><p>當然，如果能夠直截的說「喜歡」、「討厭」或是「還要觀察」，而不是用曖昧的方法來給對方比現代詩還難理解的考題，或許這一切就不會那麼的麻煩，在明言之下。只是因為社會的期待，或是說了以後還要考慮種種的後果——因為說真言也有可能會讓自己暴露於惡意之下，或是不想讓對方看到真心話而受到衝擊等等，這種真話其實是難以坦然說出的吧？</p><p>這大概是所謂面具社會的無奈，一面扮著期盼的樣子，一面又忍住自己的真實面。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;夏天漸漸來臨了。從近午的輕水色的天空，鋪排著像山一樣矗立的積雲，到午後六點仍然熾烈的金黃陽光；從泛著絢麗光影的火紅鳳凰花，到午後恣意潑灑的雷陣雨以及遠方沉悶的雷鳴。以往的春日寒意已然驅散，整個空氣瀰漫著生機、茁壯，帶著焦躁的氣息。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
+    
+      <category term="生活" scheme="http://yoxem.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>集體的孤單社會</title>
+    <link href="http://yoxem.github.io/2017/05/11/tsip8the2e5koo1tuann1sia7hue7/"/>
+    <id>http://yoxem.github.io/2017/05/11/tsip8the2e5koo1tuann1sia7hue7/</id>
+    <published>2017-05-10T16:00:00.000Z</published>
+    <updated>2017-05-11T14:38:09.974Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>「一群刺猬在寒冷的天氣時會想要靠近彼此來取暖，但是當兩隻刺猬碰在一起時，又會被彼此的刺所刺傷，因此彼此又要保持一段距離。」</blockquote><p>——<cite>〈中文維基百科．刺蝟理論〉</cite><a id="more"></a></p><p>現在社會我認為是集體而孤單的。</p><p>隨著工商業化的以及歷史的發展，原有傳統的大家庭與社里的人際互助網結構，漸漸的變成以公司、學校、小家庭負擔不同時刻的人際需求。</p><p>然而，或許是因為現在變成了一個消費社會，追求物質欲望，以及社會壓力過大，導致人們內心深處的空虛無法獲得滿足。再加上社會的文明分化過細，以及網際網路讓分散各處的小眾興趣愛好者能夠集結起來討論，比如說某個動漫領域的愛好會、公路愛好者的虛擬社群，是以現在的社群就多了以虛擬社群為人際聯合的方式。</p><p>這樣做有一種好處，人通常有其吸引人之處，但也有傷人的刺或令人難以忍受的地方。網路的匿名性能夠讓人展現處好的一面，進而相互取暖時而比較不會被彼此受傷。這也是線上社群的迷人之處。</p><p>只是，也因為這種匿名性，許多人也會以傷人的刺四散在社群中——抱持反正難以追查的心理，致使許多人可能會受傷，也因此許多人的心為了防衛，都有著若即若離的心理吧。然而這種疏離感仍然是有，和真實的人際互動有顯著的差別。</p><p>而有些人因為生理的成熟以及社會的文化吧？或許是為了在這種孤島似的環境中，求得更緊密的慰藉，但又不想要面對情感上的齟齬，有些人可能會尋求短期內的 ONS（這已經是罕用詞了吧），這種軀體間的交流。但這種交流或許不能取代心靈的交流，而且除了疾病的傳染以外，也可能衍生出其餘和感情或身體狀態的問題，到頭來還是反映出人的寂寞。</p><p>總是，現在的社會，從一個面向來看，或許像跟著跨年演唱會起舞的觀眾一樣，看似互相挨著，卻是彼此少熟識，只是寂寥的靈魂，齊聚一起，大聲的表達渠等的互屬與孤寂。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;「一群刺猬在寒冷的天氣時會想要靠近彼此來取暖，但是當兩隻刺猬碰在一起時，又會被彼此的刺所刺傷，因此彼此又要保持一段距離。」&lt;/blockquote&gt;
+
+&lt;p&gt;——&lt;cite&gt;〈中文維基百科．刺蝟理論〉&lt;/cite&gt;
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
+    
+      <category term="論" scheme="http://yoxem.github.io/tags/%E8%AB%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>熱天的暗暝</title>
+    <link href="http://yoxem.github.io/2017/05/04/juat8thinn1e5am3me5/"/>
+    <id>http://yoxem.github.io/2017/05/04/juat8thinn1e5am3me5/</id>
+    <published>2017-05-03T16:00:00.000Z</published>
+    <updated>2017-05-10T15:11:56.508Z</updated>
+    
+    <content type="html"><![CDATA[<p>（上新修改：2017-05-10）</p><p>天頂的月娘，勻勻行出來矣，<br>依倚著<ruby><rb>閃爍</rb><rp>[</rp><rt>siám-sih</rt><rp>]</rp></ruby>的星仔，<br>金金看下跤溫柔的溪水。<a id="more"></a></p><p>溪埔頂的流水，歇睏矣。<br>睏甲遠遠的闊闊<ruby><rb>向望</rb><rp>[</rp><rt>ǹg-bāng</rt><rp>]</rp></ruby>，<br>眠夢著雨水滴葉仔的聲音。</p><p>林內的葉仔，躺佇樹枝頂，<br>思想著夢鄉的飛鳥，<br>毋知<ruby><rb>𪜶</rb><rp>[</rp><rt>in</rt><rp>]</rp></ruby>明仔載欲飛去<ruby><rb>哪裡</rb><rp>[</rp><rt>ná-lí</rt><rp>]</rp></ruby>？</p><p>只有地球若干樂，<br>永永咧做<br>咧做一直踅轉的工課<br>不得止　獨獨暗光鳥替伊叫啼。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;（上新修改：2017-05-10）&lt;/p&gt;
+&lt;p&gt;天頂的月娘，勻勻行出來矣，&lt;br&gt;依倚著{rb|閃爍|siám-sih}的星仔，&lt;br&gt;金金看下跤溫柔的溪水。
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="分行散文或詩" scheme="http://yoxem.github.io/tags/%E5%88%86%E8%A1%8C%E6%95%A3%E6%96%87%E6%88%96%E8%A9%A9/"/>
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>夯頭看天，佇這片黃昏山坪</title>
+    <link href="http://yoxem.github.io/2017/03/28/gia5thau5kuann3thinn1/"/>
+    <id>http://yoxem.github.io/2017/03/28/gia5thau5kuann3thinn1/</id>
+    <published>2017-03-27T16:00:00.000Z</published>
+    <updated>2017-09-05T14:13:49.455Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（上新更新：2017-06-11）</strong></p><p><ruby><rb>歌曲</rb><rp>[</rp><rt>kua-khek</rt><rp>]</rp></ruby><ruby><rb>用</rb><rp>[</rp><rt>īng</rt><rp>]</rp></ruby><ruby><rb>北愛爾蘭</rb><rp>[</rp><rt>Pak Ireland</rt><rp>]</rp></ruby><ruby><rb>的</rb><rp>[</rp><rt>ê</rt><rp>]</rp></ruby> <em><a href="https://en.wikipedia.org/wiki/Derry_Air" target="_blank" rel="noopener">Derry Air</a></em>。</p><h2 id="漢字"><a href="#漢字" class="headerlink" title="漢字"></a>漢字</h2><p>夯頭看天，佇這片黃昏山坪，<br>我的心內，猶有彼个笑聲。<br>雙手溫暖，毋驚北風的畏寒，<br>情深甜意，帶著可愛形影。<br>無疑命運，結束以早的日子，<br>船一下開，煞永永無閣轉去。<br>珠淚袂離，也無法度再相見，<br>只有聲聲叫著這句：「我思念汝」。</p><h2 id="台羅"><a href="#台羅" class="headerlink" title="台羅"></a>台羅</h2><p>Giâ-thâu kuànn thinn, tī tsit phìnn hông-hun suann-phiânn,<br>Guá ê sim-lāi, iah ū hit-ê tshiò-siann.<br>Siang-tshiú un-luán, m̄-kiann pak-hong-<!-- -->-ê uì-kuânn,<br>Tsîng-tshim tinn-ì, tài-tio̍h khó-ài hîng-iánn.<br>Bô-gî miā-ūn, kiat-sok í-tsá-<!-- -->-ê ji̍t-tsí,<br>Tsûn tsi̍t-ē khui, suah íng-íng bô koh tńg-<!-- -->-khì.<br>Tsu-lūi buē-lî, iā bô-huat-tōo tsài sann-kìnn.<br>Tsí ū siann-siann kiò-tio̍h tsit kù: “Guá su-liām-<!-- -->-lí”.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;（上新更新：2017-06-11）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;ruby&gt;&lt;rb&gt;歌曲&lt;/rb&gt;&lt;rp&gt;[&lt;/rp&gt;&lt;rt&gt;kua-khek&lt;/rt&gt;&lt;rp&gt;]&lt;/rp&gt;&lt;/ruby&gt;&lt;ruby&gt;&lt;rb&gt;用&lt;/rb&gt;&lt;rp&gt;[&lt;/rp&gt;&lt;rt&gt;īng&lt;
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="分行散文或詩" scheme="http://yoxem.github.io/tags/%E5%88%86%E8%A1%8C%E6%95%A3%E6%96%87%E6%88%96%E8%A9%A9/"/>
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="歌詞" scheme="http://yoxem.github.io/tags/%E6%AD%8C%E8%A9%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>抒懷</title>
+    <link href="http://yoxem.github.io/2017/03/20/Su1huai5/"/>
+    <id>http://yoxem.github.io/2017/03/20/Su1huai5/</id>
+    <published>2017-03-19T16:00:00.000Z</published>
+    <updated>2017-06-11T11:02:48.606Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（最新更新：2017-06-11）</strong></p><p>春天已經到矣，只不過你仍覺得白天的風寒著氣管。<br><a id="more"></a><br>回首想了一想，三年前發生了太陽花的事件。就算似乎許多的事情改變了，中國和台灣的互動有改變。但又覺得：現在覺得上萬人的聚集好像沒有發生，《兩岸監督條例》還未通過、324 打人的警察仍然被封閉的官場文化包庇著、勞工與社會運動的能量已經被收束，似乎大家還是沒有覺醒，勞工的情勢又像冬天一樣。</p><p>你搖著頭，想著《作工的人》的書摘，那些默默為著生活，以至於似乎沒有閒暇意識集體爭取反抗，只是默默奉獻身體與賣出健康為著眼前的食宿的形影，不覺予你皺眉。</p><p>走著走著，突然一則新聞飄過你的眼簾：南韓政府為著中國對薩德裝設的反映又舉行幾回記者會了。南韓之前簽了中韓 FTA，但後來為了薩德飛彈裝在前樂天集團高爾夫球場的衝突，許多中國人抵制樂天，不少他們財團的被關店、學校舉行宣示反樂天零嘴。他們這國家真一致啊，只差沒集體抵制白樂天的〈琵琶行〉和〈長恨歌〉——國仇家恨又添一樁，萬一上萬學子背到精神不堪負荷怎麼辦呢？</p><p>只是在這一致之中，或許就像他們說的唯物辯證法的對立統一一樣，仍然保持著不一致性，就像簽下了「自由」的貿易協定，也注定要被「拘束」的國間態度所影響的。或許就這點來看，太陽花運動雖然沒有達成應有的成效，多的只是暴露出一些台灣社會樣貌的問題，但至少先見的反映出簽下去可能的後果，薩德或許是三週年給台灣的鑒鏡吧。</p><p>最近朝鮮的局勢，就像北邊金王朝激昂的個人崇拜音樂一樣，連中國也壓不下來或是不能壓下來，反正國際間的合縱連橫縱能測度，小老百姓也是無力回天的。最近美國一面打算增加軍費，一面川普又在推上說北韓玩美國很多年，中國使力有限。或許之後朝鮮半島會成為新的火藥庫也說不定？你忽然擔心起戰線外擴的問題了，但就算戰線未外擴，北韓的難民應該也是東亞多國很難應付的吧。台灣能不能學日本享有第二波的「朝鮮戰爭特需」也不知道，畢竟也離浪尖沒幾多遠。</p><p>想太遠了，回到你最近的生活吧。總覺得你工作這幾年來，讀書的頻度越來越少、學習動力大幅下降、創作文與圖的動力也是，縱使你幾乎沒有過著應酬的生活。是不是你最近心神的勞動上升，導致不想要在從事這些較高度精神活動的工作呢？哎呀，或許也只是蝮蝂啊！不自量力的背著過重的東西，技能樹意圖亂點一通，結果什麼都沒有得到，就像一次同時抓四隻兔一樣。</p><p>是不是得放棄掉難以達成的事物？畢竟時間在這種人命還是不值錢的時代可能越來越少，可是這種收藏以及有些自戀的性格或許你也放棄不掉。一度心動的東西變成重軛，就像含在嘴巴裡的糖久了也會麻痺、無味一般。</p><p>還是你心中一直有恐懼而不想達到你的目標，成為恐懼與安逸豢養的奴役？但這樣只會讓自己生出許多可笑的障礙，而無法達成目標。到最後自己和豢養的家畜也很想了，但你想要成為這種人嗎？雖然說很多凡人為這樣子。只是你會感到至少有一點悵然吧？你要如何呢，想前進嗎？還是割捨不必要的呢？還是任由時光的流飄盪？</p><p>說到時光的流，你也想和一個人作伴吧？只是個人的有個人的重擔，將自己的重擔給他人可能也會造成其困擾也說不定。至於情愛，或許對一個社交方面不擅長的我來說，還是算了吧。往好處想，可以避免情感而生的剝削，某方面也是好事，雖然想起來有點怪怪的。至於性這種東西，你想到牽涉到的剝削權力不對等，搖搖頭，只能當作沒看到這股波紋。</p><p>說到失意的感覺，你想到祖先的語言。不知道在這忘掉過去、只看眼前的現在中，還能保存多少？總是向望通保存一寡。就算對本土語言的保存，汝感覺悲觀，但是也只有向望毋好一時仔就滅無，嘛是向望逐个攏有春天。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（最新更新：2017-06-11）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;春天已經到矣，只不過你仍覺得白天的風寒著氣管。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
+    
+      <category term="生活" scheme="http://yoxem.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="論" scheme="http://yoxem.github.io/tags/%E8%AB%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>愛爾蘭語 (Gaeilge) ê 學習資源</title>
+    <link href="http://yoxem.github.io/2017/01/15/Gaeilgee5hak8sip8tsu1guan5/"/>
+    <id>http://yoxem.github.io/2017/01/15/Gaeilgee5hak8sip8tsu1guan5/</id>
+    <published>2017-01-14T16:00:00.000Z</published>
+    <updated>2017-02-01T18:37:23.099Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（上新更新佇：2017-02-02）</strong></p><p>雖然進前<ruby><rb>捌</rb><rp>[</rp><rt>bat</rt><rp>]</rp></ruby>學愛爾蘭語<ruby><rb>的</rb><rp>[</rp><rt>-<!-- -->-ê</rt><rp>]</rp></ruby>時，因難度傷過懸，宣告失敗，但猶是提供一寡所知的，學愛爾蘭語的資源予逐家參考。</p><p>因為愛爾蘭人真<ruby><rb>濟</rb><rp>[</rp><rt>tsē</rt><rp>]</rp></ruby>袂曉愛爾蘭語，改用英語，所以差不多所有的資源攏是英語的，請各位學習者注意。<a id="more"></a></p><h3>歷史</h3><br>愛爾蘭語（叫法有 Gaeilge, Gaolainn 等）是<ruby><rb>蓋爾</rb><rp>[</rp><rt>Gael</rt><rp>]</rp></ruby>語的一款，<ruby><rb>佮</rb><rp>[</rp><rt>kap</rt><rp>]</rp></ruby><ruby><rb>蘇格蘭</rb><rp>[</rp><rt>Scotland</rt><rp>]</rp></ruby>、<ruby><rb>曼島</rb><rp>[</rp><rt>Mann</rt><rp>]</rp></ruby>的蓋爾語攏是對中古愛爾蘭語發展過來的。中古愛爾蘭語演變的近古愛爾蘭語，到近代猶是愛爾蘭以及蘇格蘭蓋爾語書面語的標準（<ruby><rb>成</rb><rp>[</rp><rt>sîng</rt><rp>]</rp></ruby>日本話的文語形），閣較早的古愛爾蘭語，是 Britain 群島的一種主要言語。後來隨著英國的長期統治、殖民以及馬鈴薯飢荒，致到<ruby><rb>這</rb><rp>[</rp><rt>tsit</rt><rp>]</rp></ruby>言語的<ruby><rb>衰退</rb><rp>[</rp><rt>sue-thuè</rt><rp>]</rp></ruby>。<br><br>就算愛爾蘭語使用的人額遠遠較少英語的用者，毋過佇官方猶是得到一定的使用，也有一寡團體推<ruby><rb>捒</rb><rp>[</rp><rt>sak</rt><rp>]</rp></ruby>伊的使用。愛爾蘭也有濟濟地名是對愛爾蘭語借過來的。<br><ul><li><a href="http://zh.wikipedia.org/wiki/愛爾蘭語" target="_blank" rel="noopener">愛爾蘭語佇<ruby><rb>華語</rb><rp>[</rp><rt>Mandarin</rt><rp>]</rp></ruby> Wikipedia 的介紹</a></li><li><a href="http://en.wikipedia.org/wiki/History_of_the_Irish_language" target="_blank" rel="noopener">英語 Wikipedia 的文章：History of Irish Language</a></li><li><a href="https://1988.lakoo.com/%E6%AD%B7%E5%8F%B2%E8%AA%B2-%E8%A2%AB%E5%B0%8F%E5%AD%B8%E6%95%99%E8%82%B2%E6%BB%85%E4%BA%A1%E7%9A%84%E6%84%9B%E7%88%BE%E8%98%AD%E8%AA%9E/" target="_blank" rel="noopener">[歷史課] 被小學教育滅亡的愛爾蘭語 by 鄭立 @光輝歲月 - 天大日報</a></li></ul><br>小弟也佇遮獻相關文章：<ul><li><a href="https://www.ptt.cc/bbs/TW-language/M.1440775917.A.1B9.html" target="_blank" rel="noopener">[他山] 愛爾蘭語衰弱史（Re.客家小孩不懂客語 老一輩感傷） by Yoxem @ptt.cc - TW-Language <ruby><rb>枋</rb><rp>[</rp><rt>pang</rt><rp>]</rp></ruby>（原 po 對八卦枋）</a></li></ul><br><h3>教學網站、電子冊</h3><p>有一寡愛爾蘭語的教學冊，如筆者捌聽過的 <em>Teach Yourself Irish</em> 系列（McGraw-Hill 出版，以芒斯特方言為基本，干涉方言差別以後會講著），但是對東亞的人來講，較方便的學習方法是教學網站，比論 <a href="https://duolingo.com" target="_blank" rel="noopener">Duolingo.com</a> 提供英語用者學愛爾蘭語的課程。是講愛注意的是，有些句子或字詞的發音可能有<ruby><rb>重耽</rb><rp>[</rp><rt>tîng-tânn</rt><rp>]</rp></ruby>，文法也有可能有錯誤，建議看逐題的討論頁了解資訊。也需要利用愛爾蘭語發音的資料庫、字典，甚至是拼寫法，來揣著發音抑是大概的發音方法。</p><p>1961 年 Hodder &amp; Stoughton 出版社出的 <em>Teach Yourself Irish</em>（Myles Dillon 佮 Donncha Ó Cróinín 著）嘛有 PDF 版，也附錄音檔的幾个 zip 檔（<a href="https://archive.org/details/TeachYourselfIrish" target="_blank" rel="noopener">下載處</a>），原則上教 Munster 的方言（至少佇發音）。</p><h3>辭典</h3><ul><li><a href="http://www.teanglann.ie/en" target="_blank" rel="noopener">Teanglann.ie</a> - 有 Foclóir Gaeilge–Béarla （Ó Dónaill，1977 年，愛英辭典）、English–Irish Dictionary（de Bhaldraithe，1959 年，英愛辭典）、An Foclóir Beag（Ó Dónaill 佮 Ua Maoileoin，1991年，愛爾蘭語小辭典）三本辭典的線頂版，也有文法資料庫、發音資料庫。</li><li><a href="http://focloir.ie" target="_blank" rel="noopener">New English-Irish Dictionary</a> - 愛英辭典，有較新的詞，有的有聲音檔，嘛有智慧型手機仔的 app 版。</li><li><a href="http://tearma.ie" target="_blank" rel="noopener">Téarma.ie</a> - 愛英、英愛術語辭典，佇辭典揣無的詞通佇遮揣。</li><li><a href="https://en.wikitionary.org" target="_blank" rel="noopener">英語 Wiktionary</a> - 有動詞變化表、有的詞目有語源、音標。</li><li><em>Foclóir Scoile</em> - ISBN 9781857911213 - 英愛、愛英雙解（較細本），有核心方言（下跤介紹）的發音方法，雖然可能佮所有的自然方言發音無合，但是通用來參考康諾特方言（？）的重音發音方法。</li><li>An Irish-English Dictionary（Patrick S. Dinneen，1904年，第一版，<a href="https://archive.org/details/irishenglishdict011837mbp" target="_blank" rel="noopener">蓋爾字體原版</a>、<a href="http://www.ucc.ie/celt/Dinneen1sted.html" target="_blank" rel="noopener">羅馬字體化版的下載網頁</a>）：這包括真濟愛爾蘭語的詞，包含方言用語等。蓋爾字體是古早時常用的字體，毋過現在以羅馬字體為標準。一部份的字，拼法也是古早時的，佮現此時的無仝。</li></ul><h3>語音、方言</h3><p>佮真濟自然語言<ruby><rb>仝款</rb><rp>[</rp><rt>kâng-khuán</rt><rp>]</rp></ruby>，愛爾蘭語有袂少方言。就算有書寫的官方標準，發音腔口到<ruby><rb>今</rb><rp>[</rp><rt>tann</rt><rp>]</rp></ruby>無統一。雖然有人推出腔口相濫的<ruby><rb>核心</rb><rp>[</rp><rt>hi̍k-sim</rt><rp>]</rp></ruby>方言 (Lárchanúint)，只是毋是標準，一寡發音規則簡化傷過頭，予一寡詞發音無自然。</p><p><ruby><rb>這馬</rb><rp>[</rp><rt>tsit-má</rt><rp>]</rp></ruby>愛爾蘭語有三款活咧的自然方言，若以下的圖所介紹（可能猶有其他方言，若有問題請先進指點）。個人建議先學康諾特的語音佮書面語標準的語法較好，Duolingo 應該也教<ruby><rb>這</rb><rp>[</rp><rt>tsit</rt><rp>]</rp></ruby>款發音。</p><div style="overflow-x:auto; overflow-y: auto"><script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_CHTML">MathJax.Hub.Config({CommonHTML: {scale: 70},});</script><math xmlns="http://www.w3.org/1998/Math/MathML"><mtable class="m-equation" displaystyle="true" style="display: block;"><mtr><mtd><mspace width="6.0em"></mspace></mtd><mtd columnalign="left"><mtext>愛爾蘭語 Gaeilge</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>自然方言</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>倫斯特方言 (Leinster Irish)</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>東部</mtext></mtd></mtr><mtr><mtd><mtext>已滅無</mtext></mtd></mtr><mtr><mtd><mtext>次方言：（自然）都柏林方言等</mtext></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr><mtr><mtd><mtext>芒斯特方言 (Munster Irish)</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>南部</mtext></mtd></mtr><mtr><mtd><mtext>使用人數上少，保存真濟古語特色</mtext></mtd></mtr><mtr><mtd><mtext>次方言</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>科克 (Cork) 腔</mtext></mtd></mtr><mtr><mtd><mtext>Kerry 腔</mtext></mtd></mtr><mtr><mtd><mtext>等</mtext></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr><mtr><mtd><mtext>康諾特方言 (Connacht Irish)</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>西部，南北方言的過渡</mtext></mtd></mtr><mtr><mtd><mtext>使用人數上多</mtext></mtd></mtr><mtr><mtd><mtext>接近核心方言</mtext></mtd></mtr><mtr><mtd><mtext>次方言</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>阿倫群島 (Aran Islands)腔</mtext></mtd></mtr><mtr><mtd><mtext>康尼馬拉 (Connemara)腔</mtext></mtd></mtr><mtr><mtd><mtext>梅奧 (Mayo)腔</mtext></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr><mtr><mtd><mtext>阿爾斯特方言 (Ulster Irish)</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>北部</mtext></mtd></mtr><mtr><mtd><mtext>接近蘇格蘭蓋爾語 (Gàidhlig)、曼島語 (Gaelg)</mtext></mtd></mtr><mtr><mtd><mtext>次方言</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>西部阿爾斯特方言：Dongeal 郡猶保存</mtext></mtd></mtr><mtr><mtd><mtext>東部阿爾斯特方言：北愛爾蘭，已滅無</mtext></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr><mtr><mtd><mtext>第二語言方言、人工方言</mtext><mrow><mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo><mtable class="m-cases" columnalign="left"><mtr><mtd><mtext>書面語標準(An Caighdeán Oifigiúil)</mtext></mtd></mtr><mtr><mtd><mtext>核心方言（人工口語腔口）(Lárchanúint)</mtext></mtd></mtr><mtr><mtd><mtext>愛爾蘭語學校方言 (Gaelscoilish Irish)、都柏林愛爾蘭語 (Dublin Irish)、監獄愛爾蘭語 (Gaoltacht Irish)</mtext></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr></mtable><mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix"></mphantom></mrow></mtd></mtr></mtable></math><!-- end MathToWeb --><br></div><p>除了辭典以外，以下共一寡語音的資料庫、拼寫參考資料列出來：<br>代先列的是：</p><ul><li><a href="http://en.wikipedia.org/wiki/Help:IPA_for_Irish" target="_blank" rel="noopener">Help:IPA for Irish - 英語 Wikipedia</a></li></ul><p>因為愛爾蘭語子音非常濟，拼寫規則複雜，需要用國際音標 (IPA) 幫贊發音的學習，建議愛看。</p><p>一般來講，愛爾蘭語子音分作闊子音（<ruby><rb>軟顎</rb><rp>[</rp><rt>nńg-go̍k</rt><rp>]</rp></ruby>化，<sup><a id="fnr.1" class="footref" href="#fn.1" name="fnr.1">1</a></sup>velarized）佮隘子音（顎化，palatalization），發音的時陣愛注意差別。闊音佇 IPA 無標抑是用「ˠ」表示；隘音一般用「ʲ」表示。母音有中央元音（用佇輕音）/ǝ/，五个相對的長短母音（闊母音：a, o, u；隘母音：e, i 佮 á, ó, ú; é, í），四个雙母音。</p><ul><li><a href="https://en.wikipedia.org/wiki/Irish_orthography" target="_blank" rel="noopener">Irish Orthography - 英語 Wikipedia</a> - 除了愛爾蘭文的正字法，內底有講著康諾特方言的發音規則，毋過傷複雜的（比論 ei, oi）抑是佮文法有關的發音變化，暫時通毋免背，除非日後有需要。</li><li><a href="https://zh.wikipedia.org/wiki/%E7%88%B1%E5%B0%94%E5%85%B0%E8%AF%AD%E9%9F%B3%E7%B3%BB" target="_blank" rel="noopener">愛爾蘭語音系 - 華語 Wikipedia</a> - 會曉語言學的通參考。</li></ul><p>除了辭典有的有音標以外，以下是我所知影的發音資料庫：</p><ul><li><a href="http://www.teanglann.ie/en/fuaim/" target="_blank" rel="noopener">Teanglann.ie 的發音資料庫</a></li><li><a href="http://fuaimeanna.ie/en/Recordings.aspx" target="_blank" rel="noopener">Fuaimeanna na Gaeilge</a> - <em>Fuaimeanna na Gaeilge</em> （愛爾蘭語之音，Brian Ó Raghallaigh 著，2014，ISBN 9781907494543）的輔助網站，列出一寡單字的發音檔佮音標。</li><li><a href="https://forvo.com/" target="_blank" rel="noopener">Forvo.com</a> - 共同寫的各地發音辭典，因為是共寫的，發音好<ruby><rb>䆀</rb><rp>[</rp><rt>bái</rt><rp>]</rp></ruby>攏有，無真建議使用。</li></ul><p>上後列出文字轉語音 (TTS) 的系統：</p><ul><li><a href="http://www.abair.tcd.ie/?page=synthesis&amp;lang=eng" target="_blank" rel="noopener">Abair.ie</a> - 有三種腔口的發音。</li></ul><h3>文法</h3><p>愛爾蘭各地的方言除了有語詞、語音的差別，也有方言的差異。為著方便使用者學習等，官方自頂世紀起推出書面語標準 (<em>An Caighdeán Oifigiúil</em>)。此外，以前<ruby><rb>捷捷</rb><rp>[</rp><rt>tsia̍p-tsia̍p</rt><rp>]</rp></ruby>用的蓋爾字體也無使用，改用其他國家用的羅馬體，一寡詞的拼寫也有簡略。</p><ul><li><a href="http://www.oireachtas.ie/parliament/media/translators/An-Caighde%C3%A1n-Oifigi%C3%BAil_2016.pdf" target="_blank" rel="noopener">An Caighdeán Oifigiúil (i 2016)</a>（愛爾蘭語，2016年，官方標準）</li><li><a href="https://en.wikisource.org/wiki/Index:Graimear_na_Gaedhilge.djvu" target="_blank" rel="noopener">Graiméar na Gaedhilge</a>（英文，1914 年出的，內容較反映現代愛爾蘭語以早的文語特色。一寡拼字以及文法佮官方標準無仝）。</li><li><em>New Irish Grammar</em> ISBN 9780714412986（英文，2014 年，採用彼時的官方標準）<br>有關字母，不才以早寫過：</li><li><a href="http://yoxem.github.io/2016/06/27/gaeilge-ji7bo2md/">愛爾蘭語字母 (Aibítir na Gaeilge) 淺說</a></li></ul><p>檢查文法的軟體嘛有：</p><ul><li><p><a href="https://borel.slu.edu/gramadoir/" target="_blank" rel="noopener">An Gramadóir</a>（<a href="https://borel.slu.edu/gramadoir/form.html" target="_blank" rel="noopener">線頂 demo</a>）</p><h3>論壇</h3></li><li><p><a href="https://www.reddit.com/r/gaeilge" target="_blank" rel="noopener">Reddit 的 Gaeilge 枋</a></p></li><li><a href="http://www.daltai.com/discus/messages/board-topics.html" target="_blank" rel="noopener">The Daltaí Discussion Forums</a> - Daltaí 是濟位學生的意思</li><li><a href="https://twitter.com/hashtag/Gaeilge?src=hash" target="_blank" rel="noopener">Twitter 的 Gaeilge Hashtag</a></li><li><a href="http://www.irishgaelictranslator.com/translation/" target="_blank" rel="noopener">Irish Gaelic Translation Forum - IrishGaelicTranslator.com</a></li></ul><h3>媒體、百科</h3><ul><li><a href="http://www.tg4.ie/" target="_blank" rel="noopener">TG4</a> - 第四愛爾蘭語電視台 (Teilifís na Gaeilge Ceathair)</li><li><a href="http://www.rte.ie/rnag/" target="_blank" rel="noopener">RTÉ Raidió na Gaeltachta</a> - 愛爾蘭語地區電台（RnaG，主要由母語使用者放送）</li><li><a href="http://www.raidionalife.ie/" target="_blank" rel="noopener">Raidió na Life</a> - Liffey 河電台（主要由都柏林地區的第二言語使用者放送）</li><li><a href="http://tuairisc.ie/" target="_blank" rel="noopener">Tuairisc.ie</a> - 線頂報紙</li><li><a href="http://nos.ie/" target="_blank" rel="noopener">NÓS</a> - 線頂雜誌</li><li><a href="http://ga.wikipedia.org" target="_blank" rel="noopener">愛爾蘭語 Wikipedia</a><br>等</li></ul><h3>線頂冊店</h3><ul><li><a href="http://www.litriocht.ie" target="_blank" rel="noopener">www.litriocht.ie</a> - 有買過，台灣通用信用卡買</li><li><a href="http://www.siopa.ie" target="_blank" rel="noopener">www.siopa.ie</a><br>等</li></ul><div id="footnotes"><h3 class="footnotes">註腳</h3><div id="text-footnotes"><div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> 顎，指喙內裡的<ruby><rb>頂𦜆</rb><rp>[</rp><rt>tíng-ham</rt><rp>]</rp></ruby>，就是<ruby><rb>上腔</rb><rp>[</rp><rt>tsiūnn-kiunn</rt><rp>]</rp></ruby>，倚喙唇佮正頂面的部份叫<ruby><rb>硬顎</rb><rp>[</rp><rt>ngē-go̍k</rt><rp>]</rp></ruby>，倚嚨喉的叫軟顎。</div></div></div>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（上新更新佇：2017-02-02）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;雖然進前{rb|捌|bat}學愛爾蘭語{rb|的|-&lt;!-- --&gt;-ê}時，因難度傷過懸，宣告失敗，但猶是提供一寡所知的，學愛爾蘭語的資源予逐家參考。&lt;/p&gt;
+&lt;p&gt;因為愛爾蘭人真{rb|濟|tsē}袂曉愛爾蘭語，改用英語，所以差不多所有的資源攏是英語的，請各位學習者注意。
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="愛爾蘭語" scheme="http://yoxem.github.io/tags/%E6%84%9B%E7%88%BE%E8%98%AD%E8%AA%9E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我和汝一直走</title>
+    <link href="http://yoxem.github.io/2017/01/02/gua2kap4li2it4tit8kiann5/"/>
+    <id>http://yoxem.github.io/2017/01/02/gua2kap4li2it4tit8kiann5/</id>
+    <published>2017-01-01T16:00:00.000Z</published>
+    <updated>2017-05-07T15:02:35.510Z</updated>
+    
+    <content type="html"><![CDATA[<p>千萬大廈組合成沙漠<br>眼前卻是秩序宰制<br>孤兒、眼淚、牲畜、齒輪<br>他們全無所有　除了鎖鏈</p><p>突然　有位戰士走出來<br>赤著腳　只帶著一把刀<a id="more"></a></p><p>走吧！<br>就算腳下只有砂礫<br>就算只有心臟跳動陪伴<br>就算鴿子不從橄欖送葉子<br>就算眼前連白布也沒人準備</p><p>我向其俯伏致敬<br>但他回贈我微笑和不懼</p><p>「一起走吧！」<br>撿著石子從路邊做武器<br>共同延續著那個命運<br>槍砲聲下也不驚慌</p><p>只是更昂首前進<br>直到另一端<br>綠洲存在著</p><hr><p>註：自阿拉伯語歌曲《我直挺行走》(منتصب القامة امشي) 和《我呼喚您》(أناديكم) 有感。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;千萬大廈組合成沙漠&lt;br&gt;眼前卻是秩序宰制&lt;br&gt;孤兒、眼淚、牲畜、齒輪&lt;br&gt;他們全無所有　除了鎖鏈&lt;/p&gt;
+&lt;p&gt;突然　有位戰士走出來&lt;br&gt;赤著腳　只帶著一把刀
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="分行散文或詩" scheme="http://yoxem.github.io/tags/%E5%88%86%E8%A1%8C%E6%95%A3%E6%96%87%E6%88%96%E8%A9%A9/"/>
+    
+  </entry>
+  
+</feed>

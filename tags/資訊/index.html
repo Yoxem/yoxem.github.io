@@ -1,0 +1,593 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>資訊 | 北郊獨語 - Yoxem&#39;s Blog</title>
+  <meta name="author" content="Yoxem Chen">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="北郊獨語 - Yoxem&#39;s Blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="北郊獨語 - Yoxem&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<meta name="google-site-verification" content="3t0bNOKnnsVyNpsfuM7Vi6gf-6tY_MUeOpXmJzDZ_P8" /> <!-- google search opt.-->
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">北郊獨語 - Yoxem&#39;s Blog</a></h1>
+  <h2 class="subtitle">溪埔的石仔、山嶺的果樹之間，version 3.0</h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home 首頁</a></li>
+    
+      <li><a href="/archives">Archives 彙整</a></li>
+    
+      <li><a href="/about.html">About 關於</a></li>
+    
+      <li><a href="/blogroll.html">Blogroll 聯播</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="http://yoxemblog.wordpress.com">Old Articles 舊文章</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">資訊</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-07-28T16:00:00.000Z"><a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">2018-07-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（上尾更新 tī：2018-08-30）</strong></p>
+<p>佇電腦程式中，通常愛算一个<ruby><rb>運算式</rb><rp>[</rp><rt>ūn-suàn-sik</rt><rp>]</rp></ruby> ê 結果，會 kā 逐个部份照算 ê <ruby><rb>次序</rb><rp>[</rp><rt>tshù-sī</rt><rp>]</rp></ruby>一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講：</p>
+<figure class="highlight scheme"><table><tr><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">*</span></span> <span class="number">2</span> (<span class="name"><span class="builtin-name">+</span></span> <span class="number">3</span> (<span class="name"><span class="builtin-name">/</span></span> <span class="number">5</span> <span class="number">2</span>)))</span><br></pre></td></tr></table></figure><sup><a id="fnr.1" class="footref" href="#fn.1" name="fnr.1">1</a></sup><br><br>Strict evaluation ê 作法，會代先共 <code>(/ 5 2)</code> 算出來，得著 2.5，了後 kā 這个結果<ruby><rb>下</rb><rp>[</rp><rt>hē</rt><rp>]</rp></ruby>甲 <code>(+ 3 ?)</code> ê ?，了後共 <code>(+ 3 (/ 5 2))</code> 下佇 <code>(* 2 ?)</code> ê ?，一改 tiō 知結果，<ruby><rb>見若</rb><rp>[</rp><rt>kìnn-nā</rt><rp>]</rp></ruby>有愛算 ê 所在，攏 buē-tàng 暫時 mài 算。<br><br>但是，有時仔咱無愛共運算的結果做一改執行，tio̍h 共一部份先放佇邊仔，需要 ê 時遮執行，按呢叫做「貧惰計算」（延遲計算，lazy evaluation）。<br><br>Tī 介紹貧惰計算使用 ê 所在，咱代先看 Scheme ê 有關語法。通常 Scheme ê 逐个函數，kap Haskell 無仝，攏是嚴格計算 ê。Beh 予計算式「貧惰」，著用 <code>(delay <em>計算式</em>)</code>，按呢 tiō 會產出 promise（欲算 ê 物件）。kàu 欲算 promise ê 時陣著用 <code>(force <em>promise</em>)</code>。以下是舉例，所有 ê 例攏佇 Racket ê Scheme R5RS 環境執行：<br><br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; (define a(delay (+ 2 1))) ; Tī 終端機輸入，kā (+ 2 1) ê promise 下佇 a</span><br><span class="line">&gt; a</span><br><span class="line">&lt;em&gt;#&lt;promise&gt;&lt;/em&gt; ; a 是 promise</span><br><span class="line">&gt; (force a)</span><br><span class="line"><span class="number">3</span> <span class="comment">; 逼 a 算出來，得著 3</span></span><br></pre></td></tr></table></figure>
+<p>咱無法度共 promise kap 數值用 +、-、*、/ 直接算。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; (+ (- 12 6) (delay (+ 2 1)))</span><br><span class="line">+: contract violation</span><br><span class="line">  expected: number?</span><br><span class="line">  given: #&lt;promise&gt;</span><br><span class="line">  argument position: 2nd</span><br><span class="line">  other arguments.: ; 現出錯誤</span><br></pre></td></tr></table></figure>
+<p><strong>（猶未煞）</strong></p>
+<div id="footnotes"><h3 class="footnotes">註腳</h3><div id="text-footnotes"><div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> 這是 Scheme ê 寫法，共<ruby><rb>算數</rb><rp>[</rp><rt>suàn-sòo</rt><rp>]</rp></ruby>符號抑是函數 ê 名 khǹg 頭前，一般是 <code>2 * (3 + 5 / 4)</code></div></div></div>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-03-04T12:35:27.000Z"><a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">2018-03-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（上尾更新佇：2018-03-05）</strong></p>
+<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p><a href="http://sile-typesetter.org/" target="_blank" rel="noopener">SILE</a> (Simon’s Improved Layout Engine) 是一款佮 LaTeX 相𫝛的排版軟體。TeX {rb|engine|ia̋n-jín} 已經開發幾十年矣，就算後來有較濟的版本，嘛攏是佇伊的面頂抑是用別款語言改寫伊的。毋過開發真久，Tex 系的語言有一寡歷史致到的問題，嘛有各囝系統之間無相通的情況。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-23T22:32:15.000Z"><a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">2018-01-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（上尾更新佇：2018-02-04）</strong><br>佇 Scheme 中，{rb|巨集|kū-tsi̍p} (macro) 的使用是一个特點，巨集佮函數真成，毋過會當處理 syntax （{rb|句法|kù-hoat}）做輸入的 argumemt（{rb|引數|ín-sòo}）。巨集的定義干涉著 syntax。佇伊的囝語言 Racket 中閣有 syntax-case 等語法，提來定義 syntax 用的。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-04T16:00:00.000Z"><a href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">2018-01-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>閩南語維基百科使用<a href="http://zh.wikipedia.org/wiki/白話字" target="_blank" rel="noopener">白話字</a>，這套歷史悠久，且又派生教育部目前拼寫台灣閩南語（下稱台語）的標準——台羅的拉丁化（拼音）方案，為主要書寫系統。固然可以閃避掉用字共識不高、罕用字難知發音、字音有時還需要拼音標注、本字考據問題以及外來語不易用漢字統一標記的，台語和漢字的種種糾葛，但因為台灣甚至中國一帶的人受到漢字教育已久，對於白話字（台羅）需要另外學習會降低使用意願，使得經常使用的人數不太多。這或許也可以反應閩南語維基百科雖然在漢藏語系中條目數第二多，但是經常編輯者與編輯頻率遠少於華語維基百科的現況。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-06-29T16:00:00.000Z"><a href="/2017/06/30/eng7tortsiunn7ptt/">2017-06-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><em>本文參考 <a href="https://askubuntu.com/questions/85766/how-to-use-ssh-with-tor" target="_blank" rel="noopener">How to use SSH with Tor? - Ask Ubuntu</a></em></p>
+<p>若是{rb|汝|lí}{rb|欲|beh}{rb|藏|tshàng}家己{rb|的|-<!-- -->-ê} IP {rb|佇|tī} ptt {rb|這个|tsit-ê} BBS，通使用 tor。佇 Linux 的虛終端機，通用以下指令：
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2017/06/30/eng7tortsiunn7ptt/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-05-19T16:00:00.000Z"><a href="/2014/05/20/rubyjs---讓-hexo-更方便輸入旁註標記/">2014-05-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/05/20/rubyjs---讓-hexo-更方便輸入旁註標記/">ruby.js - 讓 Hexo 更方便輸入旁註標記 &lt;ruby&gt;</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（最近更新：2014-08-12）</strong></p>
+<h2 id="緣起"><a href="#緣起" class="headerlink" title="緣起"></a>緣起</h2><p>對於使用漢字的語言，因為漢字並無法完美的表達發音，有些時候需要加拼注音（旁註標記，日語稱為ルビ）在字詞上或右方，以方便讀者閱讀或知道字音。由於日本漢字詞一字（詞）多音的情況挺複雜，因此有些日本小說有時會在一些字詞標音（如青空文庫<a href="http://www.aozora.gr.jp/cards/000035/files/301_14912.html" target="_blank" rel="noopener">太宰治《人間失格》</a>）。HTML 中可使用 &lt;ruby&gt;、&lt;rb&gt;、&lt;rp&gt;、&lt;rt&gt; 等標籤，來支援加注音的效果，雖然有些瀏覽器如  Firefox 預設不支援。<br>現在 Holo 話（閩南語）或是客語的書寫體系有三大種：全漢字、全羅馬拼音、和漢拼混合（漢羅）。鑑於排版的整齊以及 Holo 話用字不一、形音對應複雜的現況，個人目前比較喜歡使用全漢為主、羅馬字為輔，但仿效日本的作品，加上大量旁註標記以表達生難字、多音詞等等的發音或意思。然而 &lt;ruby&gt; 的標籤插入複雜，光是輸入「{rb|中區|Tiong-khu}」就得插入「<span style="font-family: monospace;">&lt;ruby&gt;&lt;rb&gt;中區&lt;/rb&gt;&lt;rp&gt;[&lt;/rp&gt;&lt;rt&gt;Tiong-khu&lt;/rt&gt;&lt;rp&gt;]&lt;/rp&gt;&lt;/ruby&gt;</span>」，key in 標籤就要打 20 個左右的字母，容筆者說難聽的，code {rb|花貓貓|hue-niau-niau}，光讀就夭壽煩，日後編改更加予人起{rb|痟|siáu}。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2014/05/20/rubyjs---讓-hexo-更方便輸入旁註標記/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2011-07-19T13:55:21.000Z"><a href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">2011-07-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">解決 cx_Freeze 做出的 .exe 檔無法在中文路徑下執行的問題</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>最近因為協助 <a href="http://code.google.com/p/lonote" target="_blank" rel="noopener">Lonote</a> 筆記軟體在 Windows 下的打包工作中，因為 Py2exe 至今對這軟體使用的 Python3 不支援，所以採用 <a href="http://cx-freeze.sourceforge.net/" target="_blank" rel="noopener">cx_Freeze</a> 將用 Python3 寫成的程式和相依的函式庫綁在同一個資料夾中，以方便廣大沒有安裝 Python3 和 PyQt4 的 Windows 用者使用。</p>
+<p>但對於中文使用者來說， cx_Freeze 有相當嚴重的缺點，那就是在 setup.py 中，若 cx_Freeze.Executable 之 Base = ‘Win32GUI’（該參數的值為 ‘Win32GUI’ 時），做出來的視窗程式 .exe 檔無法在含有中文名稱的路徑下執行。若嘗試執行，則會跳出 “cannot get zipimporter instance” 的警告視窗。目前的正式版本 4.2.3 仍舊會出現這個錯誤。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2010-06-22T16:00:22.000Z"><a href="/2010/06/23/談自力解決之兩三/">2010-06-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2010/06/23/談自力解決之兩三/">談自力解決之兩三</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><em>此為 2010-11 間之文章。</em></p>
+<p><em>2014-02-23 註：修改註腳等微幅調整</em></p>
+<p>縱觀歷史，當遭遇資源不足的窘境時，幾乎所有的人必奮力而出，或摸索前趨、師法前人地找出對應的解決方案。當一地的田產不足供給眾多的人口時，許多人不畏艱辛、遠赴他鄉，找尋生存的一線曙光；當治安敗壞時，鄉人或集結起來，拜師練拳，捍衛自己的田園。此等例子太多太多，若是一一盡寫，恐怕幾本書都不夠寫了。且容筆者將生活中較為熟悉的幾個案例列敘出來，並發表管中之見，或從管中發出幾響砲聲。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2010/06/23/談自力解決之兩三/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- the license of the file is under cc by-sa 3.0 by RobG and Yoxem et al.-->
+<div class="search">
+
+  <form name="search_form" action="//google.com/search" method="get" accept-charset="utf-8" class="search-form" onsubmit="search_form.q.value = search_form.hq.value + search_form.q.value "><!-- the source code in the line is modified from RobG's under CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/) -->
+    <input type="search" name="hq" results="0" value="" placeholder="Search" class="search-form-input">
+	<!-- custom add the url of yoxem's old blog -->
+<input name="q" type="hidden" value=" site:yoxem.github.io OR site:yoxemblog.wordpress.com">
+
+
+
+ </form>
+</div>
+ 
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Blog/">Blog</a><small>65</small></li>
+  
+    <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
+  
+    <li><a href="/categories/家私-tools/">家私 (tools)</a><small>1</small></li>
+  
+    <li><a href="/categories/網誌/">網誌</a><small>0</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a>
+      </li>
+    
+      <li>
+        <a href="/2018/06/25/bo5tiann7e5tsong7thai7/">不確定的狀態</a>
+      </li>
+    
+      <li>
+        <a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/Esperanto/" style="font-size: 11.11px;">Esperanto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 16.67px;">Holo話</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R-18/" style="font-size: 12.22px;">R-18</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 11.11px;">Scheme</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18.89px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.33px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18.89px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11.11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 11.11px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 14.44px;">生活</a> <a href="/tags/論/" style="font-size: 17.78px;">論</a> <a href="/tags/資訊/" style="font-size: 15.56px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.67px;">隨筆</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">相關連結</h3>
+<ul class="entry">
+<!--
+<li><strong><a href="http://yoxemblog.wordpress.com">
+舊 blog、舊文章 (於 Wordpress.com)</a></strong></li>
+-->
+<li><a href="http://plurk.com/yoxem">
+Plurk</a></li>
+<li><a href="https://www.flickr.com/photos/yoxem/sets/">
+Flickr 相簿</a></li>
+<li><a href="https://picasaweb.google.com/116676458256136125537?noredirect=1">
+Picasa 相簿（舊）</a></li>
+<li><em><a href="http://yoxem.github.io/pages/index.html">
+其他 (Yoxem's Homepage)……</a></em></li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">最近迴響</h3>
+<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2018 Yoxem Chen
+  <br/>除非特殊說明本文作者均為 Yoxem Chen，其所作除非特殊指定外，均使用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.zh_TW">CC BY-NC-SA 2.5 台灣授權</a>。<br/>
+
+Except being noticed, the articles is written by Yoxem Chen and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.en">CC BY-NC-SA 2.5 Taiwan Version</a>.<br/>
+
+Powered by <a href="http://hexo.io/index.html">Hexo</a>.
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'yoxem';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

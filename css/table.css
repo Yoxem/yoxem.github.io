@@ -1,0 +1,18 @@
+#css_table {
+  display: table;
+  border-collapse: collapse;
+}
+.css_tr {
+    display: table-row;
+}
+.css_td {
+    display: table-cell;
+    border-top: 0.5px solid #AAA;
+    border-bottom: 0.5px solid #AAA;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.css_head{
+	display: table-caption;
+}
