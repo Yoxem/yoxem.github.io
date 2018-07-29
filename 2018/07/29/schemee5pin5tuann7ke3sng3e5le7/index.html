@@ -7,7 +7,7 @@
   <meta name="author" content="Yoxem Chen">
   
   <meta name="description" content="（上尾更新 tī：2018-07-30）
-佇電腦程式中，通常愛算一个運算式[ūn-suàn-sik] ê 結果，會 kā 逐个部份照算 ê 次序[tshù-sī]一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講">
+佇電腦程式中，通常愛算一个{rb|運算式|ūn-suàn-sik} ê 結果，會 kā 逐个部份照算 ê {rb|次序|tshù-sī}一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講：">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -83,7 +83,7 @@
     <div class="entry">
       
         <p><strong>（上尾更新 tī：2018-07-30）</strong></p>
-<p>佇電腦程式中，通常愛算一个<ruby><rb>運算式</rb><rp>[</rp><rt>ūn-suàn-sik</rt><rp>]</rp></ruby> ê 結果，會 kā 逐个部份照算 ê <ruby><rb>次序</rb><rp>[</rp><rt>tshù-sī</rt><rp>]</rp></ruby>一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講：</p>
+<p>佇電腦程式中，通常愛算一个<ruby><rb>運算式</rb><rp>[</rp><rt>ūn-suàn-sik</rt><rp>]</rp></ruby> ê 結果，會 kā 逐个部份照算 ê <ruby><rb>次序</rb><rp>[</rp><rt>tshù-sī</rt><rp>]</rp></ruby>一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講：<a id="more"></a></p>
 <figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">(<span class="name">*</span> <span class="number">2</span> (<span class="name">+</span> <span class="number">3</span> (<span class="name">/</span> <span class="number">5</span> <span class="number">2</span>)))</span><br></pre></td></tr></table></figure>
 <p><sup><a id="fnr.1" class="footref" href="#fn.1" name="fnr.1">1</a></sup><br>Strict evaluation ê 作法，會代先共 <code>(/ 5 2)</code> 算出來，得著 2.5，了後 kā 這个結果<ruby><rb>下</rb><rp>[</rp><rt>hē</rt><rp>]</rp></ruby> kah <code>(+ 3 ?)</code> ê <code>?</code>，了後共 <code>(+ 3 (/ 5 2))</code> 下佇 <code>(* 2 ?)</code> ê ?，一改 tiō 知結果，<ruby><rb>見若</rb><rp>[</rp><rt>kìnn-nā</rt><rp>]</rp></ruby>有愛算 ê 所在，攏 buē-tàng 暫時 mài 算。</p>
 <p>但是，有時仔咱無愛共運算的結果做一改執行，tio̍h 共一部份先放佇邊仔，需要 ê 時遮執行，按呢叫做「貧惰計算」（延遲計算，lazy evaluation）。</p>
