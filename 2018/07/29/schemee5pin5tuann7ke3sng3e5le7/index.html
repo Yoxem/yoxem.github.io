@@ -6,7 +6,7 @@
   <title>Scheme ê 延遲計算 (lazy evaluation) ê 例 | 北郊獨語 - Yoxem&#39;s Blog</title>
   <meta name="author" content="Yoxem Chen">
   
-  <meta name="description" content="（上尾更新 tī：2018-08-05）
+  <meta name="description" content="（上尾更新 tī：2018-08-08）
 介紹
 
 佇電腦程式中，通常愛算一个{rb|運算式|ūn-suàn-sik} ê 結果，會 kā 逐个部份照算 ê {rb|次序|tshù-sī}一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講：">
@@ -84,7 +84,7 @@
     </header>
     <div class="entry">
       
-        <p><strong>（上尾更新 tī：2018-08-05）</strong></p>
+        <p><strong>（上尾更新 tī：2018-08-08）</strong></p>
 <h3>介紹</h3>
 
 <p>佇電腦程式中，通常愛算一个<ruby><rb>運算式</rb><rp>[</rp><rt>ūn-suàn-sik</rt><rp>]</rp></ruby> ê 結果，會 kā 逐个部份照算 ê <ruby><rb>次序</rb><rp>[</rp><rt>tshù-sī</rt><rp>]</rp></ruby>一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講：<a id="more"></a></p>
@@ -98,7 +98,7 @@
 <h3>舉例：無限數列</h3>
 
 <p>毋過，讀者會問，到底這有 sím 物路用？貧惰計算 ê 一个好處，tiō 是 thang 表示一个「<ruby><rb>無限數列</rb><rp>[</rp><rt>bû-hān sòo-lia̍t</rt><rp>]</rp></ruby>」(infinite sequence)。</p>
-<p><ruby><rb>汝</rb><rp>[</rp><rt>lí</rt><rp>]</rp></ruby>想，設使咱 beh 做一个 <pre>f(x) = 2<sup>x</sup>, x = 0,1,2,…</pre> ê 級數，beh 按怎表示–nih？咱人通觀察伊 ê recursion（<ruby><rb>遞迴</rb><rp>[</rp><rt>tuē-huê</rt><rp>]</rp></ruby>、<ruby><rb>遞歸</rb><rp>[</rp><rt>tuē-kui</rt><rp>]</rp></ruby>、<ruby><rb>再歸</rb><rp>[</rp><rt>tsài-kui</rt><rp>]</rp></ruby>）表示：</p>
+<p><ruby><rb>汝</rb><rp>[</rp><rt>lí</rt><rp>]</rp></ruby>想，設使咱 beh 做一个 <pre>f(x) = 2<sup>x</sup>, x = 0,1,2,…</pre> ê 級數，beh 按怎表示 nih？咱人通觀察伊 ê recursion（<ruby><rb>遞迴</rb><rp>[</rp><rt>tuē-huê</rt><rp>]</rp></ruby>、<ruby><rb>遞歸</rb><rp>[</rp><rt>tuē-kui</rt><rp>]</rp></ruby>、<ruby><rb>再歸</rb><rp>[</rp><rt>tsài-kui</rt><rp>]</rp></ruby>）表示：</p>
 <img src="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/scheme_inf_series_example.svg" title="用 recursion 表示 f(x) = 2x, x = 0,1,2,... ê 數列">
 <p>咱通觀察，這个數列通表示做 <code>(inf-series 2<sup>0</sup>)</code>，其中 <pre>(inf-series n) := (cons n (inf-series 2×n))</pre>。所以咱 kám 有可能 kā tse 用程式表示出來？巧 ê 讀者應該 ê 知影，因為無限級數內底有無限 ê 數，電腦無可能一改算出來，而且 iā 無可能儲存 hiah-ni̍h tse ê 數，所以準若有人好膽執行這个程式，系統會<ruby><rb>當</rb><rp>[</rp><rt>tǹg</rt><rp>]</rp></ruby>掉抑是有錯誤資訊：</p>
 <figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name"><span class="builtin-name">define</span></span> (<span class="name">inf-series</span> n)</span><br><span class="line">  (<span class="name"><span class="builtin-name">cons</span></span> n (<span class="name">inf-series</span> (<span class="name"><span class="builtin-name">*</span></span> <span class="number">2</span> n))))</span><br><span class="line"></span><br><span class="line">(<span class="name">inf-series</span> (<span class="name"><span class="builtin-name">expt</span></span> <span class="number">2</span> <span class="number">0</span>)) <span class="comment">; (expt 2 0) = 2^0</span></span><br></pre></td></tr></table></figure>
