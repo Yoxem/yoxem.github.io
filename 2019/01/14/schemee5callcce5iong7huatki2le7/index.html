@@ -6,8 +6,7 @@
   <title>Scheme ê call/cc ê 用法舉例（1）——例外處理 | 北郊獨語 - Yoxem&#39;s Blog</title>
   <meta name="author" content="Yoxem Chen">
   
-  <meta name="description" content="介紹Scheme 是一種函數式語言，所以無 break、yield 等等 ê 流程控制功能 (flow of control)。毋過，伊有一款功能 koh 較強 ê——用 the̍h 著現此時 ê 繼續(continuation) ê call/cc 來合成 tsē-tsē ê 控制流程。
-Siánn-mi̍h 是繼續？繼續，tī 一寡官話 ê 介紹寫做「{rb|續體|sio̍k-thé}」，白話講，著是「tshūn-">
+  <meta name="description" content="介紹Scheme 是一種函數式語言，所以無 break、yield 等等 ê 流程控制功能 (flow of control)。毋過，伊有一款功能 koh 較強 ê——用 the̍h 著現此時 ê 繼續(continuation) ê call/cc 來合成 tsē-tsē ê 控制流程。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -82,8 +81,8 @@ Siánn-mi̍h 是繼續？繼續，tī 一寡官話 ê 介紹寫做「{rb|續體|
     </header>
     <div class="entry">
       
-        <p></p><h3>介紹</h3><br>Scheme 是一種函數式語言，所以無 break、yield 等等 ê 流程控制功能 (flow of control)。毋過，伊有一款功能 koh 較強 ê——用 the̍h 著現此時 ê 繼續(continuation) ê <code>call/cc</code> 來合成 tsē-tsē ê 控制流程。<p></p>
-<p></p><h3>Siánn-mi̍h 是繼續？</h3><br>繼續，tī 一寡官話 ê 介紹寫做「<ruby><rb>續體</rb><rp>[</rp><rt>sio̍k-thé</rt><rp>]</rp></ruby>」，白話講，著是「tshūn-<a id="more"></a>-ê 欲計算 ê」。比如講：<p></p>
+        <p></p><h3>介紹</h3><br>Scheme 是一種函數式語言，所以無 break、yield 等等 ê 流程控制功能 (flow of control)。毋過，伊有一款功能 koh 較強 ê——用 the̍h 著現此時 ê 繼續(continuation) ê <code>call/cc</code> 來合成 tsē-tsē ê 控制流程。<a id="more"></a><p></p>
+<p></p><h3>Siánn-mi̍h 是繼續？</h3><br>繼續，tī 一寡官話 ê 介紹寫做「<ruby><rb>續體</rb><rp>[</rp><rt>sio̍k-thé</rt><rp>]</rp></ruby>」，白話講，著是「tshūn-<!---->-ê 欲計算 ê」。比如講：<p></p>
 <p>Tī <code>(+ 12 (&#42; 2 (/ 2 5)))</code>，對 <code>5</code> 來講，伊 ê 猶未計算 ê 部份（著是繼續），是 <code>(+ 12 (&#42; 2 (/ 2 ?)))</code>；對 <code>(&#42; 2 (/ 2 5))</code> 來講，繼續就是<code>(+ 12 ?)</code>，咱人 ē-tàng kā 繼續（事實上會當掠做是）當做函數，kā 以上 ê 表達做 <code>(lambda (x) (+ 12 (&#42; 2 (/ 2 x))))</code>、<code>(lambda (x) (+ 12 x))</code>。</p>
 <p>call-with-current-continuation（call/cc，意思：叫用現此時 ê 繼續），伊會接受一 ê 若<code> (lambda (cc) 欲算ê部份……) </code> 函數，其中 <code>cc</code> 就是對呼叫 call/cc tsit-ê 點 ê 繼續。咱先看覓按怎用：</p>
 <figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">(<span class="name">define</span> call/cc call-with-current-continuation) <span class="comment">; 因為名 siūnn 長，用 call/cc 簡略。</span></span><br><span class="line"></span><br><span class="line">(<span class="name">define</span> continuation #f) <span class="comment">; 欲 lia̍h ê 繼續</span></span><br><span class="line"></span><br><span class="line"><span class="comment">; 用 set! lia̍h 繼續</span></span><br><span class="line">(<span class="name">+</span> <span class="number">12</span> (<span class="name">call/cc</span> (<span class="name">lambda</span> (<span class="name">cc</span>) (<span class="name">set!</span> continuation cc) (<span class="name">*</span> <span class="number">7</span> <span class="number">8</span>)))) ==&gt; <span class="number">68</span></span><br><span class="line"></span><br><span class="line">(<span class="name">display</span> continuation)<span class="comment">; ==&gt; #&lt;continuation&gt;</span></span><br><span class="line"></span><br><span class="line">(<span class="name">continuation</span> <span class="number">6</span>) <span class="comment">;==&gt; 18 = ((lambda (x) (+ 12 x)) 6)</span></span><br></pre></td></tr></table></figure>
