@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2019-01-20T15:53:54.609Z</updated>
+  <updated>2019-01-20T16:17:13.286Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>轉到 Google Photo ê Flickr 資料 - 轉到 Google Photo 的 Flickr 資料</title>
+    <link href="http://yoxem.github.io/2019/01/20/tsuan2kau3googlephotoe5flickrtsuliau7/"/>
+    <id>http://yoxem.github.io/2019/01/20/tsuan2kau3googlephotoe5flickrtsuliau7/</id>
+    <published>2019-01-20T15:57:45.000Z</published>
+    <updated>2019-01-20T16:17:13.286Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（分類猶未整理好，更新日：2018-01-21）</strong></p> <div class="row"><br>  <div class="column"></div><br>  <div class="column"></div><br></div> <p>因為 Flickr 宣佈免費口座 ùi 今年 2 月開始，干焦通囥 1000 ê 檔案（相、影片），其他著刣掉，為著救 beh 4000 ê 檔案，我對 Flickr 掠 .zip 備份檔案，<a href="https://gist.github.com/Yoxem/8e9bbb54f353de7a79f43507e680aa7b" target="_blank" rel="noopener">用 script 分類遮 ê</a>，然後 kā 相片囥 kàu Google Photo。</p><p><em>因為 Flickr 宣佈免費帳戶從今年 2 月開始，只能放 1000 份檔案，其他的要刪掉，為了拯救要四千份的檔案，我從 Flickr 抓 .zip 備份檔案，<a href="https://gist.github.com/Yoxem/8e9bbb54f353de7a79f43507e680aa7b" target="_blank" rel="noopener">用 script 分類遮 ê</a>，然後把相片放到 Google Photo。</em><a id="more"></a></p><p>以下是𪜶 ê 相簿分類：<br><em>以下是他們的相簿分類：</em></p><p><em><a href="https://photos.app.goo.gl/VxCxfDoi6LstkPA78" target="_blank" rel="noopener">20170429-望高寮</a></em><a href="https://photos.app.goo.gl/C9D9a1Hi1R1JTXvi9" target="_blank" rel="noopener">彰化縣_</a><br><em><a href="https://photos.app.goo.gl/wthztm491zD3fWoB7" target="_blank" rel="noopener">其他</a></em><a href="https://photos.app.goo.gl/8CD1wGe55aXG3QAG9" target="_blank" rel="noopener">素描、臨摹等_</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（分類猶未整理好，更新日：2018-01-21）&lt;/strong&gt;&lt;/p&gt;
+ &lt;div class=&quot;row&quot;&gt;&lt;br&gt;  &lt;div class=&quot;column&quot;&gt;&lt;/div&gt;&lt;br&gt;  &lt;div class=&quot;column&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;/div&gt; 
+
+&lt;p&gt;因為 Flickr 宣佈免費口座 ùi 今年 2 月開始，干焦通囥 1000 ê 檔案（相、影片），其他著刣掉，為著救 beh 4000 ê 檔案，我對 Flickr 掠 .zip 備份檔案，&lt;a href=&quot;https://gist.github.com/Yoxem/8e9bbb54f353de7a79f43507e680aa7b&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;用 script 分類遮 ê&lt;/a&gt;，然後 kā 相片囥 kàu Google Photo。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;因為 Flickr 宣佈免費帳戶從今年 2 月開始，只能放 1000 份檔案，其他的要刪掉，為了拯救要四千份的檔案，我從 Flickr 抓 .zip 備份檔案，&lt;a href=&quot;https://gist.github.com/Yoxem/8e9bbb54f353de7a79f43507e680aa7b&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;用 script 分類遮 ê&lt;/a&gt;，然後把相片放到 Google Photo。&lt;/em&gt;
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="GooglePhoto" scheme="http://yoxem.github.io/tags/GooglePhoto/"/>
+    
+  </entry>
   
   <entry>
     <title>Scheme ê call/cc ê 用法舉例(2)——coroutine</title>
@@ -512,33 +538,6 @@
       <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
     
       <category term="歌詞" scheme="http://yoxem.github.io/tags/%E6%AD%8C%E8%A9%9E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>抒懷</title>
-    <link href="http://yoxem.github.io/2017/03/20/Su1huai5/"/>
-    <id>http://yoxem.github.io/2017/03/20/Su1huai5/</id>
-    <published>2017-03-19T16:00:00.000Z</published>
-    <updated>2017-06-11T11:02:48.606Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>（最新更新：2017-06-11）</strong></p><p>春天已經到矣，只不過你仍覺得白天的風寒著氣管。<br><a id="more"></a><br>回首想了一想，三年前發生了太陽花的事件。就算似乎許多的事情改變了，中國和台灣的互動有改變。但又覺得：現在覺得上萬人的聚集好像沒有發生，《兩岸監督條例》還未通過、324 打人的警察仍然被封閉的官場文化包庇著、勞工與社會運動的能量已經被收束，似乎大家還是沒有覺醒，勞工的情勢又像冬天一樣。</p><p>你搖著頭，想著《作工的人》的書摘，那些默默為著生活，以至於似乎沒有閒暇意識集體爭取反抗，只是默默奉獻身體與賣出健康為著眼前的食宿的形影，不覺予你皺眉。</p><p>走著走著，突然一則新聞飄過你的眼簾：南韓政府為著中國對薩德裝設的反映又舉行幾回記者會了。南韓之前簽了中韓 FTA，但後來為了薩德飛彈裝在前樂天集團高爾夫球場的衝突，許多中國人抵制樂天，不少他們財團的被關店、學校舉行宣示反樂天零嘴。他們這國家真一致啊，只差沒集體抵制白樂天的〈琵琶行〉和〈長恨歌〉——國仇家恨又添一樁，萬一上萬學子背到精神不堪負荷怎麼辦呢？</p><p>只是在這一致之中，或許就像他們說的唯物辯證法的對立統一一樣，仍然保持著不一致性，就像簽下了「自由」的貿易協定，也注定要被「拘束」的國間態度所影響的。或許就這點來看，太陽花運動雖然沒有達成應有的成效，多的只是暴露出一些台灣社會樣貌的問題，但至少先見的反映出簽下去可能的後果，薩德或許是三週年給台灣的鑒鏡吧。</p><p>最近朝鮮的局勢，就像北邊金王朝激昂的個人崇拜音樂一樣，連中國也壓不下來或是不能壓下來，反正國際間的合縱連橫縱能測度，小老百姓也是無力回天的。最近美國一面打算增加軍費，一面川普又在推上說北韓玩美國很多年，中國使力有限。或許之後朝鮮半島會成為新的火藥庫也說不定？你忽然擔心起戰線外擴的問題了，但就算戰線未外擴，北韓的難民應該也是東亞多國很難應付的吧。台灣能不能學日本享有第二波的「朝鮮戰爭特需」也不知道，畢竟也離浪尖沒幾多遠。</p><p>想太遠了，回到你最近的生活吧。總覺得你工作這幾年來，讀書的頻度越來越少、學習動力大幅下降、創作文與圖的動力也是，縱使你幾乎沒有過著應酬的生活。是不是你最近心神的勞動上升，導致不想要在從事這些較高度精神活動的工作呢？哎呀，或許也只是蝮蝂啊！不自量力的背著過重的東西，技能樹意圖亂點一通，結果什麼都沒有得到，就像一次同時抓四隻兔一樣。</p><p>是不是得放棄掉難以達成的事物？畢竟時間在這種人命還是不值錢的時代可能越來越少，可是這種收藏以及有些自戀的性格或許你也放棄不掉。一度心動的東西變成重軛，就像含在嘴巴裡的糖久了也會麻痺、無味一般。</p><p>還是你心中一直有恐懼而不想達到你的目標，成為恐懼與安逸豢養的奴役？但這樣只會讓自己生出許多可笑的障礙，而無法達成目標。到最後自己和豢養的家畜也很想了，但你想要成為這種人嗎？雖然說很多凡人為這樣子。只是你會感到至少有一點悵然吧？你要如何呢，想前進嗎？還是割捨不必要的呢？還是任由時光的流飄盪？</p><p>說到時光的流，你也想和一個人作伴吧？只是個人的有個人的重擔，將自己的重擔給他人可能也會造成其困擾也說不定。至於情愛，或許對一個社交方面不擅長的我來說，還是算了吧。往好處想，可以避免情感而生的剝削，某方面也是好事，雖然想起來有點怪怪的。至於性這種東西，你想到牽涉到的剝削權力不對等，搖搖頭，只能當作沒看到這股波紋。</p><p>說到失意的感覺，你想到祖先的語言。不知道在這忘掉過去、只看眼前的現在中，還能保存多少？總是向望通保存一寡。就算對本土語言的保存，汝感覺悲觀，但是也只有向望毋好一時仔就滅無，嘛是向望逐个攏有春天。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;（最新更新：2017-06-11）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;春天已經到矣，只不過你仍覺得白天的風寒著氣管。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
-    
-      <category term="生活" scheme="http://yoxem.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="論" scheme="http://yoxem.github.io/tags/%E8%AB%96/"/>
     
   </entry>
   

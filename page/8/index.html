@@ -70,6 +70,55 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2011-07-19T13:55:21.000Z"><a href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">2011-07-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">解決 cx_Freeze 做出的 .exe 檔無法在中文路徑下執行的問題</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>最近因為協助 <a href="http://code.google.com/p/lonote" target="_blank" rel="noopener">Lonote</a> 筆記軟體在 Windows 下的打包工作中，因為 Py2exe 至今對這軟體使用的 Python3 不支援，所以採用 <a href="http://cx-freeze.sourceforge.net/" target="_blank" rel="noopener">cx_Freeze</a> 將用 Python3 寫成的程式和相依的函式庫綁在同一個資料夾中，以方便廣大沒有安裝 Python3 和 PyQt4 的 Windows 用者使用。</p>
+<p>但對於中文使用者來說， cx_Freeze 有相當嚴重的缺點，那就是在 setup.py 中，若 cx_Freeze.Executable 之 Base = ‘Win32GUI’（該參數的值為 ‘Win32GUI’ 時），做出來的視窗程式 .exe 檔無法在含有中文名稱的路徑下執行。若嘗試執行，則會跳出 “cannot get zipimporter instance” 的警告視窗。目前的正式版本 4.2.3 仍舊會出現這個錯誤。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2010-06-22T16:00:22.000Z"><a href="/2010/06/23/談自力解決之兩三/">2010-06-23</a></time>
       
       
@@ -231,7 +280,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>67</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>68</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -245,6 +294,10 @@
 <div class="widget tag">
   <h3 class="title">Recent Posts</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2019/01/20/tsuan2kau3googlephotoe5flickrtsuliau7/">轉到 Google Photo ê Flickr 資料 - 轉到 Google Photo 的 Flickr 資料</a>
+      </li>
     
       <li>
         <a href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a>
@@ -262,10 +315,6 @@
         <a href="/2018/06/25/bo5tiann7e5tsong7thai7/">不確定的狀態</a>
       </li>
     
-      <li>
-        <a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -274,7 +323,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Esperanto/" style="font-size: 11px;">Esperanto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 17px;">Holo話</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R-18/" style="font-size: 12px;">R-18</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13px;">Scheme</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 19px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 19px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 11px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/論/" style="font-size: 18px;">論</a> <a href="/tags/資訊/" style="font-size: 16px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 17px;">隨筆</a>
+    <a href="/tags/Esperanto/" style="font-size: 11px;">Esperanto</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 17px;">Holo話</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R-18/" style="font-size: 12px;">R-18</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13px;">Scheme</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 19px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 19px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 11px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/論/" style="font-size: 18px;">論</a> <a href="/tags/資訊/" style="font-size: 16px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 17px;">隨筆</a>
   </div>
 </div>
 
