@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
   
   <title>Scheme ê call/cc ê 用法舉例(2)——coroutine | 北郊獨語 - Yoxem&#39;s Blog</title>
   <meta name="author" content="Yoxem Chen">
@@ -12,11 +12,11 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Scheme ê call/cc ê 用法舉例(2)——coroutine"/>
-  <meta property="og:site_name" content="北郊獨語 - Yoxem&#39;s Blog"/>
+  <meta property="og:title" content="Scheme ê call/cc ê 用法舉例(2)——coroutine">
+  <meta property="og:site_name" content="北郊獨語 - Yoxem&#39;s Blog">
 
   
-    <meta property="og:image" content=""/>
+    <meta property="og:image" content>
   
 
   <link href="/favicon.ico" rel="icon" type="image/x-ico">
@@ -24,12 +24,12 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
-<meta name="google-site-verification" content="3t0bNOKnnsVyNpsfuM7Vi6gf-6tY_MUeOpXmJzDZ_P8" /> <!-- google search opt.--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<meta name="google-site-verification" content="3t0bNOKnnsVyNpsfuM7Vi6gf-6tY_MUeOpXmJzDZ_P8"> <!-- google search opt.-->
 </head>
-
+</html>
 
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="alignleft">
+  <header id="header" class="inner"><div class="alignleft">
   <h1><a href="/">北郊獨語 - Yoxem&#39;s Blog</a></h1>
   <h2 class="subtitle">溪埔的石仔、山嶺的果樹之間，version 3.0</h2>
 </div>
@@ -59,7 +59,7 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
     <div class="gallery">
   <div class="photoset">
     
-      <img src="">
+      <img src>
     
   </div>
   <div class="control">
@@ -88,14 +88,25 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
 
 <p>而且，執行 coroutine ê 時，會當 kā 跳 kàu 別个 coroutine，執行伊 ê 時陣 mā 通跳轉來原本 ê coroutine，或者是其他 ê 協程 ê 某 mi̍h 部份。 </p>
 <p>佇 Python，協程會當用 generator（產生器）kah yield  ê 方法來做，舉例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment">#-*-coding: utf-8-*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">coroutine</span><span class="params">()</span>:</span></span><br><span class="line">    x = []</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        <span class="comment"># append the value input to the array x, then return the yield.</span></span><br><span class="line">        <span class="comment">#eg. input = a, x = [], then return [a]</span></span><br><span class="line">        input = (<span class="keyword">yield</span> x)</span><br><span class="line">        x = x + [input]</span><br><span class="line"></span><br><span class="line"><span class="comment"># define coroutine</span></span><br><span class="line">co = coroutine()</span><br><span class="line">next(co) <span class="comment"># to let the coroutine can execute to the yield part to get the value</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>]:</span><br><span class="line">    print(<span class="string">"i ="</span>, i)</span><br><span class="line">    output = co.send(i) <span class="comment"># input something to the routine and get the output</span></span><br><span class="line">    print(<span class="string">"The output of the coroutine ="</span>, output)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment">#-*-coding: utf-8-*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">coroutine</span><span class="params">()</span>:</span></span><br><span class="line">    x = []</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># append the value input to the array x, then return the yield.</span></span><br><span class="line">        <span class="comment">#eg. input = a, x = [], then return [a]</span></span><br><span class="line">        input = (<span class="keyword">yield</span> x)</span><br><span class="line">        x = x + [input]</span><br><span class="line"></span><br><span class="line"><span class="comment"># define coroutine</span></span><br><span class="line">co = coroutine()</span><br><span class="line">next(co) <span class="comment"># to let the coroutine can execute to the yield part to get the value</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>]:</span><br><span class="line">    print(<span class="string">"i ="</span>, i)</span><br><span class="line">    output = co.send(i) <span class="comment"># input something to the routine and get the output</span></span><br><span class="line">    print(<span class="string">"The output of the coroutine ="</span>, output)</span><br></pre></td></tr></table></figure>
 <p>執行結果：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">i = 0</span><br><span class="line">The output of the coroutine = [0]</span><br><span class="line">i = 1</span><br><span class="line">The output of the coroutine = [0, 1]</span><br><span class="line">i = 2</span><br><span class="line">The output of the coroutine = [0, 1, 2]</span><br></pre></td></tr></table></figure></p>
 <p>有關 tī Scheme 用 call/cc 寫產生器 ê 舉例，通參考<a href="https://ithelp.ithome.com.tw/articles/10192610" target="_blank" rel="noopener">這篇佇 IThome ê 教學</a>，以下 ê 實例是展講 call/cc 通製造通相轉 ê code：</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#lang racket</span><br><span class="line">(<span class="name">define</span> (<span class="name">coroutine1</span>)</span><br><span class="line">  (<span class="name">display</span> <span class="string">"Coroutine 1  part 1\n"</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">; Coroutine 1 第 1 ê 切換點</span></span><br><span class="line">  (<span class="name">call/cc</span></span><br><span class="line">    (<span class="name">lambda</span> (<span class="name">cc-1-1</span>)</span><br><span class="line">      (<span class="name">set!</span> coroutine1 cc-1-1) <span class="comment">; 長 (tióng) 賰 ê beh 計算 ê 部份 (cc-1-1 以後ê部份) kàu coroutine1</span></span><br><span class="line">      (<span class="name">coroutine2</span>) <span class="comment">;跳 kah coroutine2 ê 起頭</span></span><br><span class="line">    ))</span><br><span class="line">  (<span class="name">display</span> <span class="string">"Coroutine 1  part 2\n"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">; Coroutine 1 第 2 ê 切換點</span></span><br><span class="line">  (<span class="name">call/cc</span></span><br><span class="line">    (<span class="name">lambda</span> (<span class="name">cc-1-2</span>)</span><br><span class="line">      (<span class="name">set!</span> coroutine1 cc-1-2)</span><br><span class="line">      (<span class="name">coroutine2</span>) <span class="comment">;跳 kàu cc-2-1</span></span><br><span class="line">    ))</span><br><span class="line">  <span class="comment">; Coroutine 1 第 3 ê 切換點</span></span><br><span class="line">  (<span class="name">display</span> <span class="string">"Coroutine 1  part 3\n"</span>)</span><br><span class="line">  (<span class="name">call/cc</span></span><br><span class="line">    (<span class="name">lambda</span> (<span class="name">cc-1-3</span>)</span><br><span class="line">      <span class="comment">; 長賰 ê 部份 (display "End of coroutine.") kàu coroutine1</span></span><br><span class="line">      (<span class="name">set!</span> coroutine1 cc-1-3)</span><br><span class="line">      (<span class="name">coroutine2</span>)))</span><br><span class="line">    </span><br><span class="line">  (<span class="name">display</span> <span class="string">"End of coroutine."</span>) <span class="comment">; 結束 coroutine1</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">(<span class="name">define</span> (<span class="name">coroutine2</span>)</span><br><span class="line">  (<span class="name">display</span> <span class="string">"Coroutine 2  part 1\n"</span>)</span><br><span class="line">  (<span class="name">call/cc</span></span><br><span class="line">    (<span class="name">lambda</span> (<span class="name">cc-2-1</span>)</span><br><span class="line">      (<span class="name">set!</span> coroutine2 cc-2-1) <span class="comment">;長賰 ê beh 計算ê部份 (cc-2-1 以後) kàu coroutine2</span></span><br><span class="line">      (<span class="name">coroutine1</span>) <span class="comment">; 跳 kàu coroutine1 (cc-1-1)</span></span><br><span class="line">  ))</span><br><span class="line"></span><br><span class="line">  (<span class="name">display</span> <span class="string">"Coroutine 2  part 2\n"</span>)</span><br><span class="line">  (<span class="name">call/cc</span></span><br><span class="line">    (<span class="name">lambda</span> (<span class="name">cc-2-2</span>)</span><br><span class="line">      (<span class="name">set!</span> coroutine2 cc-2-2)</span><br><span class="line">      (<span class="name">coroutine1</span>)</span><br><span class="line">  ))</span><br><span class="line">    </span><br><span class="line">  (<span class="name">display</span> <span class="string">"Coroutine 2  part 3\n"</span>)</span><br><span class="line">  (<span class="name">call/cc</span></span><br><span class="line">    (<span class="name">lambda</span> (<span class="name">cc-2-3</span>)</span><br><span class="line">      (<span class="name">set!</span> coroutine2 cc-2-3)</span><br><span class="line">      (<span class="name">coroutine1</span>))) <span class="comment">; 跳 kàu coroutine1 上尾，結束</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">(<span class="name">coroutine1</span>) <span class="comment">; 對 coroutine1 ê 起頭開始執行</span></span><br></pre></td></tr></table></figure>
 <p>執行結果：<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">Coroutine <span class="number">1</span>  part <span class="number">1</span></span><br><span class="line">Coroutine <span class="number">2</span>  part <span class="number">1</span></span><br><span class="line">Coroutine <span class="number">1</span>  part <span class="number">2</span></span><br><span class="line">Coroutine <span class="number">2</span>  part <span class="number">2</span></span><br><span class="line">Coroutine <span class="number">1</span>  part <span class="number">3</span></span><br><span class="line">Coroutine <span class="number">2</span>  part <span class="number">3</span></span><br><span class="line">End of coroutine.</span><br></pre></td></tr></table></figure><br>咱人會當用 call/cc 記錄 coroutine 執行 kàu toh，就 kā 伊 ê 繼續寫 kàu coroutine，閣跳到別个 coroutine （beh 恢復執行 ê 點），來一直切換 coroutine ê 執行。</p>
 <p></p><h3>結論</h3><br>call/cc 會當 the̍h 來合成真濟控制方法，毋過因為愛 kā 某一个時間 ê 繼續更新 kàu 狀態變數，對追求袂變得 ê 物件 (immutable object) ê 正港 ê 函數式程式設計語言，是有<ruby><rb>相踏脫</rb><rp>[</rp><rt>sio-ta̍h-thut</rt><rp>]</rp></ruby> ê 所在，所以準若 Haskell 等「純函數式語言」有這號函數，凡勢功能無遐爾大，我咧<ruby><rb>臆</rb><rp>[</rp><rt>ioh</rt><rp>]</rp></ruby>。<p></p>
 <p>用 call/cc 可能出現無欲愛 ê 運作，甚至是死循環，tse 愛注意。</p>
+<script type="text/javascript">
+        alert("123");
+        head = document.getElementsByTagName('head');
 
+        link_css = document.createElement('style');
+        link_css.setAttribute('type', 'text/css');
+
+        link_css.innerHTML = " .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }";
+
+        document.getElementsByTagName('head')[0].appendChild(link_css);
+
+    </script>
       
     </div>
     <footer>
@@ -150,7 +161,7 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
 <div class="search">
 
   <form name="search_form" action="//google.com/search" method="get" accept-charset="utf-8" class="search-form" onsubmit="search_form.q.value = search_form.hq.value + search_form.q.value "><!-- the source code in the line is modified from RobG's under CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/) -->
-    <input type="search" name="hq" results="0" value="" placeholder="Search" class="search-form-input">
+    <input type="search" name="hq" results="0" value placeholder="Search" class="search-form-input">
 	<!-- custom add the url of yoxem's old blog -->
 <input name="q" type="hidden" value=" site:yoxem.github.io OR site:yoxemblog.wordpress.com">
 
@@ -166,7 +177,7 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>69</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>70</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -180,6 +191,10 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
 <div class="widget tag">
   <h3 class="title">Recent Posts</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2019/05/16/MiseEire/">愛爾蘭語詩 Mise Éire 簡介（我是愛爾蘭）</a>
+      </li>
     
       <li>
         <a href="/2019/03/18/OrthographyOfMunsterIrish/">Orthography of Munster Irish</a>
@@ -197,10 +212,6 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
         <a href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a>
       </li>
     
-      <li>
-        <a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -209,7 +220,7 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.91px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.09px;">Holo話</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.82px;">R-18</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.73px;">Scheme</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18.18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.64px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18.18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.91px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 11.82px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 14.55px;">生活</a> <a href="/tags/論/" style="font-size: 17.27px;">論</a> <a href="/tags/資訊/" style="font-size: 15.45px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.36px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.91px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.91px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.09px;">Holo話</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.82px;">R-18</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.73px;">Scheme</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18.18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.64px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18.18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.91px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.73px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 14.55px;">生活</a> <a href="/tags/論/" style="font-size: 17.27px;">論</a> <a href="/tags/資訊/" style="font-size: 15.45px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.36px;">隨筆</a>
   </div>
 </div>
 
@@ -235,16 +246,16 @@ Picasa 相簿（舊）</a></li>
 
   <div class="widget tag">
 <h3 class="title">最近迴響</h3>
-<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></div>
+<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></ul></div>
 </aside>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
   &copy; 2019 Yoxem Chen
-  <br/>除非特殊說明本文作者均為 Yoxem Chen，其所作除非特殊指定外，均使用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.zh_TW">CC BY-NC-SA 2.5 台灣授權</a>。<br/>
+  <br>除非特殊說明本文作者均為 Yoxem Chen，其所作除非特殊指定外，均使用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.zh_TW">CC BY-NC-SA 2.5 台灣授權</a>。<br>
 
-Except being noticed, the articles is written by Yoxem Chen and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.en">CC BY-NC-SA 2.5 Taiwan Version</a>.<br/>
+Except being noticed, the articles is written by Yoxem Chen and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.en">CC BY-NC-SA 2.5 Taiwan Version</a>.<br>
 
 Powered by <a href="http://hexo.io/index.html">Hexo</a>.
 </div>
@@ -275,7 +286,7 @@ var disqus_shortname = 'yoxem';
 (function($){
   $('.fancybox').fancybox();
 })(jQuery);
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 </body>
 </html>
