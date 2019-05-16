@@ -91,22 +91,8 @@
 </blockquote>
 <p>最後只把輸出結果 result.md 用 <span style="font-family: monospace;">hexo generate</span> 生成部落格。可這個寫法很髒，因為其餘處的 |、} 也被替換掉，需要人工校正回去，而且需另跑指令，很不方便。<br>好在 <a href="http://kuanyui.github.io" target="_blank" rel="noopener">Kuanyui 大</a>在前提文章的回覆中，提到他利用 Hexo 的 script 自訂功能做了一個能夠產生 &lt;ruby&gt; 的 script。而筆者不會寫 Javascript，只能表達感謝，並介紹之，以利想替漢字標音的 Hexo 用者。</p>
 <h2 id="安裝、使用法"><a href="#安裝、使用法" class="headerlink" title="安裝、使用法"></a>安裝、使用法</h2><p><em>免責聲明：以下僅為測試使用心得，讀者照下法操作之任何結果和風險，筆者恕不負責。</em></p>
-<p><ul></ul></p>
-<p><li>ruby.js 基本資訊：</li></p>
-<p><ul><li>作者：Kuanyui</li><li>網站：<a href="https://gist.github.com/kuanyui/9025e45c04cdd9f1f736#file-ruby-js" target="_blank" rel="noopener">https://gist.github.com/kuanyui/9025e45c04cdd9f1f736#file-ruby-js</a></li><li>授權：<a href="http://en.wikipedia.org/wiki/WTFPL" target="_blank" rel="noopener">WTFPL 1.0</a>（可視為公有領域）</li></ul></p>
-<p><li>測試環境：<ul><li>作業系統：Linux Mint 15</li><li>ruby.js：20140518 版</li><li>Hexo：2.4.5（作者說舊版的 hexo 跑這個會有怪現象，但筆者目前沒遇過）</li><li>node.js：0.8.26（為使用 hexo-renderer-discount 外掛，不得不用舊版）</li></ul></li><li>下載、安裝：<ol><li>下載<a href="https://gist.github.com/kuanyui/9025e45c04cdd9f1f736/download" target="_blank" rel="noopener">壓縮檔</a> (tar.gz)。</li><li>解開壓縮檔，將「裡面的」ruby.js 解壓縮或複製到 <em style="font-family: monospace;">hexo主目錄/scripts</em> 裡。</li></ol></li><li>使用法：<ol><li>用「{rb<span></span>|文字|注音}」標注音，如：{rb<span></span>|機巧少女|machine doll}。</li><li>若是不想要自動轉換 {rb<span></span>|……} 為加注音形式，請在 rb 和 | 間插入 HTML 空白註解，如：{rb&lt;!-<span></span>- -<span></span>-&gt;|機巧少女|machine doll}。</li><li>直接使用 <span style="font-family: monospace;">hexo generate</span> 產生部落格，其過程會自動載入該 script，轉換為 &lt;ruby&gt;  等標籤。</li><li>打開加注音文章的產出頁面。支援 &lt;ruby&gt; 的瀏覽器（如：Google Chrome）會看到注音在文字上，如：<ruby><rb>機巧少女</rb><rp>[</rp><rt>machine doll</rt><rp>]</rp></ruby>；但預設不支援的（如：Firefox）看到左例會變成：機巧少女[machine doll]。然而，已知 Firefox 有 <a href="https://addons.mozilla.org/zh-TW/firefox/addon/html-ruby/" target="_blank" rel="noopener">HTML Ruby</a> 能解決此問題。</li></ol></li><li>已知問題：在首頁和 archives 中，{rb<span></span>|……} 不會自行轉成  &lt;ruby&gt;  等。</li></p>
-<script type="text/javascript">
-        alert("123");
-        head = document.getElementsByTagName('head');
-
-        link_css = document.createElement('style');
-        link_css.setAttribute('type', 'text/css');
-
-        link_css.innerHTML = " .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }";
-
-        document.getElementsByTagName('head')[0].appendChild(link_css);
-
-    </script>
+<ul><br><li>ruby.js 基本資訊：<br><ul><li>作者：Kuanyui</li><li>網站：<a href="https://gist.github.com/kuanyui/9025e45c04cdd9f1f736#file-ruby-js" target="_blank" rel="noopener">https://gist.github.com/kuanyui/9025e45c04cdd9f1f736#file-ruby-js</a></li><li>授權：<a href="http://en.wikipedia.org/wiki/WTFPL" target="_blank" rel="noopener">WTFPL 1.0</a>（可視為公有領域）</li></ul></li><br><li>測試環境：<ul><li>作業系統：Linux Mint 15</li><li>ruby.js：20140518 版</li><li>Hexo：2.4.5（作者說舊版的 hexo 跑這個會有怪現象，但筆者目前沒遇過）</li><li>node.js：0.8.26（為使用 hexo-renderer-discount 外掛，不得不用舊版）</li></ul></li><li>下載、安裝：<ol><li>下載<a href="https://gist.github.com/kuanyui/9025e45c04cdd9f1f736/download" target="_blank" rel="noopener">壓縮檔</a> (tar.gz)。</li><li>解開壓縮檔，將「裡面的」ruby.js 解壓縮或複製到 <em style="font-family: monospace;">hexo主目錄/scripts</em> 裡。</li></ol></li><li>使用法：<ol><li>用「{rb<span></span>|文字|注音}」標注音，如：{rb<span></span>|機巧少女|machine doll}。</li><li>若是不想要自動轉換 {rb<span></span>|……} 為加注音形式，請在 rb 和 | 間插入 HTML 空白註解，如：{rb&lt;!-<span></span>- -<span></span>-&gt;|機巧少女|machine doll}。</li><li>直接使用 <span style="font-family: monospace;">hexo generate</span> 產生部落格，其過程會自動載入該 script，轉換為 &lt;ruby&gt;  等標籤。</li><li>打開加注音文章的產出頁面。支援 &lt;ruby&gt; 的瀏覽器（如：Google Chrome）會看到注音在文字上，如：<ruby><rb>機巧少女</rb><rp>[</rp><rt>machine doll</rt><rp>]</rp></ruby>；但預設不支援的（如：Firefox）看到左例會變成：機巧少女[machine doll]。然而，已知 Firefox 有 <a href="https://addons.mozilla.org/zh-TW/firefox/addon/html-ruby/" target="_blank" rel="noopener">HTML Ruby</a> 能解決此問題。</li></ol></li><li>已知問題：在首頁和 archives 中，{rb<span></span>|……} 不會自行轉成  &lt;ruby&gt;  等。</li></ul>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
       
     </div>
     <footer>

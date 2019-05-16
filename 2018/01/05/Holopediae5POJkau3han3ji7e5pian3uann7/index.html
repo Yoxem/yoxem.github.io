@@ -86,18 +86,7 @@
 <p>雖然台灣閩南語也是有一字多音或一音多字問題，而且一字多音的現象特別廣泛，或許有人質疑變換程式是否能夠滿足需求，但可以參考日文的案例：日語一漢字多音（生可以寫成なま、うまれ、なす、せい……），一音多詞（きしゃ就可以寫成記者、貴社、汽車……因此日語有不少諧音雙關哏）之複雜度不下台灣閩南語，卻也能夠開發出假名轉換漢字的智慧選字系統，我相信台語應該也能夠做品質高的羅馬字—漢字轉換。而且絕大多數的台語漢字和音節呈現一對一的關係，且有些詞在特定的前後詞（文）比其同音詞出現機率比較高（就像食物和植物同音，但在論到滷肉飯的文章，用「食物」的機會比較高）。因此，要做出比較好的文字轉換應該可行。</p>
 <p>或許就像不少智慧選字音碼輸入法可以用馬可夫模型得出比較好的選字結果，這種有關選字的演算法或語言相關的技術，應該也可以應用在這種轉換上（可能也要了解詞頻）。還有另一種方法就是機器學習，利用 Tensorflow 和 seq2seq 的機器學習和機器翻譯的軟體，應該也可以藉由機器學習，生成轉換文字的翻譯模型。可以參考<a href="https://www.tensorflow.org/tutorials/seq2seq" target="_blank" rel="noopener">這篇教學</a>。</p>
 <p>然而，上述機器學習的方法需要大量的白話字（或是台羅，但拼音需要統一）和其用統一用字規範（如教育部建議用字）書寫的漢字版的「平行語料庫」，以及用語料庫生成的詞彙表來進行學習。但一面這種語料比較少，用於學習可能不夠，加上會自然語言處理、機器學習知識的台語推廣者少之又少，不才才疏技拙，短期內應難以實現。或許只能希望像 g0v <a href="https://github.com/g0v/itaigi" target="_blank" rel="noopener">愛台語</a>或相關專案的推動者願意參與吧。</p>
-<script type="text/javascript">
-        alert("123");
-        head = document.getElementsByTagName('head');
-
-        link_css = document.createElement('style');
-        link_css.setAttribute('type', 'text/css');
-
-        link_css.innerHTML = " .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }";
-
-        document.getElementsByTagName('head')[0].appendChild(link_css);
-
-    </script>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
       
     </div>
     <footer>

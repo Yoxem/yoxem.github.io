@@ -95,18 +95,7 @@ CoroutineCoroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine
 <p>執行結果：<br><figure class="highlight"><table><tr><td class="code"><pre><span class="line">Coroutine <span class="number">1</span>  part <span class="number">1</span></span><br><span class="line">Coroutine <span class="number">2</span>  part <span class="number">1</span></span><br><span class="line">Coroutine <span class="number">1</span>  part <span class="number">2</span></span><br><span class="line">Coroutine <span class="number">2</span>  part <span class="number">2</span></span><br><span class="line">Coroutine <span class="number">1</span>  part <span class="number">3</span></span><br><span class="line">Coroutine <span class="number">2</span>  part <span class="number">3</span></span><br><span class="line">End of coroutine.</span><br></pre></td></tr></table></figure><br>咱人會當用 call/cc 記錄 coroutine 執行 kàu toh，就 kā 伊 ê 繼續寫 kàu coroutine，閣跳到別个 coroutine （beh 恢復執行 ê 點），來一直切換 coroutine ê 執行。</p>
 <p></p><h3>結論</h3><br>call/cc 會當 the̍h 來合成真濟控制方法，毋過因為愛 kā 某一个時間 ê 繼續更新 kàu 狀態變數，對追求袂變得 ê 物件 (immutable object) ê 正港 ê 函數式程式設計語言，是有<ruby><rb>相踏脫</rb><rp>[</rp><rt>sio-ta̍h-thut</rt><rp>]</rp></ruby> ê 所在，所以準若 Haskell 等「純函數式語言」有這號函數，凡勢功能無遐爾大，我咧<ruby><rb>臆</rb><rp>[</rp><rt>ioh</rt><rp>]</rp></ruby>。<p></p>
 <p>用 call/cc 可能出現無欲愛 ê 運作，甚至是死循環，tse 愛注意。</p>
-<script type="text/javascript">
-        alert("123");
-        head = document.getElementsByTagName('head');
-
-        link_css = document.createElement('style');
-        link_css.setAttribute('type', 'text/css');
-
-        link_css.innerHTML = " .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }";
-
-        document.getElementsByTagName('head')[0].appendChild(link_css);
-
-    </script>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
       
     </div>
     <footer>
