@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2019-05-19T13:28:16.379Z</updated>
+  <updated>2019-06-20T16:12:44.744Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安裝 Racket-llvm</title>
+    <link href="http://yoxem.github.io/2019/06/21/antsngracketllvm/"/>
+    <id>http://yoxem.github.io/2019/06/21/antsngracketllvm/</id>
+    <published>2019-06-20T16:00:00.000Z</published>
+    <updated>2019-06-20T16:12:44.744Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Clone <a href="https://github.com/bubba/racket-llvm" target="_blank" rel="noopener">套件</a>：<pre>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:bubba/racket-llvm.git</pre></li><li>包做 .zip：<pre>raco pkg create –binary racket-llvm</pre></li><li>安裝：<pre>raco pkg install racket-llvm.zip</pre></li><li>拍 <pre>raco pkg show</pre> 看安裝 ê 結果，親像：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Installation-wide:</span><br><span class="line"> Package            Checksum     Source</span><br><span class="line">....</span><br><span class="line">User-specific for installation &quot;6.3&quot;:</span><br><span class="line"> Package      Checksum     Source</span><br><span class="line"> racket-llvm  52ebbb73...  file /tmp/a/racket-llvm.zip</span><br></pre></td></tr></table></figure></li></ul><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;Clone &lt;a href=&quot;https://github.com/bubba/racket-llvm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;套件&lt;/a&gt;：&lt;pre&gt;git clone &lt;a href=&quot;mailto:git@githu
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
+    
+      <category term="Scheme" scheme="http://yoxem.github.io/tags/Scheme/"/>
+    
+      <category term="LLVM" scheme="http://yoxem.github.io/tags/LLVM/"/>
+    
+  </entry>
   
   <entry>
     <title>愛爾蘭語詩 Mise Éire 簡介（我是愛爾蘭）</title>
@@ -518,32 +550,6 @@
       <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
     
       <category term="生活" scheme="http://yoxem.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>集體的孤單社會</title>
-    <link href="http://yoxem.github.io/2017/05/11/tsip8the2e5koo1tuann1sia7hue7/"/>
-    <id>http://yoxem.github.io/2017/05/11/tsip8the2e5koo1tuann1sia7hue7/</id>
-    <published>2017-05-10T16:00:00.000Z</published>
-    <updated>2017-05-11T14:38:09.974Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>「一群刺猬在寒冷的天氣時會想要靠近彼此來取暖，但是當兩隻刺猬碰在一起時，又會被彼此的刺所刺傷，因此彼此又要保持一段距離。」</blockquote><p>——<cite>〈中文維基百科．刺蝟理論〉</cite><a id="more"></a></p><p>現在社會我認為是集體而孤單的。</p><p>隨著工商業化的以及歷史的發展，原有傳統的大家庭與社里的人際互助網結構，漸漸的變成以公司、學校、小家庭負擔不同時刻的人際需求。</p><p>然而，或許是因為現在變成了一個消費社會，追求物質欲望，以及社會壓力過大，導致人們內心深處的空虛無法獲得滿足。再加上社會的文明分化過細，以及網際網路讓分散各處的小眾興趣愛好者能夠集結起來討論，比如說某個動漫領域的愛好會、公路愛好者的虛擬社群，是以現在的社群就多了以虛擬社群為人際聯合的方式。</p><p>這樣做有一種好處，人通常有其吸引人之處，但也有傷人的刺或令人難以忍受的地方。網路的匿名性能夠讓人展現處好的一面，進而相互取暖時而比較不會被彼此受傷。這也是線上社群的迷人之處。</p><p>只是，也因為這種匿名性，許多人也會以傷人的刺四散在社群中——抱持反正難以追查的心理，致使許多人可能會受傷，也因此許多人的心為了防衛，都有著若即若離的心理吧。然而這種疏離感仍然是有，和真實的人際互動有顯著的差別。</p><p>而有些人因為生理的成熟以及社會的文化吧？或許是為了在這種孤島似的環境中，求得更緊密的慰藉，但又不想要面對情感上的齟齬，有些人可能會尋求短期內的 ONS（這已經是罕用詞了吧），這種軀體間的交流。但這種交流或許不能取代心靈的交流，而且除了疾病的傳染以外，也可能衍生出其餘和感情或身體狀態的問題，到頭來還是反映出人的寂寞。</p><p>總是，現在的社會，從一個面向來看，或許像跟著跨年演唱會起舞的觀眾一樣，看似互相挨著，卻是彼此少熟識，只是寂寥的靈魂，齊聚一起，大聲的表達渠等的互屬與孤寂。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;「一群刺猬在寒冷的天氣時會想要靠近彼此來取暖，但是當兩隻刺猬碰在一起時，又會被彼此的刺所刺傷，因此彼此又要保持一段距離。」&lt;/blockquote&gt;
-
-&lt;p&gt;——&lt;cite&gt;〈中文維基百科．刺蝟理論〉&lt;/cite&gt;
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
-    
-      <category term="論" scheme="http://yoxem.github.io/tags/%E8%AB%96/"/>
     
   </entry>
   
