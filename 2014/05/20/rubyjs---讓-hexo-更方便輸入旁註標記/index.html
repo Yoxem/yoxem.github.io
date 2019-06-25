@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>ruby.js - 讓 Hexo 更方便輸入旁註標記 &lt;ruby&gt; | 北郊獨語 - Yoxem&#39;s Blog</title>
   <meta name="author" content="Yoxem Chen">
@@ -24,12 +24,12 @@
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
-<meta name="google-site-verification" content="3t0bNOKnnsVyNpsfuM7Vi6gf-6tY_MUeOpXmJzDZ_P8"> <!-- google search opt.-->
+<meta name="google-site-verification" content="3t0bNOKnnsVyNpsfuM7Vi6gf-6tY_MUeOpXmJzDZ_P8"> <!-- google search opt.--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 </html>
 
 <body>
-  <header id="header" class="inner"><div class="alignleft">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="alignleft">
   <h1><a href="/">北郊獨語 - Yoxem&#39;s Blog</a></h1>
   <h2 class="subtitle">溪埔的石仔、山嶺的果樹之間，version 3.0</h2>
 </div>
@@ -59,7 +59,7 @@
     <div class="gallery">
   <div class="photoset">
     
-      <img src>
+      <img src="">
     
   </div>
   <div class="control">
@@ -87,11 +87,14 @@
 <blockquote>
 <p>[user@pc ~]$ cat “orig.md” | sed ‘s/{rb|/&lt;ruby&gt;&lt;rb&gt;/g’ | \</p>
 <p>&gt; sed ‘s/|/&lt;\/rb&gt;&lt;rp&gt;[&lt;\/rp&gt;&lt;rt&gt;/g’ |\</p>
-<p>&gt; sed ‘s/}/&lt;\/rt&gt;&lt;rp&gt;]&lt;\/rp&gt;&lt;\/ruby&gt;/g’ &gt; “result.md”<br></p>
+<p>&gt; sed ‘s/}/&lt;\/rt&gt;&lt;rp&gt;]&lt;\/rp&gt;&lt;\/ruby&gt;/g’ &gt; “result.md”<br>&lt;/span&gt;</p>
 </blockquote>
 <p>最後只把輸出結果 result.md 用 <span style="font-family: monospace;">hexo generate</span> 生成部落格。可這個寫法很髒，因為其餘處的 |、} 也被替換掉，需要人工校正回去，而且需另跑指令，很不方便。<br>好在 <a href="http://kuanyui.github.io" target="_blank" rel="noopener">Kuanyui 大</a>在前提文章的回覆中，提到他利用 Hexo 的 script 自訂功能做了一個能夠產生 &lt;ruby&gt; 的 script。而筆者不會寫 Javascript，只能表達感謝，並介紹之，以利想替漢字標音的 Hexo 用者。</p>
 <h2 id="安裝、使用法"><a href="#安裝、使用法" class="headerlink" title="安裝、使用法"></a>安裝、使用法</h2><p><em>免責聲明：以下僅為測試使用心得，讀者照下法操作之任何結果和風險，筆者恕不負責。</em></p>
-<ul><br><li>ruby.js 基本資訊：<br><ul><li>作者：Kuanyui</li><li>網站：<a href="https://gist.github.com/kuanyui/9025e45c04cdd9f1f736#file-ruby-js" target="_blank" rel="noopener">https://gist.github.com/kuanyui/9025e45c04cdd9f1f736#file-ruby-js</a></li><li>授權：<a href="http://en.wikipedia.org/wiki/WTFPL" target="_blank" rel="noopener">WTFPL 1.0</a>（可視為公有領域）</li></ul></li><br><li>測試環境：<ul><li>作業系統：Linux Mint 15</li><li>ruby.js：20140518 版</li><li>Hexo：2.4.5（作者說舊版的 hexo 跑這個會有怪現象，但筆者目前沒遇過）</li><li>node.js：0.8.26（為使用 hexo-renderer-discount 外掛，不得不用舊版）</li></ul></li><li>下載、安裝：<ol><li>下載<a href="https://gist.github.com/kuanyui/9025e45c04cdd9f1f736/download" target="_blank" rel="noopener">壓縮檔</a> (tar.gz)。</li><li>解開壓縮檔，將「裡面的」ruby.js 解壓縮或複製到 <em style="font-family: monospace;">hexo主目錄/scripts</em> 裡。</li></ol></li><li>使用法：<ol><li>用「{rb<span></span>|文字|注音}」標注音，如：{rb<span></span>|機巧少女|machine doll}。</li><li>若是不想要自動轉換 {rb<span></span>|……} 為加注音形式，請在 rb 和 | 間插入 HTML 空白註解，如：{rb&lt;!-<span></span>- -<span></span>-&gt;|機巧少女|machine doll}。</li><li>直接使用 <span style="font-family: monospace;">hexo generate</span> 產生部落格，其過程會自動載入該 script，轉換為 &lt;ruby&gt;  等標籤。</li><li>打開加注音文章的產出頁面。支援 &lt;ruby&gt; 的瀏覽器（如：Google Chrome）會看到注音在文字上，如：<ruby><rb>機巧少女</rb><rp>[</rp><rt>machine doll</rt><rp>]</rp></ruby>；但預設不支援的（如：Firefox）看到左例會變成：機巧少女[machine doll]。然而，已知 Firefox 有 <a href="https://addons.mozilla.org/zh-TW/firefox/addon/html-ruby/" target="_blank" rel="noopener">HTML Ruby</a> 能解決此問題。</li></ol></li><li>已知問題：在首頁和 archives 中，{rb<span></span>|……} 不會自行轉成  &lt;ruby&gt;  等。</li></ul>
+<ul>
+<li>ruby.js 基本資訊：
+<ul><li>作者：Kuanyui</li><li>網站：<a href="https://gist.github.com/kuanyui/9025e45c04cdd9f1f736#file-ruby-js" target="_blank" rel="noopener">https://gist.github.com/kuanyui/9025e45c04cdd9f1f736#file-ruby-js</a></li><li>授權：<a href="http://en.wikipedia.org/wiki/WTFPL" target="_blank" rel="noopener">WTFPL 1.0</a>（可視為公有領域）</li></ul></li>
+<li>測試環境：<ul><li>作業系統：Linux Mint 15</li><li>ruby.js：20140518 版</li><li>Hexo：2.4.5（作者說舊版的 hexo 跑這個會有怪現象，但筆者目前沒遇過）</li><li>node.js：0.8.26（為使用 hexo-renderer-discount 外掛，不得不用舊版）</li></ul></li><li>下載、安裝：<ol><li>下載<a href="https://gist.github.com/kuanyui/9025e45c04cdd9f1f736/download" target="_blank" rel="noopener">壓縮檔</a> (tar.gz)。</li><li>解開壓縮檔，將「裡面的」ruby.js 解壓縮或複製到 <em style="font-family: monospace;">hexo主目錄/scripts</em> 裡。</li></ol></li><li>使用法：<ol><li>用「{rb<span></span>|文字|注音}」標注音，如：{rb<span></span>|機巧少女|machine doll}。</li><li>若是不想要自動轉換 {rb<span></span>|......} 為加注音形式，請在 rb 和 | 間插入 HTML 空白註解，如：{rb&lt;!-<span></span>- -<span></span>-&gt;|機巧少女|machine doll}。</li><li>直接使用 <span style="font-family: monospace;">hexo generate</span> 產生部落格，其過程會自動載入該 script，轉換為 &lt;ruby&gt;  等標籤。</li><li>打開加注音文章的產出頁面。支援 &lt;ruby&gt; 的瀏覽器（如：Google Chrome）會看到注音在文字上，如：<ruby><rb>機巧少女</rb><rp>[</rp><rt>machine doll</rt><rp>]</rp></ruby>；但預設不支援的（如：Firefox）看到左例會變成：機巧少女[machine doll]。然而，已知 Firefox 有 <a href="https://addons.mozilla.org/zh-TW/firefox/addon/html-ruby/" target="_blank" rel="noopener">HTML Ruby</a> 能解決此問題。</li></ol></li><li>已知問題：在首頁和 archives 中，{rb<span></span>|......} 不會自行轉成  &lt;ruby&gt;  等。</li></ul>
 <script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
       
     </div>
@@ -147,7 +150,7 @@
 <div class="search">
 
   <form name="search_form" action="//google.com/search" method="get" accept-charset="utf-8" class="search-form" onsubmit="search_form.q.value = search_form.hq.value + search_form.q.value "><!-- the source code in the line is modified from RobG's under CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/) -->
-    <input type="search" name="hq" results="0" value placeholder="Search" class="search-form-input">
+    <input type="search" name="hq" results="0" value="" placeholder="Search" class="search-form-input">
 	<!-- custom add the url of yoxem's old blog -->
 <input name="q" type="hidden" value=" site:yoxem.github.io OR site:yoxemblog.wordpress.com">
 
@@ -163,7 +166,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>71</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>72</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -177,6 +180,10 @@
 <div class="widget tag">
   <h3 class="title">Recent Posts</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2019/06/25/tue7hui5ha7kang3e5suatbing5/">遞歸下降分析器的簡介（未完）</a>
+      </li>
     
       <li>
         <a href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a>
@@ -194,10 +201,6 @@
         <a href="/2019/01/20/tsuan2kau3googlephotoe5flickrtsuliau7/">轉到 Google Photo ê Flickr 資料 - 轉到 Google Photo 的 Flickr 資料</a>
       </li>
     
-      <li>
-        <a href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -206,7 +209,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.91px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.91px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.09px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10px;">LLVM</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.82px;">R-18</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13.64px;">Scheme</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18.18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.64px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18.18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.91px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.73px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 14.55px;">生活</a> <a href="/tags/論/" style="font-size: 17.27px;">論</a> <a href="/tags/資訊/" style="font-size: 15.45px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.36px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.91px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.91px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.09px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10px;">LLVM</a> <a href="/tags/Python/" style="font-size: 10.91px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.82px;">R-18</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13.64px;">Scheme</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18.18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.64px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18.18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.91px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.73px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 14.55px;">生活</a> <a href="/tags/論/" style="font-size: 17.27px;">論</a> <a href="/tags/資訊/" style="font-size: 15.45px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.36px;">隨筆</a>
   </div>
 </div>
 
@@ -232,16 +235,16 @@ Picasa 相簿（舊）</a></li>
 
   <div class="widget tag">
 <h3 class="title">最近迴響</h3>
-<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></ul></div>
+<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></div>
 </aside>
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
   &copy; 2019 Yoxem Chen
-  <br>除非特殊說明本文作者均為 Yoxem Chen，其所作除非特殊指定外，均使用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.zh_TW">CC BY-NC-SA 2.5 台灣授權</a>。<br>
+  <br/>除非特殊說明本文作者均為 Yoxem Chen，其所作除非特殊指定外，均使用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.zh_TW">CC BY-NC-SA 2.5 台灣授權</a>。<br/>
 
-Except being noticed, the articles is written by Yoxem Chen and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.en">CC BY-NC-SA 2.5 Taiwan Version</a>.<br>
+Except being noticed, the articles is written by Yoxem Chen and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.en">CC BY-NC-SA 2.5 Taiwan Version</a>.<br/>
 
 Powered by <a href="http://hexo.io/index.html">Hexo</a>.
 </div>
@@ -274,5 +277,24 @@ var disqus_shortname = 'yoxem';
 })(jQuery);
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- fix link -->
+<!--
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
