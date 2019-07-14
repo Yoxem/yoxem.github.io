@@ -156,17 +156,13 @@ term  +   term
 term    +   term
 3 * 5   +   1
 </pre>
-那左邊的 term（=<code>3 * 5</code>）不能被分拆，無法得到想要的結果。所以優先順序比較低的文法規則寫在前面。
 
-因此我們可以手動比對語法規則，並且剖析出正確的語法樹。遞迴下降分析法的分析方式，大體上也是相似的。
 
-遞迴下降解析
-------------
-遞歸下降分析 (Recursive Descent Parsing) 是一種 LL 分析器。因為其輸入的 token，從左邊 (Left) 逐一讀進去分析（LL 的第一個 L），然後從左邊逐一解析出正確的構造樹是什麼（LL 的第二個 L），所以叫做 LL 分析器。雖然能處理的文法比較狹隘，但是因為構造除錯簡單，易於手動實做了解問題，許多分析器仍然使用該技術。
-
-還是不知道運作流程？在我們實做出一個基本的遞歸下降分析器前，我們先做一個人肉操作示範。考慮這組文法：<a name="#grammar_example">
-
-$$
+<p>那左邊的 term（=<code>3 * 5</code>）不能被分拆，無法得到想要的結果。所以優先順序比較低的文法規則寫在前面。</p>
+<p>因此我們可以手動比對語法規則，並且剖析出正確的語法樹。遞迴下降分析法的分析方式，大體上也是相似的。</p>
+<h2 id="遞迴下降解析"><a href="#遞迴下降解析" class="headerlink" title="遞迴下降解析"></a>遞迴下降解析</h2><p>遞歸下降分析 (Recursive Descent Parsing) 是一種 LL 分析器。因為其輸入的 token，從左邊 (Left) 逐一讀進去分析（LL 的第一個 L），然後從左邊逐一解析出正確的構造樹是什麼（LL 的第二個 L），所以叫做 LL 分析器。雖然能處理的文法比較狹隘，但是因為構造除錯簡單，易於手動實做了解問題，許多分析器仍然使用該技術。</p>
+<p>還是不知道運作流程？在我們實做出一個基本的遞歸下降分析器前，我們先做一個人肉操作示範。考慮這組文法：<a name="#grammar_example"></a></p>
+<script type="math/tex; mode=display">
 \begin{align}
 
 & expr = term, \{“+", term\}……(1) \\
@@ -175,35 +171,36 @@ $$
 
 & factor = “0" | “1" | “2" | “3" | “4" | “5" | “6" | “7" | “8" | “9"……(3) \\
 
-\end{align}
-$$
-
-指定一些變數：
-
-$input\underline{\smash{ }} token =  3 + 5 * 7 $
-
-$current\underline{\smash{ }} token = NULL$
-
-$next\underline{\smash{ }} token = NULL$
-
-$result = NULL$
-
-我們令 $current\underline{\smash{ }} token = 3$，$next\underline{\smash{ }} token = +$，調到文法(1)，我們認為 $current\underline{\smash{ }} token$ 可能符合 term，所以調用文法(2)，然後同理調用文法(3)。最後我們發現等同於符號 "3"。但是我們可以想，$current\underline{\smash{ }} token$ 和 $next\underline{\smash{ }} token$ 中間又有什麼關係？我們調回去文法(2)，令 $factor = 3$。結果因為該文法規定下一個 token 是 <!-- --><code>*</code><!-- --> ，初判不符合 $term = factor, “*", term$ 這個文法規則，所以令 $term = factor$，回推到文法(1)。
-
-這時我們看到，因為 $next\underline{\smash{ }} token = +$，所以整串應該符合 $expr = term, “+", term$ 這個形式，
-結果就如：
+\end{align}</script><p>指定一些變數：</p>
+<p>$input\underline{\smash{ }} token =  3 + 5 * 7 $</p>
+<p>$current\underline{\smash{ }} token = NULL$</p>
+<p>$next\underline{\smash{ }} token = NULL$</p>
+<p>$result = NULL$</p>
+<p>我們令 $current\underline{\smash{ }} token = 3$，$next\underline{\smash{ }} token = +$，調到文法(1)，我們認為 $current\underline{\smash{ }} token$ 可能符合 term，所以調用文法(2)，然後同理調用文法(3)。最後我們發現等同於符號 “3”。</p>
+<p>但是我們可以想，$current\underline{\smash{ }} token$ 和 $next\underline{\smash{ }} token$ 中間又有什麼關係？我們調回去文法(2)，令 $factor = 3$。結果因為該文法規定下一個 token 是 <!-- --><code>*</code><!-- --> ，初判不符合 $term = factor, “*”, term$ 這個文法規則，所以令 $term = factor$，回推到文法(1)。</p>
+<p>這時我們看到，因為 $next\underline{\smash{ }} token = +$，所以整串應該符合 $expr = term, “+”, term$ 這個形式，結果就如：</p>
 <pre>
 result = TERM + ???
          3    + ???</pre>，因為右邊還有一部份的解析樹尚未完成，我們再用 $term$ 來解析右邊的 token 串。此時
 
 $current\underline{\smash{ }} token = 5$
+
+
 $next\underline{\smash{ }} token = *$
 
-我們依次帶入文法(2)、文法(3)後，知道 $factor = 5$，再回溯到上一層語法，這時候和 $next\underline{\smash{ }} token$ 比較，符合$term = factor, “*", term$ 形式。所以這時候往前讀 token，導致 $current\underline{\smash{ }} token = 7$，$next\underline{\smash{ }} token = None$（因為沒有剩下來的了）。此時的 result（括號是輔助區分結合關係的）：
+
+我們依次帶入文法(2)、文法(3)後，知道 $factor = 5$，再回溯到上一層語法，這時候和 $next\underline{\smash{ }} token$ 比較，符合$term = factor, “*", term$ 形式。
+
+
+
+所以這時候往前讀 token，導致 $current\underline{\smash{ }} token = 7$，$next\underline{\smash{ }} token = None$（因為沒有剩下來的了）。此時的 result（括號是輔助區分結合關係的）：
+
+
 <pre>
 result = TERM + (FACTOR * ???)
          3    +  5      * ???
-</pre>。
+</pre>
+。
 
 我們把 $current\underline{\smash{ }} token = 7$ 代入 $term$ 往下解析再回推，最後我們可以得到底下的樹：
 
@@ -211,12 +208,15 @@ result = TERM + (FACTOR * ???)
 result = TERM + (FACTOR * TERM)
          3    +  5      * 7
 </pre>。
+
+
 result 整體符合 expr 的文法標準，可以傳回剖析樹。
 
-實做
-----------
+<h2 id="實做"><a href="#實做" class="headerlink" title="實做"></a>實做</h2>
 
 有了以上的概念，我們就可以實做簡單的遞迴下降分析器。根據<a href="#grammar_example">上面的文法</a>，以及操作流程，我們可以以 Python 寫下如下的 code：
+
+
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">A simple Recursive Descent Parser. </span></span><br><span class="line"><span class="string">GRAMMA RULES:</span></span><br><span class="line"><span class="string">expr=term,&#123;“+",term&#125;</span></span><br><span class="line"><span class="string">term=factor,&#123;“∗",factor&#125;</span></span><br><span class="line"><span class="string">factor=“0"|“1"|“2"|“3"|“4"|“5"|“6"|“7"|“8"|“9"</span></span><br><span class="line"><span class="string">Author: Yoxem &lt;yoxem.tem98[ag]nctu.edu.tw&gt;</span></span><br><span class="line"><span class="string">License: Public Domain</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">token_list = [<span class="string">"3"</span>, <span class="string">"+"</span>, <span class="string">"5"</span>, <span class="string">"*"</span>, <span class="string">"7"</span>] <span class="comment"># the tokens to be parsed.</span></span><br><span class="line"></span><br><span class="line">current_token_index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">next_token_index = current_token_index + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="string">"""moving forward to the next token"""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move_forward</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> token_list, current_token_index, next_token_index <span class="comment"># use the outer variable</span></span><br><span class="line">    current_token_index += <span class="number">1</span></span><br><span class="line">    next_token_index += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"""If current_token_index indicates the last token in the list,</span></span><br><span class="line"><span class="string">    set next_token_index to None."""</span></span><br><span class="line">    <span class="keyword">if</span> current_token_index == len(token_list) - <span class="number">1</span>:</span><br><span class="line">        next_token_index = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="string">"""expr = term,&#123;“+",term&#125;"""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">expr</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> token_list, current_token_index</span><br><span class="line">    result = term() <span class="comment"># go to lower grammar rule</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"""using loops to save the recursivily-defined grammar.</span></span><br><span class="line"><span class="string">    If the next token can't be gotten, don't enter the loop"""</span></span><br><span class="line">    <span class="keyword">while</span> next_token_index != <span class="keyword">None</span> <span class="keyword">and</span> token_list[next_token_index] == <span class="string">"+"</span>:</span><br><span class="line">        <span class="comment"># if the result is a list, set the left term (result) as the left item(sub-tree).</span></span><br><span class="line">        left = result</span><br><span class="line"></span><br><span class="line">        move_forward()</span><br><span class="line">        middle = token_list[current_token_index]</span><br><span class="line">        move_forward()</span><br><span class="line">        right = term()</span><br><span class="line"></span><br><span class="line">        <span class="string">"""arrange the syntax tree (in S-exp like form)"""</span></span><br><span class="line">        result = [middle, left, right]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="string">"""term = factor,&#123;“∗",factor&#125;"""</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">term</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> token_list, current_token_index</span><br><span class="line">    result = factor()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> next_token_index != <span class="keyword">None</span> <span class="keyword">and</span> token_list[next_token_index] == <span class="string">"*"</span>:</span><br><span class="line">        left = result </span><br><span class="line">        move_forward()</span><br><span class="line">        middle = token_list[current_token_index]</span><br><span class="line">        move_forward()</span><br><span class="line">        right = term()</span><br><span class="line"></span><br><span class="line">        <span class="string">"""arrange the syntax tree (in S-exp like form)"""</span></span><br><span class="line">        result = [middle, left, right]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="string">'''factor = “0"|“1"|“2"|“3"|“4"|“5"|“6"|“7"|“8"|“9"'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factor</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> token_list, current_token_index</span><br><span class="line">    item = int(token_list[current_token_index])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># if it matches the pattern, return the number in integer type, or raise a error.</span></span><br><span class="line">    <span class="keyword">if</span> item <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10</span>): <span class="comment"># pattern = 0, 1, 2, ..., 9</span></span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">"Except integer from 0 to 9, given %d"</span> % item)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Let's parsing!</span></span><br><span class="line">parsed_SExp_result = expr()</span><br><span class="line">print(parsed_SExp_result) <span class="comment"># Show the result</span></span><br></pre></td></tr></table></figure>
 
@@ -236,7 +236,7 @@ result 整體符合 expr 的文法標準，可以傳回剖析樹。
 <li>如果之後的 tokens 是 <code>+ term (+ term)*</code>，則我們進入迴圈，第一次算入三個值存入到 result 後，因為之後的 token 還是 +，所以這個 list result 變成左式（符合我們對左結合的要求，如果是右結合需要另外用其他方式撰寫），再求出新的 result。最終 result 形如 [ + [ … [ + term term] … ] term]。</li>
 </ul>
 <p>另外我們要注意的是，一文法規則右式的第一個符號，不應該和該文法規則左式的符號相同。要不然會無窮呼叫名為文法規則左式符號的函數，跳不出來。</p>
-</a><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
       
     </div>
     <footer>
