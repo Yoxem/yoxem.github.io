@@ -136,20 +136,20 @@ term    +   term
 <p>$expr = term, {“+”, term}……(1)$<br>$term = factor, {“*”, term}……(2)$<br>$factor = “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9”……(3)$</p>
 <p>指定一些變數：</p>
 <p>$input_token =  3 + 5 * 7 $</p>
-<p>$current_token = NULL$</p>
-<p>$next_token = NULL$</p>
+<p>$current token = NULL$</p>
+<p>$next token = NULL$</p>
 <p>$result = NULL$</p>
-<p>我們令 $current_token = 3$，$next_token = +$，調到文法(1)，我們認為 current_token 可能符合 term，所以調用文法(2)，然後同理調用文法(3)。最後我們發現等同於符號 “3”。但是我們可以想，current_token 和 next_token 中間又有什麼關係？我們調回去文法(2)，令 $factor = 3$。結果因為該文法規定下一個 token 是 $<em>$，初判不符合 $term = factor, “</em>“, term$ 這個文法規則，所以令 $term = factor$，回推到文法(1)。</p>
+<p>我們令 $current token = 3$，$next token = +$，調到文法(1)，我們認為 $current_token$ 可能符合 term，所以調用文法(2)，然後同理調用文法(3)。最後我們發現等同於符號 “3”。但是我們可以想，$current token$ 和 $next token$ 中間又有什麼關係？我們調回去文法(2)，令 $factor = 3$。結果因為該文法規定下一個 token 是 <!-- --><em><!-- --> ，初判不符合 $term = factor, “</em>“, term$ 這個文法規則，所以令 $term = factor$，回推到文法(1)。</p>
 <p>這時我們看到，因為 $next_token = +$，所以整串應該符合 $expr = term, “+”, term$這個形式，<br>結果就如：<pre>
 result = TERM + ???
          3    + ???</pre>，因為右邊還有一部份的解析樹尚未完成，我們再用 $term$ 來解析右邊的 token 串。此時</p>
 <p>$current_token = 5$<br>$next_token = *$</p>
-<p>我們依次帶入文法(2)、文法(3)後，知道 $factor = 5$，再回溯到上一層語法，這時候和 next_token 比較，符合$term = factor, “*”, term$ 形式。所以這時候往前讀 token，導致 $current_token = 7$，$next_token = None$（因為沒有剩下來的了）。此時的 result（括號是輔助區分結合關係的）：</p>
+<p>我們依次帶入文法(2)、文法(3)後，知道 $factor = 5$，再回溯到上一層語法，這時候和 next_token 比較，符合$term = factor, “*”, term$ 形式。所以這時候往前讀 token，導致 $current token = 7$，$next token = None$（因為沒有剩下來的了）。此時的 result（括號是輔助區分結合關係的）：</p>
 <p><pre>
 result = TERM + (FACTOR * ???)
          3    +  5      * ???
 </pre>。</p>
-<p>我們把 $current_token = 7$ 代入 $term$ 往下解析再回推，最後我們可以得到底下的樹：</p>
+<p>我們把 $current token = 7$ 代入 $term$ 往下解析再回推，最後我們可以得到底下的樹：</p>
 <p><pre>
 result = TERM + (FACTOR * TERM)
          3    +  5      * 7
