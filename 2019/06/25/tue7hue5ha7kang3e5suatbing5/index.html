@@ -104,23 +104,33 @@
 <p>$句 = 主語 , 謂語$<br>$主語 = 名詞 | 代詞$<br>$代詞 = “我” | “你” | “他”$<br>$謂語 = 動詞 , 受詞$<br>$謂語 = “看” | “摸” | “吃”$<br>$受詞 = 名詞 | 代詞$<br>$名詞 = “冰” | “飯” | “菜”$</p>
 <p>用這樣的形式，可以組合成「我吃冰」、「你看菜」、「飯看我」、「飯看冰」……等等句子。其中「我」、「你」、「他」、「看」、「菜」等等都是終端符號，其他左手邊的符號只ㄧ，不需要旁邊出現左手邊的符號只有一個項，不需要旁邊鄰接其他項（上下文）區別文法規則，所以這是上下文無關語法。</p>
 <p>那我們定義文法，要如何用語法剖析抽象語法樹呢？假設有以下的運算表示文法（<code>{…}</code>表示括弧內重複）：</p>
-<p>$expr = term, {“+”, term}$<br>$term = factor, {“*”, term}$<br>$factor = “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9” $</p>
-<p>要如何套用到運算式進行分析呢？假設我們有式子<code>3 * 5 + 10</code>。我們可以用第一條規則($expr = term, {“+”, term}$)切分為：</p>
-<p><pre>
+<script type="math/tex; mode=display">
+expr = term, \{"+", term\}
+term = factor, \{"*", factor\}
+factor = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"</script><p>要如何套用到運算式進行分析呢？假設我們有式子<code>3 * 5 + 10</code>。我們可以用第一條規則(<code>expr = term, {“+”, term}</code>)切分為：</p>
+<pre>
 term       +  term
 3 * 5      +  10
-</pre><br>則我們可以剖析局部 AST 為：<code>(+ [to-be-parsed 3 * 5] 10)</code>。然後<code>term = 3 * 5</code>可以用第二條語法規則$term = factor, {“*”, term}$剖析為：</p>
-<p><pre>
+</pre>
+則我們可以剖析局部 AST 為：<code>(+ [to-be-parsed 3 * 5] 10)</code>。然後<code>term = 3 * 5</code>可以用第二條語法規則$term = factor, {"*", term}$剖析為：
+<pre>
 factor    *   factor
 3         *   5
-</pre><br>因為 3 和 5 可以是 factor 的值，所以這個文法樹可以順利的剖析為<code>(+ (* 3 5) 10)</code>。如果亂剖析成<code>term = 3 * 5 + 10<code>，然後調用下一條語法規則剖析為<code>左factor = 3</code>，<code>右 factor = 5 + 10</code>，那你會無法繼續剖析成功。</code></code></p>
-<p>注意包含優先項比較低的運算子（如本例的 +）的文法規則寫在比較前面。假設我們不寫在前面好了，變成以下這樣的文法：</p>
-<p>$expr = factor {“*”, term}$<br>$factor = term {“+” term}$<br>$term = “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9” $</p>
-<p>那<code>3 * 5 + 10</code>假設拆開為：</p>
-<p><pre>
+</pre>
+因為 3 和 5 可以是 factor 的值，所以這個文法樹可以順利的剖析為<code>(+ (* 3 5) 10)</code>。如果亂剖析成<code>term = 3 * 5 + 10</code>，然後調用下一條語法規則剖析為<code>左factor = 3</code>，<code>右 factor = 5 + 10</code>，那你會無法繼續剖析成功。
+
+注意包含優先項比較低的運算子（如本例的 +）的文法規則寫在比較前面。假設我們不寫在前面好了，變成以下這樣的文法：
+<pre>
+expr = factor {"*", term}
+factor = term {"+" term}
+term = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" 
+</pre>
+那<code>3 * 5 + 10</code>假設拆開為：
+<pre>
 factor *    factor
-3      *    5 + 10
-</pre><br>則右邊的 factor（=<code>5 + 10</code>）可以拆開為：</p>
+3      *    5 + 10</pre>
+
+<p>則右邊的 factor（=<code>5 + 10</code>）可以拆開為：</p>
 <p><pre>
 term  +   term
 5     +   10
@@ -133,18 +143,17 @@ term    +   term
 <p>因此我們可以手動比對語法規則，並且剖析出正確的語法樹。遞迴下降分析法的分析方式，大體上也是相似的。</p>
 <h2 id="遞迴下降解析"><a href="#遞迴下降解析" class="headerlink" title="遞迴下降解析"></a>遞迴下降解析</h2><p>遞歸下降分析 (Recursive Descent Parsing) 是一種 LL 分析器。因為其輸入的 token，從左邊 (Left) 逐一讀進去分析（LL 的第一個 L），然後從左邊逐一解析出正確的構造樹是什麼（LL 的 第二個 L）。所以是 LL 分析器。</p>
 <p>還是不知道？在我們實做出一個基本的遞歸下降分析器前，我們先做一個人肉操作示範。考慮這組文法：</p>
-<p>$expr = term, {“+”, term}……(1)$<br>$term = factor, {“*”, term}……(2)$<br>$factor = “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9”……(3)$</p>
-<p>指定一些變數：</p>
-<p>$input_token =  3 + 5 * 7 $</p>
+<p><pre><br>expr = term, {“+”, term}……(1)<br>term = factor, {“*”, factor}……(2)<br>factor = “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9”……(3)<br>&lt;/pre<br>指定一些變數：</pre></p>
+<p>$input token =  3 + 5 * 7 $</p>
 <p>$current token = NULL$</p>
 <p>$next token = NULL$</p>
 <p>$result = NULL$</p>
-<p>我們令 $current token = 3$，$next token = +$，調到文法(1)，我們認為 $current_token$ 可能符合 term，所以調用文法(2)，然後同理調用文法(3)。最後我們發現等同於符號 “3”。但是我們可以想，$current token$ 和 $next token$ 中間又有什麼關係？我們調回去文法(2)，令 $factor = 3$。結果因為該文法規定下一個 token 是 <!-- --><em><!-- --> ，初判不符合 $term = factor, “</em>“, term$ 這個文法規則，所以令 $term = factor$，回推到文法(1)。</p>
-<p>這時我們看到，因為 $next_token = +$，所以整串應該符合 $expr = term, “+”, term$這個形式，<br>結果就如：<pre>
+<p>我們令 $current token = 3$，$next token = +$，調到文法(1)，我們認為 $current toke$n 可能符合 term，所以調用文法(2)，然後同理調用文法(3)。最後我們發現等同於符號 “3”。但是我們可以想，$current token$ 和 $next token$ 中間又有什麼關係？我們調回去文法(2)，令 $factor = 3$。結果因為該文法規定下一個 token 是 <!-- --><code>*</code><!-- --> ，初判不符合 <pre>term = factor, "*", term</pre> 這個文法規則，所以令 $term = factor$，回推到文法(1)。</p>
+<p>這時我們看到，因為 $next token = +$，所以整串應該符合 <code>expr = term, “+”, term</code>這個形式，<br>結果就如：<pre>
 result = TERM + ???
          3    + ???</pre>，因為右邊還有一部份的解析樹尚未完成，我們再用 $term$ 來解析右邊的 token 串。此時</p>
 <p>$current_token = 5$<br>$next_token = *$</p>
-<p>我們依次帶入文法(2)、文法(3)後，知道 $factor = 5$，再回溯到上一層語法，這時候和 next_token 比較，符合$term = factor, “*”, term$ 形式。所以這時候往前讀 token，導致 $current token = 7$，$next token = None$（因為沒有剩下來的了）。此時的 result（括號是輔助區分結合關係的）：</p>
+<p>我們依次帶入文法(2)、文法(3)後，知道 $factor = 5$，再回溯到上一層語法，這時候和 $next token$ 比較，符合<code>term = factor, “*”, term</code> 形式。所以這時候往前讀 token，導致 $current token = 7$，$next token = None$（因為沒有剩下來的了）。此時的 result（括號是輔助區分結合關係的）：</p>
 <p><pre>
 result = TERM + (FACTOR * ???)
          3    +  5      * ???
