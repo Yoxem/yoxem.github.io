@@ -89,8 +89,8 @@
 </ul>
 <h2 id="遞迴函數"><a href="#遞迴函數" class="headerlink" title="遞迴函數"></a>遞迴函數</h2><h3>為什麼無法使用遞迴函數？</h3>
 
-<p>因為遞迴函數通常需要 if 和布林判斷符號，以便說明，所以我們需要為添加 r2-orig.rkt 添加 if 和 = 這兩個符號。</p>
-<p>請將下面的 patch code 複製另存為 r2-if.patch 至 r2 目錄，</p>
+<p>因為遞迴函數通常需要 if 和布林判斷符號，以便說明，所以我們需要為添加 r2-orig.rkt 添加 if 和 = （等於）這兩個符號。</p>
+<p>請將下面的 patch code 複製另存為 r2-if.patch 至 r2 目錄：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">46a47,50</span><br><span class="line">&gt;     </span><br><span class="line">&gt;       [`(if ,cond ,then ,else)                          ; if</span><br><span class="line">&gt;        (if (interp cond env) (interp then env) (interp else env))]</span><br><span class="line">&gt;     </span><br><span class="line">54c58,60</span><br><span class="line">&lt;            [&apos;/ (/ v1 v2)]))])))</span><br><span class="line">---</span><br><span class="line">&gt;            [&apos;/ (/ v1 v2)]</span><br><span class="line">&gt;            [&apos;= (= v1 v2)] ; be equal to</span><br><span class="line">&gt;            ))])))</span><br></pre></td></tr></table></figure>
 <p>輸入指令：</p>
 <pre>
