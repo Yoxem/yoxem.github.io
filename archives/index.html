@@ -74,6 +74,94 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2019-07-15T16:15:03.000Z"><a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/">2019-07-16</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/">改自王垠的 r2 解釋器——添加惰性求值和遞迴函數</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>王垠大概是中國程式語言界的網路名人。雖然有些人不喜歡他對事物的觀點或是看法，或是他展現出的價值觀，但是有些觀點卻還是很有趣的。比如他之前寫的<a href="https://www.yinwang.org/blog-cn/2012/08/01/interpreter" target="_blank" rel="noopener">怎樣寫一個解釋器</a>，利用動態擴展的環境列表還有閉包的概念，將一個程式語言基本的功能簡潔的實踐出來（當然也要歸功於 Scheme 的語法）——閉包、調用變數、運算、儲存變數、環境的調整、函數調用等等，都很有趣。</p>
+<p>在看以下的內容以前，請先仔細閱讀過王大的文章，並且了解這個解釋器原始碼的大致運作過程。也要將「#lang racket ;;; 以下三个定义……    (interp exp env0)))」下載起來，另存為 r2-orig.rkt 到一個目錄（以下稱為 r2）。</p>
+<p>只是他的解釋器有兩個功能尚未實現出來：</p>
+<ul>
+<li>遞迴函數</li>
+<li>惰性求值</li>
+</ul>
+<h2 id="遞迴函數"><a href="#遞迴函數" class="headerlink" title="遞迴函數"></a>遞迴函數</h2><h3>為什麼無法使用遞迴函數？</h3>
+
+<p>因為遞迴函數通常需要 if 和布林判斷符號，以便說明，所以我們需要為添加 r2-orig.rkt 添加 if 和 = 這兩個符號。</p>
+<p>請將下面的 patch code 複製另存為 r2-if.patch 至 r2 目錄，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">46a47,50</span><br><span class="line">&gt;     </span><br><span class="line">&gt;       [`(if ,cond ,then ,else)                          ; if</span><br><span class="line">&gt;        (if (interp cond env) (interp then env) (interp else env))]</span><br><span class="line">&gt;     </span><br><span class="line">54c58,60</span><br><span class="line">&lt;            [&apos;/ (/ v1 v2)]))])))</span><br><span class="line">---</span><br><span class="line">&gt;            [&apos;/ (/ v1 v2)]</span><br><span class="line">&gt;            [&apos;= (= v1 v2)] ; be equal to</span><br><span class="line">&gt;            ))])))</span><br></pre></td></tr></table></figure>
+<p>輸入指令：</p>
+<pre>
+cd [/path/to/r2]
+patch r2-orig.rkt r2-if.patch -o r2-if.rkt
+</pre>
+
+<p>其中的 r2-if.rkt 就是增加 if 和 = 功能的 r2。</p>
+<p>不支援遞迴函數這點，導致你不能夠定義遞迴函數，不能在函數定義時，於其綁訂的 lambda 出現這個函數的名字。比如說一個階乘函數</p>
+<script type="math/tex; mode=display">fact(x) = \begin{cases}
+0,  & \text{if x = 0} \\
+x * fact(x - 1) & \text{else}
+\end{cases}</script><p>因為上式右邊也出現左式的 $fact$ 函數，所以是遞迴函數。</p>
+<p>轉成 r2 的函數定義為：</p>
+<pre>
+(let [(fact (lambda (x)
+               (if (= x 0)
+               1
+               (* x (fact (- x 1))))))] ...)</pre>
+
+<p>但是我們用 r2-if 求算 $fact(10)$ 的時候，會有問題：</p>
+<pre>
+(r2 '(let [(fact (lambda (x)
+               (if (= x 0)
+               1
+               (* x (fact (- x 1))))))] (fact 10)))
+. . undefined variable fact
+
+</pre>
+
+<p>這是因為 fact 綁訂在 <code>(lambda (x) …(fact (- x 1))))))</code> 這個 closure，而這個 closure 包含的環境，只包含先前被綁訂成功的變數，不包含要被綁訂的 fact。當然調用這個 closure 的時候，因為環境沒有 fact 這個變數，所以調用時需要取用這個 fact 閉包的時候，因為環境沒有這個變數，當然會出現錯誤。</p>
+<p>這時候我們可以用不動點算子來解決。</p>
+<p>（未完待續）</p>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2019-06-25T15:29:31.000Z"><a href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">2019-06-25</a></time>
       
       
@@ -505,55 +593,6 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-03-04T12:35:27.000Z"><a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">2018-03-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong>（上尾更新佇：2018-03-05）</strong></p>
-<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p><a href="http://sile-typesetter.org/" target="_blank" rel="noopener">SILE</a> (Simon’s Improved Layout Engine) 是一款佮 LaTeX 相𫝛的排版軟體。TeX {rb|engine|ia̋n-jín} 已經開發幾十年矣，就算後來有較濟的版本，嘛攏是佇伊的面頂抑是用別款語言改寫伊的。毋過開發真久，Tex 系的語言有一寡歷史致到的問題，嘛有各囝系統之間無相通的情況。<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/#more" class="more-link">More...</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -600,6 +639,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/">改自王垠的 r2 解釋器——添加惰性求值和遞迴函數</a>
+      </li>
+    
+      <li>
         <a href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">遞迴下降分析器的簡介</a>
       </li>
     
@@ -615,10 +658,6 @@
         <a href="/2019/03/18/OrthographyOfMunsterIrish/">Orthography of Munster Irish</a>
       </li>
     
-      <li>
-        <a href="/2019/01/20/tsuan2kau3googlephotoe5flickrtsuliau7/">轉到 Google Photo ê Flickr 資料 - 轉到 Google Photo 的 Flickr 資料</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -627,7 +666,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.91px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.91px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.09px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10px;">LLVM</a> <a href="/tags/Python/" style="font-size: 10.91px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.82px;">R-18</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13.64px;">Scheme</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18.18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.64px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18.18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.91px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.73px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 14.55px;">生活</a> <a href="/tags/論/" style="font-size: 17.27px;">論</a> <a href="/tags/資訊/" style="font-size: 15.45px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.36px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.91px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.91px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.09px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10px;">LLVM</a> <a href="/tags/Python/" style="font-size: 10.91px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.82px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13.64px;">Scheme</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18.18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.64px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18.18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.91px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.73px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 14.55px;">生活</a> <a href="/tags/解釋器/" style="font-size: 10px;">解釋器</a> <a href="/tags/論/" style="font-size: 17.27px;">論</a> <a href="/tags/資訊/" style="font-size: 15.45px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.36px;">隨筆</a>
   </div>
 </div>
 
@@ -641,7 +680,7 @@
 -->
 <li><a href="http://plurk.com/yoxem">
 Plurk</a></li>
-<li><a href="https://www.flickr.com/photos/yoxem/sets/">
+<li><a href=https://www.flickr.com/photos/yoxem/sets/">
 Flickr 相簿</a></li>
 <li><a href="https://picasaweb.google.com/116676458256136125537?noredirect=1">
 Picasa 相簿（舊）</a></li>
@@ -650,10 +689,11 @@ Picasa 相簿（舊）</a></li>
 </ul>
 </div>
 
-
   <div class="widget tag">
 <h3 class="title">最近迴響</h3>
-<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></div>
+<ul class="entry">
+ <script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script>
+</div>
 </aside>
     <div class="clearfix"></div>
   </div>
