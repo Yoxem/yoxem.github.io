@@ -106,7 +106,7 @@ patch r2-orig.rkt r2-if.patch -o r2-if.rkt
 <p>不支援遞迴函數這點，導致你不能夠定義遞迴函數，不能在函數定義時，於其綁訂的 lambda 出現這個函數的名字。比如說一個階乘函數</p>
 <script type="math/tex; mode=display">fact(x) = \begin{cases}
 0,  & \text{if x = 0} \\
-x * fact(x - 1) & \text{else}
+x * fact(x - 1) & \text{elsewhere}
 \end{cases}</script><p>因為上式右邊也出現左式的 $fact$ 函數，所以是遞迴函數。</p>
 <p>轉成 r2 的函數定義為：</p>
 <pre>
