@@ -121,7 +121,7 @@ x * fact(x - 1) & \text{elsewhere}
 
 </pre>
 
-<p>這是因為 fact 綁訂在 <code>(lambda (x) …(fact (- x 1))))))</code> 這個 closure，而這個 closure 包含的環境，只包含先前被綁訂成功的變數，不包含要被綁訂的 fact。當然調用這個 closure 的時候，因為環境沒有 fact 這個變數，所以調用時需要取用這個 fact 閉包的時候，因為環境沒有這個變數，當然會出現錯誤。</p>
+<p>這是因為 fact 綁訂在 <code>(lambda (x) …(fact (- x 1))))))</code> 這個 closure，而這個 closure 包含的環境，只包含先前被綁訂成功的變數，不包含要被綁訂的 fact。當然調用這個 closure 的時候，因為環境沒有 fact 這個變數，所以調用時需要取用這個 fact 閉包的時候，因為環境沒有這個變數，當然會出現錯誤 <code>undefined variable fact</code>。</p>
 <p>這時候我們可以用不動點算子來解決。</p>
 <p>（未完待續）</p>
 <script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
