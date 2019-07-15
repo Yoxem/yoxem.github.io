@@ -6,7 +6,7 @@
   <title>遞迴下降分析器的簡介 | 北郊獨語 - Yoxem&#39;s Blog</title>
   <meta name="author" content="Yoxem Chen">
   
-  <meta name="description" content="以下內容僅為非資訊專業者所寫的心得，不保證內容正確性。（最近更新：2019-07-15）
+  <meta name="description" content="以下內容僅為非資訊專業者所寫的心得，不保證內容正確性。（最近更新：2019-07-16）
 語法樹就算沒有學過編譯器的人我想很多都知道，編譯器是把一種語言的程式翻譯成另一種語言者的工具。在轉成其他語言之前，需要將這個語言轉換成一棵樹狀結構 (抽象語法樹，abstract syntax tree)，來分析被編譯的程式內容是什麼。大概就像我們在翻譯一門語言的內容前，可以先將它轉換成語法樹。">
   
   
@@ -82,7 +82,7 @@
     </header>
     <div class="entry">
       
-        <p><em>以下內容僅為非資訊專業者所寫的心得，不保證內容正確性。</em><br><strong>（最近更新：2019-07-15）</strong></p>
+        <p><em>以下內容僅為非資訊專業者所寫的心得，不保證內容正確性。</em><br><strong>（最近更新：2019-07-16）</strong></p>
 <h2 id="語法樹"><a href="#語法樹" class="headerlink" title="語法樹"></a>語法樹</h2><p>就算沒有學過編譯器的人我想很多都知道，編譯器是把一種語言的程式翻譯成另一種語言者的工具。在轉成其他語言之前，需要將這個語言轉換成一棵樹狀結構 (抽象語法樹，abstract syntax tree)，來分析被編譯的程式內容是什麼。大概就像我們在翻譯一門語言的內容前，可以先將它轉換成語法樹。<a id="more"></a></p>
 <p>比如說華語「我有筆」可以被剖析成以下的語法樹：</p>
 <div style="font-size:85%;">
@@ -161,7 +161,7 @@ term    +   term
 <p>那左邊的 term（=<code>3 * 5</code>）不能被分拆，無法得到想要的結果。所以優先順序比較低的文法規則寫在前面。</p>
 <p>因此我們可以手動比對語法規則，並且剖析出正確的語法樹。遞迴下降分析法的分析方式，大體上也是相似的。</p>
 <h2 id="遞迴下降解析"><a href="#遞迴下降解析" class="headerlink" title="遞迴下降解析"></a>遞迴下降解析</h2><p>遞歸下降分析 (Recursive Descent Parsing) 是一種 LL 分析器。因為其輸入的 token，從左邊 (Left) 逐一讀進去分析（LL 的第一個 L），然後從左邊逐一解析出正確的構造樹是什麼（LL 的第二個 L），所以叫做 LL 分析器。雖然能處理的文法比較狹隘，但是因為構造除錯簡單，易於手動實做了解問題，許多分析器仍然使用該技術。</p>
-<p>還是不知道運作流程？在我們實做出一個基本的遞歸下降分析器前，我們先做一個人肉操作示範。考慮這組文法：<a name="#grammar_example"></a></p>
+<p>還是不知道運作流程？在我們實做出一個基本的遞歸下降分析器前，我們先做一個人肉操作示範。考慮這組文法：<a name="grammar_example"></a></p>
 <script type="math/tex; mode=display">
 \begin{align}
 
@@ -307,7 +307,7 @@ result 整體符合 expr 的文法標準，可以傳回剖析樹。
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>72</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>73</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
