@@ -126,7 +126,9 @@ x * fact(x - 1) & \text{elsewhere}
 
 <p>這是因為 fact 綁訂在 <code>(lambda (x) …(fact (- x 1))))))</code> 這個 closure，而這個 closure 包含的環境，只包含先前被綁訂成功的變數，不包含要被綁訂的 fact。當調用這個 closure 中，想取用這個 fact 閉包的時候，因為環境沒有這個變數，當然會出現錯誤 <code>undefined variable fact</code>。</p>
 <p>這時候我們可以用不動點算子來解決。</p>
-<h2 id="不動點算子"><a href="#不動點算子" class="headerlink" title="不動點算子"></a>不動點算子</h2><p>函數的不動點，可以定義為 $∃x, s.t. f(x)=x$，這裡的 $x$ 就是不動點。</p>
+<h3>不動點算子</h3>
+
+<p>函數的不動點，可以定義為 $∃x, s.t. f(x)=x$，這裡的 $x$ 就是不動點。</p>
 <p>我們如果學過函數式程式設計，就會知道一個重要的概念——函數可以輸入函數，可以輸出另一個函數。</p>
 <p>因此我們可以假設有一個函數 $Fix$ 可以輸入函數，又可以輸出函數。但其輸出的函數，等於其輸入的函數。我們將輸入函數以$f$代替，就可以得到下列式子：</p>
 <script type="math/tex; mode=display">Fix(f)= f</script><p>假設我們有遞迴函數如下：</p>
@@ -154,6 +156,8 @@ x * fact(x - 1) & \text{elsewhere}
 <p>我們換個角度想一下。假設$X=F(X)$，那將內部的$X$用$F(X)$替換，可以得到$X=F(X)=F(F(X))$，這樣下去，我們就可以得到$X=F(F(F(…)))$了！而這和不動點算子的定義$f=fix(f)$形狀也很相似。</p>
 <p>假設有一個不動點算子$fix$，滿足$fix(F) = F (fix(F))$，那麼比較上面的$X=F(X)=F(F(F…)))$、$G=F(F(F(…)))$及$fact(n)=F(G)(n)$，那麼$fix(F) = F(F(F(…)))$，$fact(n)=F(fix(F))(n)$（也可因此推得$fact = fix(F)$）。$fact(n)$可展開為：</p>
 <script type="math/tex; mode=display">fact(n) = (if (= n~0)~then~1~else~x*fix(F)(n - 1))</script><p>因此，我們可以先定義$fix$是什麼，再定義$F$這個更高階抽象化的函數，最後定義$fact = fix(F)$就行了。</p>
+<h3>實做</h3>
+
 <p>我們參考 Mike Vanier 的下列的不動點算子做運用（推導可以見其<a href="https://mvanier.livejournal.com/2897.html" target="_blank" rel="noopener">網站</a>）：</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> Y </span><br><span class="line">  (<span class="name">lambda</span> (<span class="name">f</span>)</span><br><span class="line">    ((<span class="name">lambda</span> (<span class="name">x</span>) (<span class="name">x</span> x))</span><br><span class="line">     (<span class="name">lambda</span> (<span class="name">x</span>) (<span class="name">f</span> (<span class="name">lambda</span> (<span class="name">y</span>) ((<span class="name">x</span> x) y)))))))</span><br></pre></td></tr></table></figure>
 <p>直譯器可以新增<code>letrec</code>定義遞迴函數語法</p>
