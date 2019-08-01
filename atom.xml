@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2019-07-22T10:19:29.928Z</updated>
+  <updated>2019-08-01T14:40:58.165Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Debugging Rust with GDB and Visual Studio Code</title>
+    <link href="http://yoxem.github.io/2019/08/01/ti7VSCodeiong7GDBliah8thang8/"/>
+    <id>http://yoxem.github.io/2019/08/01/ti7VSCodeiong7GDBliah8thang8/</id>
+    <published>2019-07-31T16:00:00.000Z</published>
+    <updated>2019-08-01T14:40:58.165Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Version-Infomation"><a href="#Version-Infomation" class="headerlink" title="Version Infomation"></a>Version Infomation</h2><ul><li>VS Code: 1.36.1</li><li>GDB: 7.11.1</li><li>rustc 1.36.0<a id="more"></a></li></ul><h2 id="Installing-Steps"><a href="#Installing-Steps" class="headerlink" title="Installing Steps"></a>Installing Steps</h2><ul><li>Install <a href="https://www.rust-lang.org/tools/install" target="_blank" rel="noopener">Rust</a>.</li><li>Install <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools" target="_blank" rel="noopener">C/C++ Extension</a> of VS Code (Rust Extension is recommended though).</li><li>Use <code>cargo new Project-folder</code> to create a new project folder.</li><li>Open the project folder (not the src sub-folder of the project folder) with VS Code.</li></ul><h2 id="Debugging-Example"><a href="#Debugging-Example" class="headerlink" title="Debugging Example"></a>Debugging Example</h2><ul><li>Select main.rs file. Then press F5, and select “C++ (GDB/LLDB)”.</li><li>Modified the launch.json configuration file as the following:</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 以得知可用的屬性。</span></span><br><span class="line">    <span class="comment">// 暫留以檢視現有屬性的描述。</span></span><br><span class="line">    <span class="comment">// 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"(Linux) Launch"</span>,</span><br><span class="line">            <span class="string">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/target/debug/$&#123;workspaceFolderBasename&#125;"</span>,</span><br><span class="line">            <span class="string">"args"</span>: [],</span><br><span class="line">            <span class="string">"cwd"</span>: <span class="string">"$&#123;workspaceRoot&#125;"</span>,</span><br><span class="line">            <span class="string">"externalConsole"</span>: <span class="literal">false</span>,</span><br><span class="line"><span class="string">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="string">"preLaunchTask"</span>: <span class="string">"Build"</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>Because we want to compile the project (<code>cargo build</code>) before debugging it, we should add a task to tasks.json:</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="string">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"label"</span>: <span class="string">"Build"</span>,</span><br><span class="line">            <span class="string">"command"</span>: <span class="string">"cargo"</span>,</span><br><span class="line">            <span class="string">"args"</span>: [<span class="string">"build"</span>],</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Debugging-Demo"><a href="#Debugging-Demo" class="headerlink" title="Debugging Demo"></a>Debugging Demo</h2><img src="/2019/08/01/ti7VSCodeiong7GDBliah8thang8/DebugDemo.png" title="Debugging demo"><h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><p>The debugging function seems to be imcomplete.</p><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://www.forrestthewoods.com/blog/how-to-debug-rust-with-visual-studio-code/" target="_blank" rel="noopener">How to Debug Rust with Visual Studio Code</a></li><li><a href="https://code.visualstudio.com/docs/editor/variables-reference" target="_blank" rel="noopener">Variables Reference</a></li></ul><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Version-Infomation&quot;&gt;&lt;a href=&quot;#Version-Infomation&quot; class=&quot;headerlink&quot; title=&quot;Version Infomation&quot;&gt;&lt;/a&gt;Version Infomation&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;VS Code: 1.36.1&lt;/li&gt;
+&lt;li&gt;GDB: 7.11.1&lt;/li&gt;
+&lt;li&gt;rustc 1.36.0
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="Rust" scheme="http://yoxem.github.io/tags/Rust/"/>
+    
+      <category term="VSCode" scheme="http://yoxem.github.io/tags/VSCode/"/>
+    
+  </entry>
   
   <entry>
     <title>改自王垠的 r2 直譯器——添加惰性求值和遞迴函數</title>
@@ -525,31 +552,6 @@
       <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
     
       <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最後的煙</title>
-    <link href="http://yoxem.github.io/2017/06/27/tsue3au7e5hun1/"/>
-    <id>http://yoxem.github.io/2017/06/27/tsue3au7e5hun1/</id>
-    <published>2017-06-26T16:00:00.000Z</published>
-    <updated>2017-06-26T16:36:16.782Z</updated>
-    
-    <content type="html"><![CDATA[<p><em>（背景設定於小說《<a href="http://yoxem.github.io/2014/02/11/%E4%BA%8C%EF%BC%90%E5%9B%9B%E4%BA%94%EF%BC%88%E4%B8%80%EF%BC%89/">二〇四五</a>》主要劇情發生前的台灣。）</em></p><p>2030年代的台灣島，一位中年的遊民倒在市街旁的暗巷。他舉起用最後的回收的不多錢換來的高粱酌一口，點著火柴劃著煙。</p><p>第一道煙霧上天時，他彷彿看到她的形影——那是幾年前的殘息反抗戰火中消失的瑰麗愛慕。</p><p>第二支煙點燃時，他看到以前自由抒懷的朋友——還能自由論及社會不怕任意監視的社會。</p><p>最後一支煙快熄滅的時候，他看到以前的父母——那努力拼搏卻篤定相信將來能安居、立足的形影，以及模糊卻有活力的童年。</p><p>於是他想倒臥在雙親的胸懷中，一瞥拘禁於絕望之島的軀殼後，回頭繼續振翅，輕盈的飛翔。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;em&gt;（背景設定於小說《&lt;a href=&quot;http://yoxem.github.io/2014/02/11/%E4%BA%8C%EF%BC%90%E5%9B%9B%E4%BA%94%EF%BC%88%E4%B8%80%EF%BC%89/&quot;&gt;二〇四五&lt;/a&gt;》主要劇情發生
-      
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
     
   </entry>
   
