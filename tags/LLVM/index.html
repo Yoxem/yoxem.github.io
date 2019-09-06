@@ -74,6 +74,56 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2019-08-29T18:13:31.691Z"><a href="/2019/08/30/LLVM-IR-e5-kho1tsa1/">2019-08-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/08/30/LLVM-IR-e5-kho1tsa1/">LLVM IR ê 考查</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="結構-struct"><a href="#結構-struct" class="headerlink" title="結構 struct"></a>結構 struct</h2><p>C:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定義 struct */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span>&#123;</span></span><br><span class="line">  <span class="keyword">int</span> a; <span class="comment">// i32</span></span><br><span class="line">  <span class="keyword">double</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span> <span class="title">a</span>;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>LLVM IR:<br><figure class="highlight llvm"><figcaption><span>-ir</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">; ModuleID = 'a.c'</span></span><br><span class="line"><span class="comment">%struct.a_struct = type &#123; i32, double &#125; ; 生 struct</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #0 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca %struct.a_struct, align 8</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="無條仔聯合-untagged-union"><a href="#無條仔聯合-untagged-union" class="headerlink" title="無條仔聯合 untagged union"></a>無條仔聯合 untagged union</h2><p>C:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> a_enum&#123;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="keyword">union</span> a_enum a;</span><br><span class="line">  a.i = <span class="number">9</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>LLVM IR:<br><figure class="highlight llvm"><figcaption><span>-ir</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="symbol">%union.a_enum</span> = <span class="keyword">type</span> &#123; <span class="keyword">double</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #0 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca %union.a_enum, align 8 ; 建立 union.a_enum type</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  %2 = bitcast %union.a_enum* %a to i32* ; 轉 union.a_enum type 到 i32</span></span><br><span class="line"><span class="comment">  store i32 9, i32* %2, align 8 ; 共 9 (i32) 囥入去</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="函數多重定義-function-overloading"><a href="#函數多重定義-function-overloading" class="headerlink" title="函數多重定義 function overloading"></a>函數多重定義 function overloading</h2><p>C++:<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">inc</span><span class="params">(<span class="keyword">double</span> x)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">1.0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inc</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = inc(<span class="number">7</span>); <span class="comment">// inc with integer</span></span><br><span class="line">  <span class="keyword">double</span> b = inc(<span class="number">3.0</span>); <span class="comment">/// inc with float</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>LLVM IR:<br><figure class="highlight llvm"><figcaption><span>-ir</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">; inc double</span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define double @_Z3incd(double %x) #3 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca double, align 8</span></span><br><span class="line"><span class="comment">  store double %x, double* %1, align 8</span></span><br><span class="line"><span class="comment">  %2 = load double, double* %1, align 8</span></span><br><span class="line"><span class="comment">  %3 = fadd double %2, 1.000000e+00</span></span><br><span class="line"><span class="comment">  ret double %3</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; inc integer</span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @_Z3inci(i32 %x) #3 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  store i32 %x, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  %2 = load i32, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  %3 = add nsw i32 %2, 1</span></span><br><span class="line"><span class="comment">  ret i32 %3</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; Function Attrs: norecurse nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #4 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %b = alloca double, align 8</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  %2 = call i32 @_Z3inci(i32 7) ; call inc integer</span></span><br><span class="line"><span class="comment">  store i32 %2, i32* %a, align 4</span></span><br><span class="line"><span class="comment">  %3 = call double @_Z3incd(double 3.000000e+00) ; call inc double</span></span><br><span class="line"><span class="comment">  store double %3, double* %b, align 8</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2019-06-20T16:00:00.000Z"><a href="/2019/06/21/an1tsng1racketllvm/">2019-06-21</a></time>
       
       
@@ -152,6 +202,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2019/08/30/LLVM-IR-e5-kho1tsa1/">LLVM IR ê 考查</a>
+      </li>
+    
+      <li>
         <a href="/2019/08/01/ti7VSCodeiong7GDBliah8thang8/">Debugging Rust with GDB and Visual Studio Code</a>
       </li>
     
@@ -167,10 +221,6 @@
         <a href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a>
       </li>
     
-      <li>
-        <a href="/2019/05/16/MiseEire/">愛爾蘭語詩 Mise Éire 簡介（我是愛爾蘭）</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -179,7 +229,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.91px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.91px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.09px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10px;">LLVM</a> <a href="/tags/Python/" style="font-size: 10.91px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.82px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13.64px;">Scheme</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18.18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.64px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18.18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.91px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.73px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 14.55px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 17.27px;">論</a> <a href="/tags/資訊/" style="font-size: 15.45px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.36px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.91px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.91px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.09px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.91px;">LLVM</a> <a href="/tags/Python/" style="font-size: 10.91px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.82px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13.64px;">Scheme</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18.18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.64px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18.18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.91px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.73px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 14.55px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 17.27px;">論</a> <a href="/tags/資訊/" style="font-size: 15.45px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.36px;">隨筆</a>
   </div>
 </div>
 
@@ -205,7 +255,9 @@ Picasa 相簿（舊）</a></li>
 
   <div class="widget tag">
 <h3 class="title">最近迴響</h3>
-<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></div>
+<ul class="entry">
+ <script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script>
+</div>
 </aside>
     <div class="clearfix"></div>
   </div>

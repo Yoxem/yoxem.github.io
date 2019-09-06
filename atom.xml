@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2019-08-01T14:40:58.165Z</updated>
+  <updated>2019-08-29T18:13:31.691Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LLVM IR ê 考查</title>
+    <link href="http://yoxem.github.io/2019/08/30/LLVM-IR-e5-kho1tsa1/"/>
+    <id>http://yoxem.github.io/2019/08/30/LLVM-IR-e5-kho1tsa1/</id>
+    <published>2019-08-29T18:13:31.691Z</published>
+    <updated>2019-08-29T18:13:31.691Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="結構-struct"><a href="#結構-struct" class="headerlink" title="結構 struct"></a>結構 struct</h2><p>C:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定義 struct */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span>&#123;</span></span><br><span class="line">  <span class="keyword">int</span> a; <span class="comment">// i32</span></span><br><span class="line">  <span class="keyword">double</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span> <span class="title">a</span>;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>LLVM IR:<br><figure class="highlight llvm"><figcaption><span>-ir</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">; ModuleID = 'a.c'</span></span><br><span class="line"><span class="comment">%struct.a_struct = type &#123; i32, double &#125; ; 生 struct</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #0 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca %struct.a_struct, align 8</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure></p><h2 id="無條仔聯合-untagged-union"><a href="#無條仔聯合-untagged-union" class="headerlink" title="無條仔聯合 untagged union"></a>無條仔聯合 untagged union</h2><p>C:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> a_enum&#123;</span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">double</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="keyword">union</span> a_enum a;</span><br><span class="line">  a.i = <span class="number">9</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>LLVM IR:<br><figure class="highlight llvm"><figcaption><span>-ir</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="symbol">%union.a_enum</span> = <span class="keyword">type</span> &#123; <span class="keyword">double</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #0 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca %union.a_enum, align 8 ; 建立 union.a_enum type</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  %2 = bitcast %union.a_enum* %a to i32* ; 轉 union.a_enum type 到 i32</span></span><br><span class="line"><span class="comment">  store i32 9, i32* %2, align 8 ; 共 9 (i32) 囥入去</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure></p><h2 id="函數多重定義-function-overloading"><a href="#函數多重定義-function-overloading" class="headerlink" title="函數多重定義 function overloading"></a>函數多重定義 function overloading</h2><p>C++:<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">inc</span><span class="params">(<span class="keyword">double</span> x)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">1.0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">inc</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = inc(<span class="number">7</span>); <span class="comment">// inc with integer</span></span><br><span class="line">  <span class="keyword">double</span> b = inc(<span class="number">3.0</span>); <span class="comment">/// inc with float</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>LLVM IR:<br><figure class="highlight llvm"><figcaption><span>-ir</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment">; inc double</span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define double @_Z3incd(double %x) #3 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca double, align 8</span></span><br><span class="line"><span class="comment">  store double %x, double* %1, align 8</span></span><br><span class="line"><span class="comment">  %2 = load double, double* %1, align 8</span></span><br><span class="line"><span class="comment">  %3 = fadd double %2, 1.000000e+00</span></span><br><span class="line"><span class="comment">  ret double %3</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; inc integer</span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @_Z3inci(i32 %x) #3 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  store i32 %x, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  %2 = load i32, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  %3 = add nsw i32 %2, 1</span></span><br><span class="line"><span class="comment">  ret i32 %3</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; Function Attrs: norecurse nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #4 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %b = alloca double, align 8</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  %2 = call i32 @_Z3inci(i32 7) ; call inc integer</span></span><br><span class="line"><span class="comment">  store i32 %2, i32* %a, align 4</span></span><br><span class="line"><span class="comment">  %3 = call double @_Z3incd(double 3.000000e+00) ; call inc double</span></span><br><span class="line"><span class="comment">  store double %3, double* %b, align 8</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br></pre></td></tr></table></figure></p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;結構-struct&quot;&gt;&lt;a href=&quot;#結構-struct&quot; class=&quot;headerlink&quot; title=&quot;結構 struct&quot;&gt;&lt;/a&gt;結構 struct&lt;/h2&gt;&lt;p&gt;C:&lt;br&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="LLVM" scheme="http://yoxem.github.io/tags/LLVM/"/>
+    
+  </entry>
   
   <entry>
     <title>Debugging Rust with GDB and Visual Studio Code</title>
@@ -120,9 +143,9 @@
     
       <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
     
-      <category term="Scheme" scheme="http://yoxem.github.io/tags/Scheme/"/>
-    
       <category term="LLVM" scheme="http://yoxem.github.io/tags/LLVM/"/>
+    
+      <category term="Scheme" scheme="http://yoxem.github.io/tags/Scheme/"/>
     
   </entry>
   
@@ -527,31 +550,6 @@
       <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
     
       <category term="R-18" scheme="http://yoxem.github.io/tags/R-18/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用tor上ptt</title>
-    <link href="http://yoxem.github.io/2017/06/30/eng7tortsiunn7ptt/"/>
-    <id>http://yoxem.github.io/2017/06/30/eng7tortsiunn7ptt/</id>
-    <published>2017-06-29T16:00:00.000Z</published>
-    <updated>2017-06-29T16:28:40.911Z</updated>
-    
-    <content type="html"><![CDATA[<p><em>本文參考 <a href="https://askubuntu.com/questions/85766/how-to-use-ssh-with-tor" target="_blank" rel="noopener">How to use SSH with Tor? - Ask Ubuntu</a></em></p><p>若是<ruby><rb>汝</rb><rp>[</rp><rt>lí</rt><rp>]</rp></ruby><ruby><rb>欲</rb><rp>[</rp><rt>beh</rt><rp>]</rp></ruby><ruby><rb>藏</rb><rp>[</rp><rt>tshàng</rt><rp>]</rp></ruby>家己<ruby><rb>的</rb><rp>[</rp><rt>-<!-- -->-ê</rt><rp>]</rp></ruby> IP <ruby><rb>佇</rb><rp>[</rp><rt>tī</rt><rp>]</rp></ruby> ptt <ruby><rb>這个</rb><rp>[</rp><rt>tsit-ê</rt><rp>]</rp></ruby> BBS，通使用 tor。佇 Linux 的虛終端機，通用以下指令：<a id="more"></a></p><p>代先，<ruby><rb>愛</rb><rp>[</rp><rt>ài</rt><rp>]</rp></ruby>確認<ruby><rb>家己</rb><rp>[</rp><rt>ka-kī</rt><rp>]</rp></ruby>有裝 torify 無？若是佇 Linux Mint 18，通用：</p><p><code>apt install tor</code></p><p>裝。</p><p>欲開 ptt 的時，愛先<ruby><rb>拍開</rb><rp>[</rp><rt>phah-khui</rt><rp>]</rp></ruby>虛終端機，開新的分頁，輸入<code>tor</code>連<ruby><rb>甲</rb><rp>[</rp><rt>kah</rt><rp>]</rp></ruby> Tor 網路。</p><p>順利連接後，<ruby><rb>閣</rb><rp>[</rp><rt>koh</rt><rp>]</rp></ruby>開新分頁，輸入指令</p><p><code>torify ssh bbsu@ptt.cc</code></p><p>就通連到 ptt.cc 矣，<ruby><rb>毋過</rb><rp>[</rp><rt>m̅-koh</rt><rp>]</rp></ruby>速度<ruby><rb>較</rb><rp>[</rp><rt>khah</rt><rp>]</rp></ruby>慢而且<ruby><rb>鈍鈍</rb><rp>[</rp><rt>tūn-tūn</rt><rp>]</rp></ruby>。</p><p>而且用 tor 開新的口座 (account) 以後，一定愛開 tor <ruby><rb>才</rb><rp>[</rp><rt>tsiah</rt><rp>]</rp></ruby><ruby><rb>通</rb><rp>[</rp><rt>thang</rt><rp>]</rp></ruby>登入這个口座。以免 IP <ruby><rb>予人</rb><rp>[</rp><rt>hőng</rt><rp>]</rp></ruby>發現。</p><p><strong>注意：千萬毋通用佇非法用途。</strong></p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;em&gt;本文參考 &lt;a href=&quot;https://askubuntu.com/questions/85766/how-to-use-ssh-with-tor&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;How to use SSH with Tor? - Ask Ubuntu&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;若是{rb|汝|lí}{rb|欲|beh}{rb|藏|tshàng}家己{rb|的|-&lt;!-- --&gt;-ê} IP {rb|佇|tī} ptt {rb|這个|tsit-ê} BBS，通使用 tor。佇 Linux 的虛終端機，通用以下指令：
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
-    
-      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
     
   </entry>
   
