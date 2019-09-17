@@ -76,25 +76,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2019-09-17T15:37:17.954Z"><a href="/2019/09/17/LLVM-IR-e5-kho1tsa1/">2019-09-17</a></time>
+        <time datetime="2019-09-15T16:32:52.000Z"><a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">2019-09-16</a></time>
       
       
   
-    <h1 class="title"><a href="/2019/09/17/LLVM-IR-e5-kho1tsa1/"></a></h1>
+    <h1 class="title"><a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">論本土語言小學的成立</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="結構-struct"><a href="#結構-struct" class="headerlink" title="結構 struct"></a>結構 struct</h2><p>C:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定義 struct */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span>&#123;</span></span><br><span class="line">  <span class="keyword">int</span> a; <span class="comment">// i32</span></span><br><span class="line">  <span class="keyword">double</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span> <span class="title">a</span>;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>LLVM IR:<br><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">; ModuleID = 'a.c'</span></span><br><span class="line"><span class="comment">%struct.a_struct = type &#123; i32, double &#125; ; 生 struct</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #0 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca %struct.a_struct, align 8</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure>
+        <p>（原著於2019-09上旬，內文部份經過修改。）</p>
+<p>當前台灣語言使用，不分各個族群，有朝向使用官話（即華語或國語) 的趨勢，其他語言日漸式微。為保護台灣本土語言的存續，除現今基本教育推動語言教育外，也制定《國家語言發展法》，試圖保障其持續發展。
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2019/09/17/LLVM-IR-e5-kho1tsa1/#more" class="more-link">More...</a>
+            <a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/#more" class="more-link">More...</a>
           </div>
         
         
@@ -125,25 +125,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2019-09-15T16:32:52.000Z"><a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">2019-09-16</a></time>
+        <time datetime="2019-09-06T16:00:00.000Z"><a href="/2019/09/07/LLVM-IR-e5-kho1tsa1/">2019-09-07</a></time>
       
       
   
-    <h1 class="title"><a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">論本土語言小學的成立</a></h1>
+    <h1 class="title"><a href="/2019/09/07/LLVM-IR-e5-kho1tsa1/">LLVM IR ê 考查</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>（原著於2019-09上旬，內文部份經過修改。）</p>
-<p>當前台灣語言使用，不分各個族群，有朝向使用官話（即華語或國語) 的趨勢，其他語言日漸式微。為保護台灣本土語言的存續，除現今基本教育推動語言教育外，也制定《國家語言發展法》，試圖保障其持續發展。
+        <h2 id="結構-struct"><a href="#結構-struct" class="headerlink" title="結構 struct"></a>結構 struct</h2><p>C:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定義 struct */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span>&#123;</span></span><br><span class="line">  <span class="keyword">int</span> a; <span class="comment">// i32</span></span><br><span class="line">  <span class="keyword">double</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span> <span class="title">a</span>;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>LLVM IR:<br><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">; ModuleID = 'a.c'</span></span><br><span class="line"><span class="comment">%struct.a_struct = type &#123; i32, double &#125; ; 生 struct</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #0 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca %struct.a_struct, align 8</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/#more" class="more-link">More...</a>
+            <a href="/2019/09/07/LLVM-IR-e5-kho1tsa1/#more" class="more-link">More...</a>
           </div>
         
         
@@ -184,7 +184,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>75</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>76</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -200,11 +200,11 @@
   <ul class="entry">
     
       <li>
-        <a href="/2019/09/17/LLVM-IR-e5-kho1tsa1/"></a>
+        <a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">論本土語言小學的成立</a>
       </li>
     
       <li>
-        <a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">論本土語言小學的成立</a>
+        <a href="/2019/09/07/LLVM-IR-e5-kho1tsa1/">LLVM IR ê 考查</a>
       </li>
     
       <li>
