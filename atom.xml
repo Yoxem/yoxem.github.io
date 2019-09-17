@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2019-09-17T15:50:11.361Z</updated>
+  <updated>2019-09-17T15:37:17.954Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello</title>
-    <link href="http://yoxem.github.io/2019/09/17/Hello/"/>
-    <id>http://yoxem.github.io/2019/09/17/Hello/</id>
-    <published>2019-09-17T15:50:11.000Z</published>
-    <updated>2019-09-17T15:50:11.361Z</updated>
-    
-    <content type="html"><![CDATA[<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;script type=&quot;text/javascript&quot;&gt; var head = document.getElementsByTagName(&quot;head&quot;); var link_css = document.createElement(&#39;style&#39;); link_css.s
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title></title>
@@ -541,6 +520,32 @@
     
     
       <category term="分行散文或詩" scheme="http://yoxem.github.io/tags/%E5%88%86%E8%A1%8C%E6%95%A3%E6%96%87%E6%88%96%E8%A9%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>短篇小說集：我們最後一起走的路</title>
+    <link href="http://yoxem.github.io/2017/07/31/te2phinn1siau2suat4chip8/"/>
+    <id>http://yoxem.github.io/2017/07/31/te2phinn1siau2suat4chip8/</id>
+    <published>2017-07-30T16:00:00.000Z</published>
+    <updated>2017-07-31T14:43:47.896Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近以「北郊工房」的名義，和另一位筆名的作品以及自己寫的短篇小說結成集，名為《我們最後一起走的路——北郊工房短篇小說集》，有興趣的可以聯絡我。因部份文章有年齡限制，恕不接洽未成年。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近以「北郊工房」的名義，和另一位筆名的作品以及自己寫的短篇小說結成集，名為《我們最後一起走的路——北郊工房短篇小說集》，有興趣的可以聯絡我。因部份文章有年齡限制，恕不接洽未成年。&lt;/p&gt;
+&lt;script type=&quot;text/javascript&quot;&gt; var head =
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="生活" scheme="http://yoxem.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
