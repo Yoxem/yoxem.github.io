@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2019-09-17T16:49:22.273Z</updated>
+  <updated>2019-10-11T13:52:36.764Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -17,19 +17,20 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hello</title>
-    <link href="http://yoxem.github.io/2019/09/18/hello/"/>
-    <id>http://yoxem.github.io/2019/09/18/hello/</id>
-    <published>2019-09-17T16:46:50.000Z</published>
-    <updated>2019-09-17T16:49:22.273Z</updated>
+    <title>大數字除法演算法——Newton 法 ê 變形</title>
+    <link href="http://yoxem.github.io/2019/10/11/tua7soo3ji7tu5huat4ian2sng3huat4/"/>
+    <id>http://yoxem.github.io/2019/10/11/tua7soo3ji7tu5huat4ian2sng3huat4/</id>
+    <published>2019-10-11T08:56:29.000Z</published>
+    <updated>2019-10-11T13:52:36.764Z</updated>
     
-    <content type="html"><![CDATA[<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    <content type="html"><![CDATA[<p>設使汝干焦有整數乘法、整數加減法 kap 向倒爿徙位 (&lt;&lt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？</p><p>一个實做大數演算法 ê 方法，是用微積分 ê Newton 法：假使 $N$ 是被除數， $D$ 是除數（$N, D \in Z , Z =  \{ x \mid x \in 𝑵 \bigcup x=0\}$），咱會當求一个數 $x = d^{-1}$，按呢 $n / d = nx$ 。閣用 $f(x) = dx - 1 $（tī $x=1/d$ 有解）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;script type=&quot;text/javascript&quot;&gt; var head = document.getElementsByTagName(&quot;head&quot;); var link_css = document.createElement(&#39;style&#39;); link_css.s
+        &lt;p&gt;設使汝干焦有整數乘法、整數加減法 kap 向倒爿徙位 (&amp;lt;&amp;lt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？&lt;/p&gt;
+&lt;p&gt;一个實做大數演算法 ê 方法，是用微積分 ê Newton 法：假使 $N$ 是被除數， $D$ 是
       
     
     </summary>
@@ -37,7 +38,11 @@
       <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
     
     
-      <category term="hello" scheme="http://yoxem.github.io/tags/hello/"/>
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
+    
+      <category term="數學" scheme="http://yoxem.github.io/tags/%E6%95%B8%E5%AD%B8/"/>
     
   </entry>
   
