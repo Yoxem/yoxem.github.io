@@ -76,28 +76,47 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2019-10-11T08:56:29.000Z"><a href="/2019/10/11/tua7soo3ji7tu5huat4ian2sng3huat4/">2019-10-11</a></time>
+        <time datetime="2019-10-11T16:00:00.000Z"><a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">2019-10-12</a></time>
       
       
   
-    <h1 class="title"><a href="/2019/10/11/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></h1>
+    <h1 class="title"><a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>設使汝干焦有整數乘法、整數加減法 kap 向倒爿徙位 (&lt;&lt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？</p>
+        <p><strong>（開始寫 tī 2019-10-11）</strong></p>
+<h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>設使汝干焦有整數乘法、整數加減法 kap 向倒爿徙位 (&lt;&lt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？</p>
 <p>一个實做大數演算法 ê 方法，是用微積分 ê Newton 法：假使 $N$ 是被除數， $D$ 是除數（$N, D \in Z , Z =  \{ x \mid x \in 𝑵 \bigcup x=0\}$），攏是 $a$ 進位數，$length(x) $ 指整數 $x$ tī $a$ 進位數 ê 長度（例：$length(100_{10})=3,~length(89_{10}) = 2$）。</p>
-<p>咱會當求一个數 $x = d^{-1}$，按呢 $N / D = Nx$ 。閣用 Newton 法 kā $f(x) = Dx - 1 $（tī $x=1/D$ 有解） 求伊ê近倚ê解 $x_k$，tiō 有 $nx_k \approx N / D$ ，mā 近倚商數矣。</p>
-<p>但是有一个問題：$d^{-1}$是小數，欲按怎算 leh？</p>
-<p>一个方法著是 kā $\frac{1}{D}$ 乘以 $a^p$（就是放大），算出 $\frac{a^p}{D}$ ê 近似數 $y_k$，按呢 $Ny_k \approx \frac{Na^p}{D}$。koh 設定 $ x 向倒爿徙 p 位 := x_a \ll p = x // a^p$；其中$a // b = a 除以 b~ê 商數$），就通得著 $Ny_k \ll p \approx Na^p // a^p \approx N/D$。</p>
-<p>$p$ ê {ruby|size|sài-suh} 著偌大？我認為參考<a href="https://drive.google.com/file/d/12_Ffw1yxrMXkxQ92L6JQYK8gSM_Rv5yJ/edit" target="_blank" rel="noopener">這篇文章</a> (pdf)，要求 $\frac{N}{D} - Nx \leq 1$，</p>
-<p>而且因為 $N &lt; a^{length(N)}$，tī $N\neq 0$ ê 時），tiō 有</p>
-<script type="math/tex; mode=display">\frac{1}{D} - x < a^{-length{N}}</script><p>咱欲予 $\frac{a^p}{D} - xa^p $ tī $\frac{1}{D} \neq x$ ê 時，會當用整數加減計算，所以通 kā 設定做 $\frac{a^p}{D} - xa^p = a^p(\frac{1}{D}-x) &lt; a^1$，按呢比較一下， $a^p = a^{1+length(N)}$。$p$ 通設定做 $1+length(N）$。</p>
-<p>欲揣 $y_k \approx \frac{a^p}{D}$，通用 $f(y) = \frac{1}{y} - \frac{D}{a^p}, p = 1+length(N）$ kap Newton 法計算伊 ê 近似解。</p>
+<p>咱會當求一个數 $x = D^{-1}$，按呢 $N / D = Nx$ 。閣用 Newton 法 kā $f(x) = Dx - 1 $（tī $x=1/D$ 有解） 求伊ê近倚ê解 $x_k$，tiō 有 $nx_k \approx N / D$ ，mā 近倚商數矣。</p>
+<p>但是有一个問題：$D^{-1}$是小數，欲按怎算 leh？</p>
+<p>一个方法著是 kā $\frac{1}{D}$ 乘以 $a^p$（就是放大），算出 $\frac{a^p}{D}$ ê 近似數 $y_k$，按呢 $Ny_k \approx \frac{Na^p}{D}$。koh 設定 $ x 向倒爿徙 p 位 := x_a \ll p = x // a^p$；其中$a // b = a 除以 b~ê 商數$），就通得著 $Ny_k \ll p \approx \frac{Na^p}{D} // a^p \approx N/D$。</p>
+<p>$p$ ê <ruby><rb>size</rb><rp>[</rp><rt>sài-suh</rt><rp>]</rp></ruby> 著偌大？我認為參考<a href="https://drive.google.com/file/d/12_Ffw1yxrMXkxQ92L6JQYK8gSM_Rv5yJ/edit" target="_blank" rel="noopener">這篇文章</a> (pdf)，會 tàng 要求 $\frac{N}{D} - Nx \leq 1$，</p>
+<p>而且因為 $N &lt; a^{length(N)}$，tī $N\neq 0$ ê 時，tiō 有</p>
+<script type="math/tex; mode=display">\frac{1}{D} - x < a^{-length{N}}</script><p>咱欲予 $\frac{a^p}{D} - xa^p $ tī $\frac{1}{D} \neq x$ ê 時，會當用整數加減計算，所以通 kā 設定做 $\frac{a^p}{D} - xa^p = a^p(\frac{1}{D}-x) &lt; a^1$，按呢比較一下， $a^p = a^{1+length(N)}$。所以 $p$ 通設定做 $1+length(N）$。</p>
+<p>Beh 揣 $y_k \approx \frac{a^p}{D}$，通用 $f(y) = \frac{1}{y} - \frac{D}{a^p}（其中 p = 1+length(N)）$ kap Newton 法計算伊 ê 近似解。</p>
+<p>tiō有</p>
 <p>$y_{k+1} = y_k - \frac{f(y)}{f’(y)} = y_k - \frac{\frac{1}{y_k} - \frac{D}{a^p}}{-y_k^{-2}} = 2y_k - \frac{y_k^2D}{a^p}$。</p>
+<p>（拄開始通設定 $y_0=1$）</p>
 <p>會當 kā $\frac{y_k^2D}{a^p}$ 用 $(y_k^2D)//a^p$ 近倚，tiō 有：</p>
-<script type="math/tex; mode=display">y_{k+1} = 2y_k - {y_k^2D} // {a^p}</script><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+<script type="math/tex; mode=display">y_{k+1} = 2y_k - {y_k^2D} // {a^p}</script><h2 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h2><p>設定 $N=85965, D=457, a = 10$，愛算出 $N/D$ ê商。</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+y_0 = 1 \\
+
+& y_1 =  2y_0 - y_0^2D // 10^{length(N)+1} = 2y_0 - {457{y_0^2}} // {10^{6}} =  2 \\
+
+& y_2 = 2y_1 - {457{y_1^2}} // {10^{6}} = 4 \\
+
+& y_3 = 8, y_4 = 16, y_5 = 32, y_6 = 64, y_7 = 127, y_8 = 247, y_9 = 467, y_{10} = 835, \\
+
+& y_{11} = 1352, y_{12} = 1869, y_{13} = 2142, y_{14} = 2188, y_{15} = 2189, y_{16} = 2189
+
+\end{align*}</script><p>因為 $y_15 = y_16 = 2189$，計算結束。所以</p>
+<script type="math/tex; mode=display">Ny_16 = 188177385, N//D \approx Ny_16//a^{length(N)} = 188。</script><p>比較 $N/D = 188.10722100656454（所以N//D = 188）$，合結果。</p>
+<p>毋過因為用求商符號代表整除符號會致到輸出出現誤差，使用 ê 時著注意。</p>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
       
     </div>
     <footer>
@@ -111,7 +130,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li></ul>    </div>
         
          
 
@@ -167,7 +186,7 @@
   <ul class="entry">
     
       <li>
-        <a href="/2019/10/11/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a>
+        <a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a>
       </li>
     
       <li>
