@@ -6,8 +6,8 @@
   <title>大數字除法演算法——Newton 法 ê 變形 | 北郊獨語 - Yoxem&#39;s Blog</title>
   <meta name="author" content="Yoxem Chen">
   
-  <meta name="description" content="（開始寫 tī 2019-10-11，上新修改 tī 2019-10-15）
-說明設使汝干焦有整數乘法、整數加減法 kap 向倒爿徙位 (&amp;lt;&amp;lt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？">
+  <meta name="description" content="（開始寫 tī 2019-10-11，上新修改 tī 2019-10-16）
+說明設使汝干焦有整數乘法、整數加減法 kap 向正爿徙位 (&amp;gt;&amp;gt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -84,12 +84,12 @@
     </header>
     <div class="entry">
       
-        <p><strong>（開始寫 tī 2019-10-11，上新修改 tī 2019-10-15）</strong></p>
-<h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>設使汝干焦有整數乘法、整數加減法 kap 向倒爿徙位 (&lt;&lt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？<a id="more"></a></p>
+        <p><strong>（開始寫 tī 2019-10-11，上新修改 tī 2019-10-16）</strong></p>
+<h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>設使汝干焦有整數乘法、整數加減法 kap 向正爿徙位 (&gt;&gt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？<a id="more"></a></p>
 <p>一个實做大數演算法 ê 方法，是用微積分 ê Newton 法：假使 $N$ 是被除數， $D$ 是除數（$N, D \in Z , Z =  \{ x \mid x \in 𝑵 \bigcup x=0\}$），攏是 $a$ 進位數，$length(x) $ 指整數 $x$ tī $a$ 進位數 ê 長度（例：$length(100_{10})=3,~length(89_{10}) = 2$）。</p>
 <p>咱會當求一个數 $x = D^{-1}$，按呢 $N / D = Nx$ 。閣用 Newton 法 kā $f(x) = Dx - 1 $（tī $x=1/D$ 有解） 求伊ê近倚ê解 $x_k$，tiō 有 $nx_k \approx N / D$ ，mā 近倚商數矣。</p>
 <p>但是有一个問題：$D^{-1}$是小數，欲按怎算 leh？</p>
-<p>一个方法著是 kā $\frac{1}{D}$ 乘以 $a^p$（就是放大），算出 $\frac{a^p}{D}$ ê 近似數 $y_k$，按呢 $Ny_k \approx \frac{Na^p}{D}$。koh 設定 $ x 向倒爿徙 p 位 := x_a \ll p = x // a^p$；其中$a // b = a 除以 b~ê 商數$），就通得著 $Ny_k \ll p \approx \frac{Na^p}{D} // a^p \approx N/D$。</p>
+<p>一个方法著是 kā $\frac{1}{D}$ 乘以 $a^p$（就是放大），算出 $\frac{a^p}{D}$ ê 近似數 $y_k$，按呢 $Ny_k \approx \frac{Na^p}{D}$。koh 設定 $ x 向正爿徙 p 位 := x_a \rr p = x // a^p$；其中$a // b = a 除以 b~ê 商數$），就通得著 $Ny_k \rr p \approx \frac{Na^p}{D} // a^p \approx N/D$。</p>
 <p>$p$ ê <ruby><rb>size</rb><rp>[</rp><rt>sài-suh</rt><rp>]</rp></ruby> 著偌大？我認為參考<a href="https://drive.google.com/file/d/12_Ffw1yxrMXkxQ92L6JQYK8gSM_Rv5yJ/edit" target="_blank" rel="noopener">這篇文章</a> (pdf)，會 tàng 要求 $\frac{N}{D} - Nx \leq 1$，</p>
 <p>而且因為 $N &lt; a^{length(N)}$，tī $N\neq 0$ ê 時，tiō 有</p>
 <script type="math/tex; mode=display">\frac{1}{D} - x < a^{-length{N}}</script><p>咱欲予 $\frac{a^p}{D} - xa^p $ tī $\frac{1}{D} \neq x$ ê 時，會當用整數加減計算，所以通 kā 設定做 $\frac{a^p}{D} - xa^p = a^p(\frac{1}{D}-x) &lt; a^1$，按呢比較一下， $a^p = a^{1+length(N)}$。所以 $p$ 通設定做 $1+length(N）$。</p>
@@ -156,7 +156,7 @@
   <!-- hexo-list-related-posts -->
 
 <div style="margin-top: 0px; border-top: 1px solid #ddd; padding-top: 26px">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li></ul>    </div>
         
 
   </div>
