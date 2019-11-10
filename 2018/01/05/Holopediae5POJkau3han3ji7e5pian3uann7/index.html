@@ -82,8 +82,8 @@
 
     </header>
     <div class="entry">
-      
-        <p>閩南語維基百科使用<a href="http://zh.wikipedia.org/wiki/白話字" target="_blank" rel="noopener">白話字</a>，這套歷史悠久，且又派生教育部目前拼寫台灣閩南語（下稱台語）的標準——台羅的拉丁化（拼音）方案，為主要書寫系統。固然可以閃避掉用字共識不高、罕用字難知發音、字音有時還需要拼音標注、本字考據問題以及外來語不易用漢字統一標記的，台語和漢字的種種糾葛，但因為台灣甚至中國一帶的人受到漢字教育已久，對於白話字（台羅）需要另外學習會降低使用意願，使得經常使用的人數不太多。這或許也可以反應閩南語維基百科雖然在漢藏語系中條目數第二多，但是經常編輯者與編輯頻率遠少於華語維基百科的現況。<a id="more"></a></p>
+      <div class="toc" style="font-size: 100%; border-style:solid; border-width 0.1px; border-color: #787878; float: right; width: 25%; padding: 20px;border-width: 1px; border-margin: 10px;margin-left: 10px;margin-bottom: 10px;"><span style="text-align:center;font-weight:bold;">目錄</span></div>
+      <p>閩南語維基百科使用<a href="http://zh.wikipedia.org/wiki/白話字" target="_blank" rel="noopener">白話字</a>，這套歷史悠久，且又派生教育部目前拼寫台灣閩南語（下稱台語）的標準——台羅的拉丁化（拼音）方案，為主要書寫系統。固然可以閃避掉用字共識不高、罕用字難知發音、字音有時還需要拼音標注、本字考據問題以及外來語不易用漢字統一標記的，台語和漢字的種種糾葛，但因為台灣甚至中國一帶的人受到漢字教育已久，對於白話字（台羅）需要另外學習會降低使用意願，使得經常使用的人數不太多。這或許也可以反應閩南語維基百科雖然在漢藏語系中條目數第二多，但是經常編輯者與編輯頻率遠少於華語維基百科的現況。<a id="more"></a></p>
 <p>因此，如果能夠製作一個軟體，開發出網頁界面，將白話字的維基百科轉換成漢字的內容，或許可以增加閱讀量以及推介閩南語維基百科的內容。此外，許多清末一直到戰後初期許多的閩南語白話字文獻，也可以轉換成漢字提供閱讀，提高普及率。</p>
 <p>雖然台灣閩南語也是有一字多音或一音多字問題，而且一字多音的現象特別廣泛，或許有人質疑變換程式是否能夠滿足需求，但可以參考日文的案例：日語一漢字多音（生可以寫成なま、うまれ、なす、せい……），一音多詞（きしゃ就可以寫成記者、貴社、汽車……因此日語有不少諧音雙關哏）之複雜度不下台灣閩南語，卻也能夠開發出假名轉換漢字的智慧選字系統，我相信台語應該也能夠做品質高的羅馬字—漢字轉換。而且絕大多數的台語漢字和音節呈現一對一的關係，且有些詞在特定的前後詞（文）比其同音詞出現機率比較高（就像食物和植物同音，但在論到滷肉飯的文章，用「食物」的機會比較高）。因此，要做出比較好的文字轉換應該可行。</p>
 <p>或許就像不少智慧選字音碼輸入法可以用馬可夫模型得出比較好的選字結果，這種有關選字的演算法或語言相關的技術，應該也可以應用在這種轉換上（可能也要了解詞頻）。還有另一種方法就是機器學習，利用 Tensorflow 和 seq2seq 的機器學習和機器翻譯的軟體，應該也可以藉由機器學習，生成轉換文字的翻譯模型。可以參考<a href="https://www.tensorflow.org/tutorials/seq2seq" target="_blank" rel="noopener">這篇教學</a>。</p>
@@ -102,7 +102,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Holo話/">Holo話</a>, <a href="/tags/資訊/">資訊</a>, <a href="/tags/隨筆/">隨筆</a>
+    <a href="/tags/資訊/">資訊</a>, <a href="/tags/Holo話/">Holo話</a>, <a href="/tags/隨筆/">隨筆</a>
   </div>
 
         
@@ -130,7 +130,7 @@
   <!-- hexo-list-related-posts -->
 
 <div style="margin-top: 0px; border-top: 1px solid #ddd; padding-top: 26px">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2015/04/30/Kin7-jit8_tsap8-kam2/">近日雜感</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li></ul>    </div>
         
 
   </div>
@@ -169,7 +169,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>77</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>78</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -183,6 +183,10 @@
 <div class="widget tag">
   <h3 class="title">Recent Posts</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記形電腦電量 ê 程式</a>
+      </li>
     
       <li>
         <a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a>
@@ -200,10 +204,6 @@
         <a href="/2019/08/01/ti7VSCodeiong7GDBliah8thang8/">Debugging Rust with GDB and Visual Studio Code</a>
       </li>
     
-      <li>
-        <a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/">改自王垠的 r2 直譯器——添加惰性求值和遞迴函數</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -212,7 +212,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 11.11px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 11.11px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 18.89px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 11.11px;">LLVM</a> <a href="/tags/Python/" style="font-size: 11.11px;">Python</a> <a href="/tags/R-18/" style="font-size: 12.22px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 14.44px;">Scheme</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 17.78px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14.44px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 17.78px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11.11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13.33px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15.56px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 17.78px;">論</a> <a href="/tags/資訊/" style="font-size: 16.67px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.67px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 11px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 11px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 11px;">LLVM</a> <a href="/tags/Python/" style="font-size: 11px;">Python</a> <a href="/tags/R-18/" style="font-size: 12px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 14px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 18px;">論</a> <a href="/tags/資訊/" style="font-size: 17px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16px;">隨筆</a>
   </div>
 </div>
 
@@ -236,7 +236,9 @@ Flickr 相簿（舊）</a></li>
 
   <div class="widget tag">
 <h3 class="title">最近迴響</h3>
-<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></div>
+<ul class="entry">
+ <script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script>
+</div>
 </aside>
     <div class="clearfix"></div>
   </div>

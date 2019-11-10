@@ -83,8 +83,8 @@
 
     </header>
     <div class="entry">
-      
-        <p>最近因為協助 <a href="http://code.google.com/p/lonote" target="_blank" rel="noopener">Lonote</a> 筆記軟體在 Windows 下的打包工作中，因為 Py2exe 至今對這軟體使用的 Python3 不支援，所以採用 <a href="http://cx-freeze.sourceforge.net/" target="_blank" rel="noopener">cx_Freeze</a> 將用 Python3 寫成的程式和相依的函式庫綁在同一個資料夾中，以方便廣大沒有安裝 Python3 和 PyQt4 的 Windows 用者使用。</p>
+      <div class="toc" style="font-size: 100%; border-style:solid; border-width 0.1px; border-color: #787878; float: right; width: 25%; padding: 20px;border-width: 1px; border-margin: 10px;margin-left: 10px;margin-bottom: 10px;"><span style="text-align:center;font-weight:bold;">目錄</span><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#上代-blog-的評論"><span class="toc-text">上代 blog 的評論</span></a></li></ol></div>
+      <p>最近因為協助 <a href="http://code.google.com/p/lonote" target="_blank" rel="noopener">Lonote</a> 筆記軟體在 Windows 下的打包工作中，因為 Py2exe 至今對這軟體使用的 Python3 不支援，所以採用 <a href="http://cx-freeze.sourceforge.net/" target="_blank" rel="noopener">cx_Freeze</a> 將用 Python3 寫成的程式和相依的函式庫綁在同一個資料夾中，以方便廣大沒有安裝 Python3 和 PyQt4 的 Windows 用者使用。</p>
 <p>但對於中文使用者來說， cx_Freeze 有相當嚴重的缺點，那就是在 setup.py 中，若 cx_Freeze.Executable 之 Base = ‘Win32GUI’（該參數的值為 ‘Win32GUI’ 時），做出來的視窗程式 .exe 檔無法在含有中文名稱的路徑下執行。若嘗試執行，則會跳出 “cannot get zipimporter instance” 的警告視窗。目前的正式版本 4.2.3 仍舊會出現這個錯誤。<br><a id="more"></a><br>慶幸網友 Kder 寫了一個 patch ，<a href="http://www.mail-archive.com/cx-freeze-users@lists.sourceforge.net/msg00848.html" target="_blank" rel="noopener">修正了這個 bug</a>。因為該 patch 相當簡單，含空白只有5行，故可以不用另外下載 patch 程式補上，直接如下法手動修改、編譯、重裝 cx_Freeze 即可。</p>
 <p>前註：</p>
 <ol>
@@ -159,7 +159,7 @@ _Python的安裝路徑_\python setup.py install</pre><br>標_斜體_字處請依
   <!-- hexo-list-related-posts -->
 
 <div style="margin-top: 0px; border-top: 1px solid #ddd; padding-top: 26px">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">遞迴下降分析器的簡介</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">遞迴下降分析器的簡介</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記形電腦電量 ê 程式</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2014/05/20/rubyjs---讓-hexo-更方便輸入旁註標記/">ruby.js - 讓 Hexo 更方便輸入旁註標記 <ruby></a></li><li class="related-posts-item"><a class="related-posts-link" href="/2010/06/23/談自力解決之兩三/">談自力解決之兩三</a></li></ul>    </div>
         
 
   </div>
@@ -198,7 +198,7 @@ _Python的安裝路徑_\python setup.py install</pre><br>標_斜體_字處請依
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>77</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>78</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -212,6 +212,10 @@ _Python的安裝路徑_\python setup.py install</pre><br>標_斜體_字處請依
 <div class="widget tag">
   <h3 class="title">Recent Posts</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記形電腦電量 ê 程式</a>
+      </li>
     
       <li>
         <a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a>
@@ -229,10 +233,6 @@ _Python的安裝路徑_\python setup.py install</pre><br>標_斜體_字處請依
         <a href="/2019/08/01/ti7VSCodeiong7GDBliah8thang8/">Debugging Rust with GDB and Visual Studio Code</a>
       </li>
     
-      <li>
-        <a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/">改自王垠的 r2 直譯器——添加惰性求值和遞迴函數</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -241,7 +241,7 @@ _Python的安裝路徑_\python setup.py install</pre><br>標_斜體_字處請依
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 11.11px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 11.11px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 18.89px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 11.11px;">LLVM</a> <a href="/tags/Python/" style="font-size: 11.11px;">Python</a> <a href="/tags/R-18/" style="font-size: 12.22px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 14.44px;">Scheme</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 17.78px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14.44px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 17.78px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11.11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13.33px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15.56px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 17.78px;">論</a> <a href="/tags/資訊/" style="font-size: 16.67px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.67px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 11px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 11px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 11px;">LLVM</a> <a href="/tags/Python/" style="font-size: 11px;">Python</a> <a href="/tags/R-18/" style="font-size: 12px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 14px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 18px;">論</a> <a href="/tags/資訊/" style="font-size: 17px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16px;">隨筆</a>
   </div>
 </div>
 
@@ -265,7 +265,9 @@ Flickr 相簿（舊）</a></li>
 
   <div class="widget tag">
 <h3 class="title">最近迴響</h3>
-<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></div>
+<ul class="entry">
+ <script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script>
+</div>
 </aside>
     <div class="clearfix"></div>
   </div>
