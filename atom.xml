@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2019-11-10T15:56:09.629Z</updated>
+  <updated>2019-11-10T16:12:30.767Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -21,17 +21,18 @@
     <link href="http://yoxem.github.io/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/"/>
     <id>http://yoxem.github.io/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/</id>
     <published>2019-11-10T15:27:37.000Z</published>
-    <updated>2019-11-10T15:56:09.629Z</updated>
+    <updated>2019-11-10T16:12:30.767Z</updated>
     
-    <content type="html"><![CDATA[<p>實在 tsih-tsài 袂牢電腦無通知直接斷電 ê 情形，tshiau 過 ê 足 tsē 資料 mā 無法度解決。</p><p>姑不而將，家己寫一个 shell script。</p><script src="https://gist.github.com/Yoxem/7ac7549b6c2b486880256157661bb9ba.js"></script><p>必要 ê 套件：</p><ul><li>upower</li><li>zenity</li><li>sh</li></ul><p>將 hit 个 shell script khǹg 好，chmod u+x  system-autodetect-battery-and-hibernate.sh。</p><p>Koh 用 crontab -e 指令，加每 x 分鐘執行這个程式 ê routine。以「每 3 分鐘執行囥佇 /opt/ ê system-autodetect-battery-and-hibernate.sh」做例：</p><pre>3 * * * * export DISPLAY=:0 && /opt/system-autodetect-battery-and-hibernate.sh</pre><p>向望 tse 有效。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    <content type="html"><![CDATA[<p>（上尾更新 tī：2019-11-11）</p><p>實在 tsih-tsài 袂牢電腦無通知直接斷電 ê 情形，tshiau 過 ê 足 tsē 資料 mā 無法度解決。</p><p>姑不而將，家己寫一个 shell script。</p><script src="https://gist.github.com/Yoxem/7ac7549b6c2b486880256157661bb9ba.js"></script><p>必要 ê 套件：</p><ul><li>upower</li><li>zenity</li><li>sh</li></ul><p>將 hit 个 shell script khǹg 好，chmod u+x  system-autodetect-battery-and-hibernate.sh。</p><p>Koh 用 crontab -e 指令，加每 x 分鐘執行這个程式 ê routine。以「每 3 分鐘執行囥佇 /opt/ ê system-autodetect-battery-and-hibernate.sh」做例：</p><pre>0-59/3 * * * * export DISPLAY=:0 && /opt/system-autodetect-battery-and-hibernate.sh</pre><p>向望 tse 有效。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;實在 tsih-tsài 袂牢電腦無通知直接斷電 ê 情形，tshiau 過 ê 足 tsē 資料 mā 無法度解決。&lt;/p&gt;
+        &lt;p&gt;（上尾更新 tī：2019-11-11）&lt;/p&gt;
+&lt;p&gt;實在 tsih-tsài 袂牢電腦無通知直接斷電 ê 情形，tshiau 過 ê 足 tsē 資料 mā 無法度解決。&lt;/p&gt;
 &lt;p&gt;姑不而將，家己寫一个 shell script。&lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/Yoxe
+&lt;script src=&quot;
       
     
     </summary>
