@@ -84,11 +84,7 @@
     </header>
     <div class="entry">
       
-        
-<div class="toc" style="font-size: 100%; border-style:solid; border-width 0.1px; border-color: #787878; float: right; width: 25%; padding: 20px;border-width: 1px; border-margin: 10px;margin-left: 10px;margin-bottom: 10px; background: #f6f7f9;"><span style="text-align:center;font-weight:bold;">目錄</span>
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#上代-blog-的評論"><span class="toc-text">上代 blog 的評論</span></a></li></ol>
-</div>
-        
+ 
       <p>最近因為協助 <a href="http://code.google.com/p/lonote" target="_blank" rel="noopener">Lonote</a> 筆記軟體在 Windows 下的打包工作中，因為 Py2exe 至今對這軟體使用的 Python3 不支援，所以採用 <a href="http://cx-freeze.sourceforge.net/" target="_blank" rel="noopener">cx_Freeze</a> 將用 Python3 寫成的程式和相依的函式庫綁在同一個資料夾中，以方便廣大沒有安裝 Python3 和 PyQt4 的 Windows 用者使用。</p>
 <p>但對於中文使用者來說， cx_Freeze 有相當嚴重的缺點，那就是在 setup.py 中，若 cx_Freeze.Executable 之 Base = ‘Win32GUI’（該參數的值為 ‘Win32GUI’ 時），做出來的視窗程式 .exe 檔無法在含有中文名稱的路徑下執行。若嘗試執行，則會跳出 “cannot get zipimporter instance” 的警告視窗。目前的正式版本 4.2.3 仍舊會出現這個錯誤。<br><a id="more"></a><br>慶幸網友 Kder 寫了一個 patch ，<a href="http://www.mail-archive.com/cx-freeze-users@lists.sourceforge.net/msg00848.html" target="_blank" rel="noopener">修正了這個 bug</a>。因為該 patch 相當簡單，含空白只有5行，故可以不用另外下載 patch 程式補上，直接如下法手動修改、編譯、重裝 cx_Freeze 即可。</p>
 <p>前註：</p>
@@ -164,7 +160,7 @@ _Python的安裝路徑_\python setup.py install</pre><br>標_斜體_字處請依
   <!-- hexo-list-related-posts -->
 
 <div style="margin-top: 0px; border-top: 1px solid #ddd; padding-top: 26px">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">遞迴下降分析器的簡介</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記形電腦電量 ê 程式</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2010/06/23/談自力解決之兩三/">談自力解決之兩三</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">遞迴下降分析器的簡介</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記形電腦電量 ê 程式</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li></ul>    </div>
         
 
   </div>
