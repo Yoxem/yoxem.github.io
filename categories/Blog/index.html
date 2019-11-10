@@ -1,0 +1,817 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Blog | 北郊獨語 - Yoxem&#39;s Blog</title>
+  <meta name="author" content="Yoxem Chen">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="北郊獨語 - Yoxem&#39;s Blog">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="北郊獨語 - Yoxem&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<meta name="google-site-verification" content="3t0bNOKnnsVyNpsfuM7Vi6gf-6tY_MUeOpXmJzDZ_P8"> <!-- google search opt.--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+</html>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">北郊獨語 - Yoxem&#39;s Blog</a></h1>
+  <h2 class="subtitle">溪埔的石仔、山嶺的果樹之間，version 3.0</h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home 首頁</a></li>
+    
+      <li><a href="/archives">Archives 彙整</a></li>
+    
+      <li><a href="/about.html">About 關於</a></li>
+    
+      <li><a href="/googlephoto.html">Albums 相簿</a></li>
+    
+      <li><a href="/blogroll.html">Blogroll 聯播</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="http://yoxemblog.wordpress.com">Old Articles 舊文章</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title category">Blog</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-11-10T15:27:37.000Z"><a href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">2019-11-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記形電腦電量 ê 程式</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+ 
+      <p>（上尾更新 tī：2019-11-11）</p>
+<p>實在 tsih-tsài 袂牢電腦無通知直接斷電 ê 情形，tshiau 過 ê 足 tsē 資料 mā 無法度解決。</p>
+<p>姑不而將，家己寫一个 shell script。</p>
+<script src="https://gist.github.com/Yoxem/7ac7549b6c2b486880256157661bb9ba.js"></script>
+
+<p>必要 ê 套件：</p>
+<ul>
+<li>upower</li>
+<li>zenity</li>
+<li>sh</li>
+</ul>
+<p>將 hit 个 shell script khǹg 好，chmod u+x  system-autodetect-battery-and-hibernate.sh。</p>
+<p>Koh 用 crontab -e 指令，加每 x 分鐘執行這个程式 ê routine。以「每 3 分鐘執行囥佇 /opt/ ê system-autodetect-battery-and-hibernate.sh」做例：</p>
+<pre>
+0-59/3 * * * * export DISPLAY=:0 && /opt/system-autodetect-battery-and-hibernate.sh
+</pre>
+
+<p>向望 tse 有效。</p>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+<div style="margin-top: 0em; ">    
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li></ul>    </div>
+        
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-10-11T16:00:00.000Z"><a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">2019-10-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（開始寫 tī 2019-10-11，上新修改 tī 2019-10-16）</strong></p>
+<h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>設使汝干焦有整數乘法、整數加減法 kap 向正爿徙位 (&gt;&gt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-09-15T16:32:52.000Z"><a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">2019-09-16</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">論本土語言小學的成立</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>（原著於2019-09上旬，內文部份經過修改。）</p>
+<p>當前台灣語言使用，不分各個族群，有朝向使用官話（即華語或國語) 的趨勢，其他語言日漸式微。為保護台灣本土語言的存續，除現今基本教育推動語言教育外，也制定《國家語言發展法》，試圖保障其持續發展。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-09-06T16:00:00.000Z"><a href="/2019/09/07/LLVM-IR-e5-kho2tsa1/">2019-09-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/09/07/LLVM-IR-e5-kho2tsa1/">LLVM IR ê 考查</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="結構-struct"><a href="#結構-struct" class="headerlink" title="結構 struct"></a>結構 struct</h2><p>C:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定義 struct */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span>&#123;</span></span><br><span class="line">  <span class="keyword">int</span> a; <span class="comment">// i32</span></span><br><span class="line">  <span class="keyword">double</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span> <span class="title">a</span>;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>LLVM IR:<br><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">; ModuleID = 'a.c'</span></span><br><span class="line"><span class="comment">%struct.a_struct = type &#123; i32, double &#125; ; 生 struct</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #0 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca %struct.a_struct, align 8</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/09/07/LLVM-IR-e5-kho2tsa1/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-07-31T16:00:00.000Z"><a href="/2019/08/01/ti7VSCodeiong7GDBliah8thang8/">2019-08-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/08/01/ti7VSCodeiong7GDBliah8thang8/">Debugging Rust with GDB and Visual Studio Code</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="Version-Infomation"><a href="#Version-Infomation" class="headerlink" title="Version Infomation"></a>Version Infomation</h2><ul>
+<li>VS Code: 1.36.1</li>
+<li>GDB: 7.11.1</li>
+<li>rustc 1.36.0
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/08/01/ti7VSCodeiong7GDBliah8thang8/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-07-15T16:15:03.000Z"><a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/">2019-07-16</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/">改自王垠的 r2 直譯器——添加惰性求值和遞迴函數</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（最近更新：2019-07-22）</strong></p>
+<p>王垠可說是中國程式語言界的網路名人。雖然有些人不喜歡他對事物的觀點或是看法，或是他展現出的價值觀，但是有些觀點卻還是很有趣的。比如他之前寫的<a href="https://www.yinwang.org/blog-cn/2012/08/01/interpreter" target="_blank" rel="noopener">怎樣寫一個解釋器</a>，利用動態擴展的環境列表還有閉包的概念，將一個程式語言基本的功能簡潔的實踐出來（當然也要歸功於 Scheme 的語法）——閉包、調用變數、運算、儲存變數、環境的調整、函數調用等等，都很有趣。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-06-25T15:29:31.000Z"><a href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">2019-06-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">遞迴下降分析器的簡介</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><em>以下內容僅為非資訊專業者所寫的心得，不保證內容正確性。</em><br><strong>（最近更新：2019-07-22）</strong></p>
+<h2 id="語法樹"><a href="#語法樹" class="headerlink" title="語法樹"></a>語法樹</h2><p>就算沒有學過編譯器的人我想很多都知道，編譯器是把一種語言的程式翻譯成另一種語言者的工具。在轉成其他語言之前，需要將這個語言轉換成一棵樹狀結構 (抽象語法樹，abstract syntax tree)，來分析被編譯的程式內容是什麼。大概就像我們在翻譯一門語言的內容前，可以先將它轉換成語法樹。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-06-20T16:00:00.000Z"><a href="/2019/06/21/an1tsng1racketllvm/">2019-06-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+ 
+      <p><strong>（上新更新佇：2019-09-26）</strong></p>
+<ul>
+<li>Clone <a href="https://github.com/bubba/racket-llvm" target="_blank" rel="noopener">git repo</a>：<pre>git clone git@github.com:bubba/racket-llvm.git</pre></li>
+<li>包做 .zip：<pre>raco pkg create -<!-- -->-binary racket-llvm</pre></li>
+<li>安裝：<pre>raco pkg install racket-llvm.zip</pre></li>
+<li>拍 <pre>raco pkg show</pre> 看安裝 ê 結果，親像：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Installation-wide:</span><br><span class="line"> Package            Checksum     Source</span><br><span class="line">....</span><br><span class="line">User-specific for installation &quot;6.3&quot;:</span><br><span class="line"> Package      Checksum     Source</span><br><span class="line"> racket-llvm  52ebbb73...  file /tmp/a/racket-llvm.zip</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+<div style="margin-top: 0em; ">    
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li></ul>    </div>
+        
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-05-15T16:00:00.000Z"><a href="/2019/05/16/MiseEire/">2019-05-16</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/05/16/MiseEire/">愛爾蘭語詩 Mise Éire 簡介（我是愛爾蘭）</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（最新更新：2019-05-19）</strong></p>
+<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>十九世紀下半，愛爾蘭發生大飢荒後，大英底下的許多愛爾蘭人爭取自己的權利，一方面，就算語言快要被英語取代，當地也開始有許多語言學家以及文學家，發覺被鄙夷的蓋爾族文化，推廣蓋爾語，甚至創作許多的愛爾蘭語文學創作。就算對台灣人而言，知名度不如同時期的英語作家，但這對愛爾蘭語歷史，是個很重要的運動——雖然這種語言復興的結果不像愛爾蘭政治獨立那樣有很大的斬獲。</p>
+<p>這首1912年的詩雖然是愛爾蘭語復興運動重要作家的創作，但表達出來的愛爾蘭的苦難，卻可說間接反映出同時期愛爾蘭獨立運動的向望。作者 Padraig Mac Piarais 也於成詩不久後的1916年，投身復活節起義，成為建國之路的殉道者。</p>
+<p>這詩採用作者的母語——芒斯特方言書寫。值得注意的是，就算現在的芒斯特方言人數很少，但卻是除了本詩作者以外，很多蓋爾語復興運動的推動家的母語，所以有很多近代的作品。而芒斯特因為在更早以前，愛爾蘭語文學創作衰退的時候，仍然保有最後的火苗，會不會也因此保留文雅的特色到蓋爾與復興運動？我也不知道。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/05/16/MiseEire/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-03-17T16:00:00.000Z"><a href="/2019/03/18/OrthographyOfMunsterIrish/">2019-03-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/03/18/OrthographyOfMunsterIrish/">Orthography of Munster Irish</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>(updated on 2019-09-07)</strong>  </p>
+<h2 id="Introdution"><a href="#Introdution" class="headerlink" title="Introdution"></a>Introdution</h2><p>As there are few specific introdution pertaining to the spelling rule of Munster Irish, I’ve collected some sources to compile the article related to the rules. <strong>It may contain errors. If you find one, please leave a comment to let me know. GRMA.</strong></p>
+<p>Besides, Irish spelling rules are somewhat complex, they will not be listed wholly. Reading <span style="font-style:italic;">The Irish of West Muskerry, Co. Cork</span> (by Brian Ó Cuív) may help if you’re insterested in.
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/03/18/OrthographyOfMunsterIrish/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+    <a href="/categories/Blog/page/2/" class="alignright next">Next</a>
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- the license of the file is under cc by-sa 3.0 by RobG and Yoxem et al.-->
+<div class="search">
+
+  <form name="search_form" action="//google.com/search" method="get" accept-charset="utf-8" class="search-form" onsubmit="search_form.q.value = search_form.hq.value + search_form.q.value "><!-- the source code in the line is modified from RobG's under CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/) -->
+    <input type="search" name="hq" results="0" value="" placeholder="Search" class="search-form-input">
+	<!-- custom add the url of yoxem's old blog -->
+<input name="q" type="hidden" value=" site:yoxem.github.io OR site:yoxemblog.wordpress.com">
+
+
+
+ </form>
+</div>
+ 
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Blog/">Blog</a><small>78</small></li>
+  
+    <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
+  
+    <li><a href="/categories/家私-tools/">家私 (tools)</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記形電腦電量 ê 程式</a>
+      </li>
+    
+      <li>
+        <a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a>
+      </li>
+    
+      <li>
+        <a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">論本土語言小學的成立</a>
+      </li>
+    
+      <li>
+        <a href="/2019/09/07/LLVM-IR-e5-kho2tsa1/">LLVM IR ê 考查</a>
+      </li>
+    
+      <li>
+        <a href="/2019/08/01/ti7VSCodeiong7GDBliah8thang8/">Debugging Rust with GDB and Visual Studio Code</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 11px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 11px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 11px;">LLVM</a> <a href="/tags/Python/" style="font-size: 11px;">Python</a> <a href="/tags/R-18/" style="font-size: 12px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 14px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 18px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 18px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 18px;">論</a> <a href="/tags/資訊/" style="font-size: 17px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16px;">隨筆</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">相關連結</h3>
+<ul class="entry">
+<!--
+<li><strong><a href="http://yoxemblog.wordpress.com">
+舊 blog、舊文章 (於 Wordpress.com)</a></strong></li>
+-->
+<li><a href="http://plurk.com/yoxem">
+Plurk</a></li>
+<li><a href="https://www.flickr.com/photos/yoxem/sets/">
+Flickr 相簿（舊）</a></li>
+<li><em><a href="http://yoxem.github.io/pages/index.html">
+其他 (Yoxem's Homepage)……</a></em></li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">最近迴響</h3>
+<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 Yoxem Chen
+  <br/>除非特殊說明本文作者均為 Yoxem Chen，其所作除非特殊指定外，均使用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.zh_TW">CC BY-NC-SA 2.5 台灣授權</a>。<br/>
+
+Except being noticed, the articles is written by Yoxem Chen and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.en">CC BY-NC-SA 2.5 Taiwan Version</a>.<br/>
+
+Powered by <a href="http://hexo.io/index.html">Hexo</a>.
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'yoxem';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- fix link -->
+<!--
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
