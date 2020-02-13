@@ -95,7 +95,7 @@
 <li>將每幅圖片變成黑白。</li>
 <li>將這些黑白圖片組回去變成 PDF。</li>
 </ul>
-<p>現在不易找齊我那時候參考哪些來源了（同類型的 Q&amp;A 與可能參考來源列於「相關資料段」），以下只是參考教學。</p>
+<p>現在不易找齊我那時候參考哪些來源了（同類型的 Q&amp;A 與可能參考來源列於「<a href="ref">相關資料與可能參考來源</a>」段），以下只是參考教學。</p>
 <p>為方便解說，input.pdf 指定為欲處理的 PDF 檔，output 為輸出結果。</p>
 <ol>
 <li>將 PDF 抽取圖片（rx 和 ry 各指定 x 維和 y 維的解析度，單位為 dpi）。將產生一系列圖片依頁碼為流水號如：temp-001.png、temp-002.png、temp-003.png……</li>
@@ -113,7 +113,7 @@ done ;</pre>
 
 <ul>
 <li><code>for file in $(ls temp*.png) ;</code>：顯示檔名符合 temp*.png 格式（就是我們剛才抽取出的流水號圖檔）的檔名列表，存在 <code>file</code> 這個迴圈用的臨時變數（<code>file=temp-001.png, temp-002.png,...</code>），進行迴圈批次操作。</li>
-<li><code>do convert $file -threshold 67% result-$file.png;</code>：迴圈內要重複執行的部份。將檔案名稱為 <code>$file</code> 的彩色圖檔用 <code>convert</code> 指令轉換成黑白兩色圖片，名稱為 <code>result-$file</code>（比如：temp-001.png 轉換成 output-temp-001.png）。<code>-threshold</code> 區分黑白和彩色的閾值參數，這裡設定為67%。</li>
+<li><code>do convert $file -threshold 67% result-$file.png;</code>：迴圈內要重複執行的部份。將檔案名稱為 <code>$file</code> 的彩色圖檔用 <code>convert</code> 指令轉換成黑白兩色圖片，名稱為 <code>result-$file</code>（比如：temp-001.png 轉換成 output-temp-001.png）。<code>-threshold</code> 區分黑白和彩色的閾值參數（範圍為0-100％，參考「<a href="#ref">相關資料與可能參考來源</a>」第1點連結 Der Hochstapler 的回答），這裡設定為67%。</li>
 <li><code>done;</code>：結束迴圈。</li>
 </ul>
 
@@ -121,14 +121,15 @@ done ;</pre>
 <pre>convert output-temp-*.png output.pdf</pre>
 </ol>
 
-<h2 id="相關資料與可能參考來源"><a href="#相關資料與可能參考來源" class="headerlink" title="相關資料與可能參考來源"></a>相關資料與可能參考來源</h2><ul>
+<h2 id="相關資料與可能參考來源"><a href="#相關資料與可能參考來源" class="headerlink" title="相關資料與可能參考來源"></a>相關資料與可能參考來源</h2><p><a name="ref"></a></p>
+<ol>
 <li><a href="https://superuser.com/questions/405686/how-to-convert-a-photo-to-a-black-and-white-image-by-imagemagick" target="_blank" rel="noopener">How to convert a photo to a black and white image by ImageMagick? - Superuser</a></li>
 <li><p><a href="https://stackoverflow.com/questions/8955425/how-can-i-convert-a-series-of-images-to-a-pdf-from-the-command-line-on-linux" target="_blank" rel="noopener">How can I convert a series of images to a PDF from the command line on linux? - StackOverflow</a></p>
 </li>
 <li><p><a href="https://askubuntu.com/questions/50170/how-to-convert-pdf-to-image" target="_blank" rel="noopener">How to convert PDF to Image?</a></p>
 </li>
 <li><a href="https://www.linuxquestions.org/questions/linux-newbie-8/command-line-to-convert-png-to-pdf-4175519718/" target="_blank" rel="noopener">[SOLVED] command line to convert png to pdf</a></li>
-</ul>
+</ol>
 <script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
       
     </div>
@@ -171,7 +172,7 @@ done ;</pre>
   <!-- hexo-list-related-posts -->
 
 <div style="margin-top: 0px; border-top: 1px solid #ddd; padding-top: 26px">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2010/06/23/談自力解決之兩三/">談自力解決之兩三</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">解決 cx_Freeze 做出的 .exe 檔無法在中文路徑下執行的問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2014/05/20/rubyjs---讓-hexo-更方便輸入旁註標記/">ruby.js - 讓 Hexo 更方便輸入旁註標記 <ruby></a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li></ul>    </div>
         
 
   </div>
