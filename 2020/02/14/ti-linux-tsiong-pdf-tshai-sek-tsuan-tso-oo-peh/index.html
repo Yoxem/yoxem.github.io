@@ -6,8 +6,7 @@
   <title>在 Linux 將 PDF 彩色轉成黑白 | 北郊獨語 - Yoxem&#39;s Blog</title>
   <meta name="author" content="Yoxem Chen">
   
-  <meta name="description" content="最近因為下載過著作權保護的愛爾蘭語相關著作古籍，這些書籍是黑白印刷的，但是因為紙張泛黃，和黑白相比，並太不適宜閱讀，轉成灰階對比度較低，更難閱讀。若是列印供紙本閱讀的話，當然希望能夠用黑白列印就好了。所以就有如標體所述，將這種彩色 PDF 轉成黑白的需求。
-因為如果用 convert 指令直接轉換的">
+  <meta name="description" content="最近因為下載過著作權保護的愛爾蘭語相關著作古籍，這些書籍是黑白印刷的，但是因為紙張泛黃，和黑白相比，並太不適宜閱讀，轉成灰階對比度較低，更難閱讀。若是列印供紙本閱讀的話，當然希望能夠用黑白列印就好了。所以就有如標體所述，將這種彩色 PDF 轉成黑白的需求。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -89,7 +88,7 @@
           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#相關資料與可能參考來源"><span class="toc-text">相關資料與可能參考來源</span></a></li></ol>
           </div>
         
-      <p>最近因為下載過著作權保護的愛爾蘭語相關著作古籍，這些書籍是黑白印刷的，但是因為紙張泛黃，和黑白相比，並太不適宜閱讀，轉成灰階對比度較低，更難閱讀。若是列印供紙本閱讀的話，當然希望能夠用黑白列印就好了。所以就有如標體所述，將這種彩色 PDF 轉成黑白的需求。</p>
+      <p>最近因為下載過著作權保護的愛爾蘭語相關著作古籍，這些書籍是黑白印刷的，但是因為紙張泛黃，和黑白相比，並太不適宜閱讀，轉成灰階對比度較低，更難閱讀。若是列印供紙本閱讀的話，當然希望能夠用黑白列印就好了。所以就有如標體所述，將這種彩色 PDF 轉成黑白的需求。<a id="more"></a></p>
 <p>因為如果用 <code>convert</code> 指令直接轉換的話，似乎效果不太好，而這些 pdf 檔案都是圖片檔組合而成，我後來參考網路上的教學，歸納可以為三個步驟，比較適合這種類型的 PDF：</p>
 <ul>
 <li>將 PDF 抽取圖片。</li>
@@ -114,6 +113,7 @@ done ;</pre>
 <ul>
 <li><code>for file in $(ls temp*.png) ;</code>：顯示檔名符合 temp*.png 格式（就是我們剛才抽取出的流水號圖檔）的檔名列表，存在 <code>file</code> 這個迴圈用的臨時變數（<code>file=temp-001.png, temp-002.png,...</code>），進行迴圈批次操作。</li>
 <li><code>do convert $file -threshold 67% result-$file.png;</code>：迴圈內要重複執行的部份。將檔案名稱為 <code>$file</code> 的彩色圖檔用 <code>convert</code> 指令轉換成黑白兩色圖片，名稱為 <code>result-$file</code>（比如：temp-001.png 轉換成 output-temp-001.png）。<code>-threshold</code> 區分黑白和彩色的閾值參數。</li>
+<li><code>done;</code>：結束迴圈。</li>
 </ul>
 
 <li>將這些生成的圖片結合成新的 PDF：</li>
@@ -170,7 +170,7 @@ done ;</pre>
   <!-- hexo-list-related-posts -->
 
 <div style="margin-top: 0px; border-top: 1px solid #ddd; padding-top: 26px">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2014/05/20/rubyjs---讓-hexo-更方便輸入旁註標記/">ruby.js - 讓 Hexo 更方便輸入旁註標記 <ruby></a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2014/05/20/rubyjs---讓-hexo-更方便輸入旁註標記/">ruby.js - 讓 Hexo 更方便輸入旁註標記 <ruby></a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li></ul>    </div>
         
 
   </div>
