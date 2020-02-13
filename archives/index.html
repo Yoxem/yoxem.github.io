@@ -102,26 +102,24 @@
 <p>為方便解說，input.pdf 指定為欲處理的 PDF 檔，output 為輸出結果。</p>
 <ol>
 <li>將 PDF 抽取圖片（rx 和 ry 各指定 x 維和 y 維的解析度，單位為 dpi）。將產生一系列圖片依頁碼為流水號如：temp-001.png、temp-002.png、temp-003.png……</li>
-</ol>
+
 <pre>pdftoppm input.pdf temp -png -rx 450 -ry 450</pre>
 
-<ol>
 <li>將這些圖片批次用 convert 轉成黑白圖片。</li>
-</ol>
+
 <pre>for file in $(ls temp*.png) ; \
 do convert $file -threshold 67% result-$file.png; \
 done ;</pre>
 
-<p>這裡解說一下：</p>
-<ul>
-<li><code>for file in $(ls temp*.png) ;</code>：顯示檔名符合 temp*.png 格式（就是我們剛才抽取出的流水號圖檔）的檔名列表，存在 <code>file</code> 這個迴圈用的臨時變數（<code>file=temp-001.png, temp-002.png,…</code>），進行迴圈批次操作。</li>
-<li><code>do convert $file -threshold 67% result-$file.png;</code>：迴圈內要重複執行的部份。將檔案名稱為 <code>$file</code> 的彩色圖檔用 <code>convert</code> 指令轉換成黑白兩色圖片，名稱為 <code>result-$file</code>（比如：temp-001.png 轉換成 output-temp-001.png）。<code>-threshold</code> 區分黑白和彩色的閾值參數。</li>
-</ul>
-<ol>
-<li>將這些生成的圖片結合成新的 PDF：<pre>convert output-temp-*.png output.pdf</pre>
+這裡解說一下：
 
-</li>
+* <code>for file in $(ls temp*.png) ;</code>：顯示檔名符合 temp*.png 格式（就是我們剛才抽取出的流水號圖檔）的檔名列表，存在 <code>file</code> 這個迴圈用的臨時變數（<code>file=temp-001.png, temp-002.png,...</code>），進行迴圈批次操作。
+* <code>do convert $file -threshold 67% result-$file.png;</code>：迴圈內要重複執行的部份。將檔案名稱為 <code>$file</code> 的彩色圖檔用 <code>convert</code> 指令轉換成黑白兩色圖片，名稱為 <code>result-$file</code>（比如：temp-001.png 轉換成 output-temp-001.png）。<code>-threshold</code> 區分黑白和彩色的閾值參數。
+
+<li>將這些生成的圖片結合成新的 PDF：</li>
+<pre>convert output-temp-*.png output.pdf</pre>
 </ol>
+
 <h2 id="相關資料與可能參考來源"><a href="#相關資料與可能參考來源" class="headerlink" title="相關資料與可能參考來源"></a>相關資料與可能參考來源</h2><ul>
 <li><a href="https://superuser.com/questions/405686/how-to-convert-a-photo-to-a-black-and-white-image-by-imagemagick" target="_blank" rel="noopener">How to convert a photo to a black and white image by ImageMagick? - Superuser</a></li>
 <li><p><a href="https://stackoverflow.com/questions/8955425/how-can-i-convert-a-series-of-images-to-a-pdf-from-the-command-line-on-linux" target="_blank" rel="noopener">How can I convert a series of images to a PDF from the command line on linux? - StackOverflow</a></p>
@@ -144,7 +142,7 @@ done ;</pre>
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">解決 cx_Freeze 做出的 .exe 檔無法在中文路徑下執行的問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">解決 cx_Freeze 做出的 .exe 檔無法在中文路徑下執行的問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2010/06/23/談自力解決之兩三/">談自力解決之兩三</a></li></ul>    </div>
         
          
 
@@ -217,7 +215,7 @@ done ;</pre>
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li></ul>    </div>
         
          
 
@@ -624,7 +622,7 @@ done ;</pre>
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li></ul>    </div>
         
          
 
