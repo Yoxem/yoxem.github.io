@@ -1,6 +1,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoxem.github.io/googlephoto.html</loc>
+    
+    <lastmod>2020-02-23T17:39:19.786Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoxem.github.io/2020/02/14/ti-linux-tsiong-pdf-tshai-sek-tsuan-tso-oo-peh/</loc>
     
     <lastmod>2020-02-13T17:14:42.263Z</lastmod>
@@ -25,13 +32,6 @@
     <loc>http://yoxem.github.io/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/</loc>
     
     <lastmod>2019-10-15T18:30:13.039Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoxem.github.io/googlephoto.html</loc>
-    
-    <lastmod>2019-09-17T17:04:33.462Z</lastmod>
     
   </url>
   
@@ -421,13 +421,6 @@
   </url>
   
   <url>
-    <loc>http://yoxem.github.io/2014/02/11/%E4%BA%8C%EF%BC%90%E5%9B%9B%E4%BA%94%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
-    
-    <lastmod>2015-11-15T05:41:56.061Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoxem.github.io/2015/05/17/%E4%BA%8C%E3%80%87%E5%9B%9B%E4%BA%94%EF%BC%88%E4%B8%80%E4%B9%8B%E4%B8%80%EF%BC%89/</loc>
     
     <lastmod>2015-11-15T05:41:56.061Z</lastmod>
@@ -435,21 +428,14 @@
   </url>
   
   <url>
-    <loc>http://yoxem.github.io/2015/05/24/ji7khong3su3ngoo2-3/</loc>
+    <loc>http://yoxem.github.io/2014/02/11/%E4%BA%8C%EF%BC%90%E5%9B%9B%E4%BA%94%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
     
-    <lastmod>2015-11-15T05:41:56.057Z</lastmod>
+    <lastmod>2015-11-15T05:41:56.061Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoxem.github.io/2015/07/06/MonPays/</loc>
-    
-    <lastmod>2015-11-15T05:41:56.057Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoxem.github.io/2015/04/30/Kin7-jit8_tsap8-kam2/</loc>
     
     <lastmod>2015-11-15T05:41:56.057Z</lastmod>
     
@@ -463,16 +449,23 @@
   </url>
   
   <url>
-    <loc>http://yoxem.github.io/2015/10/03/Ji7khong3su3ngoo2-8/</loc>
+    <loc>http://yoxem.github.io/2015/04/30/Kin7-jit8_tsap8-kam2/</loc>
     
     <lastmod>2015-11-15T05:41:56.057Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoxem.github.io/2015/09/13/Ji7khong3su3ngoo2-6/</loc>
+    <loc>http://yoxem.github.io/2015/05/24/ji7khong3su3ngoo2-3/</loc>
     
-    <lastmod>2015-11-15T05:41:55.981Z</lastmod>
+    <lastmod>2015-11-15T05:41:56.057Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoxem.github.io/2015/10/03/Ji7khong3su3ngoo2-8/</loc>
+    
+    <lastmod>2015-11-15T05:41:56.057Z</lastmod>
     
   </url>
   
@@ -484,14 +477,21 @@
   </url>
   
   <url>
-    <loc>http://yoxem.github.io/2015/06/23/Ji7khong3su3ngoo2-5/</loc>
+    <loc>http://yoxem.github.io/2015/09/13/Ji7khong3su3ngoo2-6/</loc>
+    
+    <lastmod>2015-11-15T05:41:55.981Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoxem.github.io/2015/05/31/Ji7khong3su3ngoo2-4/</loc>
     
     <lastmod>2015-11-15T05:41:55.977Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoxem.github.io/2015/05/31/Ji7khong3su3ngoo2-4/</loc>
+    <loc>http://yoxem.github.io/2015/06/23/Ji7khong3su3ngoo2-5/</loc>
     
     <lastmod>2015-11-15T05:41:55.977Z</lastmod>
     
