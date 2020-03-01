@@ -76,6 +76,69 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2020-03-01T12:14:48.000Z"><a href="/2020/03/01/kai-kuat-ubuntu-firefox-tiam-tin-ji-tiong-kan-khia-suann-e-bun-te/">2020-03-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2020/03/01/kai-kuat-ubuntu-firefox-tiam-tin-ji-tiong-kan-khia-suann-e-bun-te/">解決</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+      <p><em>免責聲明：以下僅供參考，本文作者不為使用者執行以下內容之後果負擔任何責任。</em><br>感謝 zhangboyang-id 提供 patch。</p>
+<p>最近更新到 Linux Mint 19（Ubuntu 18.04 的衍生版本），發現到顯示點陣字形的時候，字之間會有|豎線，查了一下，PRC那邊的論壇傳出了災情（<a href="http://mozilla.com.cn/thread-402067-1-1.html" target="_blank" rel="noopener">火狐中國相關討論</a>、<a href="https://forum.ubuntu.org.cn/viewtopic.php?t=487304" target="_blank" rel="noopener">Ubuntu-cn 相關討論</a>）。雖然<a href="https://bugs.launchpad.net/ubuntu/+source/freetype/+bug/1769132" target="_blank" rel="noopener">有人在 Launchpad 提交了 bug 的 patch</a>，但好像 Ubuntu 還沒有接受更新。唯一的 workaround 就是用 apt source 把原碼抓下來自己改，然後再重新編譯成 package 覆蓋系統的新版本。</p>
+<p>步驟：</p>
+<ol>
+<li>先用<code>apt source libfreetype6; apt build-dep libfreetype6</code> 將 libfreetype 原始碼和編譯必要的相依套件抓下來。</li>
+<li>將 patch（<a href="https://bugs.launchpad.net/ubuntu/+source/freetype/+bug/1769132/comments/6" target="_blank" rel="noopener">下載處</a>的 fix_bitmap_emboldening.patch 連結）另存到<code>所在目錄/freetype-2.8.1/debian/patches-freetype</code>。<br>3.所在目錄/freetype-2.8.1/debian/patches-freetype/series 按 Enter 輸入「fix_bitmap_emboldening.patch」。</li>
+<li>編譯成套件：<code>cd 所在目錄/freetype-2.8.1; dpkg-buildpackage -rfakeroot -uc -b</code>（參考來源：<a href="https://askubuntu.com/questions/28372/how-do-i-get-and-modify-the-source-code-of-packages-installed-through-apt-get" target="_blank" rel="noopener">How do I get and modify the source code of packages installed through apt-get?</a>）<br>4.重新覆蓋安裝：<code>cd ..; sudo dpkg -i —force-overwrite libfreetype6_2.8.1-2ubuntu2_amd64.deb</code>（我用的作業系統是 64 位元，32位元可能有異）。</li>
+</ol>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+<div style="margin-top: 0em; ">    
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2020/02/14/ti-linux-tsiong-pdf-tshai-sek-tsuan-tso-oo-peh/">在 Linux 將 PDF 彩色轉成黑白</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2010/06/23/談自力解決之兩三/">談自力解決之兩三</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">解決 cx_Freeze 做出的 .exe 檔無法在中文路徑下執行的問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li></ul>    </div>
+        
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2020-02-13T16:00:00.000Z"><a href="/2020/02/14/ti-linux-tsiong-pdf-tshai-sek-tsuan-tso-oo-peh/">2020-02-14</a></time>
       
       
@@ -86,7 +149,8 @@
     </header>
     <div class="entry">
       
-        <p>最近因為下載過著作權保護的愛爾蘭語相關著作古籍，這些書籍是黑白印刷的，但是因為紙張泛黃，和黑白相比，並太不適宜閱讀，轉成灰階對比度較低，更難閱讀。若是列印供紙本閱讀的話，當然希望能夠用黑白列印就好了。所以就有如標體所述，將這種彩色 PDF 轉成黑白的需求。
+        <p><strong>（最近更新：2019-03-01）</strong><br>免責聲明：以下僅供參考，本文作者不為使用者執行以下內容之後果負擔任何責任。</p>
+<p>最近因為下載過著作權保護的愛爾蘭語相關著作古籍，這些書籍是黑白印刷的，但是因為紙張泛黃，和黑白相比，並太不適宜閱讀，轉成灰階對比度較低，更難閱讀。若是列印供紙本閱讀的話，當然希望能夠用黑白列印就好了。所以就有如標體所述，將這種彩色 PDF 轉成黑白的需求。
       
     </div>
     <footer>
@@ -158,6 +222,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2020/03/01/kai-kuat-ubuntu-firefox-tiam-tin-ji-tiong-kan-khia-suann-e-bun-te/">解決</a>
+      </li>
+    
+      <li>
         <a href="/2020/02/14/ti-linux-tsiong-pdf-tshai-sek-tsuan-tso-oo-peh/">在 Linux 將 PDF 彩色轉成黑白</a>
       </li>
     
@@ -173,10 +241,6 @@
         <a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">論本土語言小學的成立</a>
       </li>
     
-      <li>
-        <a href="/2019/09/07/LLVM-IR-e5-kho2tsa1/">LLVM IR ê 考查</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -185,7 +249,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 11.11px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 11.11px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 18.89px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 11.11px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 11.11px;">Python</a> <a href="/tags/R-18/" style="font-size: 12.22px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 14.44px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 17.78px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14.44px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 17.78px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11.11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13.33px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15.56px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 17.78px;">論</a> <a href="/tags/資訊/" style="font-size: 17.78px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16.67px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 11px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 11px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 11px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 11px;">Linux</a> <a href="/tags/Python/" style="font-size: 11px;">Python</a> <a href="/tags/R-18/" style="font-size: 12px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 14px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 17px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 17px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 17px;">論</a> <a href="/tags/資訊/" style="font-size: 18px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16px;">隨筆</a>
   </div>
 </div>
 
