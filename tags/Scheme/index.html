@@ -1,0 +1,509 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Scheme | 北郊獨語 - Yoxem&#39;s Blog</title>
+  <meta name="author" content="Yoxem Chen">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="北郊獨語 - Yoxem&#39;s Blog">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="北郊獨語 - Yoxem&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<meta name="google-site-verification" content="3t0bNOKnnsVyNpsfuM7Vi6gf-6tY_MUeOpXmJzDZ_P8"> <!-- google search opt.--><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+</html>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">北郊獨語 - Yoxem&#39;s Blog</a></h1>
+  <h2 class="subtitle">溪埔的石仔、山嶺的果樹之間，version 3.0</h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home 首頁</a></li>
+    
+      <li><a href="/archives">Archives 彙整</a></li>
+    
+      <li><a href="/about.html">About 關於</a></li>
+    
+      <li><a href="/googlephoto.html">Albums 相簿</a></li>
+    
+      <li><a href="/blogroll.html">Blogroll 聯播</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="http://yoxemblog.wordpress.com">Old Articles 舊文章</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">Scheme</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-06-20T16:00:00.000Z"><a href="/2019/06/21/an1tsng1racketllvm/">2019-06-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+      <p><strong>（上新更新佇：2019-09-26）</strong></p>
+<ul>
+<li>Clone <a href="https://github.com/bubba/racket-llvm" target="_blank" rel="noopener">git repo</a>：<pre>git clone git@github.com:bubba/racket-llvm.git</pre></li>
+<li>包做 .zip：<pre>raco pkg create -<!-- -->-binary racket-llvm</pre></li>
+<li>安裝：<pre>raco pkg install racket-llvm.zip</pre></li>
+<li>拍 <pre>raco pkg show</pre> 看安裝 ê 結果，親像：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Installation-wide:</span><br><span class="line"> Package            Checksum     Source</span><br><span class="line">....</span><br><span class="line">User-specific for installation &quot;6.3&quot;:</span><br><span class="line"> Package      Checksum     Source</span><br><span class="line"> racket-llvm  52ebbb73...  file /tmp/a/racket-llvm.zip</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+<div style="margin-top: 0em; ">    
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li></ul>    </div>
+        
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-01-19T16:00:00.000Z"><a href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">2019-01-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（接續<a href="http://yoxem.github.io/2019/01/14/schemee5callcce5iong7huatki2le7-1/">頂篇</a>，更新日：2019-01-22）</strong></p>
+<p></p><h3>Coroutine</h3><br>Coroutine（華語：{rb|協程|hia̍p-tîng} kap 囝程式 (subroutine) 仝款，lóng 是 kā 程式分節執行 ê 方法。M̄-koh kap 囝程式有呼叫 kap 受呼叫 ê 關係無仝， coroutine 之間是平等 ê ，會當 tī A coroutine 叫 B coroutine，tī B 內底叫 A coroutine。毋過阮這爿為著簡化，干焦展示「主程式 kap coroutine」ê 關係。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-01-13T16:00:00.000Z"><a href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">2019-01-14</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（上尾更新 tī：2019-01-20）</strong> </p>
+<p></p><h3>介紹</h3><br>Scheme 是一種函數式語言，所以無 break、yield 等等 ê 流程控制功能 (flow of control)。毋過，伊有一款功能 koh 較強 ê——用 the̍h 著現此時 ê 繼續(continuation) ê <code>call/cc</code> 來合成 tsē-tsē ê 控制流程。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-07-28T16:00:00.000Z"><a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">2018-07-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（上尾更新 tī：2019-01-20）</strong></p>
+<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>佇電腦程式中，通常愛算一个{rb|運算式|ūn-suàn-sik} ê 結果，會 kā 逐个部份照算 ê {rb|次序|tshù-sī}一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講：</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">(<span class="name">*</span> <span class="number">2</span> (<span class="name">+</span> <span class="number">3</span> (<span class="name">/</span> <span class="number">5</span> <span class="number">2</span>)))</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-23T22:32:15.000Z"><a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">2018-01-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（上尾更新佇：2018-02-04）</strong><br>佇 Scheme 中，{rb|巨集|kū-tsi̍p} (macro) 的使用是一个特點，巨集佮函數真成，毋過會當處理 syntax （{rb|句法|kù-hoat}）做輸入的 argumemt（{rb|引數|ín-sòo}）。巨集的定義干涉著 syntax。佇伊的囝語言 Racket 中閣有 syntax-case 等語法，提來定義 syntax 用的。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- the license of the file is under cc by-sa 3.0 by RobG and Yoxem et al.-->
+<div class="search">
+
+  <form name="search_form" action="//google.com/search" method="get" accept-charset="utf-8" class="search-form" onsubmit="search_form.q.value = search_form.hq.value + search_form.q.value "><!-- the source code in the line is modified from RobG's under CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/) -->
+    <input type="search" name="hq" results="0" value="" placeholder="Search" class="search-form-input">
+	<!-- custom add the url of yoxem's old blog -->
+<input name="q" type="hidden" value=" site:yoxem.github.io OR site:yoxemblog.wordpress.com">
+
+
+
+ </form>
+</div>
+ 
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Blog/">Blog</a><small>80</small></li>
+  
+    <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
+  
+    <li><a href="/categories/家私-tools/">家私 (tools)</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2020/03/01/kai-kuat-ubuntu-firefox-tiam-tin-ji-tiong-kan-khia-suann-e-bun-te/">解決 Linux Mint 19 中 Firefox 顯示點陣字體時出現短橫線的問題。</a>
+      </li>
+    
+      <li>
+        <a href="/2020/02/14/ti-linux-tsiong-pdf-tshai-sek-tsuan-tso-oo-peh/">在 Linux 將 PDF 彩色轉成黑白</a>
+      </li>
+    
+      <li>
+        <a href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記型電腦電量 ê 程式</a>
+      </li>
+    
+      <li>
+        <a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a>
+      </li>
+    
+      <li>
+        <a href="/2019/09/16/lun7pun2thoo2gi2gian5sio2hak8/">論本土語言小學的成立</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag Cloud</h3>
+  <div class="entry">
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 11px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 11px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 11px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 11px;">Linux</a> <a href="/tags/Python/" style="font-size: 11px;">Python</a> <a href="/tags/R-18/" style="font-size: 12px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 14px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 17px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 14px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 17px;">分行散文或詩</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 11px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 10px;">歌詞</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 17px;">論</a> <a href="/tags/資訊/" style="font-size: 18px;">資訊</a> <a href="/tags/隨筆/" style="font-size: 16px;">隨筆</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">相關連結</h3>
+<ul class="entry">
+<!--
+<li><strong><a href="http://yoxemblog.wordpress.com">
+舊 blog、舊文章 (於 Wordpress.com)</a></strong></li>
+-->
+<li><a href="http://plurk.com/yoxem">
+Plurk</a></li>
+<li><a href="https://www.flickr.com/photos/yoxem/sets/">
+Flickr 相簿（舊）</a></li>
+<li><em><a href="http://yoxem.github.io/pages/index.html">
+其他 (Yoxem's Homepage)……</a></em></li>
+</ul>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">最近迴響</h3>
+<ul class="entry"><script type="text/javascript" src="http://yoxem.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script></div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Yoxem Chen
+  <br/>除非特殊說明本文作者均為 Yoxem Chen，其所作除非特殊指定外，均使用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.zh_TW">CC BY-NC-SA 2.5 台灣授權</a>。<br/>
+
+Except being noticed, the articles is written by Yoxem Chen and licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/deed.en">CC BY-NC-SA 2.5 Taiwan Version</a>.<br/>
+
+Powered by <a href="http://hexo.io/index.html">Hexo</a>.
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'yoxem';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- fix link -->
+<!--
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
