@@ -89,7 +89,7 @@
 <ol>
 <li>先用<code>apt source libfreetype6; apt build-dep libfreetype6</code> 將 libfreetype 原始碼和編譯必要的相依套件抓下來。</li>
 <li>將 patch（<a href="https://bugs.launchpad.net/ubuntu/+source/freetype/+bug/1769132/comments/6" target="_blank" rel="noopener">下載處</a>的「fix_bitmap_emboldening.patch」連結）另存到<code>所在目錄/freetype-2.8.1/debian/patches-freetype</code>。</li>
-<li>開啟<code>所在目錄/freetype-2.8.1/debian/patches-freetype/series<code>按 Enter 輸入「fix_bitmap_emboldening.patch」。</code></code></li>
+<li>開啟<code>所在目錄/freetype-2.8.1/debian/patches-freetype/series</code>按 Enter 輸入「fix_bitmap_emboldening.patch」。</li>
 <li>編譯成套件：<code>cd 所在目錄/freetype-2.8.1; dpkg-buildpackage -rfakeroot -uc -b</code>（參考來源：<a href="https://askubuntu.com/questions/28372/how-do-i-get-and-modify-the-source-code-of-packages-installed-through-apt-get" target="_blank" rel="noopener">How do I get and modify the source code of packages installed through apt-get? - AskUbuntu</a>）。</li>
 <li>重新覆蓋安裝：<code>cd ..; sudo dpkg -i -<!--code-->-force-overwrite libfreetype6_2.8.1-2ubuntu2_amd64.deb</code>（我用的作業系統是 64 位元，32 位元可能有異）。</li>
 </ol>
@@ -107,7 +107,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2020/02/14/ti-linux-tsiong-pdf-tshai-sek-tsuan-tso-oo-peh/">在 Linux 將 PDF 彩色轉成黑白</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">解決 cx_Freeze 做出的 .exe 檔無法在中文路徑下執行的問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2010/06/23/談自力解決之兩三/">談自力解決之兩三</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2020/02/14/ti-linux-tsiong-pdf-tshai-sek-tsuan-tso-oo-peh/">在 Linux 將 PDF 彩色轉成黑白</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">遞迴下降分析器的簡介</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2010/06/23/談自力解決之兩三/">談自力解決之兩三</a></li></ul>    </div>
         
          
 
@@ -237,7 +237,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li></ul>    </div>
         
          
 
@@ -644,7 +644,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li></ul>    </div>
         
          
 
