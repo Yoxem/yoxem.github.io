@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2020-03-02T14:11:21.762Z</updated>
+  <updated>2020-03-22T16:40:37.082Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Sligeach Font - a reprint of a Mid-19th Gaelic font （一个19世紀中 ê Gealic 字體 ê 重刻）</title>
+    <link href="http://yoxem.github.io/2020/03/23/sin-e-gealic-font/"/>
+    <id>http://yoxem.github.io/2020/03/23/sin-e-gealic-font/</id>
+    <published>2020-03-22T16:18:49.000Z</published>
+    <updated>2020-03-22T16:40:37.082Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="English"><a href="#English" class="headerlink" title="English"></a>English</h2><p>I have made a reprint of a mid-19th Gaelic font, mainly adapted from <em>A Practical<br>Grammar of the Irish Language</em> (by Owen Connellan, 1844, main source) and from<br><em>Focloir Gaoidhilge - Sacs-bearla, or an Irish - English dictionary</em> (by Thomas De<br>Vere Coneys, 1849). The name is the Irish name of the birth place (Sligo) of Owen<br>Connellan.</p><p>The font is made with Fontbird and there are 3 .ttf files:</p><ul><li>Sligeach Original.ttf : the small u is like v, and it doesn’t contain some ligatures (eg. ea, rr) listed in <em>A Practical Grammar of the Irish Language</em>, p.13.</li><li>Sligeach Round u.ttf : the small u is round, like roman-type u, and it doesn’t contain some ligatures (eg. ea, rr) listed in APGIL, p.13.</li><li>Sligeach Ligature.ttf : the small u is like v, and it contains all ligatures (including ea, rr) listed in APGIL, p.13.</li></ul><p><strong><a href="https://github.com/Yoxem/Sligeach-font" target="_blank" rel="noopener">Font Webpage</a></strong> (Github)</p><h2 id="Ho-lo-話"><a href="#Ho-lo-話" class="headerlink" title="Hô-ló 話"></a>Hô-ló 話</h2><p>我最近做一个19世紀中 Gaelic 字型 ê 重刻版，主要對 <em>A Practical Grammar of the Irish<br>Language</em>（Owen Connellan 著，1844 年，主要來源）kap <em>Focloir Gaoidhilge -<br>Sacs-bearla, or an Irish - English dictionary</em>（Thomas De Vere Coneys 著，1849 年）<br>參考 ê。Sligeach 是 Owen Connellan 出世地 Sligo ê 愛爾蘭語名。</p><p>字型有 3 ê .ttf 檔：</p><ul><li>Sligeach Original.ttf : 小寫 u sîng v，無包一寡 tī <em>A Practical Grammar of the Irish Language</em> 第 13 頁 ê 連字（如 ea、rr）。</li><li>Sligeach Round u.ttf : 小寫 u kap 羅馬體 ê u 仝款 khah 圓，無包一寡 tī hit 本文法冊第 13 頁 ê 連字（如：ea、rr）。</li><li>Sligeach Ligature.ttf : 小寫 u sîng v，包所有 tī <em>A Practical Grammar of the Irish Language</em> 第 13 頁 ê 連字（含 ea、rr）。</li></ul><p><strong><a href="https://github.com/Yoxem/Sligeach-font" target="_blank" rel="noopener">字型網頁</a></strong> (Github)</p><h2 id="Demo-演示"><a href="#Demo-演示" class="headerlink" title="Demo 演示"></a>Demo 演示</h2><p><img src="/2020/03/23/sin-e-gealic-font/demo.png" title="“A demo with an Irish pangram 用愛爾蘭語全字母句 ê 演示”}</p>"></p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;English&quot;&gt;&lt;a href=&quot;#English&quot; class=&quot;headerlink&quot; title=&quot;English&quot;&gt;&lt;/a&gt;English&lt;/h2&gt;&lt;p&gt;I have made a reprint of a mid-19th Gaelic font, m
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="字型" scheme="http://yoxem.github.io/tags/%E5%AD%97%E5%9E%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>解決 Linux Mint 19 中 Firefox 顯示點陣字體時出現短豎線的問題</title>
@@ -522,32 +547,6 @@
       <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
     
       <category term="Scheme" scheme="http://yoxem.github.io/tags/Scheme/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>淺論白話字（台羅）到漢字翻譯系統的建構與問題</title>
-    <link href="http://yoxem.github.io/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/"/>
-    <id>http://yoxem.github.io/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/</id>
-    <published>2018-01-04T16:00:00.000Z</published>
-    <updated>2018-01-04T16:04:57.114Z</updated>
-    
-    <content type="html"><![CDATA[<p>閩南語維基百科使用<a href="http://zh.wikipedia.org/wiki/白話字" target="_blank" rel="noopener">白話字</a>，這套歷史悠久，且又派生教育部目前拼寫台灣閩南語（下稱台語）的標準——台羅的拉丁化（拼音）方案，為主要書寫系統。固然可以閃避掉用字共識不高、罕用字難知發音、字音有時還需要拼音標注、本字考據問題以及外來語不易用漢字統一標記的，台語和漢字的種種糾葛，但因為台灣甚至中國一帶的人受到漢字教育已久，對於白話字（台羅）需要另外學習會降低使用意願，使得經常使用的人數不太多。這或許也可以反應閩南語維基百科雖然在漢藏語系中條目數第二多，但是經常編輯者與編輯頻率遠少於華語維基百科的現況。<a id="more"></a></p><p>因此，如果能夠製作一個軟體，開發出網頁界面，將白話字的維基百科轉換成漢字的內容，或許可以增加閱讀量以及推介閩南語維基百科的內容。此外，許多清末一直到戰後初期許多的閩南語白話字文獻，也可以轉換成漢字提供閱讀，提高普及率。</p><p>雖然台灣閩南語也是有一字多音或一音多字問題，而且一字多音的現象特別廣泛，或許有人質疑變換程式是否能夠滿足需求，但可以參考日文的案例：日語一漢字多音（生可以寫成なま、うまれ、なす、せい……），一音多詞（きしゃ就可以寫成記者、貴社、汽車……因此日語有不少諧音雙關哏）之複雜度不下台灣閩南語，卻也能夠開發出假名轉換漢字的智慧選字系統，我相信台語應該也能夠做品質高的羅馬字—漢字轉換。而且絕大多數的台語漢字和音節呈現一對一的關係，且有些詞在特定的前後詞（文）比其同音詞出現機率比較高（就像食物和植物同音，但在論到滷肉飯的文章，用「食物」的機會比較高）。因此，要做出比較好的文字轉換應該可行。</p><p>或許就像不少智慧選字音碼輸入法可以用馬可夫模型得出比較好的選字結果，這種有關選字的演算法或語言相關的技術，應該也可以應用在這種轉換上（可能也要了解詞頻）。還有另一種方法就是機器學習，利用 Tensorflow 和 seq2seq 的機器學習和機器翻譯的軟體，應該也可以藉由機器學習，生成轉換文字的翻譯模型。可以參考<a href="https://www.tensorflow.org/tutorials/seq2seq" target="_blank" rel="noopener">這篇教學</a>。</p><p>然而，上述機器學習的方法需要大量的白話字（或是台羅，但拼音需要統一）和其用統一用字規範（如教育部建議用字）書寫的漢字版的「平行語料庫」，以及用語料庫生成的詞彙表來進行學習。但一面這種語料比較少，用於學習可能不夠，加上會自然語言處理、機器學習知識的台語推廣者少之又少，不才才疏技拙，短期內應難以實現。或許只能希望像 g0v <a href="https://github.com/g0v/itaigi" target="_blank" rel="noopener">愛台語</a>或相關專案的推動者願意參與吧。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;閩南語維基百科使用&lt;a href=&quot;http://zh.wikipedia.org/wiki/白話字&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;白話字&lt;/a&gt;，這套歷史悠久，且又派生教育部目前拼寫台灣閩南語（下稱台語）的標準——台羅的拉丁化（拼音）方案，為主要書寫系統。固然可以閃避掉用字共識不高、罕用字難知發音、字音有時還需要拼音標注、本字考據問題以及外來語不易用漢字統一標記的，台語和漢字的種種糾葛，但因為台灣甚至中國一帶的人受到漢字教育已久，對於白話字（台羅）需要另外學習會降低使用意願，使得經常使用的人數不太多。這或許也可以反應閩南語維基百科雖然在漢藏語系中條目數第二多，但是經常編輯者與編輯頻率遠少於華語維基百科的現況。
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
-    
-      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
-    
-      <category term="隨筆" scheme="http://yoxem.github.io/tags/%E9%9A%A8%E7%AD%86/"/>
     
   </entry>
   
