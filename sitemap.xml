@@ -1,6 +1,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoxem.github.io/googlephoto.html</loc>
+    
+    <lastmod>2020-05-18T16:22:40.959Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoxem.github.io/2020/04/20/ho-lo-ue-e-ku-tiong-lian-siok-pian-tiau/</loc>
     
     <lastmod>2020-04-24T15:15:48.309Z</lastmod>
@@ -25,13 +32,6 @@
     <loc>http://yoxem.github.io/2020/03/01/kai-kuat-ubuntu-firefox-tiam-tin-ji-tiong-kan-khia-suann-e-bun-te/</loc>
     
     <lastmod>2020-03-02T14:11:21.762Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoxem.github.io/googlephoto.html</loc>
-    
-    <lastmod>2020-02-23T17:39:19.786Z</lastmod>
     
   </url>
   
@@ -456,13 +456,6 @@
   </url>
   
   <url>
-    <loc>http://yoxem.github.io/2015/10/04/Ji7khong3su3ngoo2-9/</loc>
-    
-    <lastmod>2015-11-15T05:41:56.057Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoxem.github.io/2015/04/30/Kin7-jit8_tsap8-kam2/</loc>
     
     <lastmod>2015-11-15T05:41:56.057Z</lastmod>
@@ -485,6 +478,13 @@
   
   <url>
     <loc>http://yoxem.github.io/2015/10/03/Ji7khong3su3ngoo2-8/</loc>
+    
+    <lastmod>2015-11-15T05:41:56.057Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoxem.github.io/2015/10/04/Ji7khong3su3ngoo2-9/</loc>
     
     <lastmod>2015-11-15T05:41:56.057Z</lastmod>
     
