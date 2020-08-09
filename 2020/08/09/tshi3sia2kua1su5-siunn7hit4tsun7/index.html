@@ -3,16 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-  <title>解決 Linux Mint 19 中 Firefox 顯示點陣字體時出現短豎線的問題 | 北郊獨語 - Yoxem&#39;s Blog</title>
+  <title>試寫歌詞——想彼陣 | 北郊獨語 - Yoxem&#39;s Blog</title>
   <meta name="author" content="Yoxem Chen">
   
-  <meta name="description" content="免責聲明：以下僅供參考，本文作者不為使用者執行以下內容之後果負擔任何責任。感謝 zhangboyang-id 提供 patch。
-最近更新到 Linux Mint 19（Ubuntu 18.04 的衍生版本），發現到顯示點陣字形的時候，字之間會有|豎線，查了一下，中國那邊的論壇傳出了災情（火狐中國相關討論、Ubuntu-cn 相關討論）。雖然有人在 Launchpad 提交了 bug 的 patch，但好像 Ubuntu 還沒有接受更新。唯一的 workaround 就是用 apt source 把原碼抓下來自己改，然後再重新編譯成 package 覆蓋系統的新版本。">
+  <meta name="description" content="一
+今夜更深睏袂去暗暗眼前浮現伊彼陣知影未來是無尾的詩只有看破逐家隨儂去
+聽講伊行一條新的路毋知彼爿天氣好抑毋好？心內千萬句欲向啥儂訴干焦想著昔日的倚靠
+二
+阮心袂曉扞予定想欲袂記伊的名怎樣心內獨獨響　一聲一聲「袂轉來矣，茫茫的形影」
+只好共言語送予家己就算以早的夢已經無去我猶原向望保我的記持——汝猶影響佇我的身邊">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="解決 Linux Mint 19 中 Firefox 顯示點陣字體時出現短豎線的問題">
+  <meta property="og:title" content="試寫歌詞——想彼陣">
   <meta property="og:site_name" content="北郊獨語 - Yoxem&#39;s Blog">
 
   
@@ -74,27 +78,31 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2020-03-01T12:14:48.000Z"><a href="/2020/03/01/kai-kuat-ubuntu-firefox-tiam-tin-ji-tiong-kan-khia-suann-e-bun-te/">2020-03-01</a></time>
+        <time datetime="2020-08-08T16:00:00.000Z"><a href="/2020/08/09/tshi3sia2kua1su5-siunn7hit4tsun7/">2020-08-09</a></time>
       
       
   
-    <h1 class="title">解決 Linux Mint 19 中 Firefox 顯示點陣字體時出現短豎線的問題</h1>
+    <h1 class="title">試寫歌詞——想彼陣</h1>
   
 
     </header>
     <div class="entry">
       
         
-      <p><em>免責聲明：以下僅供參考，本文作者不為使用者執行以下內容之後果負擔任何責任。</em><br><em>感謝 zhangboyang-id 提供 patch。</em></p>
-<p>最近更新到 Linux Mint 19（Ubuntu 18.04 的衍生版本），發現到顯示點陣字形的時候，字之間會有|豎線，查了一下，中國那邊的論壇傳出了災情（<a href="http://mozilla.com.cn/thread-402067-1-1.html" target="_blank" rel="noopener">火狐中國相關討論</a>、<a href="https://forum.ubuntu.org.cn/viewtopic.php?t=487304" target="_blank" rel="noopener">Ubuntu-cn 相關討論</a>）。雖然<a href="https://bugs.launchpad.net/ubuntu/+source/freetype/+bug/1769132" target="_blank" rel="noopener">有人在 Launchpad 提交了 bug 的 patch</a>，但好像 Ubuntu 還沒有接受更新。唯一的 workaround 就是用 apt source 把原碼抓下來自己改，然後再重新編譯成 package 覆蓋系統的新版本。<a id="more"></a></p>
-<p>步驟：</p>
-<ol>
-<li>先用<code>apt source libfreetype6; apt build-dep libfreetype6</code> 將 libfreetype 原始碼和編譯必要的相依套件抓下來。</li>
-<li>將 patch（<a href="https://bugs.launchpad.net/ubuntu/+source/freetype/+bug/1769132/comments/6" target="_blank" rel="noopener">下載處</a>的「fix_bitmap_emboldening.patch」連結）另存到<code>所在目錄/freetype-2.8.1/debian/patches-freetype</code>。</li>
-<li>開啟<code>所在目錄/freetype-2.8.1/debian/patches-freetype/series</code>按 Enter 輸入「fix_bitmap_emboldening.patch」。</li>
-<li>編譯成套件：<code>cd 所在目錄/freetype-2.8.1; dpkg-buildpackage -rfakeroot -uc -b</code>（參考來源：<a href="https://askubuntu.com/questions/28372/how-do-i-get-and-modify-the-source-code-of-packages-installed-through-apt-get" target="_blank" rel="noopener">How do I get and modify the source code of packages installed through apt-get? - AskUbuntu</a>）。</li>
-<li>重新覆蓋安裝：<code>cd ..; sudo dpkg -i -<!--code-->-force-overwrite libfreetype6_2.8.1-2ubuntu2_amd64.deb</code>（我用的作業系統是 64 位元，32 位元可能有異）。</li>
-</ol>
+      <p>一</p>
+<p>今夜更深睏袂去<br>暗暗眼前浮現伊<br>彼陣知影未來是無尾的詩<br>只有看破逐家隨儂去</p>
+<p>聽講伊行一條新的路<br>毋知彼爿天氣好抑毋好？<br>心內千萬句欲向啥儂訴<br>干焦想著昔日的倚靠</p>
+<p>二</p>
+<p>阮心袂曉扞予定<br>想欲袂記伊的名<br>怎樣心內獨獨響　一聲一聲<br>「袂轉來矣，茫茫的形影」</p>
+<p>只好共言語送予家己<br>就算以早的夢已經無去<br>我猶原向望保我的記持<br>——汝猶影響佇我的身邊</p>
+<a id="more"></a>
+<p>Kua-sû—Siunn Hit Tsūn</p>
+<p>1.</p>
+<p>Kim-iā kinn tshim khùn-buē-khì,<br>àm-àm gán-tsîng phû-hiān i.<br>Hit tsūn tsai-iánn bī-lâi sī bô-bué-<!-- -->-ê si,<br>Tsí ū khuànn-phuà ta̍k-ke sûi-lâng khì.</p>
+<p>Thiann-kóng i kiânn tsi̍t tiâu sin-<!-- -->-ê lōo,<br>M̄ tsai hit-pîng thinn-khì hó iah m̄ hó?<br>Sim-lāi tshian-bān kù beh hiòng siánn-lâng sòo,<br>Kan-ta siūnn-tio̍h si̍k-ji̍t-<!-- -->-ê uá-khò.</p>
+<p>2.</p>
+<p>Gún sim buē-hiáu huānn hōo tiāⁿ,<br>siūnn beh buē-kì i ê miâ.<br>Tsáinn-iūnn sim-lāi to̍k-to̍k hiáng, tsi̍t siann tsi̍t siann<br>“Buē tńg-<!-- -->-lâi-<!-- -->-ah, bông-bông-<!-- -->-ê hîng-iánn.”</p>
+<p>Tsí hó kā giân-gí sàng hōo ka-kī,<br>tio̍h-sǹg í-tsá-<!-- -->-ê bāng í-king bô-khì.<br>Guá iû-guân ǹg-bāng pó guá ê kì-tî<br>—Lí iah íng-hióng tī guá ê sin-pinn.</p>
 <script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
       
     </div>
@@ -109,7 +117,7 @@
         
   
   <div class="tags">
-    <a href="/tags/資訊/">資訊</a>, <a href="/tags/Linux/">Linux</a>
+    <a href="/tags/Holo話/">Holo話</a>, <a href="/tags/歌詞/">歌詞</a>
   </div>
 
         
@@ -137,7 +145,7 @@
   <!-- hexo-list-related-posts -->
 
 <div style="margin-top: 0px; border-top: 1px solid #ddd; padding-top: 26px">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2020/02/14/ti-linux-tsiong-pdf-tshai-sek-tsuan-tso-oo-peh/">在 Linux 將 PDF 彩色轉成黑白</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記型電腦電量 ê 程式</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2017/03/28/gia5thau5kuann3thinn1/">夯頭看天，佇這片黃昏山坪</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/tsuan2kau3googlephotoe5flickrtsuliau7/">轉到 Google Photo ê Flickr 資料 - 轉到 Google Photo 的 Flickr 資料</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/01/15/Gaeilgee5hak8sip8tsu1guan5/">愛爾蘭語 (Gaeilge) ê 學習資源</a></li></ul>    </div>
         
 
   </div>
