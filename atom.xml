@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2020-09-24T16:59:55.529Z</updated>
+  <updated>2020-09-24T17:52:17.395Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>童詩一首</title>
-    <link href="http://yoxem.github.io/2020/08/09/tong5si1tsit8siu2/"/>
-    <id>http://yoxem.github.io/2020/08/09/tong5si1tsit8siu2/</id>
-    <published>2020-08-08T16:00:00.000Z</published>
-    <updated>2020-09-24T16:59:55.529Z</updated>
+    <link href="http://yoxem.github.io/2020/09/25/tong5si1tsit8siu2/"/>
+    <id>http://yoxem.github.io/2020/09/25/tong5si1tsit8siu2/</id>
+    <published>2020-09-24T16:00:00.000Z</published>
+    <updated>2020-09-24T17:52:17.395Z</updated>
     
     <content type="html"><![CDATA[<p>太陽下山了以後，</p><p>第二天又會從東邊升上來。</p><p>冬天冷了以後，</p><p>第二年夏天又熱了回來。</p><p>隔壁的阿姨下班，摩托車回來以後，</p><p>第二天又開走，回去上班。</p><p>究竟她的摩托車，哪一天會永遠停在</p><p>我家的旁邊？</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
     
@@ -44,7 +44,7 @@
       <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
     
     
-      <category term="詩" scheme="http://yoxem.github.io/tags/%E8%A9%A9/"/>
+      <category term="分行散文或詩" scheme="http://yoxem.github.io/tags/%E5%88%86%E8%A1%8C%E6%95%A3%E6%96%87%E6%88%96%E8%A9%A9/"/>
     
   </entry>
   
