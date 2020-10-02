@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2020-10-02T12:53:34.350Z</updated>
+  <updated>2020-10-02T13:06:03.869Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoxem.github.io/2020/10/02/gi2gian5tik8sing3/"/>
     <id>http://yoxem.github.io/2020/10/02/gi2gian5tik8sing3/</id>
     <published>2020-10-01T16:00:00.000Z</published>
-    <updated>2020-10-02T12:53:34.350Z</updated>
+    <updated>2020-10-02T13:06:03.869Z</updated>
     
-    <content type="html"><![CDATA[<p>有關之前想做一個程式語言玩具語言的打算，現在想想，如果要實現程式語言本體的話，可能會比較複雜。但是假設先實做語言特性或是編譯器特性的話，至少這樣的目標比較簡單。未來如果有時間要實做新的語言，可能也會比較好做，至少有個參考。</p><p>不然我這邊先列一下語言特性相關的 Script 好了。<a id="more"></a></p><ul><li><a href="https://gist.github.com/Yoxem/d2db2b95348d18e0523af7ab20086ce7" target="_blank" rel="noopener">巨集擴展 (extend-a-macro.rkt)</a> (Racket)</li><li><a href="https://gist.github.com/Yoxem/1702e60b4e61c118d9d7980553f24ba0" target="_blank" rel="noopener">模式匹配 (pattern-match.rky)</a> (Racket)</li></ul><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    <content type="html"><![CDATA[<p>有關之前想做一個程式語言玩具語言的打算，現在想想，如果要實現程式語言本體的話，可能會比較複雜。但是假設先實做語言特性或是編譯器特性的話，至少這樣的目標比較簡單。未來如果有時間要實做新的語言，可能也會比較好做，至少有個參考。</p><p>不然我這邊先列一下語言特性相關的 Script 好了。<a id="more"></a></p><ul><li><a href="https://gist.github.com/Yoxem/d2db2b95348d18e0523af7ab20086ce7" target="_blank" rel="noopener">巨集擴展 (extend-a-macro.rkt)</a> (Racket)</li><li><a href="https://gist.github.com/Yoxem/1702e60b4e61c118d9d7980553f24ba0" target="_blank" rel="noopener">模式匹配 (pattern-match.rkt)</a> (Racket)</li></ul><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
     
     <summary type="html">
     
