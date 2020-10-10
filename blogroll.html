@@ -261,14 +261,15 @@ HSR on ">
 -->
 <li><a href="http://plurk.com/yoxem">
 Plurk</a></li>
-<li><a href=https://www.flickr.com/photos/yoxem/sets/">
-Flickr 相簿</a></li>
-<li><a href="https://picasaweb.google.com/116676458256136125537?noredirect=1">
-Picasa 相簿（舊）</a></li>
+<li><a href="https://g0v.social/@yoxem">
+Mastodon (g0v.social)</a></li>
+<li><a href="https://www.flickr.com/photos/yoxem/sets/">
+Flickr 相簿（舊）</a></li>
 <li><em><a href="http://yoxem.github.io/pages/index.html">
 其他 (Yoxem's Homepage)……</a></em></li>
 </ul>
 </div>
+
 
   <div class="widget tag">
 <h3 class="title">最近迴響</h3>
@@ -312,7 +313,26 @@ var disqus_shortname = 'yoxem';
 (function($){
   $('.fancybox').fancybox();
 })(jQuery);
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- fix link -->
+<!--
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

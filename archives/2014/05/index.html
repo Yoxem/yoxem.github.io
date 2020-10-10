@@ -272,7 +272,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/27/tsue3au7e5hun1/">最後的煙</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2015/04/30/Kin7-jit8_tsap8-kam2/">近日雜感</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2015/10/10/Ji7khong3su3ngoo2-10/">二〇四五（十）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2016/09/18/Tsuan1sim1kiam3ing7e5si5tai7/">專心稀缺的時代</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/06/25/bo5tiann7e5tsong7thai7/">不確定的狀態</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2016/09/18/Tsuan1sim1kiam3ing7e5si5tai7/">專心稀缺的時代</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2011/12/14/《腦．迷藏》小說接龍作業自撰部份/">《腦。迷藏》小說接龍作業自撰部份</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2016/01/16/Ji7khong3su3ngoo2-12/">二〇四五（十二）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/10/06/bo5SNSe5jit8tsi2-1/">沒有 SNS 的日子（一）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2014/02/11/二０四五（一）/">二０四五（一）</a></li></ul>    </div>
         
          
 
@@ -427,14 +427,15 @@
 -->
 <li><a href="http://plurk.com/yoxem">
 Plurk</a></li>
-<li><a href=https://www.flickr.com/photos/yoxem/sets/">
-Flickr 相簿</a></li>
-<li><a href="https://picasaweb.google.com/116676458256136125537?noredirect=1">
-Picasa 相簿（舊）</a></li>
+<li><a href="https://g0v.social/@yoxem">
+Mastodon (g0v.social)</a></li>
+<li><a href="https://www.flickr.com/photos/yoxem/sets/">
+Flickr 相簿（舊）</a></li>
 <li><em><a href="http://yoxem.github.io/pages/index.html">
 其他 (Yoxem's Homepage)……</a></em></li>
 </ul>
 </div>
+
 
   <div class="widget tag">
 <h3 class="title">最近迴響</h3>
@@ -478,7 +479,26 @@ var disqus_shortname = 'yoxem';
 (function($){
   $('.fancybox').fancybox();
 })(jQuery);
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- fix link -->
+<!--
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
