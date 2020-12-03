@@ -8,7 +8,9 @@
   
   <meta name="description" content="（前章）
 這個星期六的下午，雖然已經進入秋天，天氣還是和夏天一般炎熱，而街道上人車還是很鼎沸，但是冰果店閒散的桌椅，不多的顧客卻反襯出幾分寧靜。或許是適合談事情的地方嗎？我不知道，但因為離我們兩個人住的地方很近，所以就姑且選在這裡了。
-「我後來想一想，我們現在功能的實做項目已經到了三分之二，剩下的大">
+「我後來想一想，我們現在功能的實做項目已經到了三分之二，剩下的大概只是圖像上傳、私訊等等的細部功能。我們現在有的JS的原始碼在1500行左右，如果要全部轉換成TypeScript，我覺得真的已經要花一段功夫了。」
+Tekolas說：「冷靜來看這件事情。現在我們已經碰到一些和型別錯誤有關的問題了。真的該轉到靜態型別語言，你確實說得有道理。雖然TypeScript是個不完美的方案，但是我覺得總比沒有好，其他的方案和他相比，開發時間延宕的問題會更嚴重。
+但是用TypeScript進度確實會被拖到。」">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -90,7 +92,7 @@
 <p>這個星期六的下午，雖然已經進入秋天，天氣還是和夏天一般炎熱，而街道上人車還是很鼎沸，但是冰果店閒散的桌椅，不多的顧客卻反襯出幾分寧靜。或許是適合談事情的地方嗎？我不知道，但因為離我們兩個人住的地方很近，所以就姑且選在這裡了。</p>
 <p>「我後來想一想，我們現在功能的實做項目已經到了三分之二，剩下的大概只是圖像上傳、私訊等等的細部功能。我們現在有的JS的原始碼在1500行左右，如果要全部轉換成TypeScript，我覺得真的已經要花一段功夫了。」</p>
 <p>Tekolas說：「冷靜來看這件事情。現在我們已經碰到一些和型別錯誤有關的問題了。真的該轉到靜態型別語言，你確實說得有道理。雖然TypeScript是個不完美的方案，但是我覺得總比沒有好，其他的方案和他相比，開發時間延宕的問題會更嚴重。</p>
-<p>但是用TypeScript進度確實會被拖到。」</p>
+<p>但是用TypeScript進度確實會被拖到。」<a id="more"></a></p>
 <p>我這時想要說什麼來安慰他：「不然我們用這點時間慢慢學TypeScript。可能之後的功能性的程式碼成長也不會太多了，之後多半只是重構的部份。我覺得到重構的部份，再調整逐步使用TypeScript。真的不行還有Any型別，什麼東西都屬於Any。」</p>
 <p>「可是用Any會讓型別推論的能力變得不嚴謹，這點我覺得還是不太行。」</p>
 <p>「看到時候需不需要趕進度死線。現在還好，我覺得就先這樣，其他的慢慢再調整吧。」</p>
@@ -175,7 +177,7 @@
   <!-- hexo-list-related-posts -->
 
 <div style="margin-top: 0px; border-top: 1px solid #ddd; padding-top: 26px">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2020/10/06/bo5SNSe5jit8tsi2-1/">沒有 SNS 的日子（一）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/12/03/bo5SNSe5jit8tsi2-14/">沒有SNS的日子（十四）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/11/01/bo5SNSe5jit8tsi2-4/">沒有SNS的日子（四）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/12/03/bo5SNSe5jit8tsi2-8/">沒有SNS的日子（八）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/11/01/bo5SNSe5jit8tsi2-5/">沒有SNS的日子（五）</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2020/12/03/bo5SNSe5jit8tsi2-14/">沒有SNS的日子（十四）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/10/11/bo5SNSe5jit8tsi2-2/">沒有 SNS 的日子（二）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/11/01/bo5SNSe5jit8tsi2-5/">沒有SNS的日子（五）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/12/03/bo5SNSe5jit8tsi2-7/">沒有SNS的日子（七）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/10/06/bo5SNSe5jit8tsi2-1/">沒有 SNS 的日子（一）</a></li></ul>    </div>
         
 
   </div>
@@ -271,14 +273,15 @@
 -->
 <li><a href="http://plurk.com/yoxem">
 Plurk</a></li>
-<li><a href=https://www.flickr.com/photos/yoxem/sets/">
-Flickr 相簿</a></li>
-<li><a href="https://picasaweb.google.com/116676458256136125537?noredirect=1">
-Picasa 相簿（舊）</a></li>
+<li><a href="https://g0v.social/@yoxem">
+Mastodon (g0v.social)</a></li>
+<li><a href="https://www.flickr.com/photos/yoxem/sets/">
+Flickr 相簿（舊）</a></li>
 <li><em><a href="http://yoxem.github.io/pages/index.html">
 其他 (Yoxem's Homepage)……</a></em></li>
 </ul>
 </div>
+
 
   <div class="widget tag">
 <h3 class="title">最近迴響</h3>
