@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2021-01-03T16:54:52.548Z</updated>
+  <updated>2021-01-10T13:59:00.318Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>愛爾蘭語的動詞變化產生器 demo</title>
+    <link href="http://yoxem.github.io/2021/01/10/irish-conjugator/"/>
+    <id>http://yoxem.github.io/2021/01/10/irish-conjugator/</id>
+    <published>2021-01-10T13:59:00.402Z</published>
+    <updated>2021-01-10T13:59:00.318Z</updated>
+    
+    <content type="html"><![CDATA[<p>做了一個愛爾蘭語變化的產生器，是規則動詞（第一類動詞和第二類動詞）的變化產生器，不含動名詞和過去分詞。也是 TypeScript 的練習。</p><ul><li><a href="http://yoxem.github.io/pages/irish-verb-conjugator/index.html">Demo</a></li><li><a href="https://github.com/Yoxem/irish-verb-conjugator" target="_blank" rel="noopener">Github repo</a></li></ul><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;做了一個愛爾蘭語變化的產生器，是規則動詞（第一類動詞和第二類動詞）的變化產生器，不含動名詞和過去分詞。也是 TypeScript 的練習。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://yoxem.github.io/pages/irish-verb-conju
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
+    
+      <category term="愛爾蘭語" scheme="http://yoxem.github.io/tags/%E6%84%9B%E7%88%BE%E8%98%AD%E8%AA%9E/"/>
+    
+      <category term="TypeScript" scheme="http://yoxem.github.io/tags/TypeScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>火燒島ê柴火</title>
+    <link href="http://yoxem.github.io/2021/01/04/hue2sio1to2e5tsha5hue2/"/>
+    <id>http://yoxem.github.io/2021/01/04/hue2sio1to2e5tsha5hue2/</id>
+    <published>2021-01-03T16:00:00.000Z</published>
+    <updated>2021-01-03T16:57:11.889Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>（原本寫佇 2020-01-02）</em></p><p>我袂曉寫曲，毋過會當配 Irish Punk/Rock ê 風格。</p><p>「<br>電火柱ê樓仔厝廣告，</p><p>厝價比前年 (tsū-nî) 又閣起兩百萬，</p><p>你一个看，想著這兩冬，</p><p>薪水起無兩千，哪會遮頇顢？</p><p>你想起較早ê希望，</p><p>長 (tiông) 甲兩百萬就欲來買厝，</p><p>無疑人兩跤，價數四跤，</p><p>這款速度，嘛袂當買公寓。</p><p>（短 inter [間奏]）</p><p>莫怨嘆，攑頭看，</p><p>一棟一棟ê高樓大廈，</p><p>燒了幾若斗 ê 現金，</p><p>規个島燒甲金映映（kim iànn-iànn）</p><p>朋友矣，越頭看，</p><p>燒lio去ê是咱ê血汗，</p><p>目屎嘛攏烘予伊焦，</p><p>有啥人知影咱 ê 心聲？</p><p>共伊燒，共伊燒，共伊燒，共伊燒，少年人 ê 向望佮理想 (lí-siáng)！</p><p>共伊燒，共伊燒，共伊燒，共伊燒，經濟 ê 火車母毋甘放。</p><p>共伊燒，共伊燒，共伊燒，共伊燒，島嶼ê未來當做是空空(khang-khang)。</p><p>共伊燒，共伊燒，共伊燒，共伊燒，好額人踮在 ê 一場夢。</p><p>（長 inter [間奏]）</p><p>莫怨嘆，攑頭看，</p><p>一棟一棟ê高樓大廈，</p><p>燒了幾若斗 ê 現金，</p><p>規个島燒甲金映映（kim iànn-iànn）。</p><p>朋友啊，越頭看，</p><p>燒lio去ê是咱ê血汗，</p><p>目屎嘛攏烘予伊焦，</p><p>有啥人知影咱 ê 心聲？</p><p>共伊燒，共伊燒，共伊燒，共伊燒，少年人 ê 向望佮理想 (lí-siáng)！</p><p>共伊燒，共伊燒，共伊燒，共伊燒，經濟 ê 火車母毋甘放……</p><p>」</p><p>翻譯：</p><p>電線杆的樓房廣告，</p><p>房價比前年還要漲兩百萬，</p><p>你一看，想著這兩年，</p><p>薪水漲無兩千，怎麼這麼愚拙？</p><p>你想起以前的希望，</p><p>存到兩百萬就要來買厝，</p><p>想不到人兩隻腳，房價四隻腳，</p><p>這種速度，也沒法買公寓。</p><p>（短間奏）</p><p>別怨嘆，抬頭看，</p><p>一棟一棟的高樓大廈，</p><p>燒了多少筆的現金，</p><p>整座島燒到金光閃閃。</p><p>朋友啊，轉頭看，</p><p>焚燒掉的是咱們的血汗，</p><p>眼淚也都烤乾它，</p><p>有誰知道我們的心聲？</p><p>將它燒 (x4)，年輕人的希望與理想！</p><p>將它燒 (x4)，經濟的火車頭不願放。</p><p>將它燒 (x4)，島嶼的未來當做是虛空。</p><p>將它燒 (x4)，有錢人在的一場夢。</p><p>（長間奏）</p><p>別怨嘆，抬頭看，</p><p>一棟一棟的高樓大廈，</p><p>燒了多少筆的現金，</p><p>整座島燒到金光閃閃。</p><p>朋友啊，轉頭看，</p><p>焚燒掉的是咱們的血汗，</p><p>眼淚也都烤乾它，</p><p>有誰知道我們的心聲？</p><p>將它燒 (x4)，年輕人的希望與理想！</p><p>將它燒 (x4)，經濟的火車頭不願放……</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;em&gt;（原本寫佇 2020-01-02）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;我袂曉寫曲，毋過會當配 Irish Punk/Rock ê 風格。&lt;/p&gt;
+&lt;p&gt;「&lt;br&gt;電火柱ê樓仔厝廣告，&lt;/p&gt;
+&lt;p&gt;厝價比前年 (tsū-nî) 又閣起兩百萬，&lt;/p&gt;
+&lt;p&gt;你一个看，想著這兩
+      
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="歌詞" scheme="http://yoxem.github.io/tags/%E6%AD%8C%E8%A9%9E/"/>
+    
+  </entry>
   
   <entry>
     <title>沒有SNS的日子（後記）</title>
@@ -506,61 +568,6 @@
       <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
     
       <category term="沒有SNS的日子" scheme="http://yoxem.github.io/tags/%E6%B2%92%E6%9C%89SNS%E7%9A%84%E6%97%A5%E5%AD%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>語言特性</title>
-    <link href="http://yoxem.github.io/2020/10/02/gi2gian5tik8sing3/"/>
-    <id>http://yoxem.github.io/2020/10/02/gi2gian5tik8sing3/</id>
-    <published>2020-10-01T16:00:00.000Z</published>
-    <updated>2020-10-03T14:04:41.489Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>（最新更新：2020-10-03）</strong><br>有關之前想做一個程式語言玩具語言的打算，現在想想，如果要實現程式語言本體的話，可能會比較複雜。但是假設先實做語言特性或是編譯器特性的話，至少這樣的目標比較簡單。未來如果有時間要實做新的語言，可能也會比較好做，至少有個參考。</p><p>不然我這邊先列一下語言特性相關的 script 好了。<a id="more"></a></p><ul><li><a href="https://gist.github.com/Yoxem/d2db2b95348d18e0523af7ab20086ce7" target="_blank" rel="noopener">巨集擴展 (extend-a-macro.rkt)</a> (Racket)</li><li><a href="https://gist.github.com/Yoxem/1702e60b4e61c118d9d7980553f24ba0" target="_blank" rel="noopener">模式匹配 (pattern-match.rkt)</a> (Racket)</li><li><a href="https://gist.github.com/Yoxem/5899879bdff4d0636419a767cb8ec734" target="_blank" rel="noopener">找自由變數 (find-free-var.rkt)</a>（對於閉包轉換有用，Racket）</li></ul><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;（最新更新：2020-10-03）&lt;/strong&gt;&lt;br&gt;有關之前想做一個程式語言玩具語言的打算，現在想想，如果要實現程式語言本體的話，可能會比較複雜。但是假設先實做語言特性或是編譯器特性的話，至少這樣的目標比較簡單。未來如果有時間要實做新的語言，可能也會比較好做，至少有個參考。&lt;/p&gt;
-&lt;p&gt;不然我這邊先列一下語言特性相關的 script 好了。
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>童詩一首</title>
-    <link href="http://yoxem.github.io/2020/09/25/tong5si1tsit8siu2/"/>
-    <id>http://yoxem.github.io/2020/09/25/tong5si1tsit8siu2/</id>
-    <published>2020-09-24T16:00:00.000Z</published>
-    <updated>2020-09-24T17:52:17.395Z</updated>
-    
-    <content type="html"><![CDATA[<p>太陽下山了以後，</p><p>第二天又會從東邊升上來。</p><p>冬天冷了以後，</p><p>第二年夏天又熱了回來。</p><p>隔壁的阿姨下班，摩托車回來以後，</p><p>第二天又開走，回去上班。</p><p>究竟她的摩托車，哪一天會永遠停在</p><p>我家的旁邊？</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;太陽下山了以後，&lt;/p&gt;
-&lt;p&gt;第二天又會從東邊升上來。&lt;/p&gt;
-&lt;p&gt;冬天冷了以後，&lt;/p&gt;
-&lt;p&gt;第二年夏天又熱了回來。&lt;/p&gt;
-&lt;p&gt;隔壁的阿姨下班，摩托車回來以後，&lt;/p&gt;
-&lt;p&gt;第二天又開走，回去上班。&lt;/p&gt;
-&lt;p&gt;究竟她的摩托車，哪一天會永遠停在&lt;/p&gt;
-&lt;p
-      
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="分行散文或詩" scheme="http://yoxem.github.io/tags/%E5%88%86%E8%A1%8C%E6%95%A3%E6%96%87%E6%88%96%E8%A9%A9/"/>
     
   </entry>
   
