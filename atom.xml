@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2021-01-12T13:52:40.242Z</updated>
+  <updated>2021-01-12T15:16:40.400Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>愛爾蘭語的動詞變化產生器 demo</title>
-    <link href="http://yoxem.github.io/2021/01/12/irish-conjugator/"/>
-    <id>http://yoxem.github.io/2021/01/12/irish-conjugator/</id>
-    <published>2021-01-12T13:52:40.242Z</published>
-    <updated>2021-01-12T13:52:40.242Z</updated>
+    <link href="http://yoxem.github.io/2021/01/10/irish-conjugator/"/>
+    <id>http://yoxem.github.io/2021/01/10/irish-conjugator/</id>
+    <published>2021-01-10T13:50:00.000Z</published>
+    <updated>2021-01-12T15:16:40.400Z</updated>
     
     <content type="html"><![CDATA[<p>做了一個愛爾蘭語變化的產生器，是規則動詞（第一類動詞和第二類動詞）的變化產生器，不含動名詞和過去分詞。也是 TypeScript 的練習。</p><ul><li><a href="http://yoxem.github.io/pages/irish-verb-conjugator/index.html">Demo</a></li><li><a href="https://github.com/Yoxem/irish-verb-conjugator" target="_blank" rel="noopener">Github repo</a></li></ul><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
     
