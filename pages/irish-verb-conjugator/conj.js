@@ -4,7 +4,7 @@ var startConj = document.getElementById('start-conjugate');
 var original = document.getElementById('original');
 var conjStem = document.getElementById('conj-stem');
 var conj_no = parseInt(conjNoList.value);
-var type_of_conj1 = null;
+var type_of_conj1 = "general";
 var typesOfConj1Rads = document.getElementsByName("types-of-conj1");
 // reset the dropdown list and the 1st conj opt div while refreshing the page.
 window.addEventListener('pageshow', function (event) {
@@ -34,7 +34,12 @@ function emptyString(str) {
     var isReallyEmpty = (str == "");
     return isReallyEmpty || isContainedSpace;
 }
-startConj.addEventListener('click', function (event) {
+original.addEventListener('keypress', generateConjMain);
+conjStem.addEventListener('keypress', generateConjMain);
+original.addEventListener('change', generateConjMain);
+conjStem.addEventListener('change', generateConjMain);
+startConj.addEventListener('click', generateConjMain);
+function generateConjMain(event) {
     var original_text = original.value;
     var conjstem_text = conjStem.value;
     if (emptyString(original_text) && emptyString(conjstem_text)) {
@@ -47,7 +52,7 @@ startConj.addEventListener('click', function (event) {
         ;
         generateConj(original_text, conjstem_text, conj_no);
     }
-});
+}
 function checkedIfBroadEnd(str_array) {
     for (var i = str_array.length - 1; i >= 0; i--) {
         if (str_array[i].match(/[aouáóúAOUÁÓÚ]/)) {
@@ -193,9 +198,9 @@ function generateConj(orig_txt, stem_txt, conj_no) {
             // general 1st vonj verbs
             firstConjFillTheArray();
             // irreagularity of the pres. auto. form of lean
-            if (stem_txt == "lean") {
+            if (stem_txt.match(/[lL][eE][aA][nN]/)) {
                 var relPres = document.getElementById("pres").getElementsByTagName("td")[7];
-                relPres.innerHTML = "leanas";
+                relPres.innerHTML = stem_txt + "as";
             }
         }
     }

@@ -5,7 +5,7 @@ var original = (<HTMLInputElement> document.getElementById('original'));
 var conjStem = (<HTMLInputElement> document.getElementById('conj-stem'));
 
 var conj_no = parseInt(conjNoList.value);
-var type_of_conj1 = null;
+var type_of_conj1 = "general";
 
 var typesOfConj1Rads = document.getElementsByName("types-of-conj1");
 
@@ -39,7 +39,14 @@ function emptyString(str : string){
   return isReallyEmpty || isContainedSpace;
 }
 
-startConj.addEventListener('click', (event) => {
+
+original.addEventListener('keypress', generateConjMain);
+conjStem.addEventListener('keypress', generateConjMain);
+original.addEventListener('change', generateConjMain);
+conjStem.addEventListener('change', generateConjMain);
+startConj.addEventListener('click', generateConjMain);
+
+function generateConjMain(event : any){
   var original_text = original.value;
   var conjstem_text = conjStem.value;
   if (emptyString(original_text) && emptyString(conjstem_text)){
@@ -50,7 +57,7 @@ startConj.addEventListener('click', (event) => {
       conjstem_text = original_text;
     };
     generateConj(original_text, conjstem_text, conj_no);
-}});
+}}
 
 function checkedIfBroadEnd(str_array : string[]){
   for (var i = str_array.length - 1; i >=0; i--){
@@ -236,9 +243,9 @@ function generateConj(orig_txt : string, stem_txt : string, conj_no : Number){
       firstConjFillTheArray();
 
       // irreagularity of the pres. auto. form of lean
-      if (stem_txt == "lean"){
+      if (stem_txt.match(/[lL][eE][aA][nN]/)){
         var relPres = document.getElementById("pres").getElementsByTagName("td")[7];
-        relPres.innerHTML = "leanas";
+        relPres.innerHTML = stem_txt + "as";
       }
     }
   
