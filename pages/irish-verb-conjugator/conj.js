@@ -34,8 +34,8 @@ function emptyString(str) {
     var isReallyEmpty = (str == "");
     return isReallyEmpty || isContainedSpace;
 }
-original.addEventListener('keypress', generateConjMain);
-conjStem.addEventListener('keypress', generateConjMain);
+original.addEventListener('keyup', generateConjMain);
+conjStem.addEventListener('keyup', generateConjMain);
 original.addEventListener('change', generateConjMain);
 conjStem.addEventListener('change', generateConjMain);
 startConj.addEventListener('click', generateConjMain);
@@ -244,6 +244,10 @@ function generateConj(orig_txt, stem_txt, conj_no) {
                 var currentSuffix = suffixTable[currentSuffixTableKey][j];
                 if (currentSuffix != null) {
                     item.innerHTML = stem_txt + currentSuffix;
+                    // remove duplicated t
+                    if (stem_txt.match(/.*[tT]$/) && currentSuffix[0] == 't') {
+                        item.innerHTML = stem_txt + currentSuffix.substring(1);
+                    }
                 }
             }
         }

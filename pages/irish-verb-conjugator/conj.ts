@@ -40,8 +40,8 @@ function emptyString(str : string){
 }
 
 
-original.addEventListener('keypress', generateConjMain);
-conjStem.addEventListener('keypress', generateConjMain);
+original.addEventListener('keyup', generateConjMain);
+conjStem.addEventListener('keyup', generateConjMain);
 original.addEventListener('change', generateConjMain);
 conjStem.addEventListener('change', generateConjMain);
 startConj.addEventListener('click', generateConjMain);
@@ -57,7 +57,8 @@ function generateConjMain(event : any){
       conjstem_text = original_text;
     };
     generateConj(original_text, conjstem_text, conj_no);
-}}
+  }
+}
 
 function checkedIfBroadEnd(str_array : string[]){
   for (var i = str_array.length - 1; i >=0; i--){
@@ -302,6 +303,10 @@ function generateConj(orig_txt : string, stem_txt : string, conj_no : Number){
 
         if (currentSuffix != null) {
           item.innerHTML = stem_txt + currentSuffix;
+          // remove duplicated t
+          if (stem_txt.match(/.*[tT]$/) && currentSuffix[0] == 't'){
+            item.innerHTML = stem_txt + currentSuffix.substring(1);
+          }
         }
 
         }
