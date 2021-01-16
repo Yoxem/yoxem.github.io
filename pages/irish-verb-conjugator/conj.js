@@ -38,7 +38,8 @@ original.addEventListener('keyup', generateConjMain);
 conjStem.addEventListener('keyup', generateConjMain);
 original.addEventListener('change', generateConjMain);
 conjStem.addEventListener('change', generateConjMain);
-startConj.addEventListener('click', generateConjMain);
+// startConj.addEventListener('click', generateConjMain);
+conjNoList.addEventListener('click', generateConjMain);
 function generateConjMain(event) {
     var original_text = original.value;
     var conjstem_text = conjStem.value;
@@ -152,7 +153,7 @@ function generateConj(orig_txt, stem_txt, conj_no) {
     var isBroadEnd;
     if (conj_no == 1) {
         var stem_txt_splitted = split_text(stem_txt);
-        checkedIfBroadEnd(stem_txt_splitted);
+        isBroadEnd = checkedIfBroadEnd(stem_txt_splitted);
         if (type_of_conj1 == "igh") {
             if (!orig_txt.match('[iI][gG][hH]$')) {
                 alert("原來的詞不以 -igh 結尾。");
@@ -173,7 +174,7 @@ function generateConj(orig_txt, stem_txt, conj_no) {
             if (!orig_txt.match('[áÁ][iI][lL]$')) {
                 alert("原來的詞不以 -áil 結尾。");
             }
-            firstConjFillTheArray();
+            firstConjFillTheArray(isBroadEnd);
             // convert stem -ál to -áil
             var stemAilLeft = stem_txt.substring(0, stem_txt.length - 1);
             var stemAil;
@@ -196,7 +197,7 @@ function generateConj(orig_txt, stem_txt, conj_no) {
         }
         else {
             // general 1st vonj verbs
-            firstConjFillTheArray();
+            firstConjFillTheArray(isBroadEnd);
             // irreagularity of the pres. auto. form of lean
             if (stem_txt.match(/[lL][eE][aA][nN]/)) {
                 var relPres = document.getElementById("pres").getElementsByTagName("td")[7];
@@ -224,7 +225,7 @@ function generateConj(orig_txt, stem_txt, conj_no) {
         fillTablesInner(suffixTable);
     }
     // general 1st vonj verbs
-    function firstConjFillTheArray() {
+    function firstConjFillTheArray(isBroadEnd) {
         var suffixTable;
         if (isBroadEnd) {
             suffixTable = first_conj["broad"];

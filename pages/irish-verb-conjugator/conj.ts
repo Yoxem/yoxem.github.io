@@ -44,7 +44,8 @@ original.addEventListener('keyup', generateConjMain);
 conjStem.addEventListener('keyup', generateConjMain);
 original.addEventListener('change', generateConjMain);
 conjStem.addEventListener('change', generateConjMain);
-startConj.addEventListener('click', generateConjMain);
+// startConj.addEventListener('click', generateConjMain);
+conjNoList.addEventListener('click', generateConjMain);
 
 function generateConjMain(event : any){
   var original_text = original.value;
@@ -178,7 +179,7 @@ function generateConj(orig_txt : string, stem_txt : string, conj_no : Number){
   if (conj_no == 1){
 
     var stem_txt_splitted = split_text(stem_txt);
-    checkedIfBroadEnd(stem_txt_splitted);
+    isBroadEnd = checkedIfBroadEnd(stem_txt_splitted);
 
     if (type_of_conj1 == "igh"){
       if (!orig_txt.match('[iI][gG][hH]$')){
@@ -210,7 +211,7 @@ function generateConj(orig_txt : string, stem_txt : string, conj_no : Number){
          alert("原來的詞不以 -áil 結尾。");
       }
 
-      firstConjFillTheArray();
+      firstConjFillTheArray(isBroadEnd);
       
 
       // convert stem -ál to -áil
@@ -241,7 +242,7 @@ function generateConj(orig_txt : string, stem_txt : string, conj_no : Number){
     else{
 
       // general 1st vonj verbs
-      firstConjFillTheArray();
+      firstConjFillTheArray(isBroadEnd);
 
       // irreagularity of the pres. auto. form of lean
       if (stem_txt.match(/[lL][eE][aA][nN]/)){
@@ -279,7 +280,7 @@ function generateConj(orig_txt : string, stem_txt : string, conj_no : Number){
   
 
   // general 1st vonj verbs
-  function firstConjFillTheArray() {
+  function firstConjFillTheArray(isBroadEnd : boolean) {
     var suffixTable;
     if (isBroadEnd) {
       suffixTable = first_conj["broad"];
