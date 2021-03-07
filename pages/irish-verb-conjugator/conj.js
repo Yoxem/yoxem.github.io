@@ -38,8 +38,7 @@ original.addEventListener('keyup', generateConjMain);
 conjStem.addEventListener('keyup', generateConjMain);
 original.addEventListener('change', generateConjMain);
 conjStem.addEventListener('change', generateConjMain);
-// startConj.addEventListener('click', generateConjMain);
-conjNoList.addEventListener('click', generateConjMain);
+startConj.addEventListener('click', generateConjMain);
 function generateConjMain(event) {
     var original_text = original.value;
     var conjstem_text = conjStem.value;
@@ -72,7 +71,7 @@ var first_conj = { "broad": {
         "futu": ["fad", "fair", "faidh", "faimíd", "faidh sibh", "faid", "far"],
         "cond": ["fainn", "fá", "fadh", "faimís", "fadh sibh", "faidís", "faí"],
         "pr_su": ["ad", "air", "aidh", "aimíd", "aidh sibh", "aid", null],
-        "impe": ["aim", null, "adh", "aimís", "aidh", "aidís", null],
+        "impe": ["aim", null, "adh", "aimís", "aidh", "aidís", null]
     },
     "slender": {
         "pres": ["im", "ir", "eann", "imíd", "eann sibh", "id", null, "tear"],
@@ -81,7 +80,7 @@ var first_conj = { "broad": {
         "futu": ["fead", "fir", "fidh", "fimíd", "fidh sibh", "fid", "fear"],
         "cond": ["finn", "feá", "feadh", "fimís", "feadh sibh", "fidís", "fí"],
         "pr_su": ["ead", "ir", "idh", "imíd", "idh sibh", "id", null],
-        "impe": ["im", null, "eadh", "imís", "idh", "idís", null],
+        "impe": ["im", null, "eadh", "imís", "idh", "idís", null]
     }
 };
 var second_conj = { "broad": {
@@ -91,7 +90,7 @@ var second_conj = { "broad": {
         "futu": ["ód", "óir", "óidh", "óimíd", "óidh sibh", "óid", "ófar"],
         "cond": ["óinn", "ófá", "ódh", "óimís", "ódh sibh", "óidís", "ófaí"],
         "pr_su": ["aíod", "aír", "aídh", "aímíd", "aídh sibh", "aíd", null],
-        "impe": ["aím", null, "aíodh", "aímís", "aídh", "aídís", null],
+        "impe": ["aím", null, "aíodh", "aímís", "aídh", "aídís", null]
     },
     "slender": {
         "pres": ["ím", "ír", "íonn", "ímíd", "íonn sibh", "íd", null, "ítear"],
@@ -100,7 +99,7 @@ var second_conj = { "broad": {
         "futu": ["eod", "eoir", "eoidh", "eoimíd", "eoidh sibh", "eoid", "eofar"],
         "cond": ["eoinn", "eofá", "eodh", "eoimís", "eodh sibh", "eoidís", "eofaí"],
         "pr_su": ["íod", "ír", "ídh", "ímíd", "ídh sibh", "íd", null],
-        "impe": ["ím", null, "íodh", "ímís", "ídh", "ídís", null],
+        "impe": ["ím", null, "íodh", "ímís", "ídh", "ídís", null]
     }
 };
 var ighType;
@@ -116,7 +115,7 @@ var firstConjIgh = { 0: // shortVowelEnd
         "futu": ["ífead", "ífir", "ífidh", "ífimíd", "ífidh sibh", "ífid", "ífear"],
         "cond": ["ífinn", "ífeá", "ífeadh", "ífimís", "ífeadh sibh", "ífidís", "ífí"],
         "pr_su": ["íod", "ír", "ídh", "ímíd", "ídh sibh", "íd", null],
-        "impe": ["ím", null, "íodh", "ímís", "ídh", "ídís", null],
+        "impe": ["ím", null, "íodh", "ímís", "ídh", "ídís", null]
     },
     1: // longBroadEnd
     {
@@ -126,7 +125,7 @@ var firstConjIgh = { 0: // shortVowelEnd
         "futu": ["fad", "fair", "faidh", "faimíd", "faidh sibh", "faid", "far"],
         "cond": ["fainn", "fá", "fadh", "faimís", "fadh sibh", "faidís", "faí"],
         "pr_su": ["d", "ir", "idh", "imíd", "idh sibh", "id", null],
-        "impe": ["im", null, "dh", "imís", "idh", "idís", null],
+        "impe": ["im", null, "dh", "imís", "idh", "idís", null]
     },
     2: // longSlenderEnd
     {
@@ -136,7 +135,7 @@ var firstConjIgh = { 0: // shortVowelEnd
         "futu": ["ifead", "ifir", "ifidh", "ifimíd", "ifidh sibh", "ifid", "ifear"],
         "cond": ["ifinn", "ifeá", "ifeadh", "ifimís", "ifeadh sibh", "ifidís", "ifí"],
         "pr_su": ["ad", "ir", "idh", "imíd", "idh sibh", "id", null],
-        "impe": ["im", null, "adh", "imís", "idh", "idís", null],
+        "impe": ["im", null, "adh", "imís", "idh", "idís", null]
     }
 };
 function generateConj(orig_txt, stem_txt, conj_no) {
@@ -153,7 +152,7 @@ function generateConj(orig_txt, stem_txt, conj_no) {
     var isBroadEnd;
     if (conj_no == 1) {
         var stem_txt_splitted = split_text(stem_txt);
-        isBroadEnd = checkedIfBroadEnd(stem_txt_splitted);
+        checkedIfBroadEnd(stem_txt_splitted);
         if (type_of_conj1 == "igh") {
             if (!orig_txt.match('[iI][gG][hH]$')) {
                 alert("原來的詞不以 -igh 結尾。");
@@ -174,8 +173,9 @@ function generateConj(orig_txt, stem_txt, conj_no) {
             if (!orig_txt.match('[áÁ][iI][lL]$')) {
                 alert("原來的詞不以 -áil 結尾。");
             }
-            firstConjFillTheArray(isBroadEnd);
-            // convert stem -ál to -áil
+            isBroadEnd = true;
+            firstConjFillTheArray();
+            // convert stem -áil to -ál
             var stemAilLeft = stem_txt.substring(0, stem_txt.length - 1);
             var stemAil;
             if (stemAilLeft.substring(stemAilLeft.length - 1) == 'á') {
@@ -197,7 +197,7 @@ function generateConj(orig_txt, stem_txt, conj_no) {
         }
         else {
             // general 1st vonj verbs
-            firstConjFillTheArray(isBroadEnd);
+            firstConjFillTheArray();
             // irreagularity of the pres. auto. form of lean
             if (stem_txt.match(/[lL][eE][aA][nN]/)) {
                 var relPres = document.getElementById("pres").getElementsByTagName("td")[7];
@@ -225,7 +225,7 @@ function generateConj(orig_txt, stem_txt, conj_no) {
         fillTablesInner(suffixTable);
     }
     // general 1st vonj verbs
-    function firstConjFillTheArray(isBroadEnd) {
+    function firstConjFillTheArray() {
         var suffixTable;
         if (isBroadEnd) {
             suffixTable = first_conj["broad"];
@@ -254,4 +254,3 @@ function generateConj(orig_txt, stem_txt, conj_no) {
         }
     }
 }
-//# sourceMappingURL=conj.js.map
