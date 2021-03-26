@@ -196,6 +196,7 @@ function generateConj(orig_txt, stem_txt, conj_no) {
             autoPaHa.innerHTML = stemAil + autoPaHaSuffix;
         }
         else {
+            isBroadEnd = checkedIfBroadEnd(split_text(stem_txt));
             // general 1st vonj verbs
             firstConjFillTheArray();
             // irreagularity of the pres. auto. form of lean

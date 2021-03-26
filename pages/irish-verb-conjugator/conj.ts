@@ -240,6 +240,8 @@ function generateConj(orig_txt : string, stem_txt : string, conj_no : Number){
     
     else{
 
+      isBroadEnd =  checkedIfBroadEnd(split_text(stem_txt));
+
       // general 1st vonj verbs
       firstConjFillTheArray();
 
@@ -280,6 +282,7 @@ function generateConj(orig_txt : string, stem_txt : string, conj_no : Number){
 
   // general 1st vonj verbs
   function firstConjFillTheArray() {
+
     var suffixTable;
     if (isBroadEnd) {
       suffixTable = first_conj["broad"];
