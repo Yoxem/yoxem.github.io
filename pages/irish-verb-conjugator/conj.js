@@ -253,5 +253,24 @@ function generateConj(orig_txt, stem_txt, conj_no) {
                 }
             }
         }
+        var futuAnalSuffixPs = "<br/><span style=\"font-size:50%;\">-idh接第三人稱代名詞和指示代名詞不發音，其餘唸 /ɟ/</span>";
+        var futuTr = document.getElementById("futu");
+        var futuAnal = futuTr.getElementsByTagName("td")[3];
+        futuAnal.innerHTML = futuAnal.innerHTML + futuAnalSuffixPs;
+        var condAnalSuffixPs = "<br/><span style=\"font-size:50%;\">-dh 唸 /x/</span>";
+        var condTr = document.getElementById("cond");
+        var condAnal = condTr.getElementsByTagName("td")[3];
+        condAnal.innerHTML = condAnal.innerHTML + condAnalSuffixPs;
+        var impeAnalSuffixPs = "<br/><span style=\"font-size:50%;\">-dh 於科克唸 /x/</span>";
+        var impeTr = document.getElementById("impe");
+        var impeAnal = impeTr.getElementsByTagName("td")[3];
+        impeAnal.innerHTML = impeAnal.innerHTML + impeAnalSuffixPs;
+        var pastAutoAndPahaAnalSuffixPs = "<br/><span style=\"font-size:50%;\">-dh 於科克唸 /g/</span>";
+        var pahaTr = document.getElementById("pa_ha");
+        var pahaAnal = pahaTr.getElementsByTagName("td")[3];
+        var pastTr = document.getElementById("past");
+        var pastAuto = pastTr.getElementsByTagName("td")[8];
+        pahaAnal.innerHTML = pahaAnal.innerHTML + pastAutoAndPahaAnalSuffixPs;
+        pastAuto.innerHTML = pastAuto.innerHTML + pastAutoAndPahaAnalSuffixPs;
     }
 }
