@@ -76,6 +76,199 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2019-11-10T15:27:37.000Z"><a href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">2019-11-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記型電腦電量 ê 程式</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+      <p>（上尾更新 tī：2019-11-11）</p>
+<p>實在 tsih-tsài 袂牢電腦無通知直接斷電 ê 情形，tshiau 過 ê 足 tsē 資料 mā 無法度解決。</p>
+<p>姑不而將，家己寫一个 shell script。</p>
+<script src="https://gist.github.com/Yoxem/7ac7549b6c2b486880256157661bb9ba.js"></script>
+
+<p>必要 ê 套件：</p>
+<ul>
+<li>upower</li>
+<li>zenity</li>
+<li>sh</li>
+</ul>
+<p>將 hit 个 shell script khǹg 好，chmod u+x  system-autodetect-battery-and-hibernate.sh。</p>
+<p>Koh 用 crontab -e 指令，加每 x 分鐘執行這个程式 ê routine。以「每 3 分鐘執行囥佇 /opt/ ê system-autodetect-battery-and-hibernate.sh」做例：</p>
+<pre>
+0-59/3 * * * * export DISPLAY=:0 && /opt/system-autodetect-battery-and-hibernate.sh
+</pre>
+
+<p>向望 tse 有效。</p>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+<div style="margin-top: 0em; ">    
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li></ul>    </div>
+        
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-10-11T16:00:00.000Z"><a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">2019-10-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（開始寫 tī 2019-10-11，上新修改 tī 2019-10-16）</strong></p>
+<h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>設使汝干焦有整數乘法、整數加減法 kap 向正爿徙位 (&gt;&gt;)，而且任何變數無法度用小數 tiông (store) 入去，欲按怎實做除法演算法？
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-06-20T16:00:00.000Z"><a href="/2019/06/21/an1tsng1racketllvm/">2019-06-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+      <p><strong>（上新更新佇：2019-09-26）</strong></p>
+<ul>
+<li>Clone <a href="https://github.com/bubba/racket-llvm" target="_blank" rel="noopener">git repo</a>：<pre>git clone git@github.com:bubba/racket-llvm.git</pre></li>
+<li>包做 .zip：<pre>raco pkg create -<!-- -->-binary racket-llvm</pre></li>
+<li>安裝：<pre>raco pkg install racket-llvm.zip</pre></li>
+<li>拍 <pre>raco pkg show</pre> 看安裝 ê 結果，親像：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Installation-wide:</span><br><span class="line"> Package            Checksum     Source</span><br><span class="line">....</span><br><span class="line">User-specific for installation &quot;6.3&quot;:</span><br><span class="line"> Package      Checksum     Source</span><br><span class="line"> racket-llvm  52ebbb73...  file /tmp/a/racket-llvm.zip</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+<div style="margin-top: 0em; ">    
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li></ul>    </div>
+        
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2019-01-20T15:57:45.000Z"><a href="/2019/01/20/tsuan2kau3googlephotoe5flickrtsuliau7/">2019-01-20</a></time>
       
       
@@ -103,7 +296,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/01/04/hue2sio1to2e5tsha5hue2/">火燒島ê柴火</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/05/04/juat8thinn1e5am3me5/">熱天的暗暝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/">賣出語言ê少年人（一）</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/">賣出語言ê少年人（六）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-2/">賣出語言ê少年人（二）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-3/">賣出語言ê少年人（三）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/">賣出語言ê少年人（七）</a></li></ul>    </div>
         
          
 
@@ -456,177 +649,6 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-12-30T16:00:00.000Z"><a href="/2017/12/31/bo5kiu3siok8e5si5tai7/">2017-12-31</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/12/31/bo5kiu3siok8e5si5tai7/">無救贖的時代</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong>（上尾更新佇：2018-01-05）</strong></p>
-<p>這是一个科技發達、思想當咧興的時代，煞是人人空虛毋過無救贖的時代。<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2017/12/31/bo5kiu3siok8e5si5tai7/#more" class="more-link">More...</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  <!-- hexo-list-related-posts -->
-
-        
-         
-         
-
-  </div>
-
-</article>
-
-
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-06-29T16:00:00.000Z"><a href="/2017/06/30/eng7tortsiunn7ptt/">2017-06-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><em>本文參考 <a href="https://askubuntu.com/questions/85766/how-to-use-ssh-with-tor" target="_blank" rel="noopener">How to use SSH with Tor? - Ask Ubuntu</a></em></p>
-<p>若是{rb|汝|lí}{rb|欲|beh}{rb|藏|tshàng}家己{rb|的|-<!-- -->-ê} IP {rb|佇|tī} ptt {rb|這个|tsit-ê} BBS，通使用 tor。佇 Linux 的虛終端機，通用以下指令：
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2017/06/30/eng7tortsiunn7ptt/#more" class="more-link">More...</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  <!-- hexo-list-related-posts -->
-
-        
-         
-         
-
-  </div>
-
-</article>
-
-
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-05-03T16:00:00.000Z"><a href="/2017/05/04/juat8thinn1e5am3me5/">2017-05-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/05/04/juat8thinn1e5am3me5/">熱天的暗暝</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>（上新修改：2017-05-10）</p>
-<p>天頂的月娘，勻勻行出來矣，<br>依倚著{rb|閃爍|siám-sih}的星仔，<br>金金看下跤溫柔的溪水。
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2017/05/04/juat8thinn1e5am3me5/#more" class="more-link">More...</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  <!-- hexo-list-related-posts -->
-
-        
-         
-         
-
-  </div>
-
-</article>
-
-
-
-
-  
 
   <nav id="pagination">
   
@@ -659,7 +681,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>109</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>112</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -675,23 +697,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-5/">賣出語言ê少年人（五）</a>
+      </li>
+    
+      <li>
+        <a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/">賣出語言ê少年人（六）</a>
+      </li>
+    
+      <li>
+        <a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/">賣出語言ê少年人（七）</a>
+      </li>
+    
+      <li>
         <a href="/2021/04/25/lun7sio2suat4ping5tai5khi3tiong1sim1hua3e5kho2ling5sing3/">論小說平台去中心化的可能性</a>
       </li>
     
       <li>
         <a href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/">賣出語言ê少年人（一）</a>
-      </li>
-    
-      <li>
-        <a href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-2/">賣出語言ê少年人（二）</a>
-      </li>
-    
-      <li>
-        <a href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-3/">賣出語言ê少年人（三）</a>
-      </li>
-    
-      <li>
-        <a href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-4/">賣出語言ê少年人（四）</a>
       </li>
     
   </ul>
@@ -702,7 +724,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.83px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.83px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.17px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.83px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.83px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.67px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13.33px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.83px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.33px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 16.67px;">分行散文或詩</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.83px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13.33px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.67px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.5px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 14.17px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.67px;">論</a> <a href="/tags/資訊/" style="font-size: 18.33px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 12.5px;">賣出語言ê少年人</a> <a href="/tags/隨筆/" style="font-size: 15px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.83px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.83px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.17px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.83px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.83px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.67px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.5px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.83px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 12.5px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 16.67px;">分行散文或詩</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.83px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.5px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.67px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.5px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 13.33px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.67px;">論</a> <a href="/tags/資訊/" style="font-size: 18.33px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 14.17px;">賣出語言ê少年人</a> <a href="/tags/隨筆/" style="font-size: 15px;">隨筆</a>
   </div>
 </div>
 

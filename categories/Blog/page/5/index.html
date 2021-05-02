@@ -76,6 +76,183 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2019-07-15T16:15:03.000Z"><a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/">2019-07-16</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/">改自王垠的 r2 直譯器——添加惰性求值和遞迴函數</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>（最近更新：2019-07-22）</strong></p>
+<p>王垠可說是中國程式語言界的網路名人。雖然有些人不喜歡他對事物的觀點或是看法，或是他展現出的價值觀，但是有些觀點卻還是很有趣的。比如他之前寫的<a href="https://www.yinwang.org/blog-cn/2012/08/01/interpreter" target="_blank" rel="noopener">怎樣寫一個解釋器</a>，利用動態擴展的環境列表還有閉包的概念，將一個程式語言基本的功能簡潔的實踐出來（當然也要歸功於 Scheme 的語法）——閉包、調用變數、運算、儲存變數、環境的調整、函數調用等等，都很有趣。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/07/16/kai2tui3Ong5Gin5e5tit8ik8khi3/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-06-25T15:29:31.000Z"><a href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">2019-06-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/">遞迴下降分析器的簡介</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><em>以下內容僅為非資訊專業者所寫的心得，不保證內容正確性。</em><br><strong>（最近更新：2019-07-22）</strong></p>
+<h2 id="語法樹"><a href="#語法樹" class="headerlink" title="語法樹"></a>語法樹</h2><p>就算沒有學過編譯器的人我想很多都知道，編譯器是把一種語言的程式翻譯成另一種語言者的工具。在轉成其他語言之前，需要將這個語言轉換成一棵樹狀結構 (抽象語法樹，abstract syntax tree)，來分析被編譯的程式內容是什麼。大概就像我們在翻譯一門語言的內容前，可以先將它轉換成語法樹。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/06/25/tue7hue5ha7kang3e5suatbing5/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-06-20T16:00:00.000Z"><a href="/2019/06/21/an1tsng1racketllvm/">2019-06-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+      <p><strong>（上新更新佇：2019-09-26）</strong></p>
+<ul>
+<li>Clone <a href="https://github.com/bubba/racket-llvm" target="_blank" rel="noopener">git repo</a>：<pre>git clone git@github.com:bubba/racket-llvm.git</pre></li>
+<li>包做 .zip：<pre>raco pkg create -<!-- -->-binary racket-llvm</pre></li>
+<li>安裝：<pre>raco pkg install racket-llvm.zip</pre></li>
+<li>拍 <pre>raco pkg show</pre> 看安裝 ê 結果，親像：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Installation-wide:</span><br><span class="line"> Package            Checksum     Source</span><br><span class="line">....</span><br><span class="line">User-specific for installation &quot;6.3&quot;:</span><br><span class="line"> Package      Checksum     Source</span><br><span class="line"> racket-llvm  52ebbb73...  file /tmp/a/racket-llvm.zip</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+<div style="margin-top: 0em; ">    
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li></ul>    </div>
+        
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2019-05-15T16:00:00.000Z"><a href="/2019/05/16/MiseEire/">2019-05-16</a></time>
       
       
@@ -220,7 +397,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2017/05/04/juat8thinn1e5am3me5/">熱天的暗暝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/11/10/A-script-to-auto-detect-laptop-battery-and-warning/">偵測 Linux 筆記型電腦電量 ê 程式</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2015/04/30/Kin7-jit8_tsap8-kam2/">近日雜感</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2017/03/28/gia5thau5kuann3thinn1/">夯頭看天，佇這片黃昏山坪</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/">賣出語言ê少年人（一）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2015/04/30/Kin7-jit8_tsap8-kam2/">近日雜感</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/04/20/ho-lo-ue-e-ku-tiong-lian-siok-pian-tiau/">Holo 話在句中的語詞連續變調（非正式整理）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li></ul>    </div>
         
          
 
@@ -461,175 +638,6 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-03-04T12:35:27.000Z"><a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">2018-03-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong>（上尾更新佇：2018-03-05）</strong></p>
-<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p><a href="http://sile-typesetter.org/" target="_blank" rel="noopener">SILE</a> (Simon’s Improved Layout Engine) 是一款佮 LaTeX 相𫝛的排版軟體。TeX {rb|engine|ia̋n-jín} 已經開發幾十年矣，就算後來有較濟的版本，嘛攏是佇伊的面頂抑是用別款語言改寫伊的。毋過開發真久，Tex 系的語言有一寡歷史致到的問題，嘛有各囝系統之間無相通的情況。<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/03/04/silee5kai3siau7kap4an1tsong1/#more" class="more-link">More...</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  <!-- hexo-list-related-posts -->
-
-        
-         
-         
-
-  </div>
-
-</article>
-
-
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-01-23T22:32:15.000Z"><a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">2018-01-24</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong>（上尾更新佇：2018-02-04）</strong><br>佇 Scheme 中，{rb|巨集|kū-tsi̍p} (macro) 的使用是一个特點，巨集佮函數真成，毋過會當處理 syntax （{rb|句法|kù-hoat}）做輸入的 argumemt（{rb|引數|ín-sòo}）。巨集的定義干涉著 syntax。佇伊的囝語言 Racket 中閣有 syntax-case 等語法，提來定義 syntax 用的。
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/#more" class="more-link">More...</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  <!-- hexo-list-related-posts -->
-
-        
-         
-         
-
-  </div>
-
-</article>
-
-
-
-
-  
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-01-04T16:00:00.000Z"><a href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">2018-01-05</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>閩南語維基百科使用<a href="http://zh.wikipedia.org/wiki/白話字" target="_blank" rel="noopener">白話字</a>，這套歷史悠久，且又派生教育部目前拼寫台灣閩南語（下稱台語）的標準——台羅的拉丁化（拼音）方案，為主要書寫系統。固然可以閃避掉用字共識不高、罕用字難知發音、字音有時還需要拼音標注、本字考據問題以及外來語不易用漢字統一標記的，台語和漢字的種種糾葛，但因為台灣甚至中國一帶的人受到漢字教育已久，對於白話字（台羅）需要另外學習會降低使用意願，使得經常使用的人數不太多。這或許也可以反應閩南語維基百科雖然在漢藏語系中條目數第二多，但是經常編輯者與編輯頻率遠少於華語維基百科的現況。
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/#more" class="more-link">More...</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  <!-- hexo-list-related-posts -->
-
-        
-         
-         
-
-  </div>
-
-</article>
-
-
-
-
-  
 
   <nav id="pagination">
   
@@ -662,7 +670,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>109</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>112</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -678,23 +686,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-5/">賣出語言ê少年人（五）</a>
+      </li>
+    
+      <li>
+        <a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/">賣出語言ê少年人（六）</a>
+      </li>
+    
+      <li>
+        <a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/">賣出語言ê少年人（七）</a>
+      </li>
+    
+      <li>
         <a href="/2021/04/25/lun7sio2suat4ping5tai5khi3tiong1sim1hua3e5kho2ling5sing3/">論小說平台去中心化的可能性</a>
       </li>
     
       <li>
         <a href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/">賣出語言ê少年人（一）</a>
-      </li>
-    
-      <li>
-        <a href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-2/">賣出語言ê少年人（二）</a>
-      </li>
-    
-      <li>
-        <a href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-3/">賣出語言ê少年人（三）</a>
-      </li>
-    
-      <li>
-        <a href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-4/">賣出語言ê少年人（四）</a>
       </li>
     
   </ul>
@@ -705,7 +713,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.83px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.83px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.17px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.83px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.83px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.67px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 13.33px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.83px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 13.33px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 16.67px;">分行散文或詩</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.83px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 13.33px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.67px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.5px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 14.17px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.67px;">論</a> <a href="/tags/資訊/" style="font-size: 18.33px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 12.5px;">賣出語言ê少年人</a> <a href="/tags/隨筆/" style="font-size: 15px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.83px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.83px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.17px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.83px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.83px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.67px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.5px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.83px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 12.5px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 16.67px;">分行散文或詩</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.83px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.5px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.67px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.5px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 13.33px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.67px;">論</a> <a href="/tags/資訊/" style="font-size: 18.33px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 14.17px;">賣出語言ê少年人</a> <a href="/tags/隨筆/" style="font-size: 15px;">隨筆</a>
   </div>
 </div>
 
