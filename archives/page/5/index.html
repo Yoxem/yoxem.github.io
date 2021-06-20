@@ -76,6 +76,63 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2019-09-06T16:00:00.000Z"><a href="/2019/09/07/LLVM-IR-e5-kho2tsa1/">2019-09-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/09/07/LLVM-IR-e5-kho2tsa1/">LLVM IR ê 考查</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="結構-struct"><a href="#結構-struct" class="headerlink" title="結構 struct"></a>結構 struct</h2><p>C:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定義 struct */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span>&#123;</span></span><br><span class="line">  <span class="keyword">int</span> a; <span class="comment">// i32</span></span><br><span class="line">  <span class="keyword">double</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">a_struct</span> <span class="title">a</span>;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>LLVM IR:<br><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">; ModuleID = 'a.c'</span></span><br><span class="line"><span class="comment">%struct.a_struct = type &#123; i32, double &#125; ; 生 struct</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">; Function Attrs: nounwind uwtable</span></span><br><span class="line"><span class="comment">define i32 @main() #0 &#123;</span></span><br><span class="line"><span class="comment">  %1 = alloca i32, align 4</span></span><br><span class="line"><span class="comment">  %a = alloca %struct.a_struct, align 8</span></span><br><span class="line"><span class="comment">  store i32 0, i32* %1, align 4</span></span><br><span class="line"><span class="comment">  ret i32 0</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/09/07/LLVM-IR-e5-kho2tsa1/#more" class="more-link">More...</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+         
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2019-07-31T16:00:00.000Z"><a href="/2019/08/01/ti7VSCodeiong7GDBliah8thang8/">2019-08-01</a></time>
       
       
@@ -282,7 +339,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li></ul>    </div>
         
          
 
@@ -456,7 +513,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2021/01/04/hue2sio1to2e5tsha5hue2/">火燒島ê柴火</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/05/04/juat8thinn1e5am3me5/">熱天的暗暝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/">賣出語言ê少年人（一）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/">賣出語言ê少年人（六）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/20/schemee5callcce5iong7huatki2le7-2/">Scheme ê call/cc ê 用法舉例(2)——coroutine</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-4/">賣出語言ê少年人（四）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/06/21/an1tsng1racketllvm/">安裝 Racket-llvm</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/05/Holopediae5POJkau3han3ji7e5pian3uann7/">淺論白話字（台羅）到漢字翻譯系統的建構與問題</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/03/28/gia5thau5kuann3thinn1/">夯頭看天，佇這片黃昏山坪</a></li></ul>    </div>
         
          
 
@@ -582,64 +639,6 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-07-28T16:00:00.000Z"><a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">2018-07-29</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/">Scheme ê 延遲計算 (lazy evaluation) ê 例</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong>（上尾更新 tī：2019-01-20）</strong></p>
-<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>佇電腦程式中，通常愛算一个{rb|運算式|ūn-suàn-sik} ê 結果，會 kā 逐个部份照算 ê {rb|次序|tshù-sī}一改算予清，這種趁早算出來 ê 算法，號做「嚴格計算」 (strict evaluation; eager evaluation)。比論講：</p>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">(<span class="name">*</span> <span class="number">2</span> (<span class="name">+</span> <span class="number">3</span> (<span class="name">/</span> <span class="number">5</span> <span class="number">2</span>)))</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2018/07/29/schemee5pin5tuann7ke3sng3e5le7/#more" class="more-link">More...</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  <!-- hexo-list-related-posts -->
-
-        
-         
-         
-
-  </div>
-
-</article>
-
-
-
-
-  
 
   <nav id="pagination">
   
@@ -672,7 +671,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>113</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>114</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -686,6 +685,10 @@
 <div class="widget tag">
   <h3 class="title">Recent Posts</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2021/06/20/si7su1phu5si5/">是斯浮時 (Sī-su-phû-sî, Sisyphus)</a>
+      </li>
     
       <li>
         <a href="/2021/05/11/kong2tui3sann1tsap8hue3si2khi3beh4tsap8hue3hong9tai5/">談自「三十歲死了，八十歲安葬」這句話</a>
@@ -703,10 +706,6 @@
         <a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/">賣出語言ê少年人（七）</a>
       </li>
     
-      <li>
-        <a href="/2021/04/25/lun7sio2suat4ping5tai5khi3tiong1sim1hua3e5kho2ling5sing3/">論小說平台去中心化的可能性</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -715,7 +714,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.77px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.77px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.23px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.77px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.77px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.54px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.31px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.38px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 12.31px;">公路</a> <a href="/tags/分行散文或詩/" style="font-size: 16.15px;">分行散文或詩</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.77px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.31px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.54px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.69px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 13.08px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.92px;">論</a> <a href="/tags/資訊/" style="font-size: 18.46px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 13.85px;">賣出語言ê少年人</a> <a href="/tags/隨筆/" style="font-size: 14.62px;">隨筆</a>
+    <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.77px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.77px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.23px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.77px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.77px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.54px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.31px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.38px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 12.31px;">公路</a> <a href="/tags/分行散文和詩/" style="font-size: 10px;">分行散文和詩</a> <a href="/tags/分行散文或詩/" style="font-size: 16.15px;">分行散文或詩</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.77px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.31px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.54px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.69px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 13.08px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.92px;">論</a> <a href="/tags/資訊/" style="font-size: 18.46px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 13.85px;">賣出語言ê少年人</a> <a href="/tags/隨筆/" style="font-size: 14.62px;">隨筆</a>
   </div>
 </div>
 
