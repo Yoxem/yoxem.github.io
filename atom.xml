@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2021-07-05T15:15:59.067Z</updated>
+  <updated>2021-07-05T15:17:50.454Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Clochur 玩具語言直譯器以及編輯器0.0.1推出</title>
+    <title>Clochur 玩具語言直譯器以及編輯器0.0.1發佈</title>
     <link href="http://yoxem.github.io/2021/07/05/Clochur0.0.1/"/>
     <id>http://yoxem.github.io/2021/07/05/Clochur0.0.1/</id>
     <published>2021-07-04T16:00:00.000Z</published>
-    <updated>2021-07-05T15:15:59.067Z</updated>
+    <updated>2021-07-05T15:17:50.454Z</updated>
     
     <content type="html"><![CDATA[<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。</p><p>雖然講得有點複雜，總之就是一個可以從LISP產出pdf的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。<a id="more"></a></p><h2 id="為什麼要寫這個軟體？名字來源是什麼？"><a href="#為什麼要寫這個軟體？名字來源是什麼？" class="headerlink" title="為什麼要寫這個軟體？名字來源是什麼？"></a>為什麼要寫這個軟體？名字來源是什麼？</h2><p>之前本來有那種想要排版出好看文書的愛爾蘭語文法的翻譯的想法（後來放棄了），因為OpenOffice系列的排版標準不符需求，加上一些原因，另外個人對Scheme（一種LISP）的簡潔語法比較感興趣，之前有那種想要拿來做 編譯器的想法（現在也按下了），所以就結合SILE和LISP直譯器以及編輯器做出這樣的軟體。</p><p>另外Clochur這個字來自於愛爾蘭語的Clóchur，讀法類似華語的「可羅（長音）乎兒」，就是排版的意思。</p><h2 id="長相怎麼樣？"><a href="#長相怎麼樣？" class="headerlink" title="長相怎麼樣？"></a>長相怎麼樣？</h2><p>見 <a href="https://github.com/Yoxem/Clochur" target="_blank" rel="noopener">Github 的該專案 repo</a> 的頁面，底下的READMD.md說明就有截圖。</p><h2 id="哪邊下載？"><a href="#哪邊下載？" class="headerlink" title="哪邊下載？"></a>哪邊下載？</h2><p>參考上面的 <a href="https://github.com/Yoxem/Clochur/releases/tag/0.0.1" target="_blank" rel="noopener">Github repo，裡面的0.0.1發行公告</a>有Python .whl 檔案和Debian/Ubuntu Linux的.deb檔案可以下載（因為SILE不支援Windows，暫時無法使用。但不曉得WSL的Ubuntu可不可以安裝，我沒試過）。</p><p>安裝說明在 Github repo 裡面的READMD.md。</p><h2 id="授權是什麼？"><a href="#授權是什麼？" class="headerlink" title="授權是什麼？"></a>授權是什麼？</h2><p>GPLv3</p><h2 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h2><p>安裝後，於文字終端機打clochur就可以使用。</p><p><a href="https://github.com/Yoxem/Clochur/blob/main/src/manual.pdf" target="_blank" rel="noopener">語法說明的PDF</a>（英文）。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
     
@@ -262,36 +262,6 @@
   </entry>
   
   <entry>
-    <title>賣出語言ê少年人（七）</title>
-    <link href="http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/"/>
-    <id>http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/</id>
-    <published>2021-05-02T16:00:00.000Z</published>
-    <updated>2021-05-02T16:52:18.054Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>（原底 tī 2021-05-02 Episode.cc 公開）</strong></p><p>　　（<a href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-6/">頂一章</a>）</p><p>　　若玲目睭瞌瞌，咧tì這頂機器帽仔。機器ê參數tī螢幕咧走來走去，我強強毋知遐ê參數ê意思。穿烏衫ê助手嘛tī邊仔監視若玲ê變化。雖然我猶原想無伊是按怎欲按呢做，但是我這馬mā無法度阻擋，我ê心內tī遐咧乒乓tsháinn，但是嘛無較縒。</p><p>　　「汝欲共伊ê所有語言資料攏徙走？」</p><p>　　「伊tō按呢講，我敢有法度？」<a id="more"></a></p><p>　　我看著機器ê鈕仔cmn、hak ê火咧著，這ê時陣我ê心較安定，“hak”我咧想應該是Hakka ê意思，但是我毋知影cmn是啥物意思。Common? 猶是啥物神祕ê代碼？毋過照這號範勢，應該是攏徙甲清氣liu-liu矣。伊到底是按怎欲按呢做？我轉厝欲按怎hām in爸母交代lah？</p><p>　　「既然伊就按呢做矣，我願意配合恁ê試驗。毋過我有一个條件。」</p><p>　　「啥物條件？」</p><p>　　「我敢會當共華語賣掉？」</p><p>　　「汝指ê是國語嘛？這馬阮遐無咧賣，因為遐ê資料無teh研究項目內底。」</p><p>　　「但是為啥物恁就會當kā若玲ê華語徙走？理論上賣掉無問題矣！」</p><p>　　「這是伊同意阮才來the̍h掉ê，曷無這mā是試驗階段。」</p><p>　　「連功能都做出來矣，閣好膽講是試驗？」我猶是無了解in到底teh創啥。「“cmn”是啥物意思，請汝共我講。」</p><p>　　「就是“common speech” ê意思嘛，汝莫想傷tsē。」</p><p>　　「英語mā會當當做common speech啊，汝共我解說一下common speech是啥。」</p><p>　　這个時陣PÓNG一聲，雄雄機器故障矣。規个螢幕畫面攏hua去。逐家攏驚著矣。</p><p>　　「就hām汝講仝時間傳兩ê語言就有可能故障，系統無法度處理遐大个運算資料lah！」，助手講。</p><p>　　「逐家就攏欲下班矣，in才來，毋tsiah會遐爾趕！較早mā無一改傳兩種語言！」王博士無奈講：「汝頂頭處理了後，確認語言ê資料有phàng-kiàn ê無？」</p><p>　　趁in 兩人當咧無閒tshih-tshah个機會，我共若玲ê傳輸帽仔tì tī我ê頭殼頂。</p><p>　　「人咧講，重開治百病lah……Eh！哪會按呢！傳ê人毋著矣！共機器停落來！若是資料sio透濫就知死矣！」博士足驚惶，直直看螢幕烏白走ê數值，心肝袂定。</p><p>　　「問題是資料傳輸ê script已經咧pháng，除非傳甲100%，曷無無法度停！」助手thián開手咧講，無可奈何。</p><p>　　若玲猶是昏迷無醒，我看著往事ê走馬燈浮現在阮眼前。</p><p>　　路上ê汽車、足大港ê圳溝仔水，我是tang時才開始會曉講in ê臺語，後來才知影in ê國語咧？後來我看著入去國校仔，老師發予我ê國語課本、以及我定定毋知影欲按怎共字寫甲足整齊ê煩惱，耳空響著「學而時習之」ê背經聲，這一切一切煞愈來愈薄，抑是愈來愈細聲，我看著以早ê bàng-gah人物、Facebook ê朋友、化學元素ê國語ê名，，嘛敢若特快車，tī我ê眼前siuh-siuh叫，tuì遠方飄過來，往另外一爿飄走，永遠袂斡頭。</p><p>　　我彼時才知影語言是咱人了解這个闊闊世界ê模型，萬項代誌物件ê關係，攏tī語言這面網仔互相連結。</p><p>　　我這聲了解我ê人生大半著重頭來矣。</p><p>　　但是我mā閣有新ê機會。</p><p>　　笛仔聲tī我ê心肝內底直直響。</p><p>　　※　※　※</p><p>　　「若琳，妳醒了！」助手tuì若玲講，tī三點鐘以後ê半暝。</p><p>　　「發生什麼事了，為什麼我還會國語？」若玲沙微沙微，猶毋知發生啥物。</p><p>　　「妳在傳輸的時進峰搶走傳輸器，我們嘗試回復您的語言記憶，但是他的語言記憶部份救不回了。」助手用無表情ê聲調共伊講。</p><p>　　若玲彼時掣一趒，煞嘛袂曉講話矣。</p><p>　　這ê時陣進峰沓沓仔醒過來，看著若玲，講：「若玲，汝哪會tī遐，然後恁兩个到底是啥人？是博士，另外ê是……？另外彼臺是啥物矣？遐爾大臺。」</p><p>　　「你真的語言被洗掉了？」</p><p>　　進峰用捎無ê眼神共伊看：「我聽無汝咧講啥……」煞沓沓仔講出心內話：</p><p>　　「我自由矣。」</p><p>　　這ê時陣，外口有一隻飛行機，tī深深ê暗夜飛tī這个都市ê天頂。</p><p>　　（Suah）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;（原底 tī 2021-05-02 Episode.cc 公開）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;　　（&lt;a href=&quot;http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-6/&quot;&gt;頂一章&lt;/a&gt;）&lt;/p&gt;
-&lt;p&gt;　　若玲目睭瞌瞌，咧tì這頂機器帽仔。機器ê參數tī螢幕咧走來走去，我強強毋知遐ê參數ê意思。穿烏衫ê助手嘛tī邊仔監視若玲ê變化。雖然我猶原想無伊是按怎欲按呢做，但是我這馬mā無法度阻擋，我ê心內tī遐咧乒乓tsháinn，但是嘛無較縒。&lt;/p&gt;
-&lt;p&gt;　　「汝欲共伊ê所有語言資料攏徙走？」&lt;/p&gt;
-&lt;p&gt;　　「伊tō按呢講，我敢有法度？」
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
-    
-      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
-    
-      <category term="賣出語言ê少年人" scheme="http://yoxem.github.io/tags/%E8%B3%A3%E5%87%BA%E8%AA%9E%E8%A8%80e%E5%B0%91%E5%B9%B4%E4%BA%BA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>賣出語言ê少年人（六）</title>
     <link href="http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/"/>
     <id>http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/</id>
@@ -307,6 +277,36 @@
 &lt;p&gt;　　我猶是共伊試講：「因為恁遐 ê 語言調查是較大規模，而且有新聞咧報，我就想欲參加調查看覓，順紲看講恁是用啥物方法。無歹意 lah。」就算嘛會心虛。&lt;/p&gt;
 &lt;p&gt;　　「阮遐 ê 調查是利用最新 ê 大腦 kap 機器接 khang，會當接受大腦 ê 語言中樞內底 tiông ê 語言智識，會當分析一个試驗者 ê 使用 ê 語法結構分佈 kap 中年以及老大人 ê 語法結構有啥物差別。另外 m ā會當發現試驗者 ê 語言中，逐个詞語 ê 關聯性 kap 聯絡網路，對青少年 ê 心智發展 ê 了解會當做一个大資料，big data ê 調查資料來源……。」講足 tsē予人霧 sà-sà ê 術語，頭殼 kiông-kiông 眩去。&lt;/p&gt;
 &lt;p&gt;　　「毋過按呢抾足 tsē 大資料，按呢敢袂有道德上 ê 問題？比論講人無想欲分享 ê 隱私 kap 心內秘密 mā就按呢送甲彼臺機器內底，恁欲按怎預防？換做是汝 mā無想欲按呢到出來 pah？」
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="賣出語言ê少年人" scheme="http://yoxem.github.io/tags/%E8%B3%A3%E5%87%BA%E8%AA%9E%E8%A8%80e%E5%B0%91%E5%B9%B4%E4%BA%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>賣出語言ê少年人（七）</title>
+    <link href="http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/"/>
+    <id>http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/</id>
+    <published>2021-05-02T16:00:00.000Z</published>
+    <updated>2021-05-02T16:52:18.054Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（原底 tī 2021-05-02 Episode.cc 公開）</strong></p><p>　　（<a href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-6/">頂一章</a>）</p><p>　　若玲目睭瞌瞌，咧tì這頂機器帽仔。機器ê參數tī螢幕咧走來走去，我強強毋知遐ê參數ê意思。穿烏衫ê助手嘛tī邊仔監視若玲ê變化。雖然我猶原想無伊是按怎欲按呢做，但是我這馬mā無法度阻擋，我ê心內tī遐咧乒乓tsháinn，但是嘛無較縒。</p><p>　　「汝欲共伊ê所有語言資料攏徙走？」</p><p>　　「伊tō按呢講，我敢有法度？」<a id="more"></a></p><p>　　我看著機器ê鈕仔cmn、hak ê火咧著，這ê時陣我ê心較安定，“hak”我咧想應該是Hakka ê意思，但是我毋知影cmn是啥物意思。Common? 猶是啥物神祕ê代碼？毋過照這號範勢，應該是攏徙甲清氣liu-liu矣。伊到底是按怎欲按呢做？我轉厝欲按怎hām in爸母交代lah？</p><p>　　「既然伊就按呢做矣，我願意配合恁ê試驗。毋過我有一个條件。」</p><p>　　「啥物條件？」</p><p>　　「我敢會當共華語賣掉？」</p><p>　　「汝指ê是國語嘛？這馬阮遐無咧賣，因為遐ê資料無teh研究項目內底。」</p><p>　　「但是為啥物恁就會當kā若玲ê華語徙走？理論上賣掉無問題矣！」</p><p>　　「這是伊同意阮才來the̍h掉ê，曷無這mā是試驗階段。」</p><p>　　「連功能都做出來矣，閣好膽講是試驗？」我猶是無了解in到底teh創啥。「“cmn”是啥物意思，請汝共我講。」</p><p>　　「就是“common speech” ê意思嘛，汝莫想傷tsē。」</p><p>　　「英語mā會當當做common speech啊，汝共我解說一下common speech是啥。」</p><p>　　這个時陣PÓNG一聲，雄雄機器故障矣。規个螢幕畫面攏hua去。逐家攏驚著矣。</p><p>　　「就hām汝講仝時間傳兩ê語言就有可能故障，系統無法度處理遐大个運算資料lah！」，助手講。</p><p>　　「逐家就攏欲下班矣，in才來，毋tsiah會遐爾趕！較早mā無一改傳兩種語言！」王博士無奈講：「汝頂頭處理了後，確認語言ê資料有phàng-kiàn ê無？」</p><p>　　趁in 兩人當咧無閒tshih-tshah个機會，我共若玲ê傳輸帽仔tì tī我ê頭殼頂。</p><p>　　「人咧講，重開治百病lah……Eh！哪會按呢！傳ê人毋著矣！共機器停落來！若是資料sio透濫就知死矣！」博士足驚惶，直直看螢幕烏白走ê數值，心肝袂定。</p><p>　　「問題是資料傳輸ê script已經咧pháng，除非傳甲100%，曷無無法度停！」助手thián開手咧講，無可奈何。</p><p>　　若玲猶是昏迷無醒，我看著往事ê走馬燈浮現在阮眼前。</p><p>　　路上ê汽車、足大港ê圳溝仔水，我是tang時才開始會曉講in ê臺語，後來才知影in ê國語咧？後來我看著入去國校仔，老師發予我ê國語課本、以及我定定毋知影欲按怎共字寫甲足整齊ê煩惱，耳空響著「學而時習之」ê背經聲，這一切一切煞愈來愈薄，抑是愈來愈細聲，我看著以早ê bàng-gah人物、Facebook ê朋友、化學元素ê國語ê名，，嘛敢若特快車，tī我ê眼前siuh-siuh叫，tuì遠方飄過來，往另外一爿飄走，永遠袂斡頭。</p><p>　　我彼時才知影語言是咱人了解這个闊闊世界ê模型，萬項代誌物件ê關係，攏tī語言這面網仔互相連結。</p><p>　　我這聲了解我ê人生大半著重頭來矣。</p><p>　　但是我mā閣有新ê機會。</p><p>　　笛仔聲tī我ê心肝內底直直響。</p><p>　　※　※　※</p><p>　　「若琳，妳醒了！」助手tuì若玲講，tī三點鐘以後ê半暝。</p><p>　　「發生什麼事了，為什麼我還會國語？」若玲沙微沙微，猶毋知發生啥物。</p><p>　　「妳在傳輸的時進峰搶走傳輸器，我們嘗試回復您的語言記憶，但是他的語言記憶部份救不回了。」助手用無表情ê聲調共伊講。</p><p>　　若玲彼時掣一趒，煞嘛袂曉講話矣。</p><p>　　這ê時陣進峰沓沓仔醒過來，看著若玲，講：「若玲，汝哪會tī遐，然後恁兩个到底是啥人？是博士，另外ê是……？另外彼臺是啥物矣？遐爾大臺。」</p><p>　　「你真的語言被洗掉了？」</p><p>　　進峰用捎無ê眼神共伊看：「我聽無汝咧講啥……」煞沓沓仔講出心內話：</p><p>　　「我自由矣。」</p><p>　　這ê時陣，外口有一隻飛行機，tī深深ê暗夜飛tī這个都市ê天頂。</p><p>　　（Suah）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（原底 tī 2021-05-02 Episode.cc 公開）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;　　（&lt;a href=&quot;http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-6/&quot;&gt;頂一章&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;　　若玲目睭瞌瞌，咧tì這頂機器帽仔。機器ê參數tī螢幕咧走來走去，我強強毋知遐ê參數ê意思。穿烏衫ê助手嘛tī邊仔監視若玲ê變化。雖然我猶原想無伊是按怎欲按呢做，但是我這馬mā無法度阻擋，我ê心內tī遐咧乒乓tsháinn，但是嘛無較縒。&lt;/p&gt;
+&lt;p&gt;　　「汝欲共伊ê所有語言資料攏徙走？」&lt;/p&gt;
+&lt;p&gt;　　「伊tō按呢講，我敢有法度？」
     
     </summary>
     
@@ -343,6 +343,35 @@
       <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
     
       <category term="論" scheme="http://yoxem.github.io/tags/%E8%AB%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>賣出語言ê少年人（一）</title>
+    <link href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/"/>
+    <id>http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/</id>
+    <published>2021-04-24T16:00:00.000Z</published>
+    <updated>2021-04-25T17:23:13.905Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（原底 tī 2021-04-19 Episode.cc 公開）</strong></p><p>　　 「現下在網路面項發現有人po徵求『賣言語』个文章，根據獨家訪問，蓋多个後生人賣忒自家个語言，賣忒語言个，就會失去大部份个講話同聽識別人講話个能力，言語學家表示蓋愁慮。以下係本臺个報導……」主播用客語講。</p><p>　　阿爸凊彩捘電視臺，看著客話放送ê「有人徵求語言」ê新聞，就算字幕是華語ê，也是看甲霧sà-sà：</p><p>　　「天下跤敢真正有人kā家己ê言語賣掉ê？」<a id="more"></a></p><p>　　「資本主義內底，應該無啥物不能賣出的吧？連鮭魚都可以讓人改名了。」我本底想欲用臺語應，是講我ê語言能力綴袂牢頭殼ê反應，結果落馬猶是用華語收煞。感覺真礙虐。</p><p>　　這馬時間已經是七點半，阮小弟按怎樣猶未轉來？我雄雄想著伊較早hām我講ê話，一个想起這个新聞ê時——</p><p>　　「聽講最近學校附近有一个語言調查，我想欲來去看覓。」</p><p>　　「這个語言調查是啥款？」我問。</p><p>　　「我mā毋知影詳細，敢若是臺語等等ê調查，無包括英語。」</p><p>　　「感覺怪怪，著注意安全！」</p><p>　　我彼陣仔感覺心內無定，毋過毋知按怎講出來，但是我看著這篇新聞，雄雄喝出：「敢講……？」。</p><p>　　「是咧敢講啥，喝遐大聲？」阿爸略仔驚著。</p><p>　　我當咧毋知影欲按怎講ê仝時陣，有人用熟似ê音色喝：</p><p>　　「Uò huê-lâi—lorh!」（我回來了）</p><p>　　毋是臺語。</p><p>　　毋是臺語！？</p><p>　　我確認過矣，毋是臺語。</p><p>　　的的確確是華語！</p><p>　　伊四常lóng用臺語應門ê敢毋是？</p><p>　　「阿志，汝今仔日有影怪怪，有按怎無？」阿爸問。</p><p>　　「Mê sâr—ah?」（沒啥啊）</p><p>　　「咱兜講臺語ê，上無會曉講一兩句mah？汝講幾句看覓！」我隨講這句話。</p><p>　　「Nì tsái so sâ, uò pú tòng.」（你在說啥，我不懂）</p><p>　　我hàinn頭用華語：「我們家多少都會用台語，你以前最少會講幾句話吧？你說幾句看看。」</p><p>　　「彼个……he……我袂曉講Táiyŭ la！」汝激出一張「毋捌就毋捌無欲按怎」ê表情。</p><p>　　「跟我翻譯『香港的香很香』看看！」阿爸kā考。</p><p>　　「Hiong-káng ê hiong hèrn hiang？」</p><p>　　「敢有人kā『足芳』讀做『hèrn hiang』ê？四、五歲ê mā buē按呢講！宇志！汝敢真真正正kā語言賣掉矣？」阿爸問，不管伊捌猶是毋捌。</p><p>　　阿爸雖罔無大聲，阿爸kā目睭gîn甲欲比夜市仔ê鳥仔卵閣較大，強強脫窗矣，面tshiunn ê血管mā欲phok出來矣。</p><p>　　（<a href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-2/">下一章</a>）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（原底 tī 2021-04-19 Episode.cc 公開）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;　　 「現下在網路面項發現有人po徵求『賣言語』个文章，根據獨家訪問，蓋多个後生人賣忒自家个語言，賣忒語言个，就會失去大部份个講話同聽識別人講話个能力，言語學家表示蓋愁慮。以下係本臺个報導……」主播用客語講。&lt;/p&gt;
+&lt;p&gt;　　阿爸凊彩捘電視臺，看著客話放送ê「有人徵求語言」ê新聞，就算字幕是華語ê，也是看甲霧sà-sà：&lt;/p&gt;
+&lt;p&gt;　　「天下跤敢真正有人kā家己ê言語賣掉ê？」
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="賣出語言ê少年人" scheme="http://yoxem.github.io/tags/%E8%B3%A3%E5%87%BA%E8%AA%9E%E8%A8%80e%E5%B0%91%E5%B9%B4%E4%BA%BA/"/>
     
   </entry>
   
@@ -392,35 +421,6 @@
 &lt;p&gt;　　Tī我無定定咧看ê社團群組內底，有人po一个廣告：「您會很多種語言嗎？如果您是高中生會台語、客語等等語言，我們有調查，歡迎在18:00 X街Y號集合，備有調查金。」&lt;/p&gt;
 &lt;p&gt;　　這干焦是一个調查嘛！佮賣掉語言有啥物底代？毋過調查金是啥物意思，內底mā無講是啥物大學語文系所ê廣告。就算無，應該愛有語言學界ê團體名落tī面頂，結果干焦寫一个「Reicte會」。Reicte我確定毋是英語，毋過是佗一个語言我mā sa無。無想欲牢tī困擾ê我，吐出來這句：&lt;/p&gt;
 &lt;p&gt;　　「這干焦是講『調查』啊，哪會是『賣掉』？」
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
-    
-      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
-    
-      <category term="賣出語言ê少年人" scheme="http://yoxem.github.io/tags/%E8%B3%A3%E5%87%BA%E8%AA%9E%E8%A8%80e%E5%B0%91%E5%B9%B4%E4%BA%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>賣出語言ê少年人（一）</title>
-    <link href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/"/>
-    <id>http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/</id>
-    <published>2021-04-24T16:00:00.000Z</published>
-    <updated>2021-04-25T17:23:13.905Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>（原底 tī 2021-04-19 Episode.cc 公開）</strong></p><p>　　 「現下在網路面項發現有人po徵求『賣言語』个文章，根據獨家訪問，蓋多个後生人賣忒自家个語言，賣忒語言个，就會失去大部份个講話同聽識別人講話个能力，言語學家表示蓋愁慮。以下係本臺个報導……」主播用客語講。</p><p>　　阿爸凊彩捘電視臺，看著客話放送ê「有人徵求語言」ê新聞，就算字幕是華語ê，也是看甲霧sà-sà：</p><p>　　「天下跤敢真正有人kā家己ê言語賣掉ê？」<a id="more"></a></p><p>　　「資本主義內底，應該無啥物不能賣出的吧？連鮭魚都可以讓人改名了。」我本底想欲用臺語應，是講我ê語言能力綴袂牢頭殼ê反應，結果落馬猶是用華語收煞。感覺真礙虐。</p><p>　　這馬時間已經是七點半，阮小弟按怎樣猶未轉來？我雄雄想著伊較早hām我講ê話，一个想起這个新聞ê時——</p><p>　　「聽講最近學校附近有一个語言調查，我想欲來去看覓。」</p><p>　　「這个語言調查是啥款？」我問。</p><p>　　「我mā毋知影詳細，敢若是臺語等等ê調查，無包括英語。」</p><p>　　「感覺怪怪，著注意安全！」</p><p>　　我彼陣仔感覺心內無定，毋過毋知按怎講出來，但是我看著這篇新聞，雄雄喝出：「敢講……？」。</p><p>　　「是咧敢講啥，喝遐大聲？」阿爸略仔驚著。</p><p>　　我當咧毋知影欲按怎講ê仝時陣，有人用熟似ê音色喝：</p><p>　　「Uò huê-lâi—lorh!」（我回來了）</p><p>　　毋是臺語。</p><p>　　毋是臺語！？</p><p>　　我確認過矣，毋是臺語。</p><p>　　的的確確是華語！</p><p>　　伊四常lóng用臺語應門ê敢毋是？</p><p>　　「阿志，汝今仔日有影怪怪，有按怎無？」阿爸問。</p><p>　　「Mê sâr—ah?」（沒啥啊）</p><p>　　「咱兜講臺語ê，上無會曉講一兩句mah？汝講幾句看覓！」我隨講這句話。</p><p>　　「Nì tsái so sâ, uò pú tòng.」（你在說啥，我不懂）</p><p>　　我hàinn頭用華語：「我們家多少都會用台語，你以前最少會講幾句話吧？你說幾句看看。」</p><p>　　「彼个……he……我袂曉講Táiyŭ la！」汝激出一張「毋捌就毋捌無欲按怎」ê表情。</p><p>　　「跟我翻譯『香港的香很香』看看！」阿爸kā考。</p><p>　　「Hiong-káng ê hiong hèrn hiang？」</p><p>　　「敢有人kā『足芳』讀做『hèrn hiang』ê？四、五歲ê mā buē按呢講！宇志！汝敢真真正正kā語言賣掉矣？」阿爸問，不管伊捌猶是毋捌。</p><p>　　阿爸雖罔無大聲，阿爸kā目睭gîn甲欲比夜市仔ê鳥仔卵閣較大，強強脫窗矣，面tshiunn ê血管mā欲phok出來矣。</p><p>　　（<a href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-2/">下一章</a>）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;（原底 tī 2021-04-19 Episode.cc 公開）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;　　 「現下在網路面項發現有人po徵求『賣言語』个文章，根據獨家訪問，蓋多个後生人賣忒自家个語言，賣忒語言个，就會失去大部份个講話同聽識別人講話个能力，言語學家表示蓋愁慮。以下係本臺个報導……」主播用客語講。&lt;/p&gt;
-&lt;p&gt;　　阿爸凊彩捘電視臺，看著客話放送ê「有人徵求語言」ê新聞，就算字幕是華語ê，也是看甲霧sà-sà：&lt;/p&gt;
-&lt;p&gt;　　「天下跤敢真正有人kā家己ê言語賣掉ê？」
     
     </summary>
     
