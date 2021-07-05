@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2021-06-23T16:06:39.563Z</updated>
+  <updated>2021-07-05T15:15:59.067Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Clochur 玩具語言直譯器以及編輯器0.0.1推出</title>
+    <link href="http://yoxem.github.io/2021/07/05/Clochur0.0.1/"/>
+    <id>http://yoxem.github.io/2021/07/05/Clochur0.0.1/</id>
+    <published>2021-07-04T16:00:00.000Z</published>
+    <updated>2021-07-05T15:15:59.067Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。</p><p>雖然講得有點複雜，總之就是一個可以從LISP產出pdf的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。<a id="more"></a></p><h2 id="為什麼要寫這個軟體？名字來源是什麼？"><a href="#為什麼要寫這個軟體？名字來源是什麼？" class="headerlink" title="為什麼要寫這個軟體？名字來源是什麼？"></a>為什麼要寫這個軟體？名字來源是什麼？</h2><p>之前本來有那種想要排版出好看文書的愛爾蘭語文法的翻譯的想法（後來放棄了），因為OpenOffice系列的排版標準不符需求，加上一些原因，另外個人對Scheme（一種LISP）的簡潔語法比較感興趣，之前有那種想要拿來做 編譯器的想法（現在也按下了），所以就結合SILE和LISP直譯器以及編輯器做出這樣的軟體。</p><p>另外Clochur這個字來自於愛爾蘭語的Clóchur，讀法類似華語的「可羅（長音）乎兒」，就是排版的意思。</p><h2 id="長相怎麼樣？"><a href="#長相怎麼樣？" class="headerlink" title="長相怎麼樣？"></a>長相怎麼樣？</h2><p>見 <a href="https://github.com/Yoxem/Clochur" target="_blank" rel="noopener">Github 的該專案 repo</a> 的頁面，底下的READMD.md說明就有截圖。</p><h2 id="哪邊下載？"><a href="#哪邊下載？" class="headerlink" title="哪邊下載？"></a>哪邊下載？</h2><p>參考上面的 <a href="https://github.com/Yoxem/Clochur/releases/tag/0.0.1" target="_blank" rel="noopener">Github repo，裡面的0.0.1發行公告</a>有Python .whl 檔案和Debian/Ubuntu Linux的.deb檔案可以下載（因為SILE不支援Windows，暫時無法使用。但不曉得WSL的Ubuntu可不可以安裝，我沒試過）。</p><p>安裝說明在 Github repo 裡面的READMD.md。</p><h2 id="授權是什麼？"><a href="#授權是什麼？" class="headerlink" title="授權是什麼？"></a>授權是什麼？</h2><p>GPLv3</p><h2 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h2><p>安裝後，於文字終端機打clochur就可以使用。</p><p><a href="https://github.com/Yoxem/Clochur/blob/main/src/manual.pdf" target="_blank" rel="noopener">語法說明的PDF</a>（英文）。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;介紹&quot;&gt;&lt;a href=&quot;#介紹&quot; class=&quot;headerlink&quot; title=&quot;介紹&quot;&gt;&lt;/a&gt;介紹&lt;/h2&gt;&lt;p&gt;這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。&lt;/p&gt;
+&lt;p&gt;雖然講得有點複雜，總之就是一個可以從LISP產出pdf的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="軟體" scheme="http://yoxem.github.io/tags/%E8%BB%9F%E9%AB%94/"/>
+    
+      <category term="Clochur" scheme="http://yoxem.github.io/tags/Clochur/"/>
+    
+      <category term="SILE" scheme="http://yoxem.github.io/tags/SILE/"/>
+    
+  </entry>
   
   <entry>
     <title>台．中故事——羅13:1 (Romh. 13:1)</title>
@@ -47,7 +74,7 @@
     <link href="http://yoxem.github.io/2021/06/24/tai5-tiong1koo3su7/"/>
     <id>http://yoxem.github.io/2021/06/24/tai5-tiong1koo3su7/</id>
     <published>2021-06-23T16:00:00.000Z</published>
-    <updated>2021-06-23T16:19:24.100Z</updated>
+    <updated>2021-07-05T15:15:07.469Z</updated>
     
     <content type="html"><![CDATA[<p>著於2021年上半的，以這座城市為主的短篇故事。</p><ul><li><a href="http://yoxem.github.io/2021/06/23/tai5-tiong1koo3su7-1/">台．中故事——離與歸 (Imeaċt &amp; Returning)</a></li><li><a href="http://yoxem.github.io/2021/06/23/tai5-tiong1koo3su7-2/">台．中故事——所說的語言 (An Teanga Agamsa)</a></li><li><a href="http://yoxem.github.io/2021/06/23/tai5-tiong1koo3su7-3/">台．中故事——掠無 ê bāng （Líon na Brionglóide gan Fáil）</a></li><li><a href="http://yoxem.github.io/2021/06/24/tai5-tiong1koo3su7-4/">台．中故事——羅13:1 (Romh. 13:1)</a></li></ul><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
     
@@ -235,36 +262,6 @@
   </entry>
   
   <entry>
-    <title>賣出語言ê少年人（六）</title>
-    <link href="http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/"/>
-    <id>http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/</id>
-    <published>2021-05-02T16:00:00.000Z</published>
-    <updated>2021-05-02T16:52:05.955Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>（原底 tī 2021-05-02 Episode.cc 公開）</strong></p><p>　　（<a href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-5/">頂一章</a>）</p><p>　　我猶是共伊試講：「因為恁遐 ê 語言調查是較大規模，而且有新聞咧報，我就想欲參加調查看覓，順紲看講恁是用啥物方法。無歹意 lah。」就算嘛會心虛。</p><p>　　「阮遐 ê 調查是利用最新 ê 大腦 kap 機器接 khang，會當接受大腦 ê 語言中樞內底 tiông ê 語言智識，會當分析一个試驗者 ê 使用 ê 語法結構分佈 kap 中年以及老大人 ê 語法結構有啥物差別。另外 m ā會當發現試驗者 ê 語言中，逐个詞語 ê 關聯性 kap 聯絡網路，對青少年 ê 心智發展 ê 了解會當做一个大資料，big data ê 調查資料來源……。」講足 tsē予人霧 sà-sà ê 術語，頭殼 kiông-kiông 眩去。</p><p>　　「毋過按呢抾足 tsē 大資料，按呢敢袂有道德上 ê 問題？比論講人無想欲分享 ê 隱私 kap 心內秘密 mā就按呢送甲彼臺機器內底，恁欲按怎預防？換做是汝 mā無想欲按呢到出來 pah？」<a id="more"></a></p><p>　　「這阮每一筆資料都會過濾掉 kap 現實記憶 ê 連結，所以無有汝講 ê 問題。而且根據阮這爿 ê 研究假設，少年人通常袂共隱私 tiông t ī第二語言內底，而且根據行政院最新 ê 統計，少年儂上捷講 ê 語言是國語，阮就假設講其他 ê 語言是第二語言，所以阮才會做彼款 ê 調查。」伊用誠懇 ê 態度講，毋過按呢予我感覺足奇怪，所以我用較尖 ê 語氣來顛倒問：</p><p>　　「我閣借問一下，恁 ê 機器若是一下予人 ê 語言徙走，敢會當最後徙閣轉來？語言 tuì 人來講是上蓋重要 ê 心靈能力。」</p><p>　　「恁著欲予阮一段時間來調查嘛。調查內底 ê 資料就 ê 隨還予汝。」</p><p>　　「汝咧講啥貨！」我隨tǹg椅仔：</p><p>　　「汝若是講會當還，是按怎阮小弟會共我講伊將語言『賣掉』矣！賣掉 ê 物件敢有通予還 ê 道理？」</p><p>　　「He 是伊『永久授權』阮用伊 ê 語言資料。永久授權價數較懸，伊才會想欲一改賣掉。」伊開始編借口矣。</p><p>　　「若是按呢是按怎足 ts ē人共語言資料一改賣斷？In 敢攏看無家己 ê 語言，認為這佮會當回收 ê 糞埽仝款？」</p><p>　　「就是按呢矣，真濟人就掠做 he 無價值，甘願共伊賣斷 ah。」</p><p>　　規腹火予我 tsih-tsài 未牢矣，我衝 kah 王博士 ê 面頭前，共伊 huah：「汝明明知影講遐 ê 語言 ê 人是愈來愈少，汝閣做這款烏心肝 ê 代誌，按呢若是語言無人講 ê 日子閣較緊到，毋著誠悲哀！」</p><p>　　「這是他們自己自願的啊，又不是我逼他們！」伊用國語應，共責任捒甲離離離。</p><p>　　「汝敢無看著若玲頭殼頂 tì ê 連線帽仔？」伊開始威脅：「如果你不配合的話，我就把若玲的語言記憶都洗掉。」</p><p>　　按呢伊毋就變做嬰仔仝款袂曉講話？我彼時規个心肝凝去，頭殼內毋知影欲按怎做。</p><p>　　※　※　※</p><p>　　若琳彼時咧 tì 彼頂通信帽仔，頭殼小寡仔 gông，毋知影敢是機器 ê 影響。毋過 t ī聽著 in 兩个咧辯論 ê 時陣，煞突然看著一幅歐洲島嶼 ê 庄跤 ê 景致：</p><p>　　伊見著青 lang-lang ê 草埔，tī愛爾蘭 ê 中央，清甲通看見下跤沙仔 ê 溪仔水 tuì 我 ê 邊仔流過，向西爿 ê An t-aigéan （大海洋）流去。毋過遠遠 tī邊仔 ê 馬鈴薯園，我看著有阿婆佮孫仔行 tī田岸，阿婆 tuì 孫仔講：</p><p>　　阿婆講：「A Danny! Bainigí prataí sa ghórt anois,  agus tabhairigí siad sin go dtí an margadh le díol!」（愛爾蘭 Gael 語：Danny！咱來掘馬鈴薯 tī田 ni̍h，然後 the ̍h 去市仔賣）<br>　　「A Sheanmháthair! So we have to dig potatoes in the gort! Agus Cá … gcaithfidh we going?」（阿媽！所以我們要在田裡挖掘馬鈴薯了後……佗位著愛，我們去哪？）</p><p>　　 Danny 按呢竹篙硬鬥菜刀仝款，用袂輾轉 ê 英語 hām Gael 語應。</p><p>　　後來畫面切到十年以後粗殘 ê 大飢荒，鋪滿 tī規片島嶼，黃酸粕粕 ê 馬鈴薯仔無通好食，阿婆一个倒去就永永 peh bu ē去來矣。Danny m ā一去無斡頭到 An t-aigéan ê 彼爿——就算 aigéan 是阿公阿媽共伊教 ê 少少 ê 愛爾蘭語詞，伊 mā共無偌長 ê 喙舌割掉，擲 tī深深 ê  aigéan 海水，漸漸霧霧，無清無楚，最後歸 tī烏暗。</p><p>　　就 tī伊走傱 t ī彼岸 ê 闊閬閬 ê 天地進前，就按呢一去無越頭。</p><p>　　耳空響起彼條英語老師教 Danny Boy，彼个生死分別 ê 歌詞。若玲 ê 目屎開始流出來。</p><p>　　“ O Danny Boy, O Danny Boy, I love you so …” 毋過 Danny ê 心肝內咧想啥物？</p><p>　　然後有一張紙飄 tī若玲 ê 眼前，寫著：</p><p>　　「Agus tú féin?」（曷汝家己咧？）</p><p>　　 Agus tú féin?</p><p>　　 AGUS TÚ FÉIN?</p><p>　　若玲，汝家己咧？</p><p>　　※　※　※</p><p>　　若玲開一站仔時間想，結果講：「進峰，你不用管我了，你自己做決定吧。我的語言怎麼樣都無所謂。」</p><p>　　只要一切重頭開始，凡勢一切攏無要緊矣。犧牲一切 ê 語言，mā就無語言方面 ê 悲劇矣。若玲按呢想。</p><p>　　（<a href="http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/">下一章</a>）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;（原底 tī 2021-05-02 Episode.cc 公開）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;　　（&lt;a href=&quot;http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-5/&quot;&gt;頂一章&lt;/a&gt;）&lt;/p&gt;
-&lt;p&gt;　　我猶是共伊試講：「因為恁遐 ê 語言調查是較大規模，而且有新聞咧報，我就想欲參加調查看覓，順紲看講恁是用啥物方法。無歹意 lah。」就算嘛會心虛。&lt;/p&gt;
-&lt;p&gt;　　「阮遐 ê 調查是利用最新 ê 大腦 kap 機器接 khang，會當接受大腦 ê 語言中樞內底 tiông ê 語言智識，會當分析一个試驗者 ê 使用 ê 語法結構分佈 kap 中年以及老大人 ê 語法結構有啥物差別。另外 m ā會當發現試驗者 ê 語言中，逐个詞語 ê 關聯性 kap 聯絡網路，對青少年 ê 心智發展 ê 了解會當做一个大資料，big data ê 調查資料來源……。」講足 tsē予人霧 sà-sà ê 術語，頭殼 kiông-kiông 眩去。&lt;/p&gt;
-&lt;p&gt;　　「毋過按呢抾足 tsē 大資料，按呢敢袂有道德上 ê 問題？比論講人無想欲分享 ê 隱私 kap 心內秘密 mā就按呢送甲彼臺機器內底，恁欲按怎預防？換做是汝 mā無想欲按呢到出來 pah？」
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
-    
-      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
-    
-      <category term="賣出語言ê少年人" scheme="http://yoxem.github.io/tags/%E8%B3%A3%E5%87%BA%E8%AA%9E%E8%A8%80e%E5%B0%91%E5%B9%B4%E4%BA%BA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>賣出語言ê少年人（七）</title>
     <link href="http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/"/>
     <id>http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/</id>
@@ -280,6 +277,36 @@
 &lt;p&gt;　　若玲目睭瞌瞌，咧tì這頂機器帽仔。機器ê參數tī螢幕咧走來走去，我強強毋知遐ê參數ê意思。穿烏衫ê助手嘛tī邊仔監視若玲ê變化。雖然我猶原想無伊是按怎欲按呢做，但是我這馬mā無法度阻擋，我ê心內tī遐咧乒乓tsháinn，但是嘛無較縒。&lt;/p&gt;
 &lt;p&gt;　　「汝欲共伊ê所有語言資料攏徙走？」&lt;/p&gt;
 &lt;p&gt;　　「伊tō按呢講，我敢有法度？」
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="賣出語言ê少年人" scheme="http://yoxem.github.io/tags/%E8%B3%A3%E5%87%BA%E8%AA%9E%E8%A8%80e%E5%B0%91%E5%B9%B4%E4%BA%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>賣出語言ê少年人（六）</title>
+    <link href="http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/"/>
+    <id>http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/</id>
+    <published>2021-05-02T16:00:00.000Z</published>
+    <updated>2021-05-02T16:52:05.955Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（原底 tī 2021-05-02 Episode.cc 公開）</strong></p><p>　　（<a href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-5/">頂一章</a>）</p><p>　　我猶是共伊試講：「因為恁遐 ê 語言調查是較大規模，而且有新聞咧報，我就想欲參加調查看覓，順紲看講恁是用啥物方法。無歹意 lah。」就算嘛會心虛。</p><p>　　「阮遐 ê 調查是利用最新 ê 大腦 kap 機器接 khang，會當接受大腦 ê 語言中樞內底 tiông ê 語言智識，會當分析一个試驗者 ê 使用 ê 語法結構分佈 kap 中年以及老大人 ê 語法結構有啥物差別。另外 m ā會當發現試驗者 ê 語言中，逐个詞語 ê 關聯性 kap 聯絡網路，對青少年 ê 心智發展 ê 了解會當做一个大資料，big data ê 調查資料來源……。」講足 tsē予人霧 sà-sà ê 術語，頭殼 kiông-kiông 眩去。</p><p>　　「毋過按呢抾足 tsē 大資料，按呢敢袂有道德上 ê 問題？比論講人無想欲分享 ê 隱私 kap 心內秘密 mā就按呢送甲彼臺機器內底，恁欲按怎預防？換做是汝 mā無想欲按呢到出來 pah？」<a id="more"></a></p><p>　　「這阮每一筆資料都會過濾掉 kap 現實記憶 ê 連結，所以無有汝講 ê 問題。而且根據阮這爿 ê 研究假設，少年人通常袂共隱私 tiông t ī第二語言內底，而且根據行政院最新 ê 統計，少年儂上捷講 ê 語言是國語，阮就假設講其他 ê 語言是第二語言，所以阮才會做彼款 ê 調查。」伊用誠懇 ê 態度講，毋過按呢予我感覺足奇怪，所以我用較尖 ê 語氣來顛倒問：</p><p>　　「我閣借問一下，恁 ê 機器若是一下予人 ê 語言徙走，敢會當最後徙閣轉來？語言 tuì 人來講是上蓋重要 ê 心靈能力。」</p><p>　　「恁著欲予阮一段時間來調查嘛。調查內底 ê 資料就 ê 隨還予汝。」</p><p>　　「汝咧講啥貨！」我隨tǹg椅仔：</p><p>　　「汝若是講會當還，是按怎阮小弟會共我講伊將語言『賣掉』矣！賣掉 ê 物件敢有通予還 ê 道理？」</p><p>　　「He 是伊『永久授權』阮用伊 ê 語言資料。永久授權價數較懸，伊才會想欲一改賣掉。」伊開始編借口矣。</p><p>　　「若是按呢是按怎足 ts ē人共語言資料一改賣斷？In 敢攏看無家己 ê 語言，認為這佮會當回收 ê 糞埽仝款？」</p><p>　　「就是按呢矣，真濟人就掠做 he 無價值，甘願共伊賣斷 ah。」</p><p>　　規腹火予我 tsih-tsài 未牢矣，我衝 kah 王博士 ê 面頭前，共伊 huah：「汝明明知影講遐 ê 語言 ê 人是愈來愈少，汝閣做這款烏心肝 ê 代誌，按呢若是語言無人講 ê 日子閣較緊到，毋著誠悲哀！」</p><p>　　「這是他們自己自願的啊，又不是我逼他們！」伊用國語應，共責任捒甲離離離。</p><p>　　「汝敢無看著若玲頭殼頂 tì ê 連線帽仔？」伊開始威脅：「如果你不配合的話，我就把若玲的語言記憶都洗掉。」</p><p>　　按呢伊毋就變做嬰仔仝款袂曉講話？我彼時規个心肝凝去，頭殼內毋知影欲按怎做。</p><p>　　※　※　※</p><p>　　若琳彼時咧 tì 彼頂通信帽仔，頭殼小寡仔 gông，毋知影敢是機器 ê 影響。毋過 t ī聽著 in 兩个咧辯論 ê 時陣，煞突然看著一幅歐洲島嶼 ê 庄跤 ê 景致：</p><p>　　伊見著青 lang-lang ê 草埔，tī愛爾蘭 ê 中央，清甲通看見下跤沙仔 ê 溪仔水 tuì 我 ê 邊仔流過，向西爿 ê An t-aigéan （大海洋）流去。毋過遠遠 tī邊仔 ê 馬鈴薯園，我看著有阿婆佮孫仔行 tī田岸，阿婆 tuì 孫仔講：</p><p>　　阿婆講：「A Danny! Bainigí prataí sa ghórt anois,  agus tabhairigí siad sin go dtí an margadh le díol!」（愛爾蘭 Gael 語：Danny！咱來掘馬鈴薯 tī田 ni̍h，然後 the ̍h 去市仔賣）<br>　　「A Sheanmháthair! So we have to dig potatoes in the gort! Agus Cá … gcaithfidh we going?」（阿媽！所以我們要在田裡挖掘馬鈴薯了後……佗位著愛，我們去哪？）</p><p>　　 Danny 按呢竹篙硬鬥菜刀仝款，用袂輾轉 ê 英語 hām Gael 語應。</p><p>　　後來畫面切到十年以後粗殘 ê 大飢荒，鋪滿 tī規片島嶼，黃酸粕粕 ê 馬鈴薯仔無通好食，阿婆一个倒去就永永 peh bu ē去來矣。Danny m ā一去無斡頭到 An t-aigéan ê 彼爿——就算 aigéan 是阿公阿媽共伊教 ê 少少 ê 愛爾蘭語詞，伊 mā共無偌長 ê 喙舌割掉，擲 tī深深 ê  aigéan 海水，漸漸霧霧，無清無楚，最後歸 tī烏暗。</p><p>　　就 tī伊走傱 t ī彼岸 ê 闊閬閬 ê 天地進前，就按呢一去無越頭。</p><p>　　耳空響起彼條英語老師教 Danny Boy，彼个生死分別 ê 歌詞。若玲 ê 目屎開始流出來。</p><p>　　“ O Danny Boy, O Danny Boy, I love you so …” 毋過 Danny ê 心肝內咧想啥物？</p><p>　　然後有一張紙飄 tī若玲 ê 眼前，寫著：</p><p>　　「Agus tú féin?」（曷汝家己咧？）</p><p>　　 Agus tú féin?</p><p>　　 AGUS TÚ FÉIN?</p><p>　　若玲，汝家己咧？</p><p>　　※　※　※</p><p>　　若玲開一站仔時間想，結果講：「進峰，你不用管我了，你自己做決定吧。我的語言怎麼樣都無所謂。」</p><p>　　只要一切重頭開始，凡勢一切攏無要緊矣。犧牲一切 ê 語言，mā就無語言方面 ê 悲劇矣。若玲按呢想。</p><p>　　（<a href="http://yoxem.github.io/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-7/">下一章</a>）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（原底 tī 2021-05-02 Episode.cc 公開）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;　　（&lt;a href=&quot;http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-5/&quot;&gt;頂一章&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;　　我猶是共伊試講：「因為恁遐 ê 語言調查是較大規模，而且有新聞咧報，我就想欲參加調查看覓，順紲看講恁是用啥物方法。無歹意 lah。」就算嘛會心虛。&lt;/p&gt;
+&lt;p&gt;　　「阮遐 ê 調查是利用最新 ê 大腦 kap 機器接 khang，會當接受大腦 ê 語言中樞內底 tiông ê 語言智識，會當分析一个試驗者 ê 使用 ê 語法結構分佈 kap 中年以及老大人 ê 語法結構有啥物差別。另外 m ā會當發現試驗者 ê 語言中，逐个詞語 ê 關聯性 kap 聯絡網路，對青少年 ê 心智發展 ê 了解會當做一个大資料，big data ê 調查資料來源……。」講足 tsē予人霧 sà-sà ê 術語，頭殼 kiông-kiông 眩去。&lt;/p&gt;
+&lt;p&gt;　　「毋過按呢抾足 tsē 大資料，按呢敢袂有道德上 ê 問題？比論講人無想欲分享 ê 隱私 kap 心內秘密 mā就按呢送甲彼臺機器內底，恁欲按怎預防？換做是汝 mā無想欲按呢到出來 pah？」
     
     </summary>
     
@@ -316,35 +343,6 @@
       <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
     
       <category term="論" scheme="http://yoxem.github.io/tags/%E8%AB%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>賣出語言ê少年人（一）</title>
-    <link href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/"/>
-    <id>http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/</id>
-    <published>2021-04-24T16:00:00.000Z</published>
-    <updated>2021-04-25T17:23:13.905Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>（原底 tī 2021-04-19 Episode.cc 公開）</strong></p><p>　　 「現下在網路面項發現有人po徵求『賣言語』个文章，根據獨家訪問，蓋多个後生人賣忒自家个語言，賣忒語言个，就會失去大部份个講話同聽識別人講話个能力，言語學家表示蓋愁慮。以下係本臺个報導……」主播用客語講。</p><p>　　阿爸凊彩捘電視臺，看著客話放送ê「有人徵求語言」ê新聞，就算字幕是華語ê，也是看甲霧sà-sà：</p><p>　　「天下跤敢真正有人kā家己ê言語賣掉ê？」<a id="more"></a></p><p>　　「資本主義內底，應該無啥物不能賣出的吧？連鮭魚都可以讓人改名了。」我本底想欲用臺語應，是講我ê語言能力綴袂牢頭殼ê反應，結果落馬猶是用華語收煞。感覺真礙虐。</p><p>　　這馬時間已經是七點半，阮小弟按怎樣猶未轉來？我雄雄想著伊較早hām我講ê話，一个想起這个新聞ê時——</p><p>　　「聽講最近學校附近有一个語言調查，我想欲來去看覓。」</p><p>　　「這个語言調查是啥款？」我問。</p><p>　　「我mā毋知影詳細，敢若是臺語等等ê調查，無包括英語。」</p><p>　　「感覺怪怪，著注意安全！」</p><p>　　我彼陣仔感覺心內無定，毋過毋知按怎講出來，但是我看著這篇新聞，雄雄喝出：「敢講……？」。</p><p>　　「是咧敢講啥，喝遐大聲？」阿爸略仔驚著。</p><p>　　我當咧毋知影欲按怎講ê仝時陣，有人用熟似ê音色喝：</p><p>　　「Uò huê-lâi—lorh!」（我回來了）</p><p>　　毋是臺語。</p><p>　　毋是臺語！？</p><p>　　我確認過矣，毋是臺語。</p><p>　　的的確確是華語！</p><p>　　伊四常lóng用臺語應門ê敢毋是？</p><p>　　「阿志，汝今仔日有影怪怪，有按怎無？」阿爸問。</p><p>　　「Mê sâr—ah?」（沒啥啊）</p><p>　　「咱兜講臺語ê，上無會曉講一兩句mah？汝講幾句看覓！」我隨講這句話。</p><p>　　「Nì tsái so sâ, uò pú tòng.」（你在說啥，我不懂）</p><p>　　我hàinn頭用華語：「我們家多少都會用台語，你以前最少會講幾句話吧？你說幾句看看。」</p><p>　　「彼个……he……我袂曉講Táiyŭ la！」汝激出一張「毋捌就毋捌無欲按怎」ê表情。</p><p>　　「跟我翻譯『香港的香很香』看看！」阿爸kā考。</p><p>　　「Hiong-káng ê hiong hèrn hiang？」</p><p>　　「敢有人kā『足芳』讀做『hèrn hiang』ê？四、五歲ê mā buē按呢講！宇志！汝敢真真正正kā語言賣掉矣？」阿爸問，不管伊捌猶是毋捌。</p><p>　　阿爸雖罔無大聲，阿爸kā目睭gîn甲欲比夜市仔ê鳥仔卵閣較大，強強脫窗矣，面tshiunn ê血管mā欲phok出來矣。</p><p>　　（<a href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-2/">下一章</a>）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;（原底 tī 2021-04-19 Episode.cc 公開）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;　　 「現下在網路面項發現有人po徵求『賣言語』个文章，根據獨家訪問，蓋多个後生人賣忒自家个語言，賣忒語言个，就會失去大部份个講話同聽識別人講話个能力，言語學家表示蓋愁慮。以下係本臺个報導……」主播用客語講。&lt;/p&gt;
-&lt;p&gt;　　阿爸凊彩捘電視臺，看著客話放送ê「有人徵求語言」ê新聞，就算字幕是華語ê，也是看甲霧sà-sà：&lt;/p&gt;
-&lt;p&gt;　　「天下跤敢真正有人kā家己ê言語賣掉ê？」
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
-    
-      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
-    
-      <category term="賣出語言ê少年人" scheme="http://yoxem.github.io/tags/%E8%B3%A3%E5%87%BA%E8%AA%9E%E8%A8%80e%E5%B0%91%E5%B9%B4%E4%BA%BA/"/>
     
   </entry>
   
@@ -394,6 +392,35 @@
 &lt;p&gt;　　Tī我無定定咧看ê社團群組內底，有人po一个廣告：「您會很多種語言嗎？如果您是高中生會台語、客語等等語言，我們有調查，歡迎在18:00 X街Y號集合，備有調查金。」&lt;/p&gt;
 &lt;p&gt;　　這干焦是一个調查嘛！佮賣掉語言有啥物底代？毋過調查金是啥物意思，內底mā無講是啥物大學語文系所ê廣告。就算無，應該愛有語言學界ê團體名落tī面頂，結果干焦寫一个「Reicte會」。Reicte我確定毋是英語，毋過是佗一个語言我mā sa無。無想欲牢tī困擾ê我，吐出來這句：&lt;/p&gt;
 &lt;p&gt;　　「這干焦是講『調查』啊，哪會是『賣掉』？」
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
+    
+      <category term="Holo話" scheme="http://yoxem.github.io/tags/Holo%E8%A9%B1/"/>
+    
+      <category term="賣出語言ê少年人" scheme="http://yoxem.github.io/tags/%E8%B3%A3%E5%87%BA%E8%AA%9E%E8%A8%80e%E5%B0%91%E5%B9%B4%E4%BA%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>賣出語言ê少年人（一）</title>
+    <link href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/"/>
+    <id>http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-1/</id>
+    <published>2021-04-24T16:00:00.000Z</published>
+    <updated>2021-04-25T17:23:13.905Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>（原底 tī 2021-04-19 Episode.cc 公開）</strong></p><p>　　 「現下在網路面項發現有人po徵求『賣言語』个文章，根據獨家訪問，蓋多个後生人賣忒自家个語言，賣忒語言个，就會失去大部份个講話同聽識別人講話个能力，言語學家表示蓋愁慮。以下係本臺个報導……」主播用客語講。</p><p>　　阿爸凊彩捘電視臺，看著客話放送ê「有人徵求語言」ê新聞，就算字幕是華語ê，也是看甲霧sà-sà：</p><p>　　「天下跤敢真正有人kā家己ê言語賣掉ê？」<a id="more"></a></p><p>　　「資本主義內底，應該無啥物不能賣出的吧？連鮭魚都可以讓人改名了。」我本底想欲用臺語應，是講我ê語言能力綴袂牢頭殼ê反應，結果落馬猶是用華語收煞。感覺真礙虐。</p><p>　　這馬時間已經是七點半，阮小弟按怎樣猶未轉來？我雄雄想著伊較早hām我講ê話，一个想起這个新聞ê時——</p><p>　　「聽講最近學校附近有一个語言調查，我想欲來去看覓。」</p><p>　　「這个語言調查是啥款？」我問。</p><p>　　「我mā毋知影詳細，敢若是臺語等等ê調查，無包括英語。」</p><p>　　「感覺怪怪，著注意安全！」</p><p>　　我彼陣仔感覺心內無定，毋過毋知按怎講出來，但是我看著這篇新聞，雄雄喝出：「敢講……？」。</p><p>　　「是咧敢講啥，喝遐大聲？」阿爸略仔驚著。</p><p>　　我當咧毋知影欲按怎講ê仝時陣，有人用熟似ê音色喝：</p><p>　　「Uò huê-lâi—lorh!」（我回來了）</p><p>　　毋是臺語。</p><p>　　毋是臺語！？</p><p>　　我確認過矣，毋是臺語。</p><p>　　的的確確是華語！</p><p>　　伊四常lóng用臺語應門ê敢毋是？</p><p>　　「阿志，汝今仔日有影怪怪，有按怎無？」阿爸問。</p><p>　　「Mê sâr—ah?」（沒啥啊）</p><p>　　「咱兜講臺語ê，上無會曉講一兩句mah？汝講幾句看覓！」我隨講這句話。</p><p>　　「Nì tsái so sâ, uò pú tòng.」（你在說啥，我不懂）</p><p>　　我hàinn頭用華語：「我們家多少都會用台語，你以前最少會講幾句話吧？你說幾句看看。」</p><p>　　「彼个……he……我袂曉講Táiyŭ la！」汝激出一張「毋捌就毋捌無欲按怎」ê表情。</p><p>　　「跟我翻譯『香港的香很香』看看！」阿爸kā考。</p><p>　　「Hiong-káng ê hiong hèrn hiang？」</p><p>　　「敢有人kā『足芳』讀做『hèrn hiang』ê？四、五歲ê mā buē按呢講！宇志！汝敢真真正正kā語言賣掉矣？」阿爸問，不管伊捌猶是毋捌。</p><p>　　阿爸雖罔無大聲，阿爸kā目睭gîn甲欲比夜市仔ê鳥仔卵閣較大，強強脫窗矣，面tshiunn ê血管mā欲phok出來矣。</p><p>　　（<a href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-2/">下一章</a>）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;（原底 tī 2021-04-19 Episode.cc 公開）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;　　 「現下在網路面項發現有人po徵求『賣言語』个文章，根據獨家訪問，蓋多个後生人賣忒自家个語言，賣忒語言个，就會失去大部份个講話同聽識別人講話个能力，言語學家表示蓋愁慮。以下係本臺个報導……」主播用客語講。&lt;/p&gt;
+&lt;p&gt;　　阿爸凊彩捘電視臺，看著客話放送ê「有人徵求語言」ê新聞，就算字幕是華語ê，也是看甲霧sà-sà：&lt;/p&gt;
+&lt;p&gt;　　「天下跤敢真正有人kā家己ê言語賣掉ê？」
     
     </summary>
     
@@ -546,32 +573,6 @@
 &lt;p&gt;睡眼惺忪中，我被哥哥的這句話叫醒，腦子還模模糊糊的，但是片刻，我就意識到了：&lt;/p&gt;
 &lt;p&gt;或許宇宙的主宰聽到了我的禱告？&lt;/p&gt;
 &lt;p&gt;我開了久久未開的FB和IG的app，果然都恢復了正常，所有的帳號密碼等等的資料都完全無損！我眼睛一亮，大呼：「正常了！」
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
-    
-      <category term="沒有SNS的日子" scheme="http://yoxem.github.io/tags/%E6%B2%92%E6%9C%89SNS%E7%9A%84%E6%97%A5%E5%AD%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>沒有SNS的日子（十六）</title>
-    <link href="http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-16/"/>
-    <id>http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-16/</id>
-    <published>2020-12-03T07:33:00.000Z</published>
-    <updated>2021-01-12T13:52:40.470Z</updated>
-    
-    <content type="html"><![CDATA[<p>（<a href="http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-15/">前章</a>）</p><p>在發現活動網頁故障、我們程式碼的repo以及各分支都故障的時候，在場的老師和社團成員都傻住了，連旁邊準備值夜的教官也嚇了一跳。</p><p>「你看，網路新聞有寫：『推特公測版不明原因故障，推特公司：停止測試計畫，將查明一切原因。』」銘緯秀給我們看新聞的時候，大家都傻住了。<a id="more"></a></p><p>有人說：「為什麼同樣的事件又再度重演？」；有人驚呼：「上天啊，到底為什麼？」；社長低鳴：「我們的心血啊……」。而教官在旁邊一直呼喊六字佛號——但眾人無不回想起快一個月前，推特、臉書、IG、抖音……等等社交網站，因不明原因，一夕原始碼盡都化為虛無的恐懼與徬徨。</p><p>在這種衝擊之下，我雖然得以被放出來脫身——畢竟那些心血與上傳的網站都已經找不到了，無論是暫時的還是永久的，但回去的路上，我仍然是三步併成兩步，進了家門馬上衝到電腦，發現家裡電腦的網站專案程式碼資料夾，也已是空無一物。</p><p>然後我急忙衝去Stack Overflow搜尋各種硬碟資料如何救回去的辦法，以及在Google搜尋「undelete tool」，花了一個晚上，直到半夜十一點都還找不出來。群組上也都冒出「我的本地程式碼也救不回來了！」「我的也是。」「我嘗試在Linux下用主要的反刪除工具，仍是陣亡……」，我也跟著回報不幸的消息。</p><p>社長說：「這樣下去，我們的專案不就泡湯了……。」</p><p>哀鴻響遍群組，大家未能倖免於難。我不忍看到這樣悽慘的光景，我搜尋到在Reddit的其他參與這個網站專案競賽的團隊的相關災情文章，雖然英文能力不太好，但也能感受到“Our source codes are COMPLETELY lost!!!” 這類的陣陣哀號。推特的無預警停止測試，也是Reddit的熱門討論串。</p><p>我轉頭看PTT和DCard上面，許多人面對推特這樣的無預警停止測試，有些人PO出某談話性節目的內容，主持人懷疑是外星人的陰謀，許多人也深信不疑。還有對於台北的C高中同學也PO出我們的SNS程式比賽網站掛掉的消息，有位網友回文說：「現實比小說更恐怖」，底下還獲得推爆。也有人從宗教觀點來分析為什麼又爆出這種問題，雖然被許多網友質疑是迷信，但更多網友卻相信可能是原因了——在這種令人不安的因子再次出現的時候。</p><p>這三個多禮拜，我們團隊一起熱血的爆肝日子，這些為著自己心愛的程式碼奮鬥的日子，技術討論協調的寶貴經驗，甚至和千百位同學一同行動的經歷，真的變成虛無了嗎？人與人之間彼此簡易互動的媒介，以及表現自我的平台，甚至找尋志同道合的人一起討論歡笑的一種管道，就算帶來很多像是同溫層碎片化或是注意力不集中等等的社會問題，但是已經是現在人的必備品了，終究永遠無法重新立起來嗎？</p><p>那些在SNS上結識的世界語的朋友，以及討論硬體組裝的社群中認識的朋友，現在就算還可以用網路論壇聯絡，但是他們的部落格實在太分散，有的甚至不透露部落格在哪裡，要找到他們直接聯絡，越來越難，感覺人與人之間的羈絆已經回不到最初；又想到那些為著SNS失去引起社交崩潰，導致做出難以挽回的事的許多人們，如果永遠無法有這種社交平台，我實在不知道未來該往哪裡去。</p><p>我死板板的呆滯在書桌前，哥哥從房門外穿過門縫看向我，眼神也是凝重，他也知道我的愁苦，但沒有發出任何聲息，當然我沒有意識出他看著我。整個氣氛好像被深淵吸住一樣，我久久無法脫離。</p><p>突然，我想到以前和WillyChen的對話：</p><p>「你有沒有面對很困頓的時候？」</p><p>WillyChen這樣說：「當我碩二，面對碩士論文一直做不出來的撞牆期，我有一次在深夜，情緒要崩潰的時候，就突然跑離實驗室，站在系館旁邊的草坪。</p><p>幽靜無人之下，開始有一種衝動，在那夜空、星星、月亮下，向冥冥之中的主宰禱告，就算我還沒信教：</p><p>『宇宙的主宰啊，雖然我不認識祢，但是我的人生真的面對一種迷惘，快要崩潰了。如果祢是安排我生活在這世界的，祈求祢安定我的心，指引我該怎麼做……。』」</p><p>是啊，WillyChen他還沒改變信仰的時候，面對人生窘境，就向這位宇宙的主宰祈禱。雖然我本身不是教徒，雖然我現在不確知是宇宙的主宰是誰，但若這一切離奇的事情在這短短不到一個月的時間發生，可見得這一切都是有控制宇宙萬物的超越萬物、萬人的存在在安排。Willy為著自己的事都能祈禱了，何況是這種涉及社會的大事。</p><p>或許，向祂祈禱，就算不知道未來我們的路怎麼走，祂或許能夠聽見吧？</p><p>我關上房門，緩緩的走到床邊，對著窗外，雙膝跪下，前臂貼地，頭叩在地上，用緩慢而莊重的音調，一字一字的說：</p><p>「敬愛的宇宙萬事的主宰啊，現在我們大家沒有臉書、IG、推特等等，之後發生的一切的事情，祢知道的。這次我們團隊的程式碼，以及推特網站的測試版又無預警壞掉了。我之前在開發的過程，太過自我，甚至驕傲了。這次的程式碼消失，主宰啊，這是不是你面對我們使用的時候沒有合適的使用，祢才給我們人類的……管教？</p><p>主宰啊，若祢許可，求祢讓這一切恢復正常。我們……真是不該這樣做，我們錯了。若祢……不許可，也請……指教我們該走的路，平穩……我們的內心。願主宰……垂憐祈求……」</p><p>我的臉下面滴了好幾滴水滴，到最後我的氣真的接不上來，變成斷斷續續低聲的咽著。希望主宰能夠垂聽我的祈禱吧？也或許其他的人也有類似的祈禱。</p><p>我以前真的是太過以為自己能夠掌握一切，以為自己能夠扭轉局勢，我太自傲了。我不該這樣做，我應該要深自的謙虛的。</p><p>靜默片刻後，我擦乾臉上的兩行眼淚——自從升上國中後就幾乎沒流過了，躺在床上，默默的想：就算前頭的路真的不知道，但在這種困局，也只能夠相信宇宙主宰會做事吧？然後意識逐漸朦朧下，我漸漸睡去。</p><p>（<a href="http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-17/">後章</a>）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;（&lt;a href=&quot;http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-15/&quot;&gt;前章&lt;/a&gt;）&lt;/p&gt;
-&lt;p&gt;在發現活動網頁故障、我們程式碼的repo以及各分支都故障的時候，在場的老師和社團成員都傻住了，連旁邊準備值夜的教官也嚇了一跳。&lt;/p&gt;
-&lt;p&gt;「你看，網路新聞有寫：『推特公測版不明原因故障，推特公司：停止測試計畫，將查明一切原因。』」銘緯秀給我們看新聞的時候，大家都傻住了。
     
     </summary>
     
