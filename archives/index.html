@@ -76,6 +76,73 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2021-07-09T16:00:00.000Z"><a href="/2021/07/10/hoo7-Rust-iong7-Cairo-kap4-Harfbuzz-ti7-Windows10/">2021-07-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2021/07/10/hoo7-Rust-iong7-Cairo-kap4-Harfbuzz-ti7-Windows10/">於 Windows 10 讓 Rust 專案使用 Cairo 和 Harfbuzz函式庫</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+      <p>在 <code>Cargo.toml</code> 中的 Dependencies 插入如（版本請依最新版而定）：</p>
+<pre><code>[dependencies]
+harfbuzz_rs = &quot;1.2.0&quot;
+cairo-rs = &quot;0.14.1&quot;
+glib = &quot;0.14.2&quot;
+</code></pre><p>安裝 MSYS2，用該程式的終端機安裝下列程式：</p>
+<pre><code>pacman -Sy mingw-w64-i686-cairo mingw-w64-i686-glib2 mingw-w64-i686-harfbuzz&lt;/pre&gt;
+</code></pre><p>Windows 10 的控制台的「系統&gt;進階系統設定」的「環境變數」的 Path（路徑）附加</p>
+<pre><code>C:\msys64\usr\bin&lt;/pre&gt;
+</code></pre><p>在編譯命令列中 Powershell 加入這句</p>
+<pre><code>$env:PKG_CONFIG_PATH+=&quot;C:\msys64\mingw32\lib\pkgconfig&quot;&lt;/pre&gt;
+</code></pre><p><code>cargo build</code> 應該就沒問題了。</p>
+<script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  <!-- hexo-list-related-posts -->
+
+        
+<div style="margin-top: 0em; ">    
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/10/12/tua7soo3ji7tu5huat4ian2sng3huat4/">大數字除法演算法——Newton 法 ê 變形</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/04/25/lun7sio2suat4ping5tai5khi3tiong1sim1hua3e5kho2ling5sing3/">論小說平台去中心化的可能性</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2017/06/30/eng7tortsiunn7ptt/">用tor上ptt</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2018/01/24/syntax-rules-kap4-define-syntax-e5le7/">[Note][Scheme] define-syntax 佮 syntax-rules 的使用例</a></li></ul>    </div>
+        
+         
+
+  </div>
+
+</article>
+
+
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2021-07-04T16:00:00.000Z"><a href="/2021/07/05/Clochur0.0.1/">2021-07-05</a></time>
       
       
@@ -86,8 +153,9 @@
     </header>
     <div class="entry">
       
-        <h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。</p>
-<p>雖然講得有點複雜，總之就是一個可以從LISP產出pdf的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。
+        <p>（最新更新：2021-07-10）</p>
+<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。</p>
+<p>雖然講得有點複雜，總之就是一個可以從LISP產出 pdf 的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。
       
     </div>
     <footer>
@@ -223,7 +291,7 @@
 
         
 <div style="margin-top: 0em; ">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2021/06/23/tai5-tiong1koo3su7-1/">台．中故事——離與歸 (Imeaċt & Returning)</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/06/23/tai5-tiong1koo3su7-3/">台．中故事——掠無 ê bāng （Líon na Brionglóide gan Fáil）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/06/23/tai5-tiong1koo3su7-2/">台．中故事——所說的語言 (An Teanga Agamsa)</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/06/24/tai5-tiong1koo3su7-4/">台．中故事——羅13:1 (Romh. 13:1)</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2016/01/16/Ji7khong3su3ngoo2-12/">二〇四五（十二）</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2021/06/23/tai5-tiong1koo3su7-2/">台．中故事——所說的語言 (An Teanga Agamsa)</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/06/24/tai5-tiong1koo3su7-4/">台．中故事——羅13:1 (Romh. 13:1)</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/06/23/tai5-tiong1koo3su7-1/">台．中故事——離與歸 (Imeaċt & Returning)</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/06/23/tai5-tiong1koo3su7-3/">台．中故事——掠無 ê bāng （Líon na Brionglóide gan Fáil）</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/10/06/bo5SNSe5jit8tsi2-1/">沒有 SNS 的日子（一）</a></li></ul>    </div>
         
          
 
@@ -588,66 +656,6 @@
 
 
   
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2021-05-02T16:00:00.000Z"><a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/">2021-05-03</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/">賣出語言ê少年人（六）</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong>（原底 tī 2021-05-02 Episode.cc 公開）</strong></p>
-<p>　　（<a href="http://yoxem.github.io/2021/04/25/be7tshut4gian5gi2e5siau3lian5lang5-5/">頂一章</a>）</p>
-<p>　　我猶是共伊試講：「因為恁遐 ê 語言調查是較大規模，而且有新聞咧報，我就想欲參加調查看覓，順紲看講恁是用啥物方法。無歹意 lah。」就算嘛會心虛。</p>
-<p>　　「阮遐 ê 調查是利用最新 ê 大腦 kap 機器接 khang，會當接受大腦 ê 語言中樞內底 tiông ê 語言智識，會當分析一个試驗者 ê 使用 ê 語法結構分佈 kap 中年以及老大人 ê 語法結構有啥物差別。另外 m ā會當發現試驗者 ê 語言中，逐个詞語 ê 關聯性 kap 聯絡網路，對青少年 ê 心智發展 ê 了解會當做一个大資料，big data ê 調查資料來源……。」講足 tsē予人霧 sà-sà ê 術語，頭殼 kiông-kiông 眩去。</p>
-<p>　　「毋過按呢抾足 tsē 大資料，按呢敢袂有道德上 ê 問題？比論講人無想欲分享 ê 隱私 kap 心內秘密 mā就按呢送甲彼臺機器內底，恁欲按怎預防？換做是汝 mā無想欲按呢到出來 pah？」
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2021/05/03/be7tshut4gian5gi2e5siau3lian5lang5-6/#more" class="more-link">More...</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  <!-- hexo-list-related-posts -->
-
-        
-         
-         
-
-  </div>
-
-</article>
-
-
-
-
-  
 
   <nav id="pagination">
   
@@ -678,7 +686,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>120</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>121</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -692,6 +700,10 @@
 <div class="widget tag">
   <h3 class="title">Recent Posts</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2021/07/10/hoo7-Rust-iong7-Cairo-kap4-Harfbuzz-ti7-Windows10/">於 Windows 10 讓 Rust 專案使用 Cairo 和 Harfbuzz函式庫</a>
+      </li>
     
       <li>
         <a href="/2021/07/05/Clochur0.0.1/">Clochur 玩具語言直譯器以及編輯器0.0.1發佈</a>
@@ -709,10 +721,6 @@
         <a href="/2021/06/23/tai5-tiong1koo3su7-1/">台．中故事——離與歸 (Imeaċt &amp; Returning)</a>
       </li>
     
-      <li>
-        <a href="/2021/06/23/tai5-tiong1koo3su7-2/">台．中故事——所說的語言 (An Teanga Agamsa)</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -721,7 +729,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Clochur/" style="font-size: 10px;">Clochur</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.77px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.77px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.23px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.77px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.77px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.54px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10.77px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.31px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.38px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 12.31px;">公路</a> <a href="/tags/分行散文和詩/" style="font-size: 10px;">分行散文和詩</a> <a href="/tags/分行散文或詩/" style="font-size: 16.15px;">分行散文或詩</a> <a href="/tags/台．中故事/" style="font-size: 12.31px;">台．中故事</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.77px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.31px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.54px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.69px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 13.08px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.92px;">論</a> <a href="/tags/資訊/" style="font-size: 18.46px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 13.85px;">賣出語言ê少年人</a> <a href="/tags/軟體/" style="font-size: 10px;">軟體</a> <a href="/tags/隨筆/" style="font-size: 14.62px;">隨筆</a>
+    <a href="/tags/Clochur/" style="font-size: 10px;">Clochur</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.77px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.77px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.23px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.77px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.77px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.54px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10.77px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10.77px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.31px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.38px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 12.31px;">公路</a> <a href="/tags/分行散文和詩/" style="font-size: 10px;">分行散文和詩</a> <a href="/tags/分行散文或詩/" style="font-size: 16.15px;">分行散文或詩</a> <a href="/tags/台．中故事/" style="font-size: 12.31px;">台．中故事</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.77px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.31px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.54px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.69px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 13.08px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.92px;">論</a> <a href="/tags/資訊/" style="font-size: 18.46px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 13.85px;">賣出語言ê少年人</a> <a href="/tags/隨筆/" style="font-size: 14.62px;">隨筆</a>
   </div>
 </div>
 

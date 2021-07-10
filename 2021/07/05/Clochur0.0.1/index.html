@@ -6,8 +6,9 @@
   <title>Clochur 玩具語言直譯器以及編輯器0.0.1發佈 | 北郊獨語 - Yoxem&#39;s Blog</title>
   <meta name="author" content="Yoxem Chen">
   
-  <meta name="description" content="介紹這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。
-雖然講得有點複雜，總之就是一個可以從LISP產出pdf的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。">
+  <meta name="description" content="（最新更新：2021-07-10）
+介紹這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。
+雖然講得有點複雜，總之就是一個可以從LISP產出 pdf 的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -89,8 +90,9 @@
           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介紹"><span class="toc-text">介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#為什麼要寫這個軟體？名字來源是什麼？"><span class="toc-text">為什麼要寫這個軟體？名字來源是什麼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#長相怎麼樣？"><span class="toc-text">長相怎麼樣？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#哪邊下載？"><span class="toc-text">哪邊下載？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#授權是什麼？"><span class="toc-text">授權是什麼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用？"><span class="toc-text">如何使用？</span></a></li></ol>
           </div>
         
-      <h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。</p>
-<p>雖然講得有點複雜，總之就是一個可以從LISP產出pdf的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。<a id="more"></a></p>
+      <p>（最新更新：2021-07-10）</p>
+<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。</p>
+<p>雖然講得有點複雜，總之就是一個可以從LISP產出 pdf 的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。<a id="more"></a></p>
 <h2 id="為什麼要寫這個軟體？名字來源是什麼？"><a href="#為什麼要寫這個軟體？名字來源是什麼？" class="headerlink" title="為什麼要寫這個軟體？名字來源是什麼？"></a>為什麼要寫這個軟體？名字來源是什麼？</h2><p>之前本來有那種想要排版出好看文書的愛爾蘭語文法的翻譯的想法（後來放棄了），因為OpenOffice系列的排版標準不符需求，加上一些原因，另外個人對Scheme（一種LISP）的簡潔語法比較感興趣，之前有那種想要拿來做 編譯器的想法（現在也按下了），所以就結合SILE和LISP直譯器以及編輯器做出這樣的軟體。</p>
 <p>另外Clochur這個字來自於愛爾蘭語的Clóchur，讀法類似華語的「可羅（長音）乎兒」，就是排版的意思。</p>
 <h2 id="長相怎麼樣？"><a href="#長相怎麼樣？" class="headerlink" title="長相怎麼樣？"></a>長相怎麼樣？</h2><p>見 <a href="https://github.com/Yoxem/Clochur" target="_blank" rel="noopener">Github 的該專案 repo</a> 的頁面，底下的READMD.md說明就有截圖。</p>
@@ -113,7 +115,7 @@
         
   
   <div class="tags">
-    <a href="/tags/軟體/">軟體</a>, <a href="/tags/Clochur/">Clochur</a>, <a href="/tags/SILE/">SILE</a>
+    <a href="/tags/資訊/">資訊</a>, <a href="/tags/Clochur/">Clochur</a>, <a href="/tags/SILE/">SILE</a>
   </div>
 
         
@@ -141,7 +143,7 @@
   <!-- hexo-list-related-posts -->
 
 <div style="margin-top: 0px; border-top: 1px solid #ddd; padding-top: 26px">    
- <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li></ul>    </div>
+ <h3 class="related-posts-heading">關聯文章</h3><ul class="related-posts"><li class="related-posts-item"><a class="related-posts-link" href="/2018/03/04/silee5kai3siau7kap4an1tsong1/">SILE 的介紹佮安裝</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2019/01/14/schemee5callcce5iong7huatki2le7-1/">Scheme ê call/cc ê 用法舉例(1)——例外處理</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2021/04/25/lun7sio2suat4ping5tai5khi3tiong1sim1hua3e5kho2ling5sing3/">論小說平台去中心化的可能性</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2020/02/14/ti-linux-tsiong-pdf-tshai-sek-tsuan-tso-oo-peh/">在 Linux 將 PDF 彩色轉成黑白</a></li><li class="related-posts-item"><a class="related-posts-link" href="/2011/07/19/解決-cx_freeze-做出的-exe-檔無法在中文路徑下執行的錯誤/">解決 cx_Freeze 做出的 .exe 檔無法在中文路徑下執行的問題</a></li></ul>    </div>
         
 
   </div>
@@ -180,7 +182,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Blog/">Blog</a><small>120</small></li>
+    <li><a href="/categories/Blog/">Blog</a><small>121</small></li>
   
     <li><a href="/categories/上代blog的文章/">上代blog的文章</a><small>5</small></li>
   
@@ -194,6 +196,10 @@
 <div class="widget tag">
   <h3 class="title">Recent Posts</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2021/07/10/hoo7-Rust-iong7-Cairo-kap4-Harfbuzz-ti7-Windows10/">於 Windows 10 讓 Rust 專案使用 Cairo 和 Harfbuzz函式庫</a>
+      </li>
     
       <li>
         <a href="/2021/07/05/Clochur0.0.1/">Clochur 玩具語言直譯器以及編輯器0.0.1發佈</a>
@@ -211,10 +217,6 @@
         <a href="/2021/06/23/tai5-tiong1koo3su7-1/">台．中故事——離與歸 (Imeaċt &amp; Returning)</a>
       </li>
     
-      <li>
-        <a href="/2021/06/23/tai5-tiong1koo3su7-2/">台．中故事——所說的語言 (An Teanga Agamsa)</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -223,7 +225,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Clochur/" style="font-size: 10px;">Clochur</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.77px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.77px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.23px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.77px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.77px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.54px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10.77px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.31px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.38px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 12.31px;">公路</a> <a href="/tags/分行散文和詩/" style="font-size: 10px;">分行散文和詩</a> <a href="/tags/分行散文或詩/" style="font-size: 16.15px;">分行散文或詩</a> <a href="/tags/台．中故事/" style="font-size: 12.31px;">台．中故事</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.77px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.31px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.54px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.69px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 13.08px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.92px;">論</a> <a href="/tags/資訊/" style="font-size: 18.46px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 13.85px;">賣出語言ê少年人</a> <a href="/tags/軟體/" style="font-size: 10px;">軟體</a> <a href="/tags/隨筆/" style="font-size: 14.62px;">隨筆</a>
+    <a href="/tags/Clochur/" style="font-size: 10px;">Clochur</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Esperanto/" style="font-size: 10.77px;">Esperanto</a> <a href="/tags/Gaeilge/" style="font-size: 10.77px;">Gaeilge</a> <a href="/tags/GooglePhoto/" style="font-size: 10px;">GooglePhoto</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Holo話/" style="font-size: 19.23px;">Holo話</a> <a href="/tags/LLVM/" style="font-size: 10.77px;">LLVM</a> <a href="/tags/Linux/" style="font-size: 10.77px;">Linux</a> <a href="/tags/Python/" style="font-size: 10.77px;">Python</a> <a href="/tags/R-18/" style="font-size: 11.54px;">R-18</a> <a href="/tags/Racket/" style="font-size: 10px;">Racket</a> <a href="/tags/Rust/" style="font-size: 10.77px;">Rust</a> <a href="/tags/SILE/" style="font-size: 10.77px;">SILE</a> <a href="/tags/Scheme/" style="font-size: 12.31px;">Scheme</a> <a href="/tags/Shell-script/" style="font-size: 10px;">Shell script</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/二〇四五/" style="font-size: 15.38px;">二〇四五</a> <a href="/tags/信仰/" style="font-size: 10px;">信仰</a> <a href="/tags/公路/" style="font-size: 12.31px;">公路</a> <a href="/tags/分行散文和詩/" style="font-size: 10px;">分行散文和詩</a> <a href="/tags/分行散文或詩/" style="font-size: 16.15px;">分行散文或詩</a> <a href="/tags/台．中故事/" style="font-size: 12.31px;">台．中故事</a> <a href="/tags/字型/" style="font-size: 10px;">字型</a> <a href="/tags/客家/" style="font-size: 10px;">客家</a> <a href="/tags/客家話/" style="font-size: 10px;">客家話</a> <a href="/tags/小說/" style="font-size: 20px;">小說</a> <a href="/tags/巴士/" style="font-size: 10.77px;">巴士</a> <a href="/tags/愛爾蘭語/" style="font-size: 12.31px;">愛爾蘭語</a> <a href="/tags/搭乘紀實/" style="font-size: 10px;">搭乘紀實</a> <a href="/tags/數學/" style="font-size: 10px;">數學</a> <a href="/tags/東原語/" style="font-size: 10px;">東原語</a> <a href="/tags/歌詞/" style="font-size: 11.54px;">歌詞</a> <a href="/tags/沒有SNS的日子/" style="font-size: 17.69px;">沒有SNS的日子</a> <a href="/tags/生活/" style="font-size: 13.08px;">生活</a> <a href="/tags/直譯器/" style="font-size: 10px;">直譯器</a> <a href="/tags/論/" style="font-size: 16.92px;">論</a> <a href="/tags/資訊/" style="font-size: 18.46px;">資訊</a> <a href="/tags/賣出語言e少年人/" style="font-size: 13.85px;">賣出語言ê少年人</a> <a href="/tags/隨筆/" style="font-size: 14.62px;">隨筆</a>
   </div>
 </div>
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoxem.github.io/"/>
-  <updated>2021-07-05T15:17:50.454Z</updated>
+  <updated>2021-07-10T14:51:41.367Z</updated>
   <id>http://yoxem.github.io/</id>
   
   <author>
@@ -17,25 +17,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Clochur 玩具語言直譯器以及編輯器0.0.1發佈</title>
-    <link href="http://yoxem.github.io/2021/07/05/Clochur0.0.1/"/>
-    <id>http://yoxem.github.io/2021/07/05/Clochur0.0.1/</id>
-    <published>2021-07-04T16:00:00.000Z</published>
-    <updated>2021-07-05T15:17:50.454Z</updated>
+    <title>於 Windows 10 讓 Rust 專案使用 Cairo 和 Harfbuzz函式庫</title>
+    <link href="http://yoxem.github.io/2021/07/10/hoo7-Rust-iong7-Cairo-kap4-Harfbuzz-ti7-Windows10/"/>
+    <id>http://yoxem.github.io/2021/07/10/hoo7-Rust-iong7-Cairo-kap4-Harfbuzz-ti7-Windows10/</id>
+    <published>2021-07-09T16:00:00.000Z</published>
+    <updated>2021-07-10T14:51:41.367Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。</p><p>雖然講得有點複雜，總之就是一個可以從LISP產出pdf的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。<a id="more"></a></p><h2 id="為什麼要寫這個軟體？名字來源是什麼？"><a href="#為什麼要寫這個軟體？名字來源是什麼？" class="headerlink" title="為什麼要寫這個軟體？名字來源是什麼？"></a>為什麼要寫這個軟體？名字來源是什麼？</h2><p>之前本來有那種想要排版出好看文書的愛爾蘭語文法的翻譯的想法（後來放棄了），因為OpenOffice系列的排版標準不符需求，加上一些原因，另外個人對Scheme（一種LISP）的簡潔語法比較感興趣，之前有那種想要拿來做 編譯器的想法（現在也按下了），所以就結合SILE和LISP直譯器以及編輯器做出這樣的軟體。</p><p>另外Clochur這個字來自於愛爾蘭語的Clóchur，讀法類似華語的「可羅（長音）乎兒」，就是排版的意思。</p><h2 id="長相怎麼樣？"><a href="#長相怎麼樣？" class="headerlink" title="長相怎麼樣？"></a>長相怎麼樣？</h2><p>見 <a href="https://github.com/Yoxem/Clochur" target="_blank" rel="noopener">Github 的該專案 repo</a> 的頁面，底下的READMD.md說明就有截圖。</p><h2 id="哪邊下載？"><a href="#哪邊下載？" class="headerlink" title="哪邊下載？"></a>哪邊下載？</h2><p>參考上面的 <a href="https://github.com/Yoxem/Clochur/releases/tag/0.0.1" target="_blank" rel="noopener">Github repo，裡面的0.0.1發行公告</a>有Python .whl 檔案和Debian/Ubuntu Linux的.deb檔案可以下載（因為SILE不支援Windows，暫時無法使用。但不曉得WSL的Ubuntu可不可以安裝，我沒試過）。</p><p>安裝說明在 Github repo 裡面的READMD.md。</p><h2 id="授權是什麼？"><a href="#授權是什麼？" class="headerlink" title="授權是什麼？"></a>授權是什麼？</h2><p>GPLv3</p><h2 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h2><p>安裝後，於文字終端機打clochur就可以使用。</p><p><a href="https://github.com/Yoxem/Clochur/blob/main/src/manual.pdf" target="_blank" rel="noopener">語法說明的PDF</a>（英文）。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    <content type="html"><![CDATA[<p>在 <code>Cargo.toml</code> 中的 Dependencies 插入如（版本請依最新版而定）：</p><pre><code>[dependencies]harfbuzz_rs = &quot;1.2.0&quot;cairo-rs = &quot;0.14.1&quot;glib = &quot;0.14.2&quot;</code></pre><p>安裝 MSYS2，用該程式的終端機安裝下列程式：</p><pre><code>pacman -Sy mingw-w64-i686-cairo mingw-w64-i686-glib2 mingw-w64-i686-harfbuzz&lt;/pre&gt;</code></pre><p>Windows 10 的控制台的「系統&gt;進階系統設定」的「環境變數」的 Path（路徑）附加</p><pre><code>C:\msys64\usr\bin&lt;/pre&gt;</code></pre><p>在編譯命令列中 Powershell 加入這句</p><pre><code>$env:PKG_CONFIG_PATH+=&quot;C:\msys64\mingw32\lib\pkgconfig&quot;&lt;/pre&gt;</code></pre><p><code>cargo build</code> 應該就沒問題了。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;介紹&quot;&gt;&lt;a href=&quot;#介紹&quot; class=&quot;headerlink&quot; title=&quot;介紹&quot;&gt;&lt;/a&gt;介紹&lt;/h2&gt;&lt;p&gt;這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。&lt;/p&gt;
-&lt;p&gt;雖然講得有點複雜，總之就是一個可以從LISP產出pdf的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。
+      
+      
+        &lt;p&gt;在 &lt;code&gt;Cargo.toml&lt;/code&gt; 中的 Dependencies 插入如（版本請依最新版而定）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[dependencies]
+harfbuzz_rs = &amp;quot;1.2.0&amp;quot;
+cairo-rs = &amp;quot;
+      
     
     </summary>
     
       <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
     
     
-      <category term="軟體" scheme="http://yoxem.github.io/tags/%E8%BB%9F%E9%AB%94/"/>
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
+    
+      <category term="Rust" scheme="http://yoxem.github.io/tags/Rust/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Clochur 玩具語言直譯器以及編輯器0.0.1發佈</title>
+    <link href="http://yoxem.github.io/2021/07/05/Clochur0.0.1/"/>
+    <id>http://yoxem.github.io/2021/07/05/Clochur0.0.1/</id>
+    <published>2021-07-04T16:00:00.000Z</published>
+    <updated>2021-07-10T14:26:09.576Z</updated>
+    
+    <content type="html"><![CDATA[<p>（最新更新：2021-07-10）</p><h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p>這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。</p><p>雖然講得有點複雜，總之就是一個可以從LISP產出 pdf 的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。<a id="more"></a></p><h2 id="為什麼要寫這個軟體？名字來源是什麼？"><a href="#為什麼要寫這個軟體？名字來源是什麼？" class="headerlink" title="為什麼要寫這個軟體？名字來源是什麼？"></a>為什麼要寫這個軟體？名字來源是什麼？</h2><p>之前本來有那種想要排版出好看文書的愛爾蘭語文法的翻譯的想法（後來放棄了），因為OpenOffice系列的排版標準不符需求，加上一些原因，另外個人對Scheme（一種LISP）的簡潔語法比較感興趣，之前有那種想要拿來做 編譯器的想法（現在也按下了），所以就結合SILE和LISP直譯器以及編輯器做出這樣的軟體。</p><p>另外Clochur這個字來自於愛爾蘭語的Clóchur，讀法類似華語的「可羅（長音）乎兒」，就是排版的意思。</p><h2 id="長相怎麼樣？"><a href="#長相怎麼樣？" class="headerlink" title="長相怎麼樣？"></a>長相怎麼樣？</h2><p>見 <a href="https://github.com/Yoxem/Clochur" target="_blank" rel="noopener">Github 的該專案 repo</a> 的頁面，底下的READMD.md說明就有截圖。</p><h2 id="哪邊下載？"><a href="#哪邊下載？" class="headerlink" title="哪邊下載？"></a>哪邊下載？</h2><p>參考上面的 <a href="https://github.com/Yoxem/Clochur/releases/tag/0.0.1" target="_blank" rel="noopener">Github repo，裡面的0.0.1發行公告</a>有Python .whl 檔案和Debian/Ubuntu Linux的.deb檔案可以下載（因為SILE不支援Windows，暫時無法使用。但不曉得WSL的Ubuntu可不可以安裝，我沒試過）。</p><p>安裝說明在 Github repo 裡面的READMD.md。</p><h2 id="授權是什麼？"><a href="#授權是什麼？" class="headerlink" title="授權是什麼？"></a>授權是什麼？</h2><p>GPLv3</p><h2 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h2><p>安裝後，於文字終端機打clochur就可以使用。</p><p><a href="https://github.com/Yoxem/Clochur/blob/main/src/manual.pdf" target="_blank" rel="noopener">語法說明的PDF</a>（英文）。</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;（最新更新：2021-07-10）&lt;/p&gt;
+&lt;h2 id=&quot;介紹&quot;&gt;&lt;a href=&quot;#介紹&quot; class=&quot;headerlink&quot; title=&quot;介紹&quot;&gt;&lt;/a&gt;介紹&lt;/h2&gt;&lt;p&gt;這個軟體是一個玩具語言的直譯器以及編輯器，使用者可以在以PyQt5的Qscintilla函式庫撰寫的編輯器中，使用一種以方括號[]區隔語法邊界的類似LISP的語言，透過用Python3寫的直譯器轉換成SILE排版引擎（類似LaTeX）能夠讀得懂的XML語言，再用SILE轉換成.pdf。&lt;/p&gt;
+&lt;p&gt;雖然講得有點複雜，總之就是一個可以從LISP產出 pdf 的玩具語言和編輯器。但是不可能像LaTeX和SILE那麼齊全就是了，就算有巨集擴展。
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
+    
+    
+      <category term="資訊" scheme="http://yoxem.github.io/tags/%E8%B3%87%E8%A8%8A/"/>
     
       <category term="Clochur" scheme="http://yoxem.github.io/tags/Clochur/"/>
     
@@ -544,35 +575,6 @@
 &lt;p&gt;感謝大家看完這一篇小說。&lt;/p&gt;
 &lt;p&gt;感覺這一篇小說雖然抒情寫景的東西其實真的很少，大概都是人物對白比較多，而
       
-    
-    </summary>
-    
-      <category term="Blog" scheme="http://yoxem.github.io/categories/Blog/"/>
-    
-    
-      <category term="小說" scheme="http://yoxem.github.io/tags/%E5%B0%8F%E8%AA%AA/"/>
-    
-      <category term="沒有SNS的日子" scheme="http://yoxem.github.io/tags/%E6%B2%92%E6%9C%89SNS%E7%9A%84%E6%97%A5%E5%AD%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>沒有SNS的日子（十七）</title>
-    <link href="http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-17/"/>
-    <id>http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-17/</id>
-    <published>2020-12-03T07:35:00.000Z</published>
-    <updated>2021-01-12T13:52:40.550Z</updated>
-    
-    <content type="html"><![CDATA[<p>（<a href="http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-16/">前章</a>）</p><p>（第二十八天．星期四）</p><p>「阿雄！你看！FB正常了！」</p><p>睡眼惺忪中，我被哥哥的這句話叫醒，腦子還模模糊糊的，但是片刻，我就意識到了：</p><p>或許宇宙的主宰聽到了我的禱告？</p><p>我開了久久未開的FB和IG的app，果然都恢復了正常，所有的帳號密碼等等的資料都完全無損！我眼睛一亮，大呼：「正常了！」<a id="more"></a></p><p>但是確認正常了，並出了房門，和爸媽以及父母互相報告好消息——連新聞跑馬燈也以紅底斗大白字來慶賀各大社交平台系統功能恢復正常——之後，到在公車上每個少男少女喜洋洋的滑手機，和各位SNS好友彼此互相祝賀之中，我卻是一個人悠悠的望著窗外，心思不想要貫注在社交平台上面，給自己一點餘裕的空間，至少暫時。</p><p>就算社交網站給人就像是某些成癮藥物一樣，給人禁斷了快要一個月以後，人們看到社交網站，就像成癮者看到久久未實用的藥品，激發起他們的大腦神經迴路一樣，就像溺水的人巴著浮木不放。就算社交網站真的帶來像是政治宣傳白熱化、同溫層碎片化，以及可能讓人分心的情形越來越嚴重的問題或隱憂，人們果然還是回不去了。</p><p>但是為什麼萬事的掌握者會想要改回去呢？在教室成員彼此的下課的討論中，我靜靜的思考這個問題。</p><p>中午，我和WillyChen視訊討論昨天發生的事情。</p><p>「……後來我就學你之前所說的，昨晚在房間裡面和宇宙的主宰誠心祈禱，結果第二天就發生這種奇蹟。」</p><p>「如果你能夠更認識這位造物主，相信更為有福。」他似乎是想要介紹他的信仰。</p><p>這時我突然好奇心升起：「就你的信仰來說，你會如何解釋這種現象呢？」</p><p>他說：「我不是上帝，我無法解釋祂的心意。但是，自人類離開伊甸園以來，人類就一直創造或是發現許多滿足自己心中空虛的東西，來填補自己的需要，卻不回頭歸向上帝。比如說：酒精、各種的小說、戲劇、娛樂、音樂、歌曲……甚至是遊戲。雖然這種東西人接觸甚久之後，往往會陷入空虛。」</p><p>「那社交平台也算其中一個嗎？」</p><p>「這也算是吧。只是變成用戶間彼此生產，或是分享上述的東西，以及新聞等等。但是我想，就算社交平台被禁掉，我想世人還是會想要尋求其他的替代品，或是不放棄追求這個東西。會想要改變自己耽溺於世界娛樂的習慣的人，應該很少。」</p><p>「我不放棄開發SNS，我不就是那些世人嗎？」</p><p>「我不是在定罪你。我也是罪人啊，我也是有時候會黏在電腦資訊的論壇上面。」</p><p>「但若這是上帝對世人的懲罰，上帝真的有收回懲罰過嗎？」</p><p>「我是想到挪亞洪水之後，上帝和人立約，永不以洪水毀滅人類。」</p><p>「但這次事件又和大洪水不一樣。會不會是上帝看到人接受這樣的懲罰，仍然死性不改，所以後來覺得還是收回懲罰呢？」</p><p>視訊另一頭的他，只是微笑不語。</p><p>※※※</p><p>最後這個軟體專案，我和社團的群組都確認了，這個repo還是沒有復原，就像原來沒有創立一樣。因為這個程式競賽主要是為了那個非常時期沒有SNS用而舉辦的競賽，而且許多團隊都反應他們的repo都不見了，因此，主辦單位下午宣佈這個程式競賽宣佈停賽。我們社長接到電郵通知以後，臨時於傍晚召開視訊會議。</p><p>社長宣佈：「……因此，這個程式競賽宣佈停賽。我們也應該找不到repo了，這個團隊，即起宣佈解散。」</p><p>Tekolas說：「那學務處要求的事情呢？」</p><p>銘緯說：「我已經和生輔組長確認過了，關鍵字審查這種事情都不會要求了。有關相關涉事者的處分，他們也都一筆勾銷，不再追究。」</p><p>慕玲說：「那這個群組之後有什麼用？還是刪掉？」</p><p>EScheme20說：「不然就當成三校網頁程式交流用群組好了。我等一下改群組名字……」</p><p>雖然這一切事件看起來一筆勾消了，但是我的內心還是有一個疙瘩，想要對銘緯和社長說。畢竟為這麼一起事件，盜了帳號，我實在是良心非常不安。在散會了以後，我看著社長與銘緯，背著書包，然後低頭語氣低沉而小聲的說：</p><p>「那個，前天半夜偷偷上傳的事，是我做的，實在很對不起。」</p><p>「其實我昨天和佩忻聊天的時候，她就已經坦承了。她是那種表面上居就大家壓力妥協，但是後來知道錯誤以後，內心就不會放棄自己原則的人。過去就過去了，你就不要這麼在意啦！」銘緯說。</p><p>「何況我們當初也是被迫加需求的，群組哪個人是發自內心同意的？在大家之前做過那麼多努力之下，我相信沒人這麼容易屈服。」社長說：「現在想想，還真多虧你，幫我們出這口氣。如果你當初能夠硬撐不要說漏嘴，那就更好了。」</p><p>這句話引得眾人大笑，響徹了社辦。</p><p>「不過，現在一切都歸於一無所有，我還是覺得有點悲傷。三個星期多的心血就這樣化為空白，我們做的一切，還真的沒意義啊！」我有點低迷的說。</p><p>「其實我們不是一無所有喔。」社長說：「我這三個禮拜，Python的後端撰寫能力感覺比以前還要上手了，以前從來沒有這樣的體驗。」</p><p>銘緯說：「何況明雄啊！你自己不也多學了JavaScript和TypeScript？這些你都還記得吧？」</p><p>對啊。雖然這一個專案像夢一樣一晃即逝，但是大家真的都從這個專案，學了很多沒學過的用法，甚至學過的程式語言，更有那種和人們協調工作的能力，這是自己以往自己寫程式未曾體驗過的。Code寫過就是身外之物了，但帶得走的是程式設計的技能啊。</p><p>何況還有面對校方河蟹事件中，大家集思廣益的抗爭經驗，以及眾人通力合作向校方發聲的那一刻。我相信這就算在以後上大學以及出了社會，都是永遠難以忘掉的回憶吧？這四週真的發生了很多很多事，我到現在都還歷歷在目。</p><p>「謝謝你們這段日子的陪伴和協助。」我抱持著感激的話。</p><p>「這也太肉麻了，你也幫忙很大啊！」銘緯說。</p><p>「哈哈哈！」</p><p>※※※</p><p>回到家，我又看著老爸滑著手機，看著新聞的動態，老媽也開始在FB上到處於親朋好友慶祝臉書恢復營運的PO文中點讚和留話。我轉頭和哥哥討論目前的工作。</p><p>「所以你們的長官說，明天開始重新專心經營粉絲專頁？」</p><p>「是啊。」</p><p>「果然也要這樣，要不然在論壇與粉絲專頁兩頭跑怕太累了。」</p><p>「的確，我們也沒有那麼多人手。何況人流應該也會回到臉書上。」或許水綠高中論壇之後也會變回之前那樣的荒涼吧？聽完哥哥如此說，我心想。</p><p>「對了，哥哥，經過這一切的事情，你覺得大家是不是會開始反省沒有SNS的日子？」</p><p>「我覺得還是不會，人們都已經習慣了臉書。就算大家都習慣了用Line、部落格，有FB而且資料還在的情況下，大家還是會競相使用。許多人不就在今天跑到臉書慶祝恢復嗎？可見得大家還是常用臉書啊。很難改啦。」</p><p>「往好處想，至少你可以回到之前的工作模式，對不對？」</p><p>「是啊。對了，阿雄，你覺得這幾個星期，雖然發生了軟體專案化為烏有的事，但是你有什麼寶貴的經驗？」</p><p>「我覺得自己學到了新的工具，做了以前沒有做過的事，也開始學會和人團隊合作——最重要的是，我開始思考了社交軟體是不是有必要的問題。</p><p>雖然社交軟體的問題真的很多，也會讓人們失去了重要的東西，蹉跎了人們在現實中的時光……但是，現在的生活中，大家真的都需要他，也不得不讓自己的生活為此做出改變，甚至整個社會也因此而總體改變。</p><p>雖然我也懷疑，我們是不是能夠真的脫離狂瀾呢？」</p><p>「我覺得，真的還是很難。現代人要面臨的誘惑真的太多了。」</p><p>「或許吧。我先回房間寫作業了。」我沉思了一下之後，回到了房間。</p><p>身為高二生，功課壓力仍大，面對物理、化學、英文等等科目奮戰，令人焦頭爛額。四十分鐘後，我就算像海明威筆下的古巴老漁夫一直苦苦奮戰，仍然還是困在功課的「墨西哥灣」，四周似乎望不到陸地。在舉目茫茫之中，我像是缺氧的魚一樣，沒辦法之下，還是如以前，打開手機，刷了FB。</p><p>就像全世界上億的SNS使用者一樣，眾多靈魂困在小小的行動裝置或電腦，被鎖在線上虛幻浮華的空間，乞求短暫的撫慰空虛。</p><p>（全文完）</p><p>（<a href="http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-afterword/">後記</a>）</p><script type="text/javascript"> var head = document.getElementsByTagName("head"); var link_css = document.createElement('style'); link_css.setAttribute('type', 'text/css'); link_css.innerHTML = ' .css-table1{ display: table; border: none;} .css-tr1{ display:table-row; } .css-td1{ display: table-cell; padding-right: 1ex; }'; document.getElementsByTagName('head')[0].appendChild(link_css);</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;（&lt;a href=&quot;http://yoxem.github.io/2020/12/03/bo5SNSe5jit8tsi2-16/&quot;&gt;前章&lt;/a&gt;）&lt;/p&gt;
-&lt;p&gt;（第二十八天．星期四）&lt;/p&gt;
-&lt;p&gt;「阿雄！你看！FB正常了！」&lt;/p&gt;
-&lt;p&gt;睡眼惺忪中，我被哥哥的這句話叫醒，腦子還模模糊糊的，但是片刻，我就意識到了：&lt;/p&gt;
-&lt;p&gt;或許宇宙的主宰聽到了我的禱告？&lt;/p&gt;
-&lt;p&gt;我開了久久未開的FB和IG的app，果然都恢復了正常，所有的帳號密碼等等的資料都完全無損！我眼睛一亮，大呼：「正常了！」
     
     </summary>
     
